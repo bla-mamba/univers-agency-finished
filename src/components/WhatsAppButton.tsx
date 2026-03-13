@@ -150,7 +150,7 @@ export default function WhatsAppButton() {
  aria-label="Chat on WhatsApp"
  onClick={handleClick}
  draggable={false}
- className="relative flex items-center justify-center w-full h-full shadow-lg hover:shadow-2xl transition-shadow duration-300"
+ className="relative flex items-center justify-center w-full h-full shadow-lg hover:shadow-2xl transition-shadow duration-300 rounded-full"
  style={{
  backgroundColor:'#25D366',
  transform: dragging ?'scale(1.12)' :'scale(1)',
