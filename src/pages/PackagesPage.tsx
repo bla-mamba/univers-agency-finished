@@ -2,13 +2,13 @@ import { useState, useEffect, useMemo, useRef, useCallback } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import {
   MapPin, Calendar, Star, Search, SlidersHorizontal, X,
-  ChevronDown, BarChart2, Users, ChevronRight, Phone,
-  Waves, Landmark, Map, Compass, Mountain, HeartHandshake, Sparkles,
+  ChevronDown, BarChart2, ChevronRight, Phone,
   ChevronLeft
 } from 'lucide-react';
 import { supabase } from '../lib/supabase';
 import { useCompare } from '../contexts/CompareContext';
 import { useHeroMedia } from '../hooks/useHeroMedia';
+import { useCategories, resolveIcon, Category } from '../contexts/CategoriesContext';
 
 interface Package {
   id: string;
@@ -28,23 +28,6 @@ interface Destination {
   country: string;
 }
 
-interface Category {
-  id: string;
-  name: string;
-  slug: string;
-  sort_order: number;
-}
-
-const CATEGORY_ICONS: Record<string, React.ComponentType<{ className?: string }>> = {
-  'beach-packages': Waves,
-  'cultural-weekends': Landmark,
-  'cultural-trips': Map,
-  'excursions': Compass,
-  'adventure-outdoor': Mountain,
-  'family-getaways': Users,
-  'honeymoon-romantic': HeartHandshake,
-  'personalized-trip': Sparkles,
-};
 
 const SORT_OPTIONS = [
   { value: 'newest', label: 'Newest First' },
@@ -128,7 +111,7 @@ function CategoryTabs({
           All
         </button>
         {categories.map((cat) => {
-          const Icon = CATEGORY_ICONS[cat.slug];
+          const Icon = resolveIcon(cat.icon);
           const isActive = activeCategoryObj?.id === cat.id;
           return (
             <button
@@ -266,10 +249,10 @@ export default function PackagesPage() {
     overlay_opacity: 0.6,
   });
   const { addToCompare, removeFromCompare, isInCompare, compareList } = useCompare();
+  const { categories } = useCategories();
   const [searchParams, setSearchParams] = useSearchParams();
   const [packages, setPackages] = useState<Package[]>([]);
   const [destinations, setDestinations] = useState<Destination[]>([]);
-  const [categories, setCategories] = useState<Category[]>([]);
   const [loading, setLoading] = useState(true);
 
   const [searchTerm, setSearchTerm] = useState(() => searchParams.get('q') || '');
@@ -299,18 +282,16 @@ export default function PackagesPage() {
 
   const loadData = async () => {
     try {
-      const [pkgsRes, destsRes, catsRes] = await Promise.all([
+      const [pkgsRes, destsRes] = await Promise.all([
         supabase
           .from('packages')
           .select(`*, destination:destinations(id, name, country), category:categories(id, name, slug)`)
           .eq('status', 'published')
           .order('created_at', { ascending: false }),
         supabase.from('destinations').select('id, name, country').order('name'),
-        supabase.from('categories').select('id, name, slug, sort_order').order('sort_order', { ascending: true }),
       ]);
       setPackages(pkgsRes.data || []);
       setDestinations(destsRes.data || []);
-      setCategories(catsRes.data || []);
     } catch (error) {
       console.error('Error loading packages:', error);
     } finally {

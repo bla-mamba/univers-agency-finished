@@ -1,21 +1,12 @@
 import { useState, useRef, useEffect } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
-import { LogOut, ChevronDown, User, Calendar, Heart, Settings, Waves, Landmark, Map, Compass, Mountain, Users, HeartHandshake, Sparkles } from 'lucide-react';
+import { LogOut, ChevronDown, User, Calendar, Heart, Settings } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext';
-
-const PACKAGE_SUBLINKS = [
-  { label: 'Beach Packages', slug: 'beach-packages', icon: Waves },
-  { label: 'Cultural Weekends', slug: 'cultural-weekends', icon: Landmark },
-  { label: '3+ Day Cultural Trips', slug: 'cultural-trips', icon: Map },
-  { label: 'Excursions – 1 Day Trips', slug: 'excursions', icon: Compass },
-  { label: 'Adventure & Outdoor', slug: 'adventure-outdoor', icon: Mountain },
-  { label: 'Family Getaways', slug: 'family-getaways', icon: Users },
-  { label: 'Honeymoon & Romantic', slug: 'honeymoon-romantic', icon: HeartHandshake },
-  { label: 'Personalized Trip', slug: 'personalized-trip', icon: Sparkles },
-];
+import { useCategories, resolveIcon } from '../contexts/CategoriesContext';
 
 export default function Navbar() {
   const { user, profile, signOut, isAdmin } = useAuth();
+  const { categories } = useCategories();
   const navigate = useNavigate();
   const location = useLocation();
   const [userMenuOpen, setUserMenuOpen] = useState(false);
@@ -83,7 +74,6 @@ export default function Navbar() {
               Destinations
             </Link>
 
-            {/* Packages dropdown */}
             <div className="relative" ref={packagesMenuRef}>
               <button
                 onClick={() => setPackagesMenuOpen((v) => !v)}
@@ -103,17 +93,24 @@ export default function Navbar() {
                     >
                       All Packages
                     </Link>
-                    {PACKAGE_SUBLINKS.map(({ label, slug, icon: Icon }) => (
-                      <Link
-                        key={slug}
-                        to={`/packages?category=${slug}`}
-                        onClick={() => setPackagesMenuOpen(false)}
-                        className="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-700 hover:bg-red-50 hover:text-red-600 transition"
-                      >
-                        <Icon className="h-4 w-4 text-gray-400 flex-shrink-0" />
-                        {label}
-                      </Link>
-                    ))}
+                    {categories.map((cat) => {
+                      const Icon = resolveIcon(cat.icon);
+                      return (
+                        <Link
+                          key={cat.id}
+                          to={`/packages?category=${cat.slug}`}
+                          onClick={() => setPackagesMenuOpen(false)}
+                          className="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-700 hover:bg-red-50 hover:text-red-600 transition"
+                        >
+                          {Icon ? (
+                            <Icon className="h-4 w-4 text-gray-400 flex-shrink-0" />
+                          ) : (
+                            <span className="w-4 h-4 flex-shrink-0" />
+                          )}
+                          {cat.name}
+                        </Link>
+                      );
+                    })}
                   </div>
                 </div>
               )}
@@ -232,7 +229,6 @@ export default function Navbar() {
             Destinations
           </Link>
 
-          {/* Mobile packages section */}
           <div>
             <button
               onClick={() => setMobilePackagesOpen((v) => !v)}
@@ -249,16 +245,23 @@ export default function Navbar() {
                 >
                   All Packages
                 </Link>
-                {PACKAGE_SUBLINKS.map(({ label, slug, icon: Icon }) => (
-                  <Link
-                    key={slug}
-                    to={`/packages?category=${slug}`}
-                    className="flex items-center gap-2 px-3 py-2 text-sm text-gray-600 hover:text-red-600 transition"
-                  >
-                    <Icon className="h-3.5 w-3.5 text-gray-400" />
-                    {label}
-                  </Link>
-                ))}
+                {categories.map((cat) => {
+                  const Icon = resolveIcon(cat.icon);
+                  return (
+                    <Link
+                      key={cat.id}
+                      to={`/packages?category=${cat.slug}`}
+                      className="flex items-center gap-2 px-3 py-2 text-sm text-gray-600 hover:text-red-600 transition"
+                    >
+                      {Icon ? (
+                        <Icon className="h-3.5 w-3.5 text-gray-400" />
+                      ) : (
+                        <span className="w-3.5 h-3.5" />
+                      )}
+                      {cat.name}
+                    </Link>
+                  );
+                })}
               </div>
             )}
           </div>

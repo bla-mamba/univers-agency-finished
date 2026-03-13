@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { AuthProvider } from './contexts/AuthContext';
 import { CompareProvider } from './contexts/CompareContext';
+import { CategoriesProvider } from './contexts/CategoriesContext';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import WhatsAppButton from './components/WhatsAppButton';
@@ -45,6 +46,7 @@ function App() {
   return (
     <BrowserRouter>
       <AuthProvider>
+        <CategoriesProvider>
         <CompareProvider>
           <ScrollToTop />
           <Routes>
@@ -102,6 +104,7 @@ function App() {
             </Route>
           </Routes>
         </CompareProvider>
+        </CategoriesProvider>
       </AuthProvider>
     </BrowserRouter>
   );
