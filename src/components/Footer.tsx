@@ -72,7 +72,6 @@ export default function Footer() {
             <ul className="space-y-2.5">
               {[
                 { label: 'Travel Blog', path: '/blog' },
-                { label: 'Photo Gallery', path: '/gallery' },
                 { label: 'Contact Us', path: '/contact' },
                 { label: 'FAQs', path: '/faq' },
                 { label: 'Terms & Conditions', path: '/terms' },

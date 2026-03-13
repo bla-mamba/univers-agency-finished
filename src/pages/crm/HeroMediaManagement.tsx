@@ -19,7 +19,6 @@ const PAGE_LABELS: Record<string, string> = {
   contact: 'Contact Page',
   packages: 'Packages Page',
   destinations: 'Destinations Page',
-  gallery: 'Gallery Page',
 };
 
 const PAGE_DESCRIPTIONS: Record<string, string> = {
@@ -30,10 +29,9 @@ const PAGE_DESCRIPTIONS: Record<string, string> = {
   contact: 'Hero banner at the top of the Contact page',
   packages: 'Hero banner at the top of the Packages listing page',
   destinations: 'Hero banner at the top of the Destinations listing page',
-  gallery: 'Hero banner at the top of the Gallery page',
 };
 
-const PAGE_ORDER = ['home', 'about', 'blog', 'offers', 'contact', 'packages', 'destinations', 'gallery'];
+const PAGE_ORDER = ['home', 'about', 'blog', 'offers', 'contact', 'packages', 'destinations'];
 
 const ACTIVE_PAGES = new Set(PAGE_ORDER);
 

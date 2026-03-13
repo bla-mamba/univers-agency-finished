@@ -24,7 +24,6 @@ import MyProfilePage from './pages/MyProfilePage';
 import BlogPage from './pages/BlogPage';
 import BlogDetailPage from './pages/BlogDetailPage';
 import OffersPage from './pages/OffersPage';
-import GalleryPage from './pages/GalleryPage';
 import ComparePage from './pages/ComparePage';
 import CRMLayout from './pages/crm/CRMLayout';
 import Dashboard from './pages/crm/Dashboard';
@@ -74,7 +73,6 @@ function App() {
                       <Route path="/blog" element={<BlogPage />} />
                       <Route path="/blog/:slug" element={<BlogDetailPage />} />
                       <Route path="/offers" element={<OffersPage />} />
-                      <Route path="/gallery" element={<GalleryPage />} />
                       <Route path="/compare" element={<ComparePage />} />
                     </Routes>
                   </main>
