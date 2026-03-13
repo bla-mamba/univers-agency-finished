@@ -10,6 +10,7 @@ interface Destination {
   country: string;
   description: string;
   image_url: string;
+  video_url: string | null;
   featured: boolean;
 }
 
@@ -270,14 +271,26 @@ function DestinationCard({
       className="group bg-white overflow-hidden flex flex-col"
     >
       <div className="relative h-56 overflow-hidden">
-        <img
-          src={
-            destination.image_url ||
-            'https://images.pexels.com/photos/2325446/pexels-photo-2325446.jpeg?auto=compress&cs=tinysrgb&w=800'
-          }
-          alt={destination.name}
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-        />
+        {destination.video_url ? (
+          <video
+            src={destination.video_url}
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+            muted
+            loop
+            playsInline
+            onMouseEnter={(e) => (e.currentTarget as HTMLVideoElement).play()}
+            onMouseLeave={(e) => { (e.currentTarget as HTMLVideoElement).pause(); (e.currentTarget as HTMLVideoElement).currentTime = 0; }}
+          />
+        ) : (
+          <img
+            src={
+              destination.image_url ||
+              'https://images.pexels.com/photos/2325446/pexels-photo-2325446.jpeg?auto=compress&cs=tinysrgb&w=800'
+            }
+            alt={destination.name}
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+          />
+        )}
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
         {featured && (
           <div className="absolute top-4 left-4 bg-amber-500 text-white text-xs px-2.5 py-1 font-bold uppercase tracking-wider">

@@ -14,6 +14,7 @@ interface Package {
   price: number;
   duration_days: number;
   images: string[];
+  video_url: string | null;
   destination: { id: string; name: string; country: string } | null;
   category: { id: string; name: string } | null;
 }
@@ -323,11 +324,23 @@ export default function PackagesPage() {
                 <div key={pkg.id} className="bg-white group flex flex-col">
                   <Link to={`/packages/${pkg.slug}`} className="block">
                     <div className="relative h-56 overflow-hidden">
-                      <img
-                        src={pkg.images?.[0] || 'https://images.pexels.com/photos/1285625/pexels-photo-1285625.jpeg?auto=compress&cs=tinysrgb&w=800'}
-                        alt={pkg.title}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                      />
+                      {pkg.video_url ? (
+                        <video
+                          src={pkg.video_url}
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                          muted
+                          loop
+                          playsInline
+                          onMouseEnter={(e) => (e.currentTarget as HTMLVideoElement).play()}
+                          onMouseLeave={(e) => { (e.currentTarget as HTMLVideoElement).pause(); (e.currentTarget as HTMLVideoElement).currentTime = 0; }}
+                        />
+                      ) : (
+                        <img
+                          src={pkg.images?.[0] || 'https://images.pexels.com/photos/1285625/pexels-photo-1285625.jpeg?auto=compress&cs=tinysrgb&w=800'}
+                          alt={pkg.title}
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                        />
+                      )}
                       <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
                       <div className="absolute bottom-0 left-0 right-0 p-4 flex items-end justify-between">
                         <div className="flex items-center gap-1.5 text-white/80 text-xs font-medium">
