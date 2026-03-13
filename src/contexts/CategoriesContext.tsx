@@ -1,11 +1,6 @@
 import { createContext, useContext, useEffect, useState, ReactNode } from 'react';
 import { supabase } from '../lib/supabase';
-import {
-  Waves, Landmark, Map, Compass, Mountain, Users, HeartHandshake, Sparkles,
-  Star, Sun, Umbrella, Camera, Globe, Plane, Ship, Train, Car, Bike,
-  Trees, Flower, Leaf, Snowflake, Sunset, Wind, Coffee, Music,
-  LucideIcon
-} from 'lucide-react';
+import { Waves, Landmark, Map, Compass, Mountain, Users, HeartHandshake, Sparkles, Star, Sun, Umbrella, Camera, Globe, Plane, Ship, Brain as Train, Car, Bike, Trees, Flower, Leaf, Snowflake, Sunset, Wind, Coffee, Music, Video as LucideIcon } from 'lucide-react';
 
 export interface Category {
   id: string;
