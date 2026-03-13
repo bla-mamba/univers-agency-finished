@@ -1,6 +1,6 @@
 import { Link, Outlet, useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
-import { LayoutDashboard, Package, Calendar, Users, MapPin, Tag, LogOut, Plane, Star, Mail, BookOpen, Percent, CalendarDays, Film } from 'lucide-react';
+import { LayoutDashboard, Package, Calendar, Users, MapPin, Tag, LogOut, Plane, Star, Mail, BookOpen, Percent, CalendarDays, Film, Compass } from 'lucide-react';
 import { useEffect } from 'react';
 
 export default function CRMLayout() {
@@ -37,6 +37,7 @@ export default function CRMLayout() {
     { path: '/crm/blog', icon: BookOpen, label: 'Blog' },
     { path: '/crm/newsletter', icon: Mail, label: 'Newsletter' },
     { path: '/crm/hero-media', icon: Film, label: 'Hero Media' },
+    { path: '/crm/personalized-trips', icon: Compass, label: 'Personalized Trips' },
   ];
 
   return (

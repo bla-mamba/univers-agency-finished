@@ -1,5 +1,5 @@
 import { useState, useEffect, useMemo, useRef, useCallback} from'react';
-import { Link, useSearchParams} from'react-router-dom';
+import { Link, useSearchParams, useNavigate} from'react-router-dom';
 import {
  MapPin, Calendar, Star, Search, SlidersHorizontal, X,
  ChevronDown, BarChart2, ChevronRight, Phone,
@@ -250,6 +250,7 @@ export default function PackagesPage() {
 });
  const { addToCompare, removeFromCompare, isInCompare, compareList} = useCompare();
  const { categories} = useCategories();
+ const navigate = useNavigate();
  const [searchParams, setSearchParams] = useSearchParams();
  const [packages, setPackages] = useState<Package[]>([]);
  const [destinations, setDestinations] = useState<Destination[]>([]);
@@ -272,13 +273,17 @@ export default function PackagesPage() {
 }, []);
 
  useEffect(() => {
+ if (categorySlugParam === 'personalized-trip') {
+ navigate('/personalized-trip');
+ return;
+}
  if (categorySlugParam && categories.length > 0) {
  const match = categories.find((c) => c.slug === categorySlugParam);
  if (match) setSelectedCategory(match.id);
 } else if (!categorySlugParam) {
  setSelectedCategory('');
 }
-}, [categorySlugParam, categories]);
+}, [categorySlugParam, categories, navigate]);
 
  const loadData = async () => {
  try {
@@ -370,6 +375,10 @@ export default function PackagesPage() {
  activeCategoryObj={activeCategoryObj}
  onClear={clearFilters}
  onSelect={(cat) => {
+ if (cat.slug ==='personalized-trip') {
+ navigate('/personalized-trip');
+ return;
+}
  setSelectedCategory(cat.id);
  setSearchParams({ category: cat.slug});
 }}

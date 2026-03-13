@@ -26,6 +26,7 @@ import BlogPage from './pages/BlogPage';
 import BlogDetailPage from './pages/BlogDetailPage';
 import OffersPage from './pages/OffersPage';
 import ComparePage from './pages/ComparePage';
+import PersonalizedTripPage from './pages/PersonalizedTripPage';
 import CRMLayout from './pages/crm/CRMLayout';
 import Dashboard from './pages/crm/Dashboard';
 import PackageManagement from './pages/crm/PackageManagement';
@@ -40,6 +41,7 @@ import OffersManagement from './pages/crm/OffersManagement';
 import AvailabilityManagement from './pages/crm/AvailabilityManagement';
 import TestimonialsManagement from './pages/crm/TestimonialsManagement';
 import HeroMediaManagement from './pages/crm/HeroMediaManagement';
+import PersonalizedTripManagement from './pages/crm/PersonalizedTripManagement';
 import AdminRoute from './components/AdminRoute';
 
 function App() {
@@ -76,6 +78,7 @@ function App() {
                       <Route path="/blog/:slug" element={<BlogDetailPage />} />
                       <Route path="/offers" element={<OffersPage />} />
                       <Route path="/compare" element={<ComparePage />} />
+                      <Route path="/personalized-trip" element={<PersonalizedTripPage />} />
                     </Routes>
                   </main>
                   <Footer />
@@ -100,6 +103,7 @@ function App() {
                 <Route path="availability" element={<AvailabilityManagement />} />
                 <Route path="testimonials" element={<TestimonialsManagement />} />
                 <Route path="hero-media" element={<HeroMediaManagement />} />
+                <Route path="personalized-trips" element={<PersonalizedTripManagement />} />
               </Route>
             </Route>
           </Routes>
