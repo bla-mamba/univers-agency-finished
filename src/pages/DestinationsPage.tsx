@@ -2,6 +2,7 @@ import { useEffect, useRef, useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { MapPin, Search, Globe, ArrowRight, ChevronRight, Compass, Building2, Mountain } from 'lucide-react';
 import { supabase } from '../lib/supabase';
+import { useHeroMedia } from '../hooks/useHeroMedia';
 
 interface Destination {
   id: string;
@@ -33,6 +34,11 @@ const REGION_NOTES = [
 ];
 
 export default function DestinationsPage() {
+  const hero = useHeroMedia('destinations', {
+    media_type: 'image',
+    url: 'https://images.pexels.com/photos/2325446/pexels-photo-2325446.jpeg?auto=compress&cs=tinysrgb&w=1920',
+    overlay_opacity: 0.6,
+  });
   const [destinations, setDestinations] = useState<Destination[]>([]);
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
@@ -74,11 +80,13 @@ export default function DestinationsPage() {
     <div className="min-h-screen bg-[#f5f4f2]">
 
       {/* HERO */}
-      <div
-        className="relative h-[420px] bg-cover bg-center"
-        style={{ backgroundImage: 'url(https://images.pexels.com/photos/2325446/pexels-photo-2325446.jpeg?auto=compress&cs=tinysrgb&w=1920)' }}
-      >
-        <div className="absolute inset-0 bg-black/60" />
+      <div className="relative h-[420px] overflow-hidden">
+        {hero.media_type === 'video' ? (
+          <video src={hero.url} className="absolute inset-0 w-full h-full object-cover" autoPlay muted loop playsInline />
+        ) : (
+          <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${hero.url})` }} />
+        )}
+        <div className="absolute inset-0" style={{ backgroundColor: `rgba(0,0,0,${hero.overlay_opacity})` }} />
         <div className="relative max-w-7xl mx-auto px-6 lg:px-8 h-full flex flex-col justify-end pb-14">
           <p className="text-xs font-semibold uppercase tracking-[0.35em] text-amber-400 mb-4">Where We Operate</p>
           <h1 className="text-5xl md:text-6xl font-bold text-white mb-4 leading-tight tracking-tight">Destinations</h1>

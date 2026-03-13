@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { X, ZoomIn, MapPin } from 'lucide-react';
 import { supabase } from '../lib/supabase';
+import { useHeroMedia } from '../hooks/useHeroMedia';
 
 interface GalleryImage {
   url: string;
@@ -12,6 +13,11 @@ interface GalleryImage {
 }
 
 export default function GalleryPage() {
+  const hero = useHeroMedia('gallery', {
+    media_type: 'image',
+    url: 'https://images.pexels.com/photos/1285625/pexels-photo-1285625.jpeg?auto=compress&cs=tinysrgb&w=1920',
+    overlay_opacity: 0.7,
+  });
   const [images, setImages] = useState<GalleryImage[]>([]);
   const [loading, setLoading] = useState(true);
   const [lightbox, setLightbox] = useState<GalleryImage | null>(null);
@@ -87,14 +93,12 @@ export default function GalleryPage() {
 
       {/* HERO */}
       <section className="relative h-[420px] overflow-hidden">
-        <div className="absolute inset-0 grid grid-cols-3">
-          {images.slice(0, 6).map((img, i) => (
-            <div key={i} className="overflow-hidden">
-              <img src={img.url} alt="" className="w-full h-full object-cover opacity-30" />
-            </div>
-          ))}
-        </div>
-        <div className="absolute inset-0 bg-gray-950/70" />
+        {hero.media_type === 'video' ? (
+          <video src={hero.url} className="absolute inset-0 w-full h-full object-cover" autoPlay muted loop playsInline />
+        ) : (
+          <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${hero.url})` }} />
+        )}
+        <div className="absolute inset-0" style={{ backgroundColor: `rgba(0,0,0,${hero.overlay_opacity})` }} />
         <div className="relative max-w-7xl mx-auto px-6 lg:px-8 h-full flex flex-col justify-end pb-14">
           <p className="text-xs font-semibold uppercase tracking-[0.35em] text-amber-400 mb-4">Visual Archive</p>
           <h1 className="text-5xl md:text-6xl font-bold text-white mb-4 leading-tight tracking-tight">Photo Gallery</h1>

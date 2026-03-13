@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Tag, Calendar, MapPin, Clock, ArrowRight, AlertCircle, CheckCircle2, FileText, Users } from 'lucide-react';
 import { supabase } from '../lib/supabase';
+import { useHeroMedia } from '../hooks/useHeroMedia';
 
 interface Offer {
   id: string;
@@ -47,6 +48,11 @@ const OFFER_POLICY = [
 ];
 
 export default function OffersPage() {
+  const hero = useHeroMedia('offers', {
+    media_type: 'image',
+    url: 'https://images.pexels.com/photos/2161449/pexels-photo-2161449.jpeg?auto=compress&cs=tinysrgb&w=1920',
+    overlay_opacity: 0.6,
+  });
   const [offers, setOffers] = useState<Offer[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -88,11 +94,13 @@ export default function OffersPage() {
     <div className="min-h-screen bg-[#f5f4f2]">
 
       {/* HERO */}
-      <section
-        className="relative h-[420px] bg-cover bg-center"
-        style={{ backgroundImage: 'url(https://images.pexels.com/photos/2161449/pexels-photo-2161449.jpeg?auto=compress&cs=tinysrgb&w=1920)' }}
-      >
-        <div className="absolute inset-0 bg-black/60" />
+      <section className="relative h-[420px] overflow-hidden">
+        {hero.media_type === 'video' ? (
+          <video src={hero.url} className="absolute inset-0 w-full h-full object-cover" autoPlay muted loop playsInline />
+        ) : (
+          <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${hero.url})` }} />
+        )}
+        <div className="absolute inset-0" style={{ backgroundColor: `rgba(0,0,0,${hero.overlay_opacity})` }} />
         <div className="relative max-w-7xl mx-auto px-6 lg:px-8 h-full flex flex-col justify-end pb-14">
           <p className="text-xs font-semibold uppercase tracking-[0.35em] text-amber-400 mb-4">Current Rate Adjustments</p>
           <h1 className="text-5xl md:text-6xl font-bold text-white mb-4 leading-tight tracking-tight">Active Offers</h1>

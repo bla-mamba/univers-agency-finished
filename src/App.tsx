@@ -39,6 +39,7 @@ import BlogManagement from './pages/crm/BlogManagement';
 import OffersManagement from './pages/crm/OffersManagement';
 import AvailabilityManagement from './pages/crm/AvailabilityManagement';
 import TestimonialsManagement from './pages/crm/TestimonialsManagement';
+import HeroMediaManagement from './pages/crm/HeroMediaManagement';
 import AdminRoute from './components/AdminRoute';
 
 function App() {
@@ -98,6 +99,7 @@ function App() {
                 <Route path="offers" element={<OffersManagement />} />
                 <Route path="availability" element={<AvailabilityManagement />} />
                 <Route path="testimonials" element={<TestimonialsManagement />} />
+                <Route path="hero-media" element={<HeroMediaManagement />} />
               </Route>
             </Route>
           </Routes>

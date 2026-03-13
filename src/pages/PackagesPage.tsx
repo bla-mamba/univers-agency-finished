@@ -6,6 +6,7 @@ import {
 } from 'lucide-react';
 import { supabase } from '../lib/supabase';
 import { useCompare } from '../contexts/CompareContext';
+import { useHeroMedia } from '../hooks/useHeroMedia';
 
 interface Package {
   id: string;
@@ -148,6 +149,11 @@ function PackageCard({
 }
 
 export default function PackagesPage() {
+  const hero = useHeroMedia('packages', {
+    media_type: 'image',
+    url: 'https://images.pexels.com/photos/1285625/pexels-photo-1285625.jpeg?auto=compress&cs=tinysrgb&w=1920',
+    overlay_opacity: 0.6,
+  });
   const { addToCompare, removeFromCompare, isInCompare, compareList } = useCompare();
   const [searchParams] = useSearchParams();
   const [packages, setPackages] = useState<Package[]>([]);
@@ -234,11 +240,13 @@ export default function PackagesPage() {
     <div className="min-h-screen bg-[#f5f4f2]">
 
       {/* HERO */}
-      <div
-        className="relative h-[420px] bg-cover bg-center"
-        style={{ backgroundImage: 'url(https://www.airfaregeeks.com.au/wp-content/uploads/2022/01/2022-Travel-destination-list.jpeg)' }}
-      >
-        <div className="absolute inset-0 bg-black/60" />
+      <div className="relative h-[420px] overflow-hidden">
+        {hero.media_type === 'video' ? (
+          <video src={hero.url} className="absolute inset-0 w-full h-full object-cover" autoPlay muted loop playsInline />
+        ) : (
+          <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${hero.url})` }} />
+        )}
+        <div className="absolute inset-0" style={{ backgroundColor: `rgba(0,0,0,${hero.overlay_opacity})` }} />
         <div className="relative max-w-7xl mx-auto px-6 lg:px-8 h-full flex flex-col justify-end pb-14">
           <p className="text-xs font-semibold uppercase tracking-[0.35em] text-amber-400 mb-4">Our Portfolio</p>
           <h1 className="text-5xl md:text-6xl font-bold text-white mb-4 leading-tight tracking-tight">Travel Packages</h1>

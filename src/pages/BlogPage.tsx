@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Calendar, User, ArrowRight, Search, BookOpen, ChevronRight } from 'lucide-react';
 import { supabase } from '../lib/supabase';
+import { useHeroMedia } from '../hooks/useHeroMedia';
 
 interface BlogPost {
   id: string;
@@ -18,6 +19,11 @@ interface BlogPost {
 const CATEGORIES = ['All', 'Travel Tips', 'Destination Guides', 'Top Lists', 'Culture', 'Adventure', 'Food & Cuisine'];
 
 export default function BlogPage() {
+  const hero = useHeroMedia('blog', {
+    media_type: 'image',
+    url: 'https://images.pexels.com/photos/3278215/pexels-photo-3278215.jpeg?auto=compress&cs=tinysrgb&w=1920',
+    overlay_opacity: 0.65,
+  });
   const [posts, setPosts] = useState<BlogPost[]>([]);
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState('');
@@ -60,11 +66,13 @@ export default function BlogPage() {
     <div className="min-h-screen bg-[#f5f4f2]">
 
       {/* HERO */}
-      <section
-        className="relative h-[420px] bg-cover bg-center"
-        style={{ backgroundImage: 'url(https://images.pexels.com/photos/3278215/pexels-photo-3278215.jpeg?auto=compress&cs=tinysrgb&w=1920)' }}
-      >
-        <div className="absolute inset-0 bg-black/65" />
+      <section className="relative h-[420px] overflow-hidden">
+        {hero.media_type === 'video' ? (
+          <video src={hero.url} className="absolute inset-0 w-full h-full object-cover" autoPlay muted loop playsInline />
+        ) : (
+          <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${hero.url})` }} />
+        )}
+        <div className="absolute inset-0" style={{ backgroundColor: `rgba(0,0,0,${hero.overlay_opacity})` }} />
         <div className="relative max-w-7xl mx-auto px-6 lg:px-8 h-full flex flex-col justify-end pb-14">
           <p className="text-xs font-semibold uppercase tracking-[0.35em] text-amber-400 mb-4">Editorial</p>
           <h1 className="text-5xl md:text-6xl font-bold text-white mb-4 leading-tight tracking-tight">Journal & Insights</h1>

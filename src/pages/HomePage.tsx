@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Search, MapPin, Calendar, Users, Star, DollarSign, Leaf, Award, Shield, Clock, TrendingUp, Globe, ChevronRight, Phone, Mail, Quote, CheckCircle, AlertTriangle, Plane, Hotel, Headphones as HeadphonesIcon, FileCheck } from 'lucide-react';
 import { supabase } from '../lib/supabase';
+import { useHeroMedia } from '../hooks/useHeroMedia';
 
 interface Package {
   id: string;
@@ -210,6 +211,11 @@ function HomePkgCard({ pkg }: { pkg: Package }) {
 }
 
 export default function HomePage() {
+  const hero = useHeroMedia('home', {
+    media_type: 'video',
+    url: '/trip.mp4',
+    overlay_opacity: 0.6,
+  });
   const navigate = useNavigate();
   const [featuredPackages, setFeaturedPackages] = useState<Package[]>([]);
   const [loading, setLoading] = useState(true);
@@ -312,11 +318,15 @@ export default function HomePage() {
       {/* HERO */}
       <section className="relative h-screen min-h-[680px] max-h-[900px]">
         <div className="absolute inset-0 overflow-hidden">
-        <video autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-cover">
-          <source src="/trip.mp4" type="video/mp4" />
-        </video>
+          {hero.media_type === 'video' ? (
+            <video autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-cover">
+              <source src={hero.url} type="video/mp4" />
+            </video>
+          ) : (
+            <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${hero.url})` }} />
+          )}
         </div>
-        <div className="absolute inset-0 bg-black/60" />
+        <div className="absolute inset-0" style={{ backgroundColor: `rgba(0,0,0,${hero.overlay_opacity})` }} />
         <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/70" />
         <div className="relative h-full flex flex-col justify-center pb-0">
           <div className="max-w-7xl mx-auto px-6 lg:px-8 w-full pb-14">
