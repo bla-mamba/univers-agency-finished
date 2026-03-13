@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState, useMemo} from'react';
 import { Link} from'react-router-dom';
-import { MapPin, Search, Globe, ArrowRight, ChevronRight, Compass, Building2, Mountain} from'lucide-react';
+import { MapPin, Search, ArrowRight, ChevronRight, Compass} from'lucide-react';
 import { supabase} from'../lib/supabase';
 import { useHeroMedia} from'../hooks/useHeroMedia';
 
@@ -15,23 +15,6 @@ interface Destination {
  featured: boolean;
 }
 
-const REGION_NOTES = [
- {
- icon: Building2,
- title:'Balkans & Eastern Europe',
- body:'A concentration of underrated cities, historic coastlines, and landscapes that remain largely undiscovered by mass tourism. Our strongest operational base.',
-},
- {
- icon: Globe,
- title:'Mediterranean Basin',
- body:'Established routes along the Adriatic, Aegean, and Central Mediterranean — covering islands, port cities, and inland cultural sites with verified ground services.',
-},
- {
- icon: Mountain,
- title:'Extended Long-Haul Programs',
- body:'Select destinations in Southeast Asia and the Middle East, available for groups with specific requirements. Contact us to confirm current operational status.',
-},
-];
 
 export default function DestinationsPage() {
  const hero = useHeroMedia('destinations', {
@@ -96,22 +79,6 @@ export default function DestinationsPage() {
  </div>
  </div>
 
- {/* REGION NOTES BAR */}
- <div className="bg-gray-950">
- <div className="max-w-7xl mx-auto px-6 lg:px-8">
- <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-white/10">
- {REGION_NOTES.map(({ icon: Icon, title, body}) => (
- <div key={title} className="flex items-start gap-4 px-6 py-6">
- <Icon className="h-4 w-4 text-amber-400 flex-shrink-0 mt-0.5" />
- <div>
- <p className="text-xs font-bold text-white uppercase tracking-wide mb-1">{title}</p>
- <p className="text-xs text-white/40 leading-relaxed">{body}</p>
- </div>
- </div>
- ))}
- </div>
- </div>
- </div>
 
  <div className="max-w-7xl mx-auto px-6 lg:px-8 py-12">
 
