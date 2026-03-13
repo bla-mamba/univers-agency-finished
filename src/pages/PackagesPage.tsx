@@ -100,7 +100,7 @@ function CategoryTabs({
           className="absolute left-0 top-0 bottom-0 z-10 flex items-center justify-center w-12 bg-gradient-to-r from-white via-white to-transparent"
           aria-label="Scroll left"
         >
-          <ChevronLeft className="h-4 w-4 text-gray-500" />
+          <ChevronLeft className="h-6 w-6 text-gray-600" />
         </button>
       )}
       {canScrollRight && (
@@ -109,7 +109,7 @@ function CategoryTabs({
           className="absolute right-0 top-0 bottom-0 z-10 flex items-center justify-center w-12 bg-gradient-to-l from-white via-white to-transparent"
           aria-label="Scroll right"
         >
-          <ChevronRight className="h-4 w-4 text-gray-500" />
+          <ChevronRight className="h-6 w-6 text-gray-600" />
         </button>
       )}
       <div
