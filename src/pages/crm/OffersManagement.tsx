@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Plus, Edit, Trash2, Search, X, Check, Tag } from 'lucide-react';
+import { Plus, CreditCard as Edit, Trash2, Search, X, Check, Tag } from 'lucide-react';
 import { supabase } from '../../lib/supabase';
 
 interface Offer {
