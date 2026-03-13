@@ -97,7 +97,7 @@ export default function PackageManagement() {
   };
 
   const loadCategories = async () => {
-    const { data } = await supabase.from('categories').select('*').order('name');
+    const { data } = await supabase.from('categories').select('*').order('sort_order', { ascending: true });
     setCategories(data || []);
   };
 
@@ -543,8 +543,11 @@ export default function PackageManagement() {
                     )}
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Category</label>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                      Category <span className="text-red-500">*</span>
+                    </label>
                     <select
+                      required
                       value={formData.category_id}
                       onChange={(e) => setFormData({ ...formData, category_id: e.target.value })}
                       className="w-full px-3 py-2 border border-gray-300  focus:outline-none focus:ring-2 focus:ring-red-500"

@@ -2,7 +2,8 @@ import { useState, useEffect, useMemo, useRef } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import {
   MapPin, Calendar, Star, Search, SlidersHorizontal, X,
-  ChevronDown, BarChart2, Shield, Clock, Users, ChevronRight, Phone
+  ChevronDown, BarChart2, Shield, Clock, Users, ChevronRight, Phone,
+  Waves, Landmark, Map, Compass, Mountain, HeartHandshake, Sparkles
 } from 'lucide-react';
 import { supabase } from '../lib/supabase';
 import { useCompare } from '../contexts/CompareContext';
@@ -29,7 +30,20 @@ interface Destination {
 interface Category {
   id: string;
   name: string;
+  slug: string;
+  sort_order: number;
 }
+
+const CATEGORY_ICONS: Record<string, React.ComponentType<{ className?: string }>> = {
+  'beach-packages': Waves,
+  'cultural-weekends': Landmark,
+  'cultural-trips': Map,
+  'excursions': Compass,
+  'adventure-outdoor': Mountain,
+  'family-getaways': Users,
+  'honeymoon-romantic': HeartHandshake,
+  'personalized-trip': Sparkles,
+};
 
 const SORT_OPTIONS = [
   { value: 'newest', label: 'Newest First' },
@@ -155,7 +169,7 @@ export default function PackagesPage() {
     overlay_opacity: 0.6,
   });
   const { addToCompare, removeFromCompare, isInCompare, compareList } = useCompare();
-  const [searchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
   const [packages, setPackages] = useState<Package[]>([]);
   const [destinations, setDestinations] = useState<Destination[]>([]);
   const [categories, setCategories] = useState<Category[]>([]);
@@ -171,20 +185,31 @@ export default function PackagesPage() {
   const [sortBy, setSortBy] = useState('newest');
   const [showFilters, setShowFilters] = useState(false);
 
+  const categorySlugParam = searchParams.get('category') || '';
+
   useEffect(() => {
     loadData();
   }, []);
+
+  useEffect(() => {
+    if (categorySlugParam && categories.length > 0) {
+      const match = categories.find((c) => c.slug === categorySlugParam);
+      if (match) setSelectedCategory(match.id);
+    } else if (!categorySlugParam) {
+      setSelectedCategory('');
+    }
+  }, [categorySlugParam, categories]);
 
   const loadData = async () => {
     try {
       const [pkgsRes, destsRes, catsRes] = await Promise.all([
         supabase
           .from('packages')
-          .select(`*, destination:destinations(id, name, country), category:categories(id, name)`)
+          .select(`*, destination:destinations(id, name, country), category:categories(id, name, slug)`)
           .eq('status', 'published')
           .order('created_at', { ascending: false }),
         supabase.from('destinations').select('id, name, country').order('name'),
-        supabase.from('categories').select('id, name').order('name'),
+        supabase.from('categories').select('id, name, slug, sort_order').order('sort_order', { ascending: true }),
       ]);
       setPackages(pkgsRes.data || []);
       setDestinations(destsRes.data || []);
@@ -234,7 +259,12 @@ export default function PackagesPage() {
     setDurationMax('');
     setSearchTerm('');
     setSortBy('newest');
+    setSearchParams({});
   };
+
+  const activeCategoryObj = selectedCategory
+    ? categories.find((c) => c.id === selectedCategory) || null
+    : null;
 
   return (
     <div className="min-h-screen bg-[#f5f4f2]">
@@ -274,6 +304,45 @@ export default function PackagesPage() {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </div>
+
+      {/* CATEGORY FILTER TABS */}
+      <div className="bg-white border-b border-gray-200 overflow-x-auto">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="flex items-center gap-1 py-3 min-w-max">
+            <button
+              onClick={clearFilters}
+              className={`px-4 py-2 text-xs font-semibold uppercase tracking-wide transition whitespace-nowrap ${
+                !activeCategoryObj
+                  ? 'bg-gray-900 text-white'
+                  : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'
+              }`}
+            >
+              All
+            </button>
+            {categories.map((cat) => {
+              const Icon = CATEGORY_ICONS[cat.slug];
+              const isActive = activeCategoryObj?.id === cat.id;
+              return (
+                <button
+                  key={cat.id}
+                  onClick={() => {
+                    setSelectedCategory(cat.id);
+                    setSearchParams({ category: cat.slug });
+                  }}
+                  className={`flex items-center gap-1.5 px-4 py-2 text-xs font-semibold uppercase tracking-wide transition whitespace-nowrap ${
+                    isActive
+                      ? 'bg-red-600 text-white'
+                      : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'
+                  }`}
+                >
+                  {Icon && <Icon className="h-3.5 w-3.5" />}
+                  {cat.name}
+                </button>
+              );
+            })}
           </div>
         </div>
       </div>
@@ -418,7 +487,7 @@ export default function PackagesPage() {
         <div className="flex items-center justify-between mb-8 pb-4 border-b border-gray-200">
           <p className="text-sm text-gray-500">
             <span className="font-semibold text-gray-900">{filtered.length}</span> package{filtered.length !== 1 ? 's' : ''}
-            {activeFilterCount > 0 || searchTerm ? ' matching your criteria' : ' in our portfolio'}
+            {activeCategoryObj ? <> in <span className="font-semibold text-gray-900">{activeCategoryObj.name}</span></> : activeFilterCount > 0 || searchTerm ? ' matching your criteria' : ' in our portfolio'}
           </p>
           {(activeFilterCount > 0 || searchTerm) && (
             <button onClick={clearFilters} className="text-sm text-red-600 hover:text-red-700 transition flex items-center gap-1 font-medium">
