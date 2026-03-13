@@ -10,6 +10,7 @@ interface Package {
   price: number;
   duration_days: number;
   images: string[];
+  video_url: string | null;
   featured: boolean;
   destination: {
     name: string;
@@ -148,6 +149,66 @@ const COMMITMENTS = [
   },
 ];
 
+function HomePkgCard({ pkg }: { pkg: Package }) {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  return (
+    <Link
+      to={`/packages/${pkg.slug}`}
+      className="bg-white group block overflow-hidden"
+      onMouseEnter={() => videoRef.current?.play()}
+      onMouseLeave={() => {
+        if (videoRef.current) { videoRef.current.pause(); videoRef.current.currentTime = 0; }
+      }}
+    >
+      <div className="relative h-64 overflow-hidden">
+        {pkg.video_url ? (
+          <video
+            ref={videoRef}
+            src={pkg.video_url}
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+            muted
+            loop
+            playsInline
+          />
+        ) : (
+          <img
+            src={pkg.images?.[0] || 'https://images.pexels.com/photos/1285625/pexels-photo-1285625.jpeg?auto=compress&cs=tinysrgb&w=800'}
+            alt={pkg.title}
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+          />
+        )}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+        <div className="absolute bottom-4 left-4">
+          <div className="flex items-center gap-1.5 text-xs text-white/80 font-medium uppercase tracking-wider">
+            <MapPin className="h-3 w-3" />
+            {pkg.destination?.name || 'Unknown'}, {pkg.destination?.country || ''}
+          </div>
+        </div>
+        <div className="absolute top-4 right-4 bg-gray-950/90 text-white px-3 py-1.5 text-xs font-bold tracking-wider uppercase">
+          from €{pkg.price.toLocaleString()}
+        </div>
+      </div>
+      <div className="p-6 border-b border-l border-r border-gray-100 group-hover:border-red-100 transition-colors">
+        <h3 className="text-base font-bold text-gray-950 mb-4 group-hover:text-red-600 transition-colors leading-snug">
+          {pkg.title}
+        </h3>
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-1.5 text-xs text-gray-400 font-medium uppercase tracking-wider">
+            <Calendar className="h-3.5 w-3.5" />
+            {pkg.duration_days} days
+          </div>
+          <div className="flex items-center gap-1 text-xs">
+            {[...Array(5)].map((_, i) => (
+              <Star key={i} className="h-3 w-3 text-amber-400 fill-current" />
+            ))}
+          </div>
+        </div>
+      </div>
+    </Link>
+  );
+}
+
 export default function HomePage() {
   const navigate = useNavigate();
   const [featuredPackages, setFeaturedPackages] = useState<Package[]>([]);
@@ -232,7 +293,7 @@ export default function HomePage() {
     try {
       const { data, error } = await supabase
         .from('packages')
-        .select(`*, destination:destinations(name, country)`)
+        .select(`id, title, slug, price, duration_days, images, video_url, featured, destination:destinations(name, country)`)
         .eq('status', 'published')
         .eq('featured', true)
         .limit(6);
@@ -439,45 +500,7 @@ export default function HomePage() {
           ) : featuredPackages.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-gray-100">
               {featuredPackages.map((pkg) => (
-                <Link
-                  key={pkg.id}
-                  to={`/packages/${pkg.slug}`}
-                  className="bg-white group block overflow-hidden"
-                >
-                  <div className="relative h-64 overflow-hidden">
-                    <img
-                      src={pkg.images?.[0] || 'https://images.pexels.com/photos/1285625/pexels-photo-1285625.jpeg?auto=compress&cs=tinysrgb&w=800'}
-                      alt={pkg.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                    <div className="absolute bottom-4 left-4">
-                      <div className="flex items-center gap-1.5 text-xs text-white/80 font-medium uppercase tracking-wider">
-                        <MapPin className="h-3 w-3" />
-                        {pkg.destination?.name || 'Unknown'}, {pkg.destination?.country || ''}
-                      </div>
-                    </div>
-                    <div className="absolute top-4 right-4 bg-gray-950/90 text-white px-3 py-1.5 text-xs font-bold tracking-wider uppercase">
-                      from €{pkg.price.toLocaleString()}
-                    </div>
-                  </div>
-                  <div className="p-6 border-b border-l border-r border-gray-100 group-hover:border-red-100 transition-colors">
-                    <h3 className="text-base font-bold text-gray-950 mb-4 group-hover:text-red-600 transition-colors leading-snug">
-                      {pkg.title}
-                    </h3>
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-1.5 text-xs text-gray-400 font-medium uppercase tracking-wider">
-                        <Calendar className="h-3.5 w-3.5" />
-                        {pkg.duration_days} days
-                      </div>
-                      <div className="flex items-center gap-1 text-xs">
-                        {[...Array(5)].map((_, i) => (
-                          <Star key={i} className="h-3 w-3 text-amber-400 fill-current" />
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                </Link>
+                <HomePkgCard key={pkg.id} pkg={pkg} />
               ))}
             </div>
           ) : (

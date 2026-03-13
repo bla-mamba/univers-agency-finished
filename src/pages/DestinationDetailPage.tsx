@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { MapPin, Calendar, Star, ArrowLeft, Package } from 'lucide-react';
 import { supabase } from '../lib/supabase';
@@ -21,8 +21,76 @@ interface PackageItem {
   price: number;
   duration_days: number;
   images: string[];
+  video_url: string | null;
   featured: boolean;
   category: { name: string } | null;
+}
+
+function DestPkgCard({ pkg }: { pkg: PackageItem }) {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  return (
+    <Link
+      to={`/packages/${pkg.slug}`}
+      className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition group"
+      onMouseEnter={() => videoRef.current?.play()}
+      onMouseLeave={() => {
+        if (videoRef.current) { videoRef.current.pause(); videoRef.current.currentTime = 0; }
+      }}
+    >
+      <div className="relative h-56 overflow-hidden bg-gray-100">
+        {pkg.video_url ? (
+          <video
+            ref={videoRef}
+            src={pkg.video_url}
+            className="w-full h-full object-cover group-hover:scale-110 transition duration-300"
+            muted
+            loop
+            playsInline
+          />
+        ) : (
+          <img
+            src={pkg.images?.[0] || 'https://images.pexels.com/photos/1285625/pexels-photo-1285625.jpeg?auto=compress&cs=tinysrgb&w=800'}
+            alt={pkg.title}
+            className="w-full h-full object-cover group-hover:scale-110 transition duration-300"
+          />
+        )}
+        <div className="absolute top-4 right-4 bg-red-600 text-white px-3 py-1 rounded-full text-sm font-semibold shadow">
+          €{pkg.price.toLocaleString()}
+        </div>
+        {pkg.featured && (
+          <div className="absolute top-4 left-4 bg-yellow-400 text-yellow-900 text-xs px-2 py-1 rounded-full font-semibold">
+            Featured
+          </div>
+        )}
+        {pkg.category && (
+          <div className="absolute bottom-4 left-4 bg-white/90 text-gray-800 text-xs px-2 py-1 rounded-full font-medium">
+            {pkg.category.name}
+          </div>
+        )}
+      </div>
+      <div className="p-5">
+        <h3 className="text-lg font-bold text-gray-900 mb-3 group-hover:text-red-600 transition line-clamp-2">
+          {pkg.title}
+        </h3>
+        <div className="flex items-center justify-between text-sm text-gray-500">
+          <div className="flex items-center gap-1">
+            <Calendar className="h-4 w-4" />
+            {pkg.duration_days} days
+          </div>
+          <div className="flex items-center gap-1 text-yellow-500">
+            <Star className="h-4 w-4 fill-current" />
+            <span className="text-gray-700 font-medium">4.8</span>
+          </div>
+        </div>
+        <div className="mt-3 pt-3 border-t border-gray-100">
+          <span className="text-red-600 text-sm font-semibold group-hover:underline">
+            View Package &rarr;
+          </span>
+        </div>
+      </div>
+    </Link>
+  );
 }
 
 export default function DestinationDetailPage() {
@@ -50,7 +118,7 @@ export default function DestinationDetailPage() {
 
       const { data: pkgs } = await supabase
         .from('packages')
-        .select('id, title, slug, price, duration_days, images, featured, category:categories(name)')
+        .select('id, title, slug, price, duration_days, images, video_url, featured, category:categories(name)')
         .eq('destination_id', dest.id)
         .eq('status', 'published')
         .order('featured', { ascending: false })
@@ -155,56 +223,7 @@ export default function DestinationDetailPage() {
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {packages.map((pkg) => (
-              <Link
-                key={pkg.id}
-                to={`/packages/${pkg.slug}`}
-                className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition group"
-              >
-                <div className="relative h-56 overflow-hidden bg-gray-100">
-                  <img
-                    src={
-                      pkg.images && pkg.images[0]
-                        ? pkg.images[0]
-                        : 'https://images.pexels.com/photos/1285625/pexels-photo-1285625.jpeg?auto=compress&cs=tinysrgb&w=800'
-                    }
-                    alt={pkg.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition duration-300"
-                  />
-                  <div className="absolute top-4 right-4 bg-red-600 text-white px-3 py-1 rounded-full text-sm font-semibold shadow">
-                    €{pkg.price.toLocaleString()}
-                  </div>
-                  {pkg.featured && (
-                    <div className="absolute top-4 left-4 bg-yellow-400 text-yellow-900 text-xs px-2 py-1 rounded-full font-semibold">
-                      Featured
-                    </div>
-                  )}
-                  {pkg.category && (
-                    <div className="absolute bottom-4 left-4 bg-white/90 text-gray-800 text-xs px-2 py-1 rounded-full font-medium">
-                      {pkg.category.name}
-                    </div>
-                  )}
-                </div>
-                <div className="p-5">
-                  <h3 className="text-lg font-bold text-gray-900 mb-3 group-hover:text-red-600 transition line-clamp-2">
-                    {pkg.title}
-                  </h3>
-                  <div className="flex items-center justify-between text-sm text-gray-500">
-                    <div className="flex items-center gap-1">
-                      <Calendar className="h-4 w-4" />
-                      {pkg.duration_days} days
-                    </div>
-                    <div className="flex items-center gap-1 text-yellow-500">
-                      <Star className="h-4 w-4 fill-current" />
-                      <span className="text-gray-700 font-medium">4.8</span>
-                    </div>
-                  </div>
-                  <div className="mt-3 pt-3 border-t border-gray-100">
-                    <span className="text-red-600 text-sm font-semibold group-hover:underline">
-                      View Package &rarr;
-                    </span>
-                  </div>
-                </div>
-              </Link>
+              <DestPkgCard key={pkg.id} pkg={pkg} />
             ))}
           </div>
         )}
