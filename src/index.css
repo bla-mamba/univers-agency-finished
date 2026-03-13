@@ -14,3 +14,51 @@
 .scrollbar-none::-webkit-scrollbar {
   display: none;
 }
+
+.translate-widget .goog-te-gadget {
+  font-family: inherit !important;
+  font-size: 0 !important;
+}
+
+.translate-widget .goog-te-gadget .goog-te-gadget-simple {
+  border: 1px solid #e5e7eb !important;
+  border-radius: 0 !important;
+  padding: 6px 10px !important;
+  background: #fff !important;
+  font-size: 13px !important;
+  font-family: inherit !important;
+  display: flex !important;
+  align-items: center !important;
+  cursor: pointer !important;
+}
+
+.translate-widget .goog-te-gadget .goog-te-gadget-simple:hover {
+  border-color: #9ca3af !important;
+  background: #f9fafb !important;
+}
+
+.translate-widget .goog-te-gadget .goog-te-gadget-simple .goog-te-menu-value span {
+  color: #374151 !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+}
+
+.translate-widget .goog-te-gadget .goog-te-gadget-simple .goog-te-menu-value span:last-child {
+  color: #6b7280 !important;
+}
+
+.translate-widget .goog-te-gadget img {
+  display: none !important;
+}
+
+.goog-te-banner-frame {
+  display: none !important;
+}
+
+body {
+  top: 0 !important;
+}
+
+.skiptranslate {
+  display: none !important;
+}

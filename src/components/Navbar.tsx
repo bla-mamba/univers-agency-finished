@@ -144,6 +144,7 @@ export default function Navbar() {
  </div>
 
  <div className="hidden lg:flex items-center space-x-3">
+ <div id="google_translate_element" className="translate-widget"></div>
  {user ? (
  <>
  {isAdmin && (
@@ -290,6 +291,9 @@ export default function Navbar() {
  Contact
  </Link>
 
+ <div className="px-3 py-2">
+ <div id="google_translate_element_mobile" className="translate-widget"></div>
+ </div>
  <div className="border-t border-gray-100 pt-2 mt-2">
  {user ? (
  <>
