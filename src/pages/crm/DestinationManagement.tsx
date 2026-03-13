@@ -350,7 +350,14 @@ export default function DestinationManagement() {
                     type="text"
                     required
                     value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                    onChange={(e) => {
+                      const name = e.target.value;
+                      setFormData((prev) => ({
+                        ...prev,
+                        name,
+                        slug: editingDestination ? prev.slug : name.trim().toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, ''),
+                      }));
+                    }}
                     className="w-full px-3 py-2 border border-gray-300  focus:outline-none focus:ring-2 focus:ring-red-500"
                   />
                 </div>
