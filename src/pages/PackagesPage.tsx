@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect, useMemo, useRef } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import {
   MapPin, Calendar, Star, Search, SlidersHorizontal, X,
@@ -37,6 +37,115 @@ const SORT_OPTIONS = [
   { value: 'duration_asc', label: 'Duration: Shortest' },
   { value: 'duration_desc', label: 'Duration: Longest' },
 ];
+
+function PackageCard({
+  pkg,
+  inCompare,
+  canAdd,
+  onAddToCompare,
+  onRemoveFromCompare,
+}: {
+  pkg: Package;
+  inCompare: boolean;
+  canAdd: boolean;
+  onAddToCompare: () => void;
+  onRemoveFromCompare: () => void;
+}) {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  const handleMouseEnter = () => { videoRef.current?.play(); };
+  const handleMouseLeave = () => {
+    if (videoRef.current) {
+      videoRef.current.pause();
+      videoRef.current.currentTime = 0;
+    }
+  };
+
+  return (
+    <div
+      className="bg-white group flex flex-col"
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
+      <Link to={`/packages/${pkg.slug}`} className="block">
+        <div className="relative h-56 overflow-hidden">
+          {pkg.video_url ? (
+            <video
+              ref={videoRef}
+              src={pkg.video_url}
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+              muted
+              loop
+              playsInline
+            />
+          ) : (
+            <img
+              src={pkg.images?.[0] || 'https://images.pexels.com/photos/1285625/pexels-photo-1285625.jpeg?auto=compress&cs=tinysrgb&w=800'}
+              alt={pkg.title}
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+            />
+          )}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+          <div className="absolute bottom-0 left-0 right-0 p-4 flex items-end justify-between">
+            <div className="flex items-center gap-1.5 text-white/80 text-xs font-medium">
+              <MapPin className="h-3 w-3" />
+              {pkg.destination?.name || 'Unknown'}, {pkg.destination?.country || ''}
+            </div>
+            <div className="bg-white text-gray-900 px-2.5 py-1 text-xs font-bold tracking-wide">
+              from €{pkg.price.toLocaleString()}
+            </div>
+          </div>
+          {pkg.category && (
+            <div className="absolute top-4 left-4 bg-gray-900/80 backdrop-blur-sm text-white/90 px-2.5 py-1 text-xs font-semibold uppercase tracking-wider">
+              {pkg.category.name}
+            </div>
+          )}
+        </div>
+        <div className="p-5">
+          <h3 className="text-base font-bold text-gray-900 mb-3 group-hover:text-red-600 transition-colors leading-snug">
+            {pkg.title}
+          </h3>
+          <div className="flex items-center justify-between text-xs text-gray-500 pt-3 border-t border-gray-100">
+            <div className="flex items-center gap-1.5">
+              <Calendar className="h-3.5 w-3.5 text-gray-400" />
+              <span>{pkg.duration_days} days</span>
+            </div>
+            <div className="flex items-center gap-1">
+              <Star className="h-3.5 w-3.5 text-amber-400 fill-current" />
+              <span className="font-semibold text-gray-700">4.8</span>
+            </div>
+          </div>
+        </div>
+      </Link>
+      <div className="px-5 pb-5 mt-auto flex gap-2">
+        <Link
+          to={`/packages/${pkg.slug}`}
+          className="flex-1 flex items-center justify-center gap-1.5 py-2.5 bg-gray-900 hover:bg-red-600 text-white text-xs font-semibold transition-colors uppercase tracking-wide"
+        >
+          View Details <ChevronRight className="h-3.5 w-3.5" />
+        </Link>
+        <button
+          onClick={() => {
+            if (inCompare) onRemoveFromCompare();
+            else if (!canAdd) onAddToCompare();
+          }}
+          disabled={canAdd}
+          title={inCompare ? 'Remove from compare' : canAdd ? 'Compare list full' : 'Add to compare'}
+          className={`flex items-center justify-center gap-1.5 px-3 py-2.5 text-xs font-medium transition border ${
+            inCompare
+              ? 'bg-gray-900 border-gray-900 text-white'
+              : canAdd
+              ? 'bg-gray-50 border-gray-200 text-gray-300 cursor-not-allowed'
+              : 'bg-white border-gray-300 text-gray-600 hover:border-gray-900 hover:text-gray-900'
+          }`}
+        >
+          <BarChart2 className="h-3.5 w-3.5" />
+          {inCompare ? 'Comparing' : 'Compare'}
+        </button>
+      </div>
+    </div>
+  );
+}
 
 export default function PackagesPage() {
   const { addToCompare, removeFromCompare, isInCompare, compareList } = useCompare();
@@ -317,102 +426,24 @@ export default function PackagesPage() {
           </div>
         ) : filtered.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-gray-200">
-            {filtered.map((pkg) => {
-              const inCompare = isInCompare(pkg.id);
-              const canAdd = !inCompare && compareList.length >= 3;
-              return (
-                <div key={pkg.id} className="bg-white group flex flex-col">
-                  <Link to={`/packages/${pkg.slug}`} className="block">
-                    <div className="relative h-56 overflow-hidden">
-                      {pkg.video_url ? (
-                        <video
-                          src={pkg.video_url}
-                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                          muted
-                          loop
-                          playsInline
-                          onMouseEnter={(e) => (e.currentTarget as HTMLVideoElement).play()}
-                          onMouseLeave={(e) => { (e.currentTarget as HTMLVideoElement).pause(); (e.currentTarget as HTMLVideoElement).currentTime = 0; }}
-                        />
-                      ) : (
-                        <img
-                          src={pkg.images?.[0] || 'https://images.pexels.com/photos/1285625/pexels-photo-1285625.jpeg?auto=compress&cs=tinysrgb&w=800'}
-                          alt={pkg.title}
-                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                        />
-                      )}
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
-                      <div className="absolute bottom-0 left-0 right-0 p-4 flex items-end justify-between">
-                        <div className="flex items-center gap-1.5 text-white/80 text-xs font-medium">
-                          <MapPin className="h-3 w-3" />
-                          {pkg.destination?.name || 'Unknown'}, {pkg.destination?.country || ''}
-                        </div>
-                        <div className="bg-white text-gray-900 px-2.5 py-1 text-xs font-bold tracking-wide">
-                          from €{pkg.price.toLocaleString()}
-                        </div>
-                      </div>
-                      {pkg.category && (
-                        <div className="absolute top-4 left-4 bg-gray-900/80 backdrop-blur-sm text-white/90 px-2.5 py-1 text-xs font-semibold uppercase tracking-wider">
-                          {pkg.category.name}
-                        </div>
-                      )}
-                    </div>
-                    <div className="p-5">
-                      <h3 className="text-base font-bold text-gray-900 mb-3 group-hover:text-red-600 transition-colors leading-snug">
-                        {pkg.title}
-                      </h3>
-                      <div className="flex items-center justify-between text-xs text-gray-500 pt-3 border-t border-gray-100">
-                        <div className="flex items-center gap-1.5">
-                          <Calendar className="h-3.5 w-3.5 text-gray-400" />
-                          <span>{pkg.duration_days} days</span>
-                        </div>
-                        <div className="flex items-center gap-1">
-                          <Star className="h-3.5 w-3.5 text-amber-400 fill-current" />
-                          <span className="font-semibold text-gray-700">4.8</span>
-                        </div>
-                      </div>
-                    </div>
-                  </Link>
-                  <div className="px-5 pb-5 mt-auto flex gap-2">
-                    <Link
-                      to={`/packages/${pkg.slug}`}
-                      className="flex-1 flex items-center justify-center gap-1.5 py-2.5 bg-gray-900 hover:bg-red-600 text-white text-xs font-semibold transition-colors uppercase tracking-wide"
-                    >
-                      View Details <ChevronRight className="h-3.5 w-3.5" />
-                    </Link>
-                    <button
-                      onClick={() => {
-                        if (inCompare) {
-                          removeFromCompare(pkg.id);
-                        } else if (!canAdd) {
-                          addToCompare({
-                            id: pkg.id,
-                            title: pkg.title,
-                            slug: pkg.slug,
-                            price: pkg.price,
-                            duration_days: pkg.duration_days,
-                            images: pkg.images,
-                            destination: pkg.destination,
-                          });
-                        }
-                      }}
-                      disabled={canAdd}
-                      title={inCompare ? 'Remove from compare' : canAdd ? 'Compare list full' : 'Add to compare'}
-                      className={`flex items-center justify-center gap-1.5 px-3 py-2.5 text-xs font-medium transition border ${
-                        inCompare
-                          ? 'bg-gray-900 border-gray-900 text-white'
-                          : canAdd
-                          ? 'bg-gray-50 border-gray-200 text-gray-300 cursor-not-allowed'
-                          : 'bg-white border-gray-300 text-gray-600 hover:border-gray-900 hover:text-gray-900'
-                      }`}
-                    >
-                      <BarChart2 className="h-3.5 w-3.5" />
-                      {inCompare ? 'Comparing' : 'Compare'}
-                    </button>
-                  </div>
-                </div>
-              );
-            })}
+            {filtered.map((pkg) => (
+              <PackageCard
+                key={pkg.id}
+                pkg={pkg}
+                inCompare={isInCompare(pkg.id)}
+                canAdd={!isInCompare(pkg.id) && compareList.length >= 3}
+                onAddToCompare={() => addToCompare({
+                  id: pkg.id,
+                  title: pkg.title,
+                  slug: pkg.slug,
+                  price: pkg.price,
+                  duration_days: pkg.duration_days,
+                  images: pkg.images,
+                  destination: pkg.destination,
+                })}
+                onRemoveFromCompare={() => removeFromCompare(pkg.id)}
+              />
+            ))}
           </div>
         ) : (
           <div className="text-center py-20 bg-white border border-gray-200">

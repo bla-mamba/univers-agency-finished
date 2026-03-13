@@ -1,4 +1,4 @@
-import { useEffect, useState, useMemo } from 'react';
+import { useEffect, useRef, useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { MapPin, Search, Globe, ArrowRight, ChevronRight, Compass, Building2, Mountain } from 'lucide-react';
 import { supabase } from '../lib/supabase';
@@ -265,21 +265,32 @@ function DestinationCard({
   destination: Destination;
   featured?: boolean;
 }) {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  const handleMouseEnter = () => { videoRef.current?.play(); };
+  const handleMouseLeave = () => {
+    if (videoRef.current) {
+      videoRef.current.pause();
+      videoRef.current.currentTime = 0;
+    }
+  };
+
   return (
     <Link
       to={`/destinations/${destination.slug}`}
       className="group bg-white overflow-hidden flex flex-col"
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
     >
       <div className="relative h-56 overflow-hidden">
         {destination.video_url ? (
           <video
+            ref={videoRef}
             src={destination.video_url}
             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
             muted
             loop
             playsInline
-            onMouseEnter={(e) => (e.currentTarget as HTMLVideoElement).play()}
-            onMouseLeave={(e) => { (e.currentTarget as HTMLVideoElement).pause(); (e.currentTarget as HTMLVideoElement).currentTime = 0; }}
           />
         ) : (
           <img
