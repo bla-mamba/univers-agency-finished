@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { supabase } from '../../lib/supabase';
-import { Plus, Edit, Trash2, Package } from 'lucide-react';
+import { Plus, CreditCard as Edit, Trash2, Package } from 'lucide-react';
 
 interface Category {
   id: string;
