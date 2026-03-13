@@ -9,13 +9,13 @@ interface TripRequest {
   phone: string;
   destinations: string;
   travel_dates: string;
-  duration: string;
+  duration_days: string;
   group_size: number;
   group_type: string;
   interests: string[];
-  accommodation_preference: string;
-  transport_preference: string;
-  budget_range: string;
+  accommodation_type: string;
+  transport_type: string;
+  budget_per_person: string;
   special_requests: string;
   status: string;
   created_at: string;
@@ -160,7 +160,7 @@ export default function PersonalizedTripManagement() {
                       <td className="px-5 py-4 text-gray-600">
                         {req.group_size} pax · {req.group_type}
                       </td>
-                      <td className="px-5 py-4 text-gray-600 text-xs">{req.budget_range || '—'}</td>
+                      <td className="px-5 py-4 text-gray-600 text-xs">{req.budget_per_person || '—'}</td>
                       <td className="px-5 py-4">
                         <div className="relative inline-block">
                           <button
@@ -246,12 +246,12 @@ export default function PersonalizedTripManagement() {
               <div className="grid grid-cols-2 gap-4">
                 <DetailRow label="Destinations" value={selected.destinations} />
                 <DetailRow label="Travel Dates" value={selected.travel_dates || '—'} />
-                <DetailRow label="Duration" value={selected.duration || '—'} />
+                <DetailRow label="Duration" value={selected.duration_days || '—'} />
                 <DetailRow label="Group Size" value={`${selected.group_size} traveler(s)`} />
                 <DetailRow label="Group Type" value={selected.group_type} />
-                <DetailRow label="Budget Range" value={selected.budget_range || '—'} />
-                <DetailRow label="Accommodation" value={selected.accommodation_preference} />
-                <DetailRow label="Transport" value={selected.transport_preference} />
+                <DetailRow label="Budget Range" value={selected.budget_per_person || '—'} />
+                <DetailRow label="Accommodation" value={selected.accommodation_type || '—'} />
+                <DetailRow label="Transport" value={selected.transport_type || '—'} />
               </div>
 
               {selected.interests.length > 0 && (

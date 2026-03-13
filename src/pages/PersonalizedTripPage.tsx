@@ -100,7 +100,7 @@ export default function PersonalizedTripPage() {
         phone: form.phone,
         destinations: form.destinations,
         travel_dates: form.travel_dates,
-        duration_days: form.duration ? parseInt(form.duration) || null : null,
+        duration_days: form.duration || null,
         group_size: form.group_size,
         group_type: form.group_type,
         interests: form.interests,
