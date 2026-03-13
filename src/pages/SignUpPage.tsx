@@ -7,6 +7,7 @@ export default function SignUpPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [fullName, setFullName] = useState('');
+  const [phone, setPhone] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const { signUp } = useAuth();
@@ -18,7 +19,7 @@ export default function SignUpPage() {
     setLoading(true);
 
     try {
-      await signUp(email, password, fullName);
+      await signUp(email, password, fullName, phone);
       navigate('/');
     } catch (err: any) {
       setError(err.message || 'Failed to create account');
@@ -63,6 +64,20 @@ export default function SignUpPage() {
                 required
                 value={fullName}
                 onChange={(e) => setFullName(e.target.value)}
+                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500"
+              />
+            </div>
+
+            <div>
+              <label htmlFor="phone" className="block text-sm font-medium text-gray-700">
+                Phone Number
+              </label>
+              <input
+                id="phone"
+                type="tel"
+                required
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500"
               />
             </div>
