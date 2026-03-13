@@ -1,9 +1,10 @@
-import { useState, useEffect, useMemo, useRef } from 'react';
+import { useState, useEffect, useMemo, useRef, useCallback } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import {
   MapPin, Calendar, Star, Search, SlidersHorizontal, X,
   ChevronDown, BarChart2, Shield, Clock, Users, ChevronRight, Phone,
-  Waves, Landmark, Map, Compass, Mountain, HeartHandshake, Sparkles
+  Waves, Landmark, Map, Compass, Mountain, HeartHandshake, Sparkles,
+  ChevronLeft
 } from 'lucide-react';
 import { supabase } from '../lib/supabase';
 import { useCompare } from '../contexts/CompareContext';
@@ -52,6 +53,102 @@ const SORT_OPTIONS = [
   { value: 'duration_asc', label: 'Duration: Shortest' },
   { value: 'duration_desc', label: 'Duration: Longest' },
 ];
+
+function CategoryTabs({
+  categories,
+  activeCategoryObj,
+  onClear,
+  onSelect,
+}: {
+  categories: Category[];
+  activeCategoryObj: Category | null;
+  onClear: () => void;
+  onSelect: (cat: Category) => void;
+}) {
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(false);
+
+  const checkScroll = useCallback(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+    setCanScrollLeft(el.scrollLeft > 4);
+    setCanScrollRight(el.scrollLeft < el.scrollWidth - el.clientWidth - 4);
+  }, []);
+
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+    checkScroll();
+    el.addEventListener('scroll', checkScroll);
+    window.addEventListener('resize', checkScroll);
+    return () => {
+      el.removeEventListener('scroll', checkScroll);
+      window.removeEventListener('resize', checkScroll);
+    };
+  }, [checkScroll, categories]);
+
+  const scroll = (dir: 'left' | 'right') => {
+    scrollRef.current?.scrollBy({ left: dir === 'left' ? -200 : 200, behavior: 'smooth' });
+  };
+
+  return (
+    <div className="bg-white border-b border-gray-200 relative">
+      {canScrollLeft && (
+        <button
+          onClick={() => scroll('left')}
+          className="absolute left-0 top-0 bottom-0 z-10 flex items-center justify-center w-10 bg-gradient-to-r from-white via-white to-transparent"
+          aria-label="Scroll left"
+        >
+          <ChevronLeft className="h-4 w-4 text-gray-500" />
+        </button>
+      )}
+      {canScrollRight && (
+        <button
+          onClick={() => scroll('right')}
+          className="absolute right-0 top-0 bottom-0 z-10 flex items-center justify-center w-10 bg-gradient-to-l from-white via-white to-transparent"
+          aria-label="Scroll right"
+        >
+          <ChevronRight className="h-4 w-4 text-gray-500" />
+        </button>
+      )}
+      <div
+        ref={scrollRef}
+        className="max-w-7xl mx-auto px-6 lg:px-8 flex items-center gap-1 py-3 overflow-x-auto scrollbar-none"
+        style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+      >
+        <button
+          onClick={onClear}
+          className={`px-4 py-2 text-xs font-semibold uppercase tracking-wide transition whitespace-nowrap flex-shrink-0 ${
+            !activeCategoryObj
+              ? 'bg-gray-900 text-white'
+              : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'
+          }`}
+        >
+          All
+        </button>
+        {categories.map((cat) => {
+          const Icon = CATEGORY_ICONS[cat.slug];
+          const isActive = activeCategoryObj?.id === cat.id;
+          return (
+            <button
+              key={cat.id}
+              onClick={() => onSelect(cat)}
+              className={`flex items-center gap-1.5 px-4 py-2 text-xs font-semibold uppercase tracking-wide transition whitespace-nowrap flex-shrink-0 ${
+                isActive
+                  ? 'bg-red-600 text-white'
+                  : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'
+              }`}
+            >
+              {Icon && <Icon className="h-3.5 w-3.5" />}
+              {cat.name}
+            </button>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
 
 function PackageCard({
   pkg,
@@ -309,43 +406,15 @@ export default function PackagesPage() {
       </div>
 
       {/* CATEGORY FILTER TABS */}
-      <div className="bg-white border-b border-gray-200 overflow-x-auto">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="flex items-center gap-1 py-3 min-w-max">
-            <button
-              onClick={clearFilters}
-              className={`px-4 py-2 text-xs font-semibold uppercase tracking-wide transition whitespace-nowrap ${
-                !activeCategoryObj
-                  ? 'bg-gray-900 text-white'
-                  : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'
-              }`}
-            >
-              All
-            </button>
-            {categories.map((cat) => {
-              const Icon = CATEGORY_ICONS[cat.slug];
-              const isActive = activeCategoryObj?.id === cat.id;
-              return (
-                <button
-                  key={cat.id}
-                  onClick={() => {
-                    setSelectedCategory(cat.id);
-                    setSearchParams({ category: cat.slug });
-                  }}
-                  className={`flex items-center gap-1.5 px-4 py-2 text-xs font-semibold uppercase tracking-wide transition whitespace-nowrap ${
-                    isActive
-                      ? 'bg-red-600 text-white'
-                      : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'
-                  }`}
-                >
-                  {Icon && <Icon className="h-3.5 w-3.5" />}
-                  {cat.name}
-                </button>
-              );
-            })}
-          </div>
-        </div>
-      </div>
+      <CategoryTabs
+        categories={categories}
+        activeCategoryObj={activeCategoryObj}
+        onClear={clearFilters}
+        onSelect={(cat) => {
+          setSelectedCategory(cat.id);
+          setSearchParams({ category: cat.slug });
+        }}
+      />
 
       {/* SEARCH + FILTERS */}
       <div className="max-w-7xl mx-auto px-6 lg:px-8 py-10">
