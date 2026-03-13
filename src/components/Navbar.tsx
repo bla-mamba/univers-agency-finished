@@ -159,7 +159,6 @@ export default function Navbar() {
  onClick={() => setUserMenuOpen((v) => !v)}
  className="flex items-center gap-2 pl-3 pr-2 py-2 border border-gray-200 hover:border-gray-300 hover:bg-gray-50 transition"
  >
-
  <User className="h-4 w-4 text-gray-400" />
  <span className="text-sm font-medium text-gray-700 max-w-[100px] truncate">
  {profile?.full_name?.split(' ')[0] || 'Account'}
