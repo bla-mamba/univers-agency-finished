@@ -217,7 +217,7 @@ export default function AboutPage() {
       </section>
 
       {/* PARTNER LOGOS */}
-      <section className="py-14 bg-gray-950 border-t border-white/5">
+      <section className="py-14 bg-white border-t border-white/5">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <p className="text-center text-xs font-bold uppercase tracking-[0.3em] text-gray-600 mb-10">Accreditations & Memberships</p>
           <div className="hidden md:flex items-center justify-center gap-14">
