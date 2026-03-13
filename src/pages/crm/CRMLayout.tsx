@@ -25,17 +25,17 @@ export default function CRMLayout() {
 
   const navItems = [
     { path: '/crm', icon: LayoutDashboard, label: 'Dashboard' },
-    { path: '/crm/packages', icon: Package, label: 'Packages' },
-    { path: '/crm/bookings', icon: Calendar, label: 'Bookings' },
-    { path: '/crm/customers', icon: Users, label: 'Customers' },
     { path: '/crm/destinations', icon: MapPin, label: 'Destinations' },
     { path: '/crm/categories', icon: Tag, label: 'Categories' },
-    { path: '/crm/reviews', icon: Star, label: 'Reviews' },
-    { path: '/crm/newsletter', icon: Mail, label: 'Newsletter' },
-    { path: '/crm/blog', icon: BookOpen, label: 'Blog' },
-    { path: '/crm/offers', icon: Percent, label: 'Offers' },
+    { path: '/crm/packages', icon: Package, label: 'Packages' },
     { path: '/crm/availability', icon: CalendarDays, label: 'Availability' },
+    { path: '/crm/offers', icon: Percent, label: 'Offers' },
+    { path: '/crm/bookings', icon: Calendar, label: 'Bookings' },
+    { path: '/crm/customers', icon: Users, label: 'Customers' },
+    { path: '/crm/reviews', icon: Star, label: 'Reviews' },
     { path: '/crm/testimonials', icon: Star, label: 'Testimonials' },
+    { path: '/crm/blog', icon: BookOpen, label: 'Blog' },
+    { path: '/crm/newsletter', icon: Mail, label: 'Newsletter' },
     { path: '/crm/hero-media', icon: Film, label: 'Hero Media' },
   ];
 
