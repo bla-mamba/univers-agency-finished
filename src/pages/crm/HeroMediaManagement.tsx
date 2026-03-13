@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react';
-import { CreditCard as Edit, Save, X, Image, Video, Eye } from 'lucide-react';
+import { useEffect, useRef, useState } from 'react';
+import { CreditCard as Edit, Save, X, Image, Video, Eye, Upload, Link as LinkIcon, Loader2 } from 'lucide-react';
 import { supabase } from '../../lib/supabase';
 
 interface HeroMedia {
@@ -25,14 +25,21 @@ const PAGE_LABELS: Record<string, string> = {
 
 const PAGE_ORDER = ['home', 'about', 'blog', 'offers', 'contact', 'packages', 'destinations', 'gallery', 'faq'];
 
+type InputMode = 'url' | 'upload';
+
 export default function HeroMediaManagement() {
   const [heroes, setHeroes] = useState<HeroMedia[]>([]);
   const [loading, setLoading] = useState(true);
   const [editId, setEditId] = useState<string | null>(null);
   const [form, setForm] = useState({ media_type: 'image' as 'image' | 'video', url: '', overlay_opacity: 0.6 });
+  const [inputMode, setInputMode] = useState<InputMode>('url');
+  const [uploadFile, setUploadFile] = useState<File | null>(null);
+  const [uploadPreview, setUploadPreview] = useState<string>('');
+  const [uploading, setUploading] = useState(false);
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState('');
   const [previewId, setPreviewId] = useState<string | null>(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => { load(); }, []);
 
@@ -54,27 +61,66 @@ export default function HeroMediaManagement() {
   const startEdit = (hero: HeroMedia) => {
     setEditId(hero.id);
     setForm({ media_type: hero.media_type, url: hero.url, overlay_opacity: hero.overlay_opacity });
+    setInputMode('url');
+    setUploadFile(null);
+    setUploadPreview('');
     setError('');
     setPreviewId(null);
   };
 
   const cancelEdit = () => {
     setEditId(null);
+    setUploadFile(null);
+    setUploadPreview('');
     setError('');
   };
 
-  const save = async (id: string) => {
-    if (!form.url.trim()) { setError('URL is required'); return; }
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    setUploadFile(file);
+    const isVideo = file.type.startsWith('video/');
+    setForm((f) => ({ ...f, media_type: isVideo ? 'video' : 'image' }));
+    const objectUrl = URL.createObjectURL(file);
+    setUploadPreview(objectUrl);
+  };
+
+  const uploadAndGetUrl = async (pageKey: string): Promise<string> => {
+    if (!uploadFile) return form.url;
+    setUploading(true);
+    const ext = uploadFile.name.split('.').pop();
+    const path = `${pageKey}-${Date.now()}.${ext}`;
+    const { error: uploadErr } = await supabase.storage
+      .from('hero-media')
+      .upload(path, uploadFile, { upsert: true });
+    if (uploadErr) throw uploadErr;
+    const { data } = supabase.storage.from('hero-media').getPublicUrl(path);
+    setUploading(false);
+    return data.publicUrl;
+  };
+
+  const save = async (id: string, pageKey: string) => {
+    if (inputMode === 'url' && !form.url.trim()) { setError('URL is required'); return; }
+    if (inputMode === 'upload' && !uploadFile) { setError('Please select a file to upload'); return; }
     setSaving(true);
     setError('');
-    const { error: err } = await supabase
-      .from('hero_media')
-      .update({ media_type: form.media_type, url: form.url.trim(), overlay_opacity: form.overlay_opacity, updated_at: new Date().toISOString() })
-      .eq('id', id);
-    if (err) { setError(err.message); setSaving(false); return; }
-    await load();
-    setEditId(null);
-    setSaving(false);
+    try {
+      const finalUrl = inputMode === 'upload' ? await uploadAndGetUrl(pageKey) : form.url.trim();
+      const { error: err } = await supabase
+        .from('hero_media')
+        .update({ media_type: form.media_type, url: finalUrl, overlay_opacity: form.overlay_opacity, updated_at: new Date().toISOString() })
+        .eq('id', id);
+      if (err) throw err;
+      await load();
+      setEditId(null);
+      setUploadFile(null);
+      setUploadPreview('');
+    } catch (err: any) {
+      setError(err.message || 'Failed to save');
+    } finally {
+      setSaving(false);
+      setUploading(false);
+    }
   };
 
   if (loading) {
@@ -96,6 +142,7 @@ export default function HeroMediaManagement() {
         {sorted.map((hero) => {
           const isEditing = editId === hero.id;
           const isPreviewing = previewId === hero.id;
+          const livePreviewUrl = inputMode === 'upload' ? uploadPreview : form.url;
 
           return (
             <div key={hero.id} className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
@@ -147,21 +194,11 @@ export default function HeroMediaManagement() {
                 {isPreviewing && !isEditing && (
                   <div className="mt-4 rounded-xl overflow-hidden h-48 relative bg-gray-900">
                     {hero.media_type === 'video' ? (
-                      <video
-                        src={hero.url}
-                        className="w-full h-full object-cover"
-                        autoPlay
-                        muted
-                        loop
-                        playsInline
-                      />
+                      <video src={hero.url} className="w-full h-full object-cover" autoPlay muted loop playsInline />
                     ) : (
                       <img src={hero.url} alt="Hero preview" className="w-full h-full object-cover" />
                     )}
-                    <div
-                      className="absolute inset-0"
-                      style={{ backgroundColor: `rgba(0,0,0,${hero.overlay_opacity})` }}
-                    />
+                    <div className="absolute inset-0" style={{ backgroundColor: `rgba(0,0,0,${hero.overlay_opacity})` }} />
                     <div className="absolute bottom-3 left-3 text-white text-xs font-medium">
                       Overlay: {Math.round(hero.overlay_opacity * 100)}%
                     </div>
@@ -195,16 +232,63 @@ export default function HeroMediaManagement() {
                     </div>
 
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">
-                        {form.media_type === 'video' ? 'Video URL' : 'Image URL'}
-                      </label>
-                      <input
-                        type="text"
-                        value={form.url}
-                        onChange={(e) => setForm((f) => ({ ...f, url: e.target.value }))}
-                        placeholder={form.media_type === 'video' ? 'https://... or /local-video.mp4' : 'https://...'}
-                        className="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
-                      />
+                      <label className="block text-sm font-medium text-gray-700 mb-2">Source</label>
+                      <div className="flex rounded-lg border border-gray-200 overflow-hidden w-fit mb-3">
+                        <button
+                          onClick={() => { setInputMode('url'); setUploadFile(null); setUploadPreview(''); }}
+                          className={`flex items-center gap-1.5 px-4 py-2 text-sm font-medium transition ${
+                            inputMode === 'url' ? 'bg-red-600 text-white' : 'text-gray-600 hover:bg-gray-50'
+                          }`}
+                        >
+                          <LinkIcon className="h-4 w-4" />
+                          URL
+                        </button>
+                        <button
+                          onClick={() => setInputMode('upload')}
+                          className={`flex items-center gap-1.5 px-4 py-2 text-sm font-medium transition ${
+                            inputMode === 'upload' ? 'bg-red-600 text-white' : 'text-gray-600 hover:bg-gray-50'
+                          }`}
+                        >
+                          <Upload className="h-4 w-4" />
+                          Upload
+                        </button>
+                      </div>
+
+                      {inputMode === 'url' && (
+                        <input
+                          type="text"
+                          value={form.url}
+                          onChange={(e) => setForm((f) => ({ ...f, url: e.target.value }))}
+                          placeholder={form.media_type === 'video' ? 'https://... or /local-video.mp4' : 'https://...'}
+                          className="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
+                        />
+                      )}
+
+                      {inputMode === 'upload' && (
+                        <div>
+                          <input
+                            ref={fileInputRef}
+                            type="file"
+                            accept={form.media_type === 'video' ? 'video/*' : 'image/*'}
+                            onChange={handleFileChange}
+                            className="hidden"
+                          />
+                          <button
+                            onClick={() => fileInputRef.current?.click()}
+                            className="w-full border-2 border-dashed border-gray-200 rounded-lg px-4 py-6 flex flex-col items-center gap-2 text-gray-500 hover:border-red-400 hover:text-red-500 transition"
+                          >
+                            <Upload className="h-6 w-6" />
+                            <span className="text-sm font-medium">
+                              {uploadFile ? uploadFile.name : `Click to select a ${form.media_type} file`}
+                            </span>
+                            {uploadFile && (
+                              <span className="text-xs text-gray-400">
+                                {(uploadFile.size / 1024 / 1024).toFixed(1)} MB
+                              </span>
+                            )}
+                          </button>
+                        </div>
+                      )}
                     </div>
 
                     <div>
@@ -226,11 +310,12 @@ export default function HeroMediaManagement() {
                       </div>
                     </div>
 
-                    {form.url && (
+                    {livePreviewUrl && (
                       <div className="rounded-xl overflow-hidden h-48 relative bg-gray-900">
                         {form.media_type === 'video' ? (
                           <video
-                            src={form.url}
+                            key={livePreviewUrl}
+                            src={livePreviewUrl}
                             className="w-full h-full object-cover"
                             autoPlay
                             muted
@@ -238,28 +323,30 @@ export default function HeroMediaManagement() {
                             playsInline
                           />
                         ) : (
-                          <img src={form.url} alt="Preview" className="w-full h-full object-cover" />
+                          <img src={livePreviewUrl} alt="Preview" className="w-full h-full object-cover" />
                         )}
-                        <div
-                          className="absolute inset-0"
-                          style={{ backgroundColor: `rgba(0,0,0,${form.overlay_opacity})` }}
-                        />
+                        <div className="absolute inset-0" style={{ backgroundColor: `rgba(0,0,0,${form.overlay_opacity})` }} />
                         <div className="absolute bottom-3 left-3 text-white text-xs font-medium">Live Preview</div>
                       </div>
                     )}
 
                     <div className="flex gap-3 pt-1">
                       <button
-                        onClick={() => save(hero.id)}
-                        disabled={saving}
+                        onClick={() => save(hero.id, hero.page_key)}
+                        disabled={saving || uploading}
                         className="flex items-center gap-2 px-4 py-2 bg-red-600 text-white rounded-lg text-sm font-semibold hover:bg-red-700 transition disabled:opacity-60"
                       >
-                        <Save className="h-4 w-4" />
-                        {saving ? 'Saving...' : 'Save Changes'}
+                        {(saving || uploading) ? (
+                          <Loader2 className="h-4 w-4 animate-spin" />
+                        ) : (
+                          <Save className="h-4 w-4" />
+                        )}
+                        {uploading ? 'Uploading...' : saving ? 'Saving...' : 'Save Changes'}
                       </button>
                       <button
                         onClick={cancelEdit}
-                        className="flex items-center gap-2 px-4 py-2 border border-gray-200 text-gray-600 rounded-lg text-sm font-medium hover:bg-gray-50 transition"
+                        disabled={saving || uploading}
+                        className="flex items-center gap-2 px-4 py-2 border border-gray-200 text-gray-600 rounded-lg text-sm font-medium hover:bg-gray-50 transition disabled:opacity-60"
                       >
                         <X className="h-4 w-4" />
                         Cancel
