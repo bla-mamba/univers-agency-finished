@@ -226,7 +226,7 @@ export default function AboutPage() {
                 key={logo.alt}
                 src={logo.src}
                 alt={logo.alt}
-                className="h-10 w-auto object-contain opacity-40 hover:opacity-70 transition-opacity duration-300"
+                className="h-10 w-auto object-contain transition-opacity duration-300"
               />
             ))}
           </div>
