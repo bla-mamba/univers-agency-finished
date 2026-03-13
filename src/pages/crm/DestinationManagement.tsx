@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { supabase } from '../../lib/supabase';
-import { Plus, Edit, Trash2, Upload, Link, X, ImageIcon, Package } from 'lucide-react';
+import { Plus, Edit, Trash2, Upload, Link, X, ImageIcon, Package, Video } from 'lucide-react';
 
 interface Destination {
   id: string;
@@ -10,6 +10,7 @@ interface Destination {
   country: string;
   description: string;
   image_url: string;
+  video_url: string;
   featured: boolean;
   package_count?: number;
 }
@@ -25,9 +26,12 @@ export default function DestinationManagement() {
   const [imageMode, setImageMode] = useState<ImageMode>('upload');
   const [imageFile, setImageFile] = useState<File | null>(null);
   const [imagePreview, setImagePreview] = useState<string>('');
+  const [videoFile, setVideoFile] = useState<File | null>(null);
+  const [videoPreview, setVideoPreview] = useState<string>('');
   const [uploading, setUploading] = useState(false);
   const [saving, setSaving] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const videoInputRef = useRef<HTMLInputElement>(null);
 
   const [formData, setFormData] = useState({
     name: '',
@@ -35,6 +39,7 @@ export default function DestinationManagement() {
     country: '',
     description: '',
     image_url: '',
+    video_url: '',
     featured: false,
   });
 
@@ -76,34 +81,54 @@ export default function DestinationManagement() {
     setImagePreview(URL.createObjectURL(file));
   };
 
+  const handleVideoFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    setVideoFile(file);
+    setVideoPreview(URL.createObjectURL(file));
+  };
+
   const uploadImage = async (): Promise<string> => {
     if (!imageFile) return formData.image_url;
-    setUploading(true);
-    try {
-      const ext = imageFile.name.split('.').pop();
-      const fileName = `${Date.now()}-${Math.random().toString(36).slice(2)}.${ext}`;
-      const { error } = await supabase.storage
-        .from('destination-images')
-        .upload(fileName, imageFile, { upsert: false });
-      if (error) throw error;
-      const { data } = supabase.storage
-        .from('destination-images')
-        .getPublicUrl(fileName);
-      return data.publicUrl;
-    } finally {
-      setUploading(false);
-    }
+    const ext = imageFile.name.split('.').pop();
+    const fileName = `${Date.now()}-${Math.random().toString(36).slice(2)}.${ext}`;
+    const { error } = await supabase.storage
+      .from('destination-images')
+      .upload(fileName, imageFile, { upsert: false });
+    if (error) throw error;
+    const { data } = supabase.storage.from('destination-images').getPublicUrl(fileName);
+    return data.publicUrl;
+  };
+
+  const uploadVideo = async (): Promise<string> => {
+    if (!videoFile) return formData.video_url;
+    const ext = videoFile.name.split('.').pop();
+    const fileName = `video-${Date.now()}-${Math.random().toString(36).slice(2)}.${ext}`;
+    const { error } = await supabase.storage
+      .from('destination-images')
+      .upload(fileName, videoFile, { upsert: false, contentType: 'video/mp4' });
+    if (error) throw error;
+    const { data } = supabase.storage.from('destination-images').getPublicUrl(fileName);
+    return data.publicUrl;
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setSaving(true);
     try {
+      setUploading(true);
       let image_url = formData.image_url;
+      let video_url = formData.video_url;
+
       if (imageMode === 'upload' && imageFile) {
         image_url = await uploadImage();
       }
-      const payload = { ...formData, image_url };
+      if (videoFile) {
+        video_url = await uploadVideo();
+      }
+      setUploading(false);
+
+      const payload = { ...formData, image_url, video_url };
 
       if (editingDestination) {
         const { error } = await supabase
@@ -124,6 +149,7 @@ export default function DestinationManagement() {
       alert('Error: ' + error.message);
     } finally {
       setSaving(false);
+      setUploading(false);
     }
   };
 
@@ -135,6 +161,7 @@ export default function DestinationManagement() {
       country: destination.country,
       description: destination.description,
       image_url: destination.image_url,
+      video_url: destination.video_url || '',
       featured: destination.featured,
     });
     if (destination.image_url) {
@@ -144,7 +171,13 @@ export default function DestinationManagement() {
       setImageMode('upload');
       setImagePreview('');
     }
+    if (destination.video_url) {
+      setVideoPreview(destination.video_url);
+    } else {
+      setVideoPreview('');
+    }
     setImageFile(null);
+    setVideoFile(null);
     setShowModal(true);
   };
 
@@ -167,12 +200,15 @@ export default function DestinationManagement() {
   };
 
   const resetForm = () => {
-    setFormData({ name: '', slug: '', country: '', description: '', image_url: '', featured: false });
+    setFormData({ name: '', slug: '', country: '', description: '', image_url: '', video_url: '', featured: false });
     setEditingDestination(null);
     setImageFile(null);
     setImagePreview('');
     setImageMode('upload');
+    setVideoFile(null);
+    setVideoPreview('');
     if (fileInputRef.current) fileInputRef.current.value = '';
+    if (videoInputRef.current) videoInputRef.current.value = '';
   };
 
   const handleDrop = (e: React.DragEvent<HTMLDivElement>) => {
@@ -211,7 +247,17 @@ export default function DestinationManagement() {
         {destinations.map((destination) => (
           <div key={destination.id} className="bg-white  shadow overflow-hidden flex flex-col">
             <div className="relative h-48 bg-gray-100">
-              {destination.image_url ? (
+              {destination.video_url ? (
+                <video
+                  src={destination.video_url}
+                  className="w-full h-full object-cover"
+                  muted
+                  loop
+                  playsInline
+                  onMouseEnter={(e) => (e.currentTarget as HTMLVideoElement).play()}
+                  onMouseLeave={(e) => { (e.currentTarget as HTMLVideoElement).pause(); (e.currentTarget as HTMLVideoElement).currentTime = 0; }}
+                />
+              ) : destination.image_url ? (
                 <img
                   src={destination.image_url}
                   alt={destination.name}
@@ -221,6 +267,11 @@ export default function DestinationManagement() {
                 <div className="w-full h-full flex items-center justify-center text-gray-300">
                   <ImageIcon className="h-16 w-16" />
                 </div>
+              )}
+              {destination.video_url && (
+                <span className="absolute top-2 left-2 bg-black/60 text-white text-xs font-semibold px-2 py-1 rounded flex items-center gap-1">
+                  <Video className="h-3 w-3" /> Video
+                </span>
               )}
               {destination.featured && (
                 <span className="absolute top-2 right-2 bg-yellow-400 text-yellow-900 text-xs font-semibold px-2 py-1 rounded">
@@ -425,6 +476,50 @@ export default function DestinationManagement() {
                     )}
                   </div>
                 )}
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Destination Video (MP4)
+                  <span className="ml-1 text-xs font-normal text-gray-400">— optional</span>
+                </label>
+                {videoPreview ? (
+                  <div className="relative mb-2">
+                    <video
+                      src={videoPreview}
+                      controls
+                      className="w-full max-h-48 rounded border border-gray-200 object-cover"
+                    />
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setVideoFile(null);
+                        setVideoPreview('');
+                        setFormData({ ...formData, video_url: '' });
+                        if (videoInputRef.current) videoInputRef.current.value = '';
+                      }}
+                      className="absolute top-2 right-2 bg-white rounded-full p-1 shadow hover:bg-red-50 transition"
+                    >
+                      <X className="h-4 w-4 text-gray-600" />
+                    </button>
+                  </div>
+                ) : (
+                  <div
+                    className="border-2 border-dashed border-gray-300 p-6 text-center cursor-pointer hover:border-red-400 hover:bg-red-50 transition"
+                    onClick={() => videoInputRef.current?.click()}
+                  >
+                    <Video className="h-10 w-10 mx-auto mb-2 text-gray-300" />
+                    <p className="text-sm font-medium text-gray-600">Click to upload MP4 video</p>
+                    <p className="text-xs text-gray-400 mt-1">MP4 up to 100MB</p>
+                  </div>
+                )}
+                <input
+                  ref={videoInputRef}
+                  type="file"
+                  accept="video/mp4,video/*"
+                  onChange={handleVideoFileChange}
+                  className="hidden"
+                />
               </div>
 
               <div className="flex items-center">

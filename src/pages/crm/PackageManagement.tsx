@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { useSearchParams, Link } from 'react-router-dom';
 import { supabase } from '../../lib/supabase';
-import { Plus, CreditCard as Edit, Trash2, Upload, X, Image, ArrowLeft, ChevronDown, Calendar, Star } from 'lucide-react';
+import { Plus, CreditCard as Edit, Trash2, Upload, X, Image, ArrowLeft, ChevronDown, Calendar, Star, Video } from 'lucide-react';
 
 interface Package {
   id: string;
@@ -55,8 +55,12 @@ export default function PackageManagement() {
   const [existingImages, setExistingImages] = useState<string[]>([]);
   const [uploadFiles, setUploadFiles] = useState<File[]>([]);
   const [uploadPreviews, setUploadPreviews] = useState<string[]>([]);
+  const [videoFile, setVideoFile] = useState<File | null>(null);
+  const [videoPreview, setVideoPreview] = useState<string>('');
+  const [existingVideoUrl, setExistingVideoUrl] = useState<string>('');
   const [uploading, setUploading] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const videoInputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     loadPackages();
@@ -150,6 +154,24 @@ export default function PackageManagement() {
     return urls;
   };
 
+  const uploadVideo = async (): Promise<string> => {
+    if (!videoFile) return existingVideoUrl;
+    const ext = videoFile.name.split('.').pop();
+    const path = `video-${Date.now()}-${Math.random().toString(36).slice(2)}.${ext}`;
+    const { error } = await supabase.storage.from(BUCKET).upload(path, videoFile, { contentType: 'video/mp4' });
+    if (error) throw error;
+    const { data } = supabase.storage.from(BUCKET).getPublicUrl(path);
+    return data.publicUrl;
+  };
+
+  const handleVideoFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    setVideoFile(file);
+    setVideoPreview(URL.createObjectURL(file));
+    if (videoInputRef.current) videoInputRef.current.value = '';
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setUploading(true);
@@ -157,6 +179,7 @@ export default function PackageManagement() {
     try {
       const newUrls = await uploadImages();
       const allImages = [...existingImages, ...newUrls];
+      const video_url = await uploadVideo();
 
       const autoSlug = formData.title.trim().toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
 
@@ -193,6 +216,7 @@ export default function PackageManagement() {
         destination_id: resolvedDestinationId || null,
         category_id: formData.category_id || null,
         images: allImages,
+        video_url: video_url || null,
         inclusions,
         exclusions,
       };
@@ -233,6 +257,9 @@ export default function PackageManagement() {
         featured: data.featured,
       });
       setExistingImages(data.images || []);
+      setExistingVideoUrl(data.video_url || '');
+      setVideoPreview(data.video_url || '');
+      setVideoFile(null);
       setInclusions(data.inclusions || []);
       setExclusions(data.exclusions || []);
       if (data.destination_id) {
@@ -276,6 +303,9 @@ export default function PackageManagement() {
     setUploadFiles([]);
     setUploadPreviews([]);
     setExistingImages([]);
+    setVideoFile(null);
+    setVideoPreview('');
+    setExistingVideoUrl('');
     setDestinationText('');
     setDestinationSuggestions([]);
     setShowSuggestions(false);
@@ -717,6 +747,51 @@ export default function PackageManagement() {
                     multiple
                     className="hidden"
                     onChange={handleFileSelect}
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Package Video (MP4)
+                    <span className="ml-1 text-xs font-normal text-gray-400">— optional</span>
+                  </label>
+                  {videoPreview ? (
+                    <div className="relative mb-2">
+                      <video
+                        src={videoPreview}
+                        controls
+                        className="w-full max-h-48 rounded border border-gray-200 object-cover"
+                      />
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setVideoFile(null);
+                          setVideoPreview('');
+                          setExistingVideoUrl('');
+                          if (videoInputRef.current) videoInputRef.current.value = '';
+                        }}
+                        className="absolute top-1 right-1 bg-red-600 text-white rounded-full p-0.5 opacity-80 hover:opacity-100 transition"
+                      >
+                        <X className="h-3 w-3" />
+                      </button>
+                    </div>
+                  ) : (
+                    <button
+                      type="button"
+                      onClick={() => videoInputRef.current?.click()}
+                      className="w-full border-2 border-dashed border-gray-300 py-6 flex flex-col items-center gap-2 text-gray-500 hover:border-red-400 hover:text-red-500 transition cursor-pointer"
+                    >
+                      <Video className="h-6 w-6" />
+                      <span className="text-sm font-medium">Click to upload MP4 video</span>
+                      <span className="text-xs">MP4 up to 100MB</span>
+                    </button>
+                  )}
+                  <input
+                    ref={videoInputRef}
+                    type="file"
+                    accept="video/mp4,video/*"
+                    className="hidden"
+                    onChange={handleVideoFileChange}
                   />
                 </div>
 

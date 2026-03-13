@@ -10,6 +10,7 @@ interface Destination {
   country: string;
   description: string;
   image_url: string;
+  video_url: string;
   featured: boolean;
 }
 
@@ -86,14 +87,26 @@ export default function DestinationDetailPage() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <div
-        className="relative h-96 bg-cover bg-center"
-        style={{
-          backgroundImage: destination.image_url
-            ? `url(${destination.image_url})`
-            : 'url(https://images.pexels.com/photos/2325446/pexels-photo-2325446.jpeg?auto=compress&cs=tinysrgb&w=1920)',
-        }}
-      >
+      <div className="relative h-96 overflow-hidden bg-gray-900">
+        {destination.video_url ? (
+          <video
+            src={destination.video_url}
+            className="absolute inset-0 w-full h-full object-cover"
+            autoPlay
+            muted
+            loop
+            playsInline
+          />
+        ) : (
+          <div
+            className="absolute inset-0 bg-cover bg-center"
+            style={{
+              backgroundImage: destination.image_url
+                ? `url(${destination.image_url})`
+                : 'url(https://images.pexels.com/photos/2325446/pexels-photo-2325446.jpeg?auto=compress&cs=tinysrgb&w=1920)',
+            }}
+          />
+        )}
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/70" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex flex-col justify-end pb-10">
           <Link

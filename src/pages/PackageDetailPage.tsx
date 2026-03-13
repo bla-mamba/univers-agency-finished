@@ -18,6 +18,7 @@ interface PackageDetail {
   duration_days: number;
   max_group_size: number;
   images: string[];
+  video_url: string | null;
   featured: boolean;
   inclusions: string[];
   exclusions: string[];
@@ -324,14 +325,25 @@ export default function PackageDetailPage() {
   return (
     <div className="min-h-screen bg-gray-50 pb-20">
       <div className="relative h-[480px] overflow-hidden bg-gray-900">
-        <img
-          src={images[activeImage]}
-          alt={pkg.title}
-          className="w-full h-full object-cover opacity-90 transition-all duration-500"
-        />
+        {pkg.video_url ? (
+          <video
+            src={pkg.video_url}
+            className="w-full h-full object-cover opacity-90"
+            autoPlay
+            muted
+            loop
+            playsInline
+          />
+        ) : (
+          <img
+            src={images[activeImage]}
+            alt={pkg.title}
+            className="w-full h-full object-cover opacity-90 transition-all duration-500"
+          />
+        )}
         <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/70" />
 
-        {images.length > 1 && (
+        {!pkg.video_url && images.length > 1 && (
           <>
             <button onClick={prevImage} className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/60 text-white rounded-full p-2 transition">
               <ChevronLeft className="h-6 w-6" />
