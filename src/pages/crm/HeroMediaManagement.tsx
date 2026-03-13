@@ -20,10 +20,22 @@ const PAGE_LABELS: Record<string, string> = {
   packages: 'Packages Page',
   destinations: 'Destinations Page',
   gallery: 'Gallery Page',
-  faq: 'FAQ Page',
 };
 
-const PAGE_ORDER = ['home', 'about', 'blog', 'offers', 'contact', 'packages', 'destinations', 'gallery', 'faq'];
+const PAGE_DESCRIPTIONS: Record<string, string> = {
+  home: 'Full-screen background shown on the main landing page',
+  about: 'Hero banner at the top of the About Us page',
+  blog: 'Hero banner at the top of the Blog listing page',
+  offers: 'Hero banner at the top of the Offers page',
+  contact: 'Hero banner at the top of the Contact page',
+  packages: 'Hero banner at the top of the Packages listing page',
+  destinations: 'Hero banner at the top of the Destinations listing page',
+  gallery: 'Hero banner at the top of the Gallery page',
+};
+
+const PAGE_ORDER = ['home', 'about', 'blog', 'offers', 'contact', 'packages', 'destinations', 'gallery'];
+
+const ACTIVE_PAGES = new Set(PAGE_ORDER);
 
 type InputMode = 'url' | 'upload';
 
@@ -52,11 +64,13 @@ export default function HeroMediaManagement() {
     setLoading(false);
   };
 
-  const sorted = [...heroes].sort((a, b) => {
-    const ai = PAGE_ORDER.indexOf(a.page_key);
-    const bi = PAGE_ORDER.indexOf(b.page_key);
-    return (ai === -1 ? 99 : ai) - (bi === -1 ? 99 : bi);
-  });
+  const sorted = [...heroes]
+    .filter((h) => ACTIVE_PAGES.has(h.page_key))
+    .sort((a, b) => {
+      const ai = PAGE_ORDER.indexOf(a.page_key);
+      const bi = PAGE_ORDER.indexOf(b.page_key);
+      return (ai === -1 ? 99 : ai) - (bi === -1 ? 99 : bi);
+    });
 
   const startEdit = (hero: HeroMedia) => {
     setEditId(hero.id);
@@ -158,7 +172,8 @@ export default function HeroMediaManagement() {
                     </div>
                     <div>
                       <h3 className="font-semibold text-gray-900">{PAGE_LABELS[hero.page_key] || hero.page_key}</h3>
-                      <span className={`inline-flex items-center gap-1 text-xs font-medium px-2 py-0.5 rounded-full mt-0.5 ${
+                      <p className="text-xs text-gray-400 mt-0.5">{PAGE_DESCRIPTIONS[hero.page_key]}</p>
+                      <span className={`inline-flex items-center gap-1 text-xs font-medium px-2 py-0.5 rounded-full mt-1 ${
                         hero.media_type === 'video' ? 'bg-blue-50 text-blue-700' : 'bg-green-50 text-green-700'
                       }`}>
                         {hero.media_type === 'video' ? <Video className="h-3 w-3" /> : <Image className="h-3 w-3" />}
