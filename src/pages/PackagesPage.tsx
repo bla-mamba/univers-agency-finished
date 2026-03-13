@@ -97,7 +97,7 @@ function CategoryTabs({
       {canScrollLeft && (
         <button
           onClick={() => scroll('left')}
-          className="absolute left-0 top-0 bottom-0 z-10 flex items-center justify-center w-10 bg-gradient-to-r from-white via-white to-transparent"
+          className="absolute left-0 top-0 bottom-0 z-10 flex items-center justify-center w-12 bg-gradient-to-r from-white via-white to-transparent"
           aria-label="Scroll left"
         >
           <ChevronLeft className="h-4 w-4 text-gray-500" />
@@ -106,7 +106,7 @@ function CategoryTabs({
       {canScrollRight && (
         <button
           onClick={() => scroll('right')}
-          className="absolute right-0 top-0 bottom-0 z-10 flex items-center justify-center w-10 bg-gradient-to-l from-white via-white to-transparent"
+          className="absolute right-0 top-0 bottom-0 z-10 flex items-center justify-center w-12 bg-gradient-to-l from-white via-white to-transparent"
           aria-label="Scroll right"
         >
           <ChevronRight className="h-4 w-4 text-gray-500" />
@@ -114,12 +114,12 @@ function CategoryTabs({
       )}
       <div
         ref={scrollRef}
-        className="max-w-7xl mx-auto px-6 lg:px-8 flex items-center gap-1 py-3 overflow-x-auto scrollbar-none"
+        className="max-w-7xl mx-auto px-10 lg:px-14 flex items-center gap-1 py-1 overflow-x-auto scrollbar-none"
         style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
       >
         <button
           onClick={onClear}
-          className={`px-4 py-2 text-xs font-semibold uppercase tracking-wide transition whitespace-nowrap flex-shrink-0 ${
+          className={`px-6 py-4 text-sm font-semibold uppercase tracking-wider transition whitespace-nowrap flex-shrink-0 ${
             !activeCategoryObj
               ? 'bg-gray-900 text-white'
               : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'
@@ -134,13 +134,13 @@ function CategoryTabs({
             <button
               key={cat.id}
               onClick={() => onSelect(cat)}
-              className={`flex items-center gap-1.5 px-4 py-2 text-xs font-semibold uppercase tracking-wide transition whitespace-nowrap flex-shrink-0 ${
+              className={`flex items-center gap-2 px-6 py-4 text-sm font-semibold uppercase tracking-wider transition whitespace-nowrap flex-shrink-0 ${
                 isActive
                   ? 'bg-red-600 text-white'
                   : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'
               }`}
             >
-              {Icon && <Icon className="h-3.5 w-3.5" />}
+              {Icon && <Icon className="h-4 w-4" />}
               {cat.name}
             </button>
           );
@@ -380,28 +380,6 @@ export default function PackagesPage() {
           <p className="text-white/60 max-w-xl leading-relaxed text-base font-light">
             Professionally designed itineraries across the Balkans, Mediterranean, and beyond — each one vetted, coordinated, and supported end-to-end.
           </p>
-        </div>
-      </div>
-
-      {/* TRUST BAR */}
-      <div className="bg-gray-900 border-b border-white/5">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-white/10">
-            {[
-              { icon: Shield, label: 'IATA Accredited', sub: 'Certified air travel agent' },
-              { icon: Clock, label: 'Confirmed Logistics', sub: 'All bookings verified before departure' },
-              { icon: Users, label: 'Dedicated Support', sub: 'Specialist available throughout your trip' },
-              { icon: Star, label: '4.9 / 5 Rating', sub: 'Based on verified client reviews' },
-            ].map(({ icon: Icon, label, sub }) => (
-              <div key={label} className="flex items-center gap-3 px-6 py-4">
-                <Icon className="h-4 w-4 text-amber-400 flex-shrink-0" />
-                <div>
-                  <p className="text-xs font-semibold text-white">{label}</p>
-                  <p className="text-xs text-white/40 mt-0.5">{sub}</p>
-                </div>
-              </div>
-            ))}
-          </div>
         </div>
       </div>
 
