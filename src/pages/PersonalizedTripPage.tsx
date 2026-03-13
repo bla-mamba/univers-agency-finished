@@ -174,7 +174,7 @@ export default function PersonalizedTripPage() {
       </div>
 
       <div className="max-w-6xl mx-auto px-6 py-20">
-        <div className="grid lg:grid-cols-2 gap-16 items-start mb-20">
+        <div className="grid lg:grid-cols-2 gap-16 items-center mb-20">
           <div>
             <h2 className="text-3xl font-black text-gray-900 mb-6 leading-tight">
               Your journey,<br />our expertise
