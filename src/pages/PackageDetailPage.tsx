@@ -28,6 +28,7 @@ interface PackageDetail {
     slug: string;
     country: string;
     image_url: string;
+    video_url: string | null;
   } | null;
   category: { name: string } | null;
 }
@@ -112,7 +113,7 @@ export default function PackageDetailPage() {
         .from('packages')
         .select(`
           *,
-          destination:destinations(id, name, slug, country, image_url),
+          destination:destinations(id, name, slug, country, image_url, video_url),
           category:categories(name)
         `)
         .eq('slug', pkgSlug)
@@ -535,11 +536,22 @@ export default function PackageDetailPage() {
             {pkg.destination && (
               <div className="bg-white rounded-xl shadow-sm overflow-hidden">
                 <div className="relative h-48">
-                  <img
-                    src={pkg.destination.image_url || 'https://images.pexels.com/photos/1285625/pexels-photo-1285625.jpeg?auto=compress&cs=tinysrgb&w=800'}
-                    alt={pkg.destination.name}
-                    className="w-full h-full object-cover"
-                  />
+                  {pkg.destination.video_url ? (
+                    <video
+                      src={pkg.destination.video_url}
+                      className="w-full h-full object-cover"
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                    />
+                  ) : (
+                    <img
+                      src={pkg.destination.image_url || 'https://images.pexels.com/photos/1285625/pexels-photo-1285625.jpeg?auto=compress&cs=tinysrgb&w=800'}
+                      alt={pkg.destination.name}
+                      className="w-full h-full object-cover"
+                    />
+                  )}
                   <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent" />
                   <div className="absolute inset-0 flex items-center px-8">
                     <div>
