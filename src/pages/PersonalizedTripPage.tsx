@@ -2,21 +2,17 @@ import { useState } from 'react';
 import { useAuth } from '../contexts/AuthContext';
 import { supabase } from '../lib/supabase';
 import {
-  Car, Hotel, Compass, Bus, Sparkles, Palette, Leaf, Landmark, Music,
+  Car, Hotel, Compass, Sparkles, Leaf, Music,
   CheckCircle, ChevronDown, ChevronUp, Users, MapPin, Calendar, Clock,
   DollarSign, Plane, Send
 } from 'lucide-react';
 
 const SERVICES = [
-  { icon: Car, text: 'Private Car and Limousine Transfers' },
-  { icon: Hotel, text: 'Hotels and Private Accommodations' },
-  { icon: Compass, text: 'Tours and Excursions designed just for you' },
-  { icon: Bus, text: 'Bus or Plane Programs' },
-  { icon: Sparkles, text: 'Special Interest Tours' },
-  { icon: Palette, text: 'Thematic Tours' },
-  { icon: Leaf, text: 'Nature Trips (hiking, rafting, bike tours)' },
-  { icon: Landmark, text: 'Cultural Day Excursions' },
-  { icon: Music, text: 'Concert, Theater and Restaurant Reservations' },
+  { icon: Car, title: 'Private Transfers', text: 'Private car, limousine, bus, and plane programs tailored to your schedule and group size.' },
+  { icon: Hotel, title: 'Accommodation', text: 'Hotels and private accommodations selected to match your comfort level and budget.' },
+  { icon: Compass, title: 'Tours & Excursions', text: 'Custom tours and day excursions designed just for you — cultural, historical, and thematic itineraries.' },
+  { icon: Leaf, title: 'Nature & Active Trips', text: 'Outdoor adventures including hiking, rafting, and bike tours across stunning Balkan landscapes.' },
+  { icon: Music, title: 'Special Experiences', text: 'Concert, theater, and restaurant reservations alongside special interest and event-based programs.' },
 ];
 
 const INTERESTS = [
@@ -191,12 +187,15 @@ export default function PersonalizedTripPage() {
           </div>
 
           <div className="grid grid-cols-1 gap-3">
-            {SERVICES.map(({ icon: Icon, text }) => (
-              <div key={text} className="flex items-center gap-4 p-4 bg-gray-50 border border-gray-100 hover:border-red-200 hover:bg-red-50 transition-colors group">
-                <div className="w-9 h-9 flex-shrink-0 flex items-center justify-center bg-white border border-gray-200 group-hover:border-red-300 group-hover:bg-red-600 transition-colors">
+            {SERVICES.map(({ icon: Icon, title, text }) => (
+              <div key={title} className="flex items-start gap-4 p-5 bg-gray-50 border border-gray-100 hover:border-red-200 hover:bg-red-50 transition-colors group">
+                <div className="w-10 h-10 flex-shrink-0 flex items-center justify-center bg-white border border-gray-200 group-hover:border-red-300 group-hover:bg-red-600 transition-colors mt-0.5">
                   <Icon className="h-4 w-4 text-gray-500 group-hover:text-white transition-colors" />
                 </div>
-                <span className="text-sm font-medium text-gray-700">{text}</span>
+                <div>
+                  <p className="text-sm font-bold text-gray-900 mb-1">{title}</p>
+                  <p className="text-xs text-gray-500 leading-relaxed">{text}</p>
+                </div>
               </div>
             ))}
           </div>
