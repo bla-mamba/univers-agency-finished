@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect} from'react';
 import { Link, useNavigate, useLocation} from'react-router-dom';
 import { LogOut, ChevronDown, User, Calendar, Heart, Settings} from'lucide-react';
+
 import { useAuth} from'../contexts/AuthContext';
 import { useCategories, resolveIcon} from'../contexts/CategoriesContext';
 
@@ -159,12 +160,13 @@ export default function Navbar() {
  className="flex items-center gap-2 pl-3 pr-2 py-2 border border-gray-200 hover:border-gray-300 hover:bg-gray-50 transition"
  >
  <div className="w-7 h-7 bg-gradient-to-br from-red-400 to-red-600 flex items-center justify-center text-white text-xs font-bold">
- {profile?.full_name?.charAt(0)?.toUpperCase() || user.email?.charAt(0)?.toUpperCase() ||'U'}
+ {profile?.full_name?.charAt(0)?.toUpperCase() || user.email?.charAt(0)?.toUpperCase() || 'U'}
  </div>
+ <User className="h-4 w-4 text-gray-400" />
  <span className="text-sm font-medium text-gray-700 max-w-[100px] truncate">
- {profile?.full_name?.split('')[0] ||'Account'}
+ {profile?.full_name?.split(' ')[0] || 'Account'}
  </span>
- <ChevronDown className={`h-4 w-4 text-gray-400 transition-transform ${userMenuOpen ?'rotate-180' :''}`} />
+ <ChevronDown className={`h-4 w-4 text-gray-400 transition-transform ${userMenuOpen ? 'rotate-180' : ''}`} />
  </button>
 
  {userMenuOpen && (
