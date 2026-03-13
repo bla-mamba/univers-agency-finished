@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Edit, Save, X, Image, Video, Eye } from 'lucide-react';
+import { CreditCard as Edit, Save, X, Image, Video, Eye } from 'lucide-react';
 import { supabase } from '../../lib/supabase';
 
 interface HeroMedia {
