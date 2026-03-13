@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { supabase } from '../../lib/supabase';
-import { Plus, Edit, Trash2, Upload, Link, X, ImageIcon, Package, Video } from 'lucide-react';
+import { Plus, CreditCard as Edit, Trash2, Upload, Link, X, Image as ImageIcon, Package, Video } from 'lucide-react';
 
 interface Destination {
   id: string;
