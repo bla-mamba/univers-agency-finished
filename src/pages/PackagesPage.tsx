@@ -2,7 +2,7 @@ import { useState, useEffect, useMemo, useRef, useCallback } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import {
   MapPin, Calendar, Star, Search, SlidersHorizontal, X,
-  ChevronDown, BarChart2, Shield, Clock, Users, ChevronRight, Phone,
+  ChevronDown, BarChart2, Users, ChevronRight,
   Waves, Landmark, Map, Compass, Mountain, HeartHandshake, Sparkles,
   ChevronLeft
 } from 'lucide-react';
