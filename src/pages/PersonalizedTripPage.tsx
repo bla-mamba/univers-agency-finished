@@ -2,17 +2,16 @@ import { useState } from 'react';
 import { useAuth } from '../contexts/AuthContext';
 import { supabase } from '../lib/supabase';
 import {
-  Car, Hotel, Compass, Sparkles, Leaf, Music,
+  Car, Hotel, Compass, Sparkles, Leaf,
   CheckCircle, ChevronDown, ChevronUp, Users, MapPin, Calendar, Clock,
   DollarSign, Plane, Send
 } from 'lucide-react';
 
 const SERVICES = [
-  { icon: Car, title: 'Private Transfers', text: 'Private car, limousine, bus, and plane programs tailored to your schedule and group size.' },
-  { icon: Hotel, title: 'Accommodation', text: 'Hotels and private accommodations selected to match your comfort level and budget.' },
-  { icon: Compass, title: 'Tours & Excursions', text: 'Custom tours and day excursions designed just for you — cultural, historical, and thematic itineraries.' },
-  { icon: Leaf, title: 'Nature & Active Trips', text: 'Outdoor adventures including hiking, rafting, and bike tours across stunning Balkan landscapes.' },
-  { icon: Music, title: 'Special Experiences', text: 'Concert, theater, and restaurant reservations alongside special interest and event-based programs.' },
+  { icon: Car, title: 'Transport & Transfers', text: 'Private cars, limousines, bus, and plane programs — seamless travel between every destination on your itinerary.' },
+  { icon: Hotel, title: 'Stays & Accommodations', text: 'Curated hotels, private villas, and boutique accommodations handpicked to suit your style and budget.' },
+  { icon: Compass, title: 'Tours & Cultural Experiences', text: 'Custom-designed tours, cultural day excursions, thematic and special interest programs tailored entirely around you.' },
+  { icon: Leaf, title: 'Adventure, Nature & Events', text: 'Hiking, rafting, and cycling trips through the Balkans, plus concert, theater, and restaurant reservations for unforgettable evenings.' },
 ];
 
 const INTERESTS = [
