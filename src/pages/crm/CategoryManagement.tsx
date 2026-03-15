@@ -93,7 +93,7 @@ export default function CategoryManagement() {
  };
 
  const handleDelete = async (id: string) => {
- if (!confirm('Are you sure you want to delete this category?')) return;
+ if (!confirm('Jeni i sigurt që doni ta fshini këtë kategori?')) return;
  try {
  const { error } = await supabase.from('categories').delete().eq('id', id);
  if (error) throw error;
@@ -125,15 +125,15 @@ export default function CategoryManagement() {
  <div className="p-8">
  <div className="flex justify-between items-center mb-8">
  <div>
- <h1 className="text-3xl font-bold text-gray-900">Category Management</h1>
- <p className="text-gray-600 mt-2">Changes instantly update the navbar dropdown and package filter tabs</p>
+ <h1 className="text-3xl font-bold text-gray-900">Menaxhimi i Kategorive</h1>
+ <p className="text-gray-600 mt-2">Ndryshimet përditësojnë menjëherë menunë e navigimit dhe skedat e filtrit të paketave</p>
  </div>
  <button
  onClick={() => { resetForm(); setShowModal(true); }}
  className="bg-red-600 text-white px-4 py-2 hover:bg-red-700 transition flex items-center"
  >
  <Plus className="h-5 w-5 mr-2" />
- Add Category
+ Shto Kategori
  </button>
  </div>
 
@@ -141,7 +141,7 @@ export default function CategoryManagement() {
  <table className="w-full">
  <thead className="bg-gray-50">
  <tr>
- {['Order', 'Icon', 'Name', 'Slug', 'Description', 'Packages', 'Actions'].map((h) => (
+ {['Rendi', 'Ikona', 'Emri', 'Slug', 'Përshkrimi', 'Paketa', 'Veprimet'].map((h) => (
  <th key={h} className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
  {h}
  </th>
@@ -188,7 +188,7 @@ export default function CategoryManagement() {
  </tbody>
  </table>
  {categories.length === 0 && (
- <div className="text-center py-12 text-gray-500">No categories yet.</div>
+ <div className="text-center py-12 text-gray-500">Nuk ka kategori ende.</div>
  )}
  </div>
 
@@ -197,11 +197,11 @@ export default function CategoryManagement() {
  <div className="bg-white max-w-lg w-full max-h-[90vh] overflow-y-auto">
  <div className="p-6">
  <h2 className="text-2xl font-bold mb-4">
- {editingCategory ? 'Edit Category' : 'Add New Category'}
+ {editingCategory ? 'Ndrysho Kategorinë' : 'Shto Kategori të Re'}
  </h2>
  <form onSubmit={handleSubmit} className="space-y-4">
  <div>
- <label className="block text-sm font-medium text-gray-700 mb-1">Name</label>
+ <label className="block text-sm font-medium text-gray-700 mb-1">Emri</label>
  <input
  type="text"
  required
@@ -227,12 +227,12 @@ export default function CategoryManagement() {
  onChange={(e) => setFormData({ ...formData, slug: e.target.value })}
  className="w-full px-3 py-2 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-500"
  />
- <p className="text-xs text-gray-400 mt-1">Used in URLs and navbar dropdown links</p>
+ <p className="text-xs text-gray-400 mt-1">Përdoret në URL dhe lidhjet e menusë</p>
  </div>
 
  <div className="grid grid-cols-2 gap-4">
  <div>
- <label className="block text-sm font-medium text-gray-700 mb-1">Sort Order</label>
+ <label className="block text-sm font-medium text-gray-700 mb-1">Rendi i Renditjes</label>
  <input
  type="number"
  value={formData.sort_order}
@@ -240,10 +240,10 @@ export default function CategoryManagement() {
  min="1"
  className="w-full px-3 py-2 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-500"
  />
- <p className="text-xs text-gray-400 mt-1">Lower = appears first</p>
+ <p className="text-xs text-gray-400 mt-1">Numri më i vogël shfaqet i pari</p>
  </div>
  <div>
- <label className="block text-sm font-medium text-gray-700 mb-1">Icon</label>
+ <label className="block text-sm font-medium text-gray-700 mb-1">Ikona</label>
  <div className="flex items-center gap-2">
  <div className="w-9 h-9 border border-gray-200 bg-gray-50 flex items-center justify-center flex-shrink-0">
  {SelectedIcon ? (
@@ -270,7 +270,7 @@ export default function CategoryManagement() {
  </div>
 
  <div>
- <label className="block text-sm font-medium text-gray-700 mb-2">Icon Picker</label>
+ <label className="block text-sm font-medium text-gray-700 mb-2">Zgjidhni Ikonën</label>
  <div className="grid grid-cols-6 gap-2 p-3 border border-gray-200 bg-gray-50 max-h-40 overflow-y-auto">
  {AVAILABLE_ICONS.map((name) => {
  const Ic = resolveIcon(name);
@@ -296,7 +296,7 @@ export default function CategoryManagement() {
  </div>
 
  <div>
- <label className="block text-sm font-medium text-gray-700 mb-1">Description</label>
+ <label className="block text-sm font-medium text-gray-700 mb-1">Përshkrimi</label>
  <textarea
  value={formData.description}
  onChange={(e) => setFormData({ ...formData, description: e.target.value })}
@@ -311,13 +311,13 @@ export default function CategoryManagement() {
  onClick={() => { setShowModal(false); resetForm(); }}
  className="px-4 py-2 border border-gray-300 text-gray-700 hover:bg-gray-50"
  >
- Cancel
+ Anulo
  </button>
  <button
  type="submit"
  className="px-4 py-2 bg-red-600 text-white hover:bg-red-700"
  >
- {editingCategory ? 'Update' : 'Create'}
+ {editingCategory ? 'Përditëso' : 'Krijo'}
  </button>
  </div>
  </form>
