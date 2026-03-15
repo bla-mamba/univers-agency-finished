@@ -44,7 +44,7 @@ const whyChooseUs = [
 },
  {
  icon: ShieldCheck,
- title:'End-to-end coordination and on-trip support',
+ title:'Koordinim i plotë dhe mbështetje gjatë udhëtimit',
  description:
 'We manage every component — flights, transfers, accommodation, guides — and remain reachable throughout your trip. If something changes, you speak to someone who knows your booking.',
 },
