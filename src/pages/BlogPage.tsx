@@ -141,7 +141,7 @@ export default function BlogPage() {
  ) : filtered.length === 0 ? (
  <div className="text-center py-20 bg-white border border-gray-200">
  <BookOpen className="h-8 w-8 mx-auto mb-4 text-gray-300" />
- <h3 className="text-base font-bold text-gray-800 mb-1">No articles found</h3>
+ <h3 className="text-base font-bold text-gray-800 mb-1">Nuk u gjetën artikuj</h3>
  <p className="text-sm text-gray-400 max-w-sm mx-auto">
  {posts.length === 0
  ?'Our editorial team is preparing content. Check back soon.'
