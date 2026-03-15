@@ -42,7 +42,7 @@ const OFFER_POLICY = [
 },
  {
  icon: CheckCircle2,
- title:'Price Lock',
+ title:'Fiksimi i cmimit',
  body:'Once your deposit is received, the offered rate is locked for the confirmed travel dates. No further adjustments apply.',
 },
 ];
