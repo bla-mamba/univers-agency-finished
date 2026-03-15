@@ -641,7 +641,7 @@ export default function HomePage() {
  <p className="text-xs font-bold uppercase tracking-[0.3em] text-red-600 mb-4">Procesi Ynë</p>
  <h2 className="text-4xl md:text-5xl font-bold text-gray-950 mb-3">Nga Ideja deri te Udhëtimi</h2>
  <p className="text-gray-500 max-w-2xl text-sm leading-relaxed">
- E mbajmë të thjeshtë. Komunikim i qartë, furnizues të besuar dhe dikush përgjegjës nga biseda e parë deri sa të ktheheni.
+  Procesi është i thjeshtë: komunikim i qartë, partnerë të besuar dhe një person përgjegjës që ju ndjek nga biseda e parë deri sa të ktheheni nga udhëtimi.
  </p>
  </div>
  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-0 border border-gray-200">
