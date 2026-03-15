@@ -23,7 +23,7 @@ interface Offer {
 }
 
 const OFFER_CONDITIONS = [
-'All advertised rates are per-person based on double occupancy. Single supplement applies where stated in the package terms.',
+'Të gjitha çmimet e publikuara janë për person dhe bazohen në akomodim për dy persona në një dhomë. Shtesa për akomodim tek aplikohet aty ku është e specifikuar në kushtet e paketës.',
 'Discount is applied to the base package price only and does not extend to optional add-ons, flight upgrades, or travel insurance.',
 'Rates are confirmed at the time of deposit. Price lock applies only once a deposit has been received and processed.',
 'Offers are capacity-limited. Availability is not guaranteed until booking is confirmed in writing by our operations team.',
@@ -103,9 +103,9 @@ export default function OffersPage() {
  <div className="absolute inset-0" style={{ backgroundColor:`rgba(0,0,0,${hero.overlay_opacity})`}} />
  <div className="relative max-w-7xl mx-auto px-6 lg:px-8 h-full flex flex-col justify-end pb-14">
  <p className="text-xs font-semibold uppercase tracking-[0.35em] text-amber-400 mb-4">Oferta aktive</p>
- <h1 className="text-5xl md:text-6xl font-bold text-white mb-4 leading-tight tracking-tight">Active Offers</h1>
+ <h1 className="text-5xl md:text-6xl font-bold text-white mb-4 leading-tight tracking-tight">Ofertat aktive</h1>
  <p className="text-white/60 max-w-xl leading-relaxed text-base font-light">
- Scheduled pricing adjustments on select programs. All offers are capacity-limited, subject to availability at time of booking, and governed by the terms outlined below.
+Zbritje të përkohshme në disa paketa të përzgjedhura. Ofertat janë të kufizuara dhe varen nga disponueshmëria në momentin e rezervimit.
  </p>
  </div>
  </section>
@@ -116,7 +116,7 @@ export default function OffersPage() {
  <div className="flex items-start gap-3">
  <AlertCircle className="h-4 w-4 text-amber-600 flex-shrink-0 mt-0.5" />
  <p className="text-xs text-amber-800 leading-relaxed">
- <span className="font-semibold">Important:</span> All offers are valid for new bookings only, subject to availability, and cannot be combined with other promotions or negotiated rates. Review full terms before booking.
+ <span className="font-semibold">E rëndësishme:</span> Ofertat vlejnë vetëm për rezervime të reja dhe varen nga disponueshmëria. Nuk mund të kombinohen me oferta ose zbritje të tjera.
  </p>
  </div>
  </div>
@@ -127,7 +127,7 @@ export default function OffersPage() {
  {/* HEADER ROW */}
  <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-10 pb-6 border-b border-gray-200">
  <div>
- <h2 className="text-2xl font-bold text-gray-900 tracking-tight">Published Offers</h2>
+ <h2 className="text-2xl font-bold text-gray-900 tracking-tight">Ofertat e publikuara</h2>
  <p className="text-sm text-gray-500 mt-1">
  {loading ?'Loading…' :`${offers.length} active offer${offers.length !== 1 ?'s' :''} as of today`}
  </p>
@@ -136,7 +136,7 @@ export default function OffersPage() {
  to="/packages"
  className="inline-flex items-center gap-2 text-sm font-semibold text-gray-600 hover:text-red-600 transition uppercase tracking-wide"
  >
- View full package catalog <ArrowRight className="h-4 w-4" />
+Shiko të gjitha paketat <ArrowRight className="h-4 w-4" />
  </Link>
  </div>
 
@@ -147,15 +147,15 @@ export default function OffersPage() {
  ) : offers.length === 0 ? (
  <div className="text-center py-20 bg-white border border-gray-200">
  <Tag className="h-8 w-8 mx-auto mb-4 text-gray-300" />
- <h3 className="text-base font-bold text-gray-800 mb-1">No active offers at this time</h3>
+ <h3 className="text-base font-bold text-gray-800 mb-1">Nuk ka oferta aktive për momentin</h3>
  <p className="text-sm text-gray-400 mb-6 max-w-sm mx-auto">
- Our pricing team reviews and publishes offers on a rolling basis. Check back periodically or contact us for negotiated rates on group bookings.
+Ofertat përditësohen rregullisht. Kontrolloni përsëri së shpejti ose na kontaktoni për çmime të veçanta për grupe.
  </p>
  <Link
  to="/packages"
  className="inline-flex items-center gap-2 bg-gray-900 text-white px-5 py-3 text-sm font-semibold hover:bg-red-600 transition uppercase tracking-wide"
  >
- Browse All Packages <ArrowRight className="h-4 w-4" />
+Shiko të gjitha paketat <ArrowRight className="h-4 w-4" />
  </Link>
  </div>
  ) : (
@@ -215,17 +215,17 @@ export default function OffersPage() {
  {/* PACKAGE REF */}
  {pkg && (
  <div className="bg-gray-50 border border-gray-200 p-4 mb-5">
- <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">Applies To</p>
+ <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">Vlen për paketën</p>
  <p className="text-sm font-semibold text-gray-800 mb-2">{pkg.title}</p>
  <div className="flex items-center gap-4 text-xs text-gray-500">
  <span className="flex items-center gap-1">
  <Clock className="h-3 w-3 text-gray-400" />
- {pkg.duration_days}-day program
+ {pkg.duration_days}-ditë
  </span>
  {offer.valid_until && (
  <span className="flex items-center gap-1">
  <Calendar className="h-3 w-3 text-gray-400" />
- Expires {new Date(offer.valid_until).toLocaleDateString('en-GB', { day:'numeric', month:'short', year:'numeric'})}
+ Skadon {new Date(offer.valid_until).toLocaleDateString('en-GB', { day:'numeric', month:'short', year:'numeric'})}
  </span>
  )}
  </div>
@@ -238,7 +238,7 @@ export default function OffersPage() {
  {salePrice && pkg ? (
  <>
  <p className="text-xs text-gray-400 mb-0.5 line-through">
- From €{Number(pkg.price).toLocaleString()} / person
+Nga €{Number(pkg.price).toLocaleString()} / person
  </p>
  <p className="text-2xl font-bold text-gray-900">
  ${Math.round(salePrice).toLocaleString()}
@@ -246,12 +246,12 @@ export default function OffersPage() {
  </p>
  {saving && (
  <p className="text-xs text-green-700 font-semibold mt-1 uppercase tracking-wide">
- Save ${Math.round(saving).toLocaleString()} per person
+ Kurseni ${Math.round(saving).toLocaleString()} per person
  </p>
  )}
  </>
  ) : (
- <p className="text-sm text-gray-400">Contact for pricing</p>
+ <p className="text-sm text-gray-400">Na kontaktoni për çmimin</p>
  )}
  </div>
  {pkg && (
@@ -259,7 +259,7 @@ export default function OffersPage() {
  to={`/packages/${pkg.slug}`}
  className="inline-flex items-center gap-2 bg-gray-900 hover:bg-red-600 text-white px-5 py-2.5 text-sm font-semibold transition uppercase tracking-wide"
  >
- View Program <ArrowRight className="h-4 w-4" />
+ Shiko paketën<ArrowRight className="h-4 w-4" />
  </Link>
  )}
  </div>
@@ -277,12 +277,12 @@ export default function OffersPage() {
  <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
 
  <div>
- <p className="text-xs font-semibold uppercase tracking-[0.35em] text-red-600 mb-4">Offer Conditions</p>
+ <p className="text-xs font-semibold uppercase tracking-[0.35em] text-red-600 mb-4">Kushtet e Ofertës</p>
  <h2 className="text-3xl font-bold text-gray-900 mb-5 leading-tight tracking-tight">
- Terms that apply to all published offers
+Kushtet që vlejnë për të gjitha ofertat
  </h2>
  <p className="text-gray-500 text-sm leading-relaxed mb-6">
- All rate adjustments listed on this page are subject to the following standard conditions. These terms are non-negotiable and apply to every offer regardless of booking channel or intermediary.
+ Të gjitha ofertat në këtë faqe janë subjekt i kushteve të mëposhtme standarde dhe vlejnë për çdo rezervim.
  </p>
  <ul className="space-y-3">
  {OFFER_CONDITIONS.map((condition, i) => (
@@ -310,15 +310,15 @@ export default function OffersPage() {
  ))}
 
  <div className="p-6 bg-gray-950 border-t border-gray-200">
- <p className="text-xs font-bold uppercase tracking-[0.3em] text-amber-400 mb-3">Questions About an Offer?</p>
+ <p className="text-xs font-bold uppercase tracking-[0.3em] text-amber-400 mb-3">Keni pyetje për një ofertë?</p>
  <p className="text-sm text-white/50 leading-relaxed mb-5">
- If you need clarification on any offer terms or want to confirm availability before committing to a booking, contact our operations desk directly.
+ Nëse keni nevojë për sqarime mbi kushtet e ofertës ose doni të konfirmoni disponueshmërinë, na kontaktoni menjehere.
  </p>
  <Link
  to="/contact"
  className="inline-flex items-center gap-2 text-white bg-red-600 hover:bg-red-700 px-5 py-3 text-sm font-semibold transition uppercase tracking-wide"
  >
- Contact Operations <ArrowRight className="h-4 w-4" />
+ Na kontaktoni <ArrowRight className="h-4 w-4" />
  </Link>
  </div>
  </div>
