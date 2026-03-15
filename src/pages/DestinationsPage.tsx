@@ -74,8 +74,8 @@ export default function DestinationsPage() {
  <p className="text-xs font-semibold uppercase tracking-[0.35em] text-amber-400 mb-4">Ku Operojmë</p>
  <h1 className="text-5xl md:text-6xl font-bold text-white mb-4 leading-tight tracking-tight">Destinacionet</h1>
  <p className="text-white/60 max-w-xl leading-relaxed text-base font-light">
- Çdo destinacion që ofrojmë ka kaluar nëpër vlerësim të drejtpërdrejtë nga ekipi ynë — rrugët, furnizuesit, akomodimet dhe logjistika, të gjitha të verifikuara para se të përfshihen në portofolin tonë.
- </p>
+  Çdo destinacion që ofrojmë është parë dhe vlerësuar nga ekipi ynë. Hotelet, transporti dhe organizimi i udhëtimit verifikohen para se të përfshihen në ofertat tona.
+</p>
  </div>
  </div>
 
