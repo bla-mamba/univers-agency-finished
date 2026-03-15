@@ -780,7 +780,7 @@ export default function HomePage() {
   Keni pyetje? Jemi këtu për t’ju ndihmuar.
 </h2>
 <p className="text-gray-500 text-sm leading-relaxed mb-10">
-  Nuk ka nevojë të keni gjithçka të planifikuar. Na kontaktoni dhe e organizojmë bashkë – datat, destinacionin dhe çdo detaj tjetër të udhëtimit tuaj.
+   Nuk është e nevojshme të keni gjithçka të planifikuar. Na kontaktoni dhe e organizojmë bashkë – nga datat dhe destinacioni deri te çdo detaj i udhëtimit.
 </p>
  <div className="flex flex-col gap-3">
  <a
