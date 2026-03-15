@@ -264,7 +264,7 @@ Të fundit
 
  </h2>
  <p className="text-gray-500 text-sm leading-relaxed mb-4">
- All articles published in this journal are researched, written, and reviewed by our senior travel consultants and destination specialists. Content is based on direct field experience, verified third-party sources, and on-ground operator partnerships. We do not publish sponsored content without explicit disclosure.
+ Të gjithë artikujt e publikuar në këtë revistë janë hulumtuar, shkruar dhe rishikuar nga konsulentët tanë të lartë të udhëtimeve dhe specialistët e destinacioneve. Përmbajtja bazohet në përvojë direkte nga terreni, burime të verifikuara nga palë të treta dhe partneritete me operatorë lokalë. Nuk publikojmë përmbajtje të sponsorizuar pa zbardhje të qartë.
  </p>
  <p className="text-gray-500 text-sm leading-relaxed">
  Destination conditions, entry requirements, and operational details change frequently. While we update our content regularly, readers are advised to verify time-sensitive information directly with the relevant embassy, airline, or service provider before travel.
