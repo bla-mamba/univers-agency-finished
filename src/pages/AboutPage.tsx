@@ -92,7 +92,7 @@ export default function AboutPage() {
  <p className="text-xs font-semibold uppercase tracking-[0.35em] text-amber-400 mb-4">Tirana, Albania — Est. 2009</p>
  <h1 className="text-5xl md:text-6xl font-bold text-white mb-4 leading-tight tracking-tight">About Univers</h1>
  <p className="text-white/60 max-w-xl leading-relaxed text-base font-light">
- A full-service travel agency with fifteen years of operational experience across the Balkans, Mediterranean, and beyond.
+  Jemi një agjenci udhëtimesh me shërbim të plotë, me mbi pesëmbëdhjetë vjet eksperiencë në krijimin e udhëtimeve të qeta në Ballkan, Mesdhe dhe më gjerë.
  </p>
  </div>
  </div>
