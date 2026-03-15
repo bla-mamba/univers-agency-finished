@@ -267,7 +267,7 @@ Të fundit
  Të gjithë artikujt e publikuar në këtë revistë janë hulumtuar, shkruar dhe rishikuar nga konsulentët tanë të lartë të udhëtimeve dhe specialistët e destinacioneve. Përmbajtja bazohet në përvojë direkte nga terreni, burime të verifikuara nga palë të treta dhe partneritete me operatorë lokalë. Nuk publikojmë përmbajtje të sponsorizuar pa zbardhje të qartë.
  </p>
  <p className="text-gray-500 text-sm leading-relaxed">
- Destination conditions, entry requirements, and operational details change frequently. While we update our content regularly, readers are advised to verify time-sensitive information directly with the relevant embassy, airline, or service provider before travel.
+Kushtet e destinacionit, kërkesat për hyrje dhe detajet operative ndryshojnë shpesh. Edhe pse përmbajtja jonë përditësohet rregullisht, lexuesve u rekomandohet të verifikojnë informacionin e ndjeshëm ndaj kohës direkt me ambasadën, linjën ajrore ose ofruesin e shërbimit përpara udhëtimit.
  </p>
  </div>
 
