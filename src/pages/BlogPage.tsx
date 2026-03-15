@@ -273,7 +273,7 @@ Kushtet e destinacionit, kërkesat për hyrje dhe detajet operative ndryshojnë 
 
  <div className="border border-gray-200">
  {[
- { label:'Shkruar nga', value:'Senior travel consultants with field experience'},
+ { label:'Shkruar nga', value:'Konsulentë të lartë udhëtimesh me përvojë nga terreni'},
  { label:'Reviewed by', value:'Destination specialists and operations managers'},
  { label:'Update frequency', value:'Content reviewed on a rolling basis'},
  { label:'Sponsored content', value:'Disclosed explicitly. Most content is independent.'},
