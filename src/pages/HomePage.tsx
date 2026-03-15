@@ -807,7 +807,7 @@ export default function HomePage() {
  to="/contact"
  className="flex items-center justify-center gap-2 bg-red-600 hover:bg-red-700 text-white px-6 py-4 font-bold text-sm transition uppercase tracking-wider"
  >
- Na Shkruani <ChevronRight className="h-4 w-4" />
+ Na Kontaktoni <ChevronRight className="h-4 w-4" />
  </Link>
  </div>
  </div>
