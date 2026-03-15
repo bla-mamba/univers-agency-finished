@@ -166,7 +166,7 @@ export default function BlogPage() {
  <div className="absolute inset-0 bg-gradient-to-r from-transparent to-black/10" />
  <div className="absolute top-4 left-4">
  <span className="bg-gray-900 text-white text-xs px-3 py-1.5 font-bold uppercase tracking-wider">
- Latest
+Të fundit
  </span>
  </div>
  </div>
