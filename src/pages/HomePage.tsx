@@ -695,9 +695,9 @@ export default function HomePage() {
  <div className="max-w-7xl mx-auto px-6 lg:px-8 w-full">
  <div className="max-w-2xl">
  <p className="text-xs font-bold uppercase tracking-[0.35em] text-amber-400 mb-6">Udhëtime Korporatash & Grupesh</p>
- <h2 className="text-5xl md:text-6xl font-bold text-white leading-tight mb-6 tracking-tight">
- Keni grup? Organizojmë gjithçka, nga A tek ZH.
- </h2>
+<h2 className="text-5xl md:text-6xl font-bold text-white leading-tight mb-6 tracking-tight">
+  Po udhëtoni në grup? Ne organizojmë gjithçka për ju.
+</h2>
  <div className="w-10 h-0.5 bg-amber-400 mb-8" />
  <Link
  to="/contact"
