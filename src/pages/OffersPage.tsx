@@ -26,7 +26,7 @@ const OFFER_CONDITIONS = [
 'Të gjitha çmimet e publikuara janë për person dhe bazohen në akomodim për dy persona në një dhomë. Shtesa për akomodim tek aplikohet aty ku është e specifikuar në kushtet e paketës.',
 'Zbritja aplikohet vetëm mbi çmimin bazë të paketës dhe nuk përfshin shërbimet shtesë opsionale, përmirësimet e fluturimit apo sigurimin e udhëtimit.',
 'Çmimet konfirmohen në momentin e pagesës së depozitës. Fiksimi i çmimit aplikohet vetëm pasi depozita të jetë marrë dhe përpunuar.',
-'Offers are capacity-limited. Availability is not guaranteed until booking is confirmed in writing by our operations team.',
+'Ofertat janë të kufizuara sipas kapacitetit. Disponueshmëria nuk garantohet derisa rezervimi të konfirmohet me shkrim nga ekipi ynë i operacioneve.',
 ];
 
 const OFFER_POLICY = [
