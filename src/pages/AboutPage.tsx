@@ -124,7 +124,7 @@ export default function AboutPage() {
  <div className="absolute inset-0 bg-black/25" />
  </div>
  <div className="px-10 lg:px-16 py-20 flex flex-col justify-center bg-white">
- <p className="text-xs font-semibold uppercase tracking-[0.35em] text-red-600 mb-5">Our Story</p>
+ <p className="text-xs font-semibold uppercase tracking-[0.35em] text-red-600 mb-5">Historia jonë</p>
  <h2 className="text-4xl font-bold text-gray-950 mb-6 leading-tight tracking-tight">
  Built on operational experience, not marketing copy.
  </h2>
