@@ -30,8 +30,8 @@ interface SearchSuggestion {
 }
 
 const STATS = [
- { value:'15+', label:'Vite Eksperiencë', icon: Clock},
- { value:'12,000+', label:'Klientë të Shërbyer', icon: Users},
+ { value:'15+', label:'Vjet në Treg', icon: Clock},
+ { value:'12,000+', label:'Udhëtarë të Shërbyer', icon: Users},
  { value:'60+', label:'Destinacione', icon: Globe},
  { value:'98%', label:'Klientë të Kënaqur', icon: TrendingUp},
 ];
@@ -39,23 +39,23 @@ const STATS = [
 const PROCESS_STEPS = [
  {
  step:'01',
- title:'Konsultimi Fillestar',
- desc:'Fillojmë me një bisedë — ku doni të shkoni, kur, dhe sa persona jeni. Duke i qartësuar detajet që në fillim, kursejmë kohë për të gjithë.',
+ title:'Na Tregoni Çfarë Doni',
+ desc:'Fillojmë me një bisedë të thjeshtë — ku doni të shkoni, kur, dhe sa jeni. Nuk keni nevojë të keni gjithçka gati; e ndërtojmë bashkë.',
 },
  {
  step:'02',
- title:'Itinerari i Personalizuar',
- desc:'Pregaditim një propozim të detajuar me hotele që i njohim, transport që operojmë ose i besojmë, dhe një program të ndërtuar rreth grupit tuaj — jo një shabllon i gatshëm.',
+ title:'Marrim një Plan për Ju',
+ desc:'Ju dërgojmë një propozim konkret me hotele, transport dhe program ditor — të ndërtuar rreth jush, jo kopje e ndonjë shablloni standard.',
 },
  {
  step:'03',
- title:'Menaxhimi i Plotë i Rezervimit',
- desc:'Fluturimet, akomodimi, transferet, guidat lokale — ne koordinojmë gjithçka dhe ju japim një konfirmim të qartë rezervimi. Pa nevojë të vraponi pas shumë furnizuesve.',
+ title:'Ne Kujdesemi për Gjithçka',
+ desc:'Fluturimet, hotelet, transferet, guidat — i koordinojmë ne. Ju merrni konfirmimin e plotë me shkrim dhe nuk keni nevojë të nxitoni pas askujt.',
 },
  {
  step:'04',
- title:'Mbështetje Gjatë Gjithë Udhëtimit',
- desc:'Nëse ndryshon diçka gjatë udhëtimit, ju keni një person kontakti që e njeh rezervimin tuaj nga fillimi deri në fund. Jemi në dispozicion gjatë gjithë kohëzgjatjes.',
+ title:'Jemi Aty Gjatë Udhëtimit',
+ desc:'Nëse ndodh ndonjë gjë në rrugë, keni dikë real në telefon që e njeh rezervimin tuaj. Jo një qendër thirrjesh — personi juaj i kontaktit.',
 },
 ];
 
@@ -63,19 +63,19 @@ const EXPERTISE_REGIONS = [
  {
  region:'Ballkani',
  countries:'Shqipëri · Mal i Zi · Maqedonia e Veriut · Kosovë · Bosnjë',
- description:'Zona jonë kryesore e operimit. Zotërojmë transportin tokësor, inspektojmë çdo pronë që rekomandojmë, dhe kemi marrëdhënie direkte me partnerët lokalë në të gjithë rajonin.',
+ description:'Kjo është zona ku njohim çdo rrugë. Kemi autobusat tanë, i kemi vizituar vetë hotelet dhe kemi kontakte direkte me partnerë lokalë në të gjithë rajonin.',
  image:'https://images.pexels.com/photos/3408744/pexels-photo-3408744.jpeg?auto=compress&cs=tinysrgb&w=1200',
 },
  {
  region:'Mesdhe',
  countries:'Greqi · Kroaci · Itali · Turqi · Maltë',
- description:'Bashkëpunojmë me partnerë lokalë të sprovuar në Kroaci, Greqi dhe Itali. Klientët marrin akomodim të verifikuar, çmime të ndershme dhe dikë në terren kur nevojitet.',
+ description:'Partnerë lokalë me përvojë në Kroaci, Greqi dhe Itali. Akomodim i verifikuar, çmime të qarta dhe dikë që mund ta thërrasim nëse lind ndonjë problem.',
  image:'https://images.pexels.com/photos/1285625/pexels-photo-1285625.jpeg?auto=compress&cs=tinysrgb&w=1200',
 },
  {
  region:'Botëror',
  countries:'Azi · Amerikë · Afrikë · Lindja e Mesme',
- description:'Të akredituar nga IATA për biletat ndërkombëtare, me agjenci partnere në çdo rajon të madh. E njëjta standart shërbimi dhe kujdes, pavarësisht destinacionit.',
+ description:'Akreditim të plotë IATA për bileta ndërkombëtare dhe agjenci partnere në çdo kontinent. E njëjta kujdes dhe transparencë, pavarësisht sa larg shkoni.',
  image:'https://images.pexels.com/photos/2108845/pexels-photo-2108845.jpeg?auto=compress&cs=tinysrgb&w=1200',
 },
 ];
@@ -84,19 +84,19 @@ const TESTIMONIALS = [
  {
  name:'Arben Hoxha',
  role:'CEO, Hoxha Consulting Group',
- text:'Udhëtuam 45 persona në Mal të Zi dhe Shqipëri për një ngjarje kompanie. Logjistika ishte pa të meta — autobusat në kohë, hotelet pikërisht si u përshkruan, dhe asgjë nuk shkoi keq gjatë gjithë udhëtimit.',
+ text:'Shkuam 45 persona në Mal të Zi dhe Shqipëri për një ngjarje kompanie. Autobusat ishin në kohë, hotelet ishin saktësisht si u premtuan, dhe gjatë gjithë udhëtimit nuk pati asnjë problem. Organizim i jashtëzakonshëm.',
  rating: 5,
 },
  {
  name:'Mirela Basha',
- role:'Udhëtim Mjalte, Mesdhe',
- text:'Hotelet ishin të shkëlqyera, guidat dinin çfarë bënin, dhe kur trageti vonoi ata e zgjidhën para se ne të pyesnim. Gjithçka u trajtua me profesionalizëm nga fillimi deri në fund.',
+ role:'Muaj Mjalti, Mesdhe',
+ text:'Hotelet ishin fantastike dhe guidat i dinin gjërat. Kur trageti vonoi, Univers e zgjidhi situatën para se ne të kishim mundësi të shqetësoheshim. Ndihesh mirë kur ke dikë që kujdeset vërtet.',
  rating: 5,
 },
  {
  name:'Dritan Kola',
  role:'Drejtor, Kryqi i Kuq Shqiptar',
- text:'Rezervojmë nëpërmjet Univers prej katër vjetësh. E njohin mirë rajonin, çmimet janë transparente, dhe mbështetja nuk ndalet sapo konfirmohet rezervimi. Kjo qëndrueshmëri ka rëndësi kur menaxhon udhëtime institucionale.',
+ text:'Punojmë me Univers prej katër vjetësh. Çmimet janë të qarta, njohin rajonin mirë, dhe nuk "zhduken" pas konfirmimit të rezervimit. Kjo besueshmëri ka vlerë kur menaxhon udhëtime për organizata.',
  rating: 5,
 },
 ];
@@ -104,26 +104,26 @@ const TESTIMONIALS = [
 const TRAVEL_TIPS = [
  {
  icon: FileCheck,
- title:'Kontrolloni Pasaportën Herët',
- desc:'Shumica e vendeve nuk lejojnë hyrje nëse pasaporta skadon brenda gjashtë muajve nga data e kthimit. Kontrollojeni me kohë — rinovimet vonojnë dhe shpejtimi kushton shtrenjtë.',
+ title:'Pasaporta — Kontrolloje Tani',
+ desc:'Shumë vende refuzojnë hyrjen nëse pasaporta skadon brenda 6 muajve nga data e kthimit. Rinovimet vonojnë. Mos e lini për minutën e fundit — i ka kushtuar shtrenjtë shumëve.',
  tag:'Dokumenta',
 },
  {
  icon: AlertTriangle,
- title:'Sigurimi i Udhëtimit Nuk Është Opsional',
- desc:'Evakuimi mjekësor nga një zonë e largët e Shqipërisë mund të kushtojë mbi 15.000€. Sigurimi i udhëtimit për të njëjtin trip kushton rreth 50€. E përfshijmë këtë në çdo itinerar që pregaditim.',
+ title:'Sigurimi i Udhëtimit — Merrete Gjithmonë',
+ desc:'Një evakuim mjekësor nga Shqipëria e largët mund të kushtojë 15,000€+. Sigurimi për të njëjtin trip kushton rreth 50€. E rekomandojmë dhe e përfshijmë në çdo itinerar.',
  tag:'Siguri',
 },
  {
  icon: Plane,
- title:'Vera Rezervohet Shpejt',
- desc:'Korriku dhe gushti në bregdetin shqiptar dhe malazez mbushen shpejt. Hotelet e mira janë plotësisht të rezervuara nga marsi. Nëse planifikoni udhëtim veror, na kontaktoni para majit.',
+ title:'Vera Mbushet Shpejt',
+ desc:'Korriku e gushti në bregdetin shqiptar dhe malazez rezervohen shumë herët. Hotelet e mira janë gati plotësisht të zëna nga marsi e tutje. Planifikoni para majit.',
  tag:'Planifikim',
 },
  {
  icon: Hotel,
- title:'Yjet e Hotelit Ndryshojnë Sipas Vendit',
- desc:'Një hotel me katër yje në Ballkan nuk është i njëjtë me njërin në Paris. Ne inspektojmë çdo pronë që përfshijmë në paketat tona, kështu që përshkrimi përputhet me atë që merrni.',
+ title:'Katër Yje — Nuk Janë Kudo Njëlloj',
+ desc:'Një hotel me 4 yje në Ballkan mund të ndryshojë shumë nga njëri në Europën Perëndimore. Ne i vizitojmë hotelet që përfshijmë, ndaj ajo që premtojmë — atë merrni.',
  tag:'Akomodim',
 },
 ];
@@ -131,23 +131,23 @@ const TRAVEL_TIPS = [
 const COMMITMENTS = [
  {
  icon: Shield,
- title:'I Akredituar nga IATA',
- desc:'Akreditimi i plotë IATA na lejon të lëshojmë bileta ajrore drejtpërdrejt. Klientët mbrohen sipas standardeve ndërkombëtare të aviacionit dhe rregulloreve të biletave.',
+ title:'Akreditim IATA',
+ desc:'Lëshojmë bileta ajrore drejtpërdrejt si agjenci e akredituar IATA. Kjo do të thotë mbrojtje e plotë për klientin sipas standardeve ndërkombëtare të aviacionit.',
 },
  {
  icon: Award,
- title:'I Çertifikuar TravelLife',
- desc:'TravelLife është një çertifikim i pavarur dhe i audituar për qëndrueshmëri. Praktikat tona rishikohen çdo vit — nuk është standard i vetëdeklaruar.',
+ title:'Çertifikim TravelLife',
+ desc:'TravelLife është çertifikim i pavarur dhe i audituar çdo vit për qëndrueshmëri. Nuk e vetëdeklarojmë — e provojmë.',
 },
  {
  icon: DollarSign,
- title:'Çmime Transparente',
- desc:'Çmimi i kuotuar është çmimi i faturuar. Të gjitha kostot specifikohen me shkrim para çdo angazhimi. Nuk ka tarifa shtesë pas konfirmimit.',
+ title:'Pa Surpriza në Çmim',
+ desc:'Çmimi që kuotojmë është çmimi që faturojmë. Çdo kosto specifikohet me shkrim para se të angazhoheni. Zero tarifa të fshehura pas konfirmimit.',
 },
  {
  icon: Leaf,
- title:'Operim me Përgjegjësi',
- desc:'Zgjedhim opsione transporti dhe partnerë lokalë që minimizojnë ndikimin mjedisor. Transport tokësor me emetim të ulët, operatorë të përgjegjshëm dhe reduktim të mbetjeve janë pjesë e mënyrës sonë të punës.',
+ title:'Turizëm me Përgjegjësi',
+ desc:'Preferojmë transport tokësor, partnerë lokalë dhe operatorë që kujdesen për mjedisin. Nuk është marketing — është mënyra jonë e punës.',
 },
 ];
 
@@ -343,10 +343,10 @@ export default function HomePage() {
  Tiranë, Shqipëri — Est. 2009
  </p>
  <h1 className="text-5xl md:text-7xl font-bold text-white leading-[1.0] tracking-tight mb-6 max-w-4xl">
- Udhëtime të planifikuara<br />me kujdes dhe saktësi.
+ Udhëtoni pa shqetësime.<br />Ne marrim kujdes.
  </h1>
  <p className="text-lg text-white/65 font-light max-w-2xl leading-relaxed">
- Individë, familje, grupe korporatash dhe institucione — organizojmë udhëtime në Ballkan, Mesdhe dhe më gjerë.
+ Familje, çifte, grupe kompanish dhe organizata — organizojmë udhëtime në të gjithë Ballkanin, Mesdheun dhe botën.
  </p>
  </div>
 
@@ -502,9 +502,9 @@ export default function HomePage() {
  <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-14 gap-4">
  <div>
  <p className="text-xs font-bold uppercase tracking-[0.3em] text-red-600 mb-4">Paketa Udhëtimi</p>
- <h2 className="text-4xl md:text-5xl font-bold text-gray-950 leading-tight">Paketat e Zgjedhura</h2>
+ <h2 className="text-4xl md:text-5xl font-bold text-gray-950 leading-tight">Udhëtimet Tona Kryesore</h2>
  <p className="text-gray-500 mt-3 max-w-lg text-base leading-relaxed">
- Një përzgjedhje e udhëtimeve tona më të kërkuara. Itinerarët e plota, çmimet dhe disponueshmëria janë listuar në faqen e çdo pakete.
+ Udhëtimet më të kërkuara nga klientët tanë. Çdo paketë ka itinerar të plotë, çmime të qarta dhe detaje akomodimi.
  </p>
  </div>
  <Link to="/packages" className="inline-flex items-center gap-2 text-sm font-bold text-red-600 hover:text-red-700 transition uppercase tracking-wider whitespace-nowrap border-b-2 border-red-600 pb-0.5">
@@ -555,13 +555,13 @@ export default function HomePage() {
  <div className="px-10 lg:px-16 py-20 flex flex-col justify-center">
  <p className="text-xs font-bold uppercase tracking-[0.3em] text-red-500 mb-6">Rreth Univers</p>
  <h2 className="text-4xl font-bold text-white leading-tight mb-7">
- Agjenci udhëtimi me shërbim të plotë, me bazë në Tiranë.
+ Agjenci udhëtimi me bazë në Tiranë — që nga viti 2009.
  </h2>
  <p className="text-gray-400 text-base leading-relaxed mb-5">
- Univers organizon udhëtime për individë, familje, grupe korporatash dhe institucione. Puna jonë përfshin pushime me paketë, biletat e fluturimeve, logjistikën e grupeve dhe itinerarë të personalizuar — të menaxhuara nga e njëjta ekip, nga kërkesa deri në kthim.
+ Organizojmë udhëtime për familje, çifte, grupe kompanish dhe institucione. Paketë turistike, bileta fluturimi, transport grupesh dhe itinerarë të bëra sipas masës — të gjitha nga e njëjta ekip, nga fillimi deri në fund.
  </p>
  <p className="text-gray-500 leading-relaxed mb-10 text-sm">
- Jemi të akredituar nga IATA dhe të çertifikuar TravelLife, me fokus kryesor në Ballkanin Perëndimor, Mesdhe dhe destinacione ndërkombëtare. Operojmë transportin tonë tokësor dhe mbajmë partneritete direkte me hotele dhe furnizues në të gjithë rajonin.
+ Kemi akreditim IATA dhe çertifikim TravelLife. Operojmë transportin tonë tokësor dhe kemi kontakte direkte me hotele dhe partnerë në Ballkan, Mesdhe dhe më gjerë.
  </p>
  <div className="flex flex-wrap gap-3">
  <Link to="/about" className="inline-flex items-center gap-2 bg-red-600 text-white px-7 py-3.5 hover:bg-red-700 transition font-semibold text-sm tracking-wide uppercase">
@@ -581,10 +581,10 @@ export default function HomePage() {
  <div className="max-w-7xl mx-auto px-6 lg:px-8">
  <div className="grid grid-cols-1 md:grid-cols-4 gap-0 divide-y md:divide-y-0 md:divide-x divide-red-500">
  {[
- { icon: CheckCircle, label:'Çmime Transparente', sub:'Të gjitha kostot konfirmohen me shkrim para pagesës. Pa tarifa shtesë pas konfirmimit.'},
- { icon: HeadphonesIcon, label:'Mbështetje e Dedikuar', sub:'Një person kontakti gjatë gjithë udhëtimit tuaj. Na kontaktoni direkt me telefon, jo një qendër thirrjesh.'},
- { icon: Shield, label:'I Akredituar nga IATA', sub:'Lëshojmë bileta drejtpërdrejt sipas standardeve ndërkombëtare të aviacionit dhe rregulloreve të biletave.'},
- { icon: Leaf, label:'I Çertifikuar TravelLife', sub:'Çertifikim i pavarur dhe i audituar për qëndrueshmëri. Rishikohet çdo vit, jo i vetëdeklaruar.'},
+ { icon: CheckCircle, label:'Çmime pa Surpriza', sub:'Çdo kosto konfirmohet me shkrim para se të paguani. Nuk ka asnjë tarifë shtesë që shfaqet pas konfirmimit.'},
+ { icon: HeadphonesIcon, label:'Person Real në Telefon', sub:'Keni dikë që e njeh rezervimin tuaj — jo një qendër thirrjesh. Mund të na kontaktoni direkt gjatë gjithë udhëtimit.'},
+ { icon: Shield, label:'Akreditim IATA', sub:'Lëshojmë bileta ajrore drejtpërdrejt si agjenci e akredituar. Mbrojtja e klientit sipas standardeve ndërkombëtare.'},
+ { icon: Leaf, label:'Çertifikim TravelLife', sub:'Çertifikim i pavarur dhe i audituar çdo vit. Jo vetëdeklarim — verifikohet nga jashtë.'},
  ].map(({ icon: Icon, label, sub}) => (
  <div key={label} className="flex flex-col items-start text-white px-8 py-6">
  <Icon className="h-6 w-6 mb-4 opacity-80" />
@@ -602,9 +602,9 @@ export default function HomePage() {
  <div className="mb-16">
  <p className="text-xs font-bold uppercase tracking-[0.3em] text-red-600 mb-4">Ku Operojmë</p>
  <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
- <h2 className="text-4xl md:text-5xl font-bold text-gray-950">Mbulimi Rajonal</h2>
+ <h2 className="text-4xl md:text-5xl font-bold text-gray-950">Ku Shkojmë</h2>
  <p className="text-gray-500 max-w-lg text-sm leading-relaxed">
- Koncentrohemi në rajonet ku kemi njohuri direkte dhe kontakte lokale të vendosura — jo destinacione të marra nga agregatorë të palëve të treta.
+ Punojmë vetëm në destinacionet që i njohim personalisht — jo gjëra të marra nga katalogje ndërkombëtare pa kontakt lokal.
  </p>
  </div>
  </div>
@@ -637,9 +637,9 @@ export default function HomePage() {
  <div className="max-w-7xl mx-auto px-6 lg:px-8">
  <div className="mb-16">
  <p className="text-xs font-bold uppercase tracking-[0.3em] text-red-600 mb-4">Procesi Ynë</p>
- <h2 className="text-4xl md:text-5xl font-bold text-gray-950 mb-3">Si Punojmë</h2>
+ <h2 className="text-4xl md:text-5xl font-bold text-gray-950 mb-3">Nga Ideja deri te Udhëtimi</h2>
  <p className="text-gray-500 max-w-2xl text-sm leading-relaxed">
- Një proces i thjeshtë i ndërtuar mbi komunikim të qartë, furnizues të verifikuar dhe përgjegjësi të plotë nga kontakti i parë deri në kthim.
+ E mbajmë të thjeshtë. Komunikim i qartë, furnizues të besuar dhe dikush përgjegjës nga biseda e parë deri sa të ktheheni.
  </p>
  </div>
  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-0 border border-gray-200">
@@ -659,8 +659,8 @@ export default function HomePage() {
  <section className="py-24 bg-white">
  <div className="max-w-7xl mx-auto px-6 lg:px-8">
  <div className="mb-14">
- <p className="text-xs font-bold uppercase tracking-[0.3em] text-red-600 mb-4">Komentet e Klientëve</p>
- <h2 className="text-4xl md:text-5xl font-bold text-gray-950">Çfarë Thonë Klientët Tanë</h2>
+ <p className="text-xs font-bold uppercase tracking-[0.3em] text-red-600 mb-4">Klientët Tanë</p>
+ <h2 className="text-4xl md:text-5xl font-bold text-gray-950">Çfarë Thonë Ata Që Kanë Udhëtuar me Ne</h2>
  </div>
  <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-gray-100">
  {TESTIMONIALS.map(({ name, role, text, rating}) => (
@@ -694,14 +694,14 @@ export default function HomePage() {
  <div className="max-w-2xl">
  <p className="text-xs font-bold uppercase tracking-[0.35em] text-amber-400 mb-6">Udhëtime Korporatash & Grupesh</p>
  <h2 className="text-5xl md:text-6xl font-bold text-white leading-tight mb-6 tracking-tight">
- Menaxhojmë udhëtime grupesh për kompani dhe organizata.
+ Keni grup? Organizojmë gjithçka, nga A tek ZH.
  </h2>
  <div className="w-10 h-0.5 bg-amber-400 mb-8" />
  <Link
  to="/contact"
  className="inline-flex items-center gap-3 bg-white text-gray-950 px-8 py-4 font-bold text-sm hover:bg-gray-100 transition uppercase tracking-wider"
  >
- Kërkoni një Propozim Korporativ <ChevronRight className="h-4 w-4" />
+ Kërkoni një Ofertë Grupi <ChevronRight className="h-4 w-4" />
  </Link>
  </div>
  </div>
@@ -713,9 +713,9 @@ export default function HomePage() {
  <div className="max-w-7xl mx-auto px-6 lg:px-8">
  <div className="mb-16">
  <p className="text-xs font-bold uppercase tracking-[0.3em] text-red-500 mb-4">Standarde & Akreditime</p>
- <h2 className="text-4xl md:text-5xl font-bold text-white mb-3">Çfarë Garantojmë</h2>
+ <h2 className="text-4xl md:text-5xl font-bold text-white mb-3">Pse Mund të na Besoni</h2>
  <p className="text-gray-500 max-w-2xl text-sm leading-relaxed">
- Akreditimet, çertifikimet dhe parimet tona operacionale — çdo njëra e verifikuar në mënyrë të pavarur ose e detyrueshme kontraktualisht.
+ Akreditimet dhe çertifikimet tona nuk janë thjesht logo — verifikohen çdo vit nga organizma të pavarura ndërkombëtare.
  </p>
  </div>
  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-white/5">
@@ -737,9 +737,9 @@ export default function HomePage() {
  <div className="max-w-7xl mx-auto px-6 lg:px-8">
  <div className="mb-16">
  <p className="text-xs font-bold uppercase tracking-[0.3em] text-red-600 mb-4">Këshilla Udhëtimi</p>
- <h2 className="text-4xl md:text-5xl font-bold text-gray-950 mb-3">Para se të Udhëtoni</h2>
+ <h2 className="text-4xl md:text-5xl font-bold text-gray-950 mb-3">Gjëra që Duhen Ditur</h2>
  <p className="text-gray-500 max-w-2xl text-sm leading-relaxed">
- Pika praktike që i trajtojmë me çdo klient. Ia vlen t'i lexoni para se të finalizoni çdo rezervim.
+ Këto i diskutojmë me çdo klient. Ndoshta disa i dini, por ja ato që kanë bërë diferencën.
  </p>
  </div>
  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-gray-100">
@@ -775,10 +775,10 @@ export default function HomePage() {
  <div className="px-10 lg:px-16 py-20 flex flex-col justify-center">
  <p className="text-xs font-bold uppercase tracking-[0.3em] text-red-500 mb-6">Na Kontaktoni</p>
  <h2 className="text-4xl font-bold text-white leading-tight mb-4">
- Flisni direkt me ekipin tonë
+ Keni pyetje? Flisni me ne.
  </h2>
  <p className="text-gray-500 text-sm leading-relaxed mb-10">
- Dërgoni një pyetje ose na telefononi direkt. Përgjigjemi shpejt dhe mund t'ju këshillojmë për disponueshmërinë, çmimet dhe logjistikën për çdo lloj udhëtimi.
+ Nuk keni nevojë të keni gjithçka gati. Na shkruani ose telefononi dhe e ndërtojmë bashkë — çmimet, datat, destinacionin dhe gjithçka tjetër.
  </p>
  <div className="flex flex-col gap-3">
  <a
@@ -787,7 +787,7 @@ export default function HomePage() {
  >
  <Phone className="h-5 w-5 text-red-500 flex-shrink-0" />
  <div>
- <p className="text-xs text-gray-600 font-bold uppercase tracking-widest mb-0.5">Na Telefononi</p>
+ <p className="text-xs text-gray-600 font-bold uppercase tracking-widest mb-0.5">Telefononi</p>
  <p className="text-white font-semibold text-sm group-hover:text-red-400 transition">+355 68 403 0204</p>
  </div>
  </a>
@@ -797,7 +797,7 @@ export default function HomePage() {
  >
  <Mail className="h-5 w-5 text-red-500 flex-shrink-0" />
  <div>
- <p className="text-xs text-gray-600 font-bold uppercase tracking-widest mb-0.5">Na Shkruani</p>
+ <p className="text-xs text-gray-600 font-bold uppercase tracking-widest mb-0.5">Shkruani</p>
  <p className="text-white font-semibold text-sm group-hover:text-red-400 transition">info@universtravel.al</p>
  </div>
  </a>
@@ -805,7 +805,7 @@ export default function HomePage() {
  to="/contact"
  className="flex items-center justify-center gap-2 bg-red-600 hover:bg-red-700 text-white px-6 py-4 font-bold text-sm transition uppercase tracking-wider"
  >
- Dërgoni një Pyetje <ChevronRight className="h-4 w-4" />
+ Na Shkruani <ChevronRight className="h-4 w-4" />
  </Link>
  </div>
  </div>
