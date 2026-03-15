@@ -31,11 +31,11 @@ interface Destination {
 
 
 const SORT_OPTIONS = [
- { value:'newest', label:'Newest First'},
- { value:'price_asc', label:'Price: Low to High'},
- { value:'price_desc', label:'Price: High to Low'},
- { value:'duration_asc', label:'Duration: Shortest'},
- { value:'duration_desc', label:'Duration: Longest'},
+ { value:'newest', label:'Më të rejat'},
+ { value:'price_asc', label:'Çmimi: Nga më i ulëti'},
+ { value:'price_desc', label:'Çmimi: Nga më i larti'},
+ { value:'duration_asc', label:'Kohëzgjatja: Më e shkurtra'},
+ { value:'duration_desc', label:'Kohëzgjatja: Më e gjata'},
 ];
 
 function CategoryTabs({
@@ -109,7 +109,7 @@ function CategoryTabs({
  :'text-gray-600 hover:text-gray-900 hover:bg-gray-100'
 }`}
  >
- All
+ Të Gjitha
  </button>
  {categories.map((cat) => {
  const Icon = resolveIcon(cat.icon);
@@ -194,7 +194,7 @@ function PackageCard({
  <span className="text-red-600">€{pkg.price.toLocaleString()}</span>
  </div>
  ) : (
- <span>from €{pkg.price.toLocaleString()}</span>
+ <span>nga €{pkg.price.toLocaleString()}</span>
  )}
  </div>
  </div>
@@ -211,7 +211,7 @@ function PackageCard({
  <div className="flex items-center justify-between text-xs text-gray-500 pt-3 border-t border-gray-100">
  <div className="flex items-center gap-1.5">
  <Calendar className="h-3.5 w-3.5 text-gray-400" />
- <span>{pkg.duration_days} days</span>
+ <span>{pkg.duration_days} ditë</span>
  </div>
  <div className="flex items-center gap-1">
  <Star className="h-3.5 w-3.5 text-amber-400 fill-current" />
@@ -225,7 +225,7 @@ function PackageCard({
  to={`/packages/${pkg.slug}`}
  className="flex-1 flex items-center justify-center gap-1.5 py-2.5 bg-gray-900 hover:bg-red-600 text-white text-xs font-semibold transition-colors uppercase tracking-wide"
  >
- View Details <ChevronRight className="h-3.5 w-3.5" />
+ Shiko Detajet <ChevronRight className="h-3.5 w-3.5" />
  </Link>
  <button
  onClick={() => {
@@ -233,7 +233,7 @@ function PackageCard({
  else if (!canAdd) onAddToCompare();
 }}
  disabled={canAdd}
- title={inCompare ?'Remove from compare' : canAdd ?'Compare list full' :'Add to compare'}
+ title={inCompare ?'Hiq nga krahasimi' : canAdd ?'Lista e krahasimit është plot' :'Shto në krahasim'}
  className={`flex items-center justify-center gap-1.5 px-3 py-2.5 text-xs font-medium transition border ${
  inCompare
  ?'bg-gray-900 border-gray-900 text-white'
@@ -243,7 +243,7 @@ function PackageCard({
 }`}
  >
  <BarChart2 className="h-3.5 w-3.5" />
- {inCompare ?'Comparing' :'Compare'}
+ {inCompare ?'Duke krahasuar' :'Krahaso'}
  </button>
  </div>
  </div>
@@ -369,10 +369,10 @@ export default function PackagesPage() {
  )}
  <div className="absolute inset-0" style={{ backgroundColor:`rgba(0,0,0,${hero.overlay_opacity})`}} />
  <div className="relative max-w-7xl mx-auto px-6 lg:px-8 h-full flex flex-col justify-end pb-14">
- <p className="text-xs font-semibold uppercase tracking-[0.35em] text-amber-400 mb-4">Our Portfolio</p>
- <h1 className="text-5xl md:text-6xl font-bold text-white mb-4 leading-tight tracking-tight">Travel Packages</h1>
+ <p className="text-xs font-semibold uppercase tracking-[0.35em] text-amber-400 mb-4">Portofoli Ynë</p>
+ <h1 className="text-5xl md:text-6xl font-bold text-white mb-4 leading-tight tracking-tight">Paketa Udhëtimi</h1>
  <p className="text-white/60 max-w-xl leading-relaxed text-base font-light">
- Professionally designed itineraries across the Balkans, Mediterranean, and beyond — each one vetted, coordinated, and supported end-to-end.
+ Itinerare të hartuara me kujdes nëpër Ballkan, Mesdhe dhe më gjerë — secila e kontrolluar, e koordinuar dhe e mbështetur nga fillimi deri në fund.
  </p>
  </div>
  </div>
@@ -399,7 +399,7 @@ export default function PackagesPage() {
  <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 h-4 w-4" />
  <input
  type="text"
- placeholder="Search by destination or package name..."
+ placeholder="Kërko sipas destinacionit ose emrit të paketës..."
  value={searchTerm}
  onChange={(e) => setSearchTerm(e.target.value)}
  className="w-full pl-11 pr-4 py-3 border border-gray-300 focus:outline-none focus:border-gray-900 bg-white text-sm text-gray-900 placeholder-gray-400 transition-colors"
@@ -428,7 +428,7 @@ export default function PackagesPage() {
 }`}
  >
  <SlidersHorizontal className="h-4 w-4" />
- Filters
+ Filtrat
  {activeFilterCount > 0 && (
  <span className="bg-red-600 text-white text-xs font-bold w-5 h-5 flex items-center justify-center">
  {activeFilterCount}
@@ -441,24 +441,24 @@ export default function PackagesPage() {
  <div className="bg-white border border-gray-200 p-6 mb-6">
  <div className="flex items-center justify-between mb-6">
  <div>
- <h3 className="font-semibold text-gray-900 text-sm uppercase tracking-wide">Refine Results</h3>
- <p className="text-xs text-gray-400 mt-0.5">Narrow down packages by destination, category, price, or duration.</p>
+ <h3 className="font-semibold text-gray-900 text-sm uppercase tracking-wide">Filtro Rezultatet</h3>
+ <p className="text-xs text-gray-400 mt-0.5">Ngushtoni paketat sipas destinacionit, kategorisë, çmimit ose kohëzgjatjes.</p>
  </div>
  {activeFilterCount > 0 && (
  <button onClick={clearFilters} className="flex items-center gap-1 text-sm text-red-600 hover:text-red-700 transition font-medium">
- <X className="h-3.5 w-3.5" /> Clear all
+ <X className="h-3.5 w-3.5" /> Fshi të gjitha
  </button>
  )}
  </div>
  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
  <div>
- <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">Destination</label>
+ <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">Destinacioni</label>
  <select
  value={selectedDestination}
  onChange={(e) => setSelectedDestination(e.target.value)}
  className="w-full border border-gray-300 px-3 py-2.5 text-sm focus:outline-none focus:border-gray-900 bg-white text-gray-900 transition-colors"
  >
- <option value="">All Destinations</option>
+ <option value="">Të gjitha destinacionet</option>
  {destinations.map((d) => (
  <option key={d.id} value={d.id}>{d.name}, {d.country}</option>
  ))}
@@ -466,13 +466,13 @@ export default function PackagesPage() {
  </div>
 
  <div>
- <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">Category</label>
+ <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">Kategoria</label>
  <select
  value={selectedCategory}
  onChange={(e) => setSelectedCategory(e.target.value)}
  className="w-full border border-gray-300 px-3 py-2.5 text-sm focus:outline-none focus:border-gray-900 bg-white text-gray-900 transition-colors"
  >
- <option value="">All Categories</option>
+ <option value="">Të gjitha kategoritë</option>
  {categories.map((c) => (
  <option key={c.id} value={c.id}>{c.name}</option>
  ))}
@@ -480,7 +480,7 @@ export default function PackagesPage() {
  </div>
 
  <div>
- <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">Price Range (USD)</label>
+ <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">Gama e Çmimit (EUR)</label>
  <div className="flex items-center gap-2">
  <input
  type="number"
@@ -503,7 +503,7 @@ export default function PackagesPage() {
  </div>
 
  <div>
- <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">Duration (days)</label>
+ <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">Kohëzgjatja (ditë)</label>
  <div className="flex items-center gap-2">
  <input
  type="number"
@@ -531,12 +531,12 @@ export default function PackagesPage() {
  {/* RESULTS META */}
  <div className="flex items-center justify-between mb-8 pb-4 border-b border-gray-200">
  <p className="text-sm text-gray-500">
- <span className="font-semibold text-gray-900">{filtered.length}</span> package{filtered.length !== 1 ?'s' :''}
- {activeCategoryObj ? <> in <span className="font-semibold text-gray-900">{activeCategoryObj.name}</span></> : activeFilterCount > 0 || searchTerm ?' matching your criteria' :' in our portfolio'}
+ <span className="font-semibold text-gray-900">{filtered.length}</span> paketë
+ {activeCategoryObj ? <> në <span className="font-semibold text-gray-900">{activeCategoryObj.name}</span></> : activeFilterCount > 0 || searchTerm ?' që përputhen me kriteret tuaja' :' në portofolin tonë'}
  </p>
  {(activeFilterCount > 0 || searchTerm) && (
  <button onClick={clearFilters} className="text-sm text-red-600 hover:text-red-700 transition flex items-center gap-1 font-medium">
- <X className="h-3.5 w-3.5" /> Clear filters
+ <X className="h-3.5 w-3.5" /> Fshi filtrat
  </button>
  )}
  </div>
@@ -570,10 +570,10 @@ export default function PackagesPage() {
  ) : (
  <div className="text-center py-20 bg-white border border-gray-200">
  <SlidersHorizontal className="h-8 w-8 mx-auto mb-4 text-gray-300" />
- <p className="text-base font-semibold text-gray-700 mb-1">No packages match your criteria</p>
- <p className="text-sm text-gray-400 mb-6">Try adjusting your search term or removing some filters.</p>
+ <p className="text-base font-semibold text-gray-700 mb-1">Nuk u gjet asnjë paketë me këto kritere</p>
+ <p className="text-sm text-gray-400 mb-6">Provoni të ndryshoni kërkimin ose të hiqni disa filtra.</p>
  <button onClick={clearFilters} className="inline-flex items-center gap-2 bg-gray-900 text-white px-6 py-3 text-sm font-semibold hover:bg-red-600 transition uppercase tracking-wide">
- Clear all filters
+ Fshi të gjitha filtrat
  </button>
  </div>
  )}
@@ -585,29 +585,29 @@ export default function PackagesPage() {
  <div className="max-w-7xl mx-auto px-6 lg:px-8">
  <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
  <div>
- <p className="text-xs font-semibold uppercase tracking-[0.35em] text-red-600 mb-4">How Our Packages Are Built</p>
+ <p className="text-xs font-semibold uppercase tracking-[0.35em] text-red-600 mb-4">Si i Ndërtojmë Paketat</p>
  <h2 className="text-4xl font-bold text-gray-900 mb-6 leading-tight tracking-tight">
- Every program is designed,<br />not assembled.
+ Çdo program hartohet,<br />nuk montohet.
  </h2>
  <p className="text-gray-500 leading-relaxed mb-4 text-sm">
- Each package in our portfolio is the result of direct field research, supplier negotiations, and operational testing. We do not list packages from third-party aggregators. Every destination, accommodation, and logistics arrangement has been personally evaluated by our team.
+ Çdo paketë në portofolin tonë është frut i hulumtimit të drejtpërdrejtë në terren, negociatave me furnizuesit dhe testimit operacional. Nuk listojmë paketa nga agjentë të tretë. Çdo destinacion, akomodim dhe marrëveshje logjistike është vlerësuar personalisht nga ekipi ynë.
  </p>
  <p className="text-gray-500 leading-relaxed mb-8 text-sm">
- Pricing reflects contracted rates secured through long-term partnerships — not dynamic market rates. What you see is what you pay, with full transparency on what is and is not included.
+ Çmimet pasqyrojnë tarifat e kontraktuara nëpërmjet partneriteteve afatgjata — jo çmimet e tregut që ndryshojnë. Çfarë shihni, atë paguani, me transparencë të plotë mbi çfarë është dhe çfarë nuk është e përfshirë.
  </p>
  <Link
  to="/about"
  className="inline-flex items-center gap-2 text-sm font-semibold text-gray-900 hover:text-red-600 transition uppercase tracking-wide border-b border-gray-900 hover:border-red-600 pb-0.5"
  >
- Learn about our approach <ChevronRight className="h-4 w-4" />
+ Mëso rreth qasjes sonë <ChevronRight className="h-4 w-4" />
  </Link>
  </div>
  <div className="grid grid-cols-1 gap-0 border border-gray-200">
  {[
- { label:'All-inclusive pricing', desc:'No hidden supplements added at checkout or on arrival.'},
- { label:'Pre-confirmed logistics', desc:'Transport, accommodation, and guides confirmed before departure.'},
- { label:'Flexible modifications', desc:'Most programs can be adjusted to fit group size or schedule.'},
- { label:'On-trip contact', desc:'A direct number available throughout your program.'},
+ { label:'Çmim gjithëpërfshirës', desc:'Nuk ka shtesa të fshehura as gjatë pagesës e as me mbërritje.'},
+ { label:'Logjistikë e konfirmuar paraprakisht', desc:'Transporti, akomodimi dhe guidat konfirmohen para nisjes.'},
+ { label:'Modifikime të mundshme', desc:'Shumica e programeve mund të rregullohen sipas grupit ose orarit.'},
+ { label:'Kontakt gjatë udhëtimit', desc:'Një numër i drejtpërdrejtë i disponueshëm gjatë gjithë programit tuaj.'},
  ].map((item, i, arr) => (
  <div key={item.label} className={`flex items-start gap-5 p-6 ${i < arr.length - 1 ?'border-b border-gray-200' :''}`}>
  <div className="w-8 h-px bg-red-600 mt-2.5 flex-shrink-0" />
@@ -632,9 +632,9 @@ export default function PackagesPage() {
  <div className="absolute inset-0 bg-black/55" />
  <div className="relative max-w-7xl mx-auto px-6 lg:px-8 h-full flex items-center">
  <div className="max-w-xl">
- <p className="text-xs font-semibold uppercase tracking-[0.35em] text-amber-400 mb-3">Since 2009</p>
+ <p className="text-xs font-semibold uppercase tracking-[0.35em] text-amber-400 mb-3">Që nga 2009</p>
  <p className="text-2xl md:text-3xl font-bold text-white leading-tight">
- Thousands of travelers have trusted us to plan their journeys. We take that seriously.
+ Mijëra udhëtarë na kanë besuar planifikimin e udhëtimeve të tyre. Ne e marrim këtë seriozisht.
  </p>
  </div>
  </div>
@@ -645,12 +645,12 @@ export default function PackagesPage() {
  <div className="bg-gray-900 py-14">
  <div className="max-w-7xl mx-auto px-6 lg:px-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
  <div>
- <p className="text-xs font-semibold uppercase tracking-[0.35em] text-amber-400 mb-3">Custom Itineraries</p>
+ <p className="text-xs font-semibold uppercase tracking-[0.35em] text-amber-400 mb-3">Itinerare të Personalizuara</p>
  <h3 className="text-3xl font-bold text-white leading-tight tracking-tight mb-2">
- Don't see what you need?
+ Nuk gjeni çfarë po kërkoni?
  </h3>
  <p className="text-white/40 text-sm max-w-md">
- Our specialists design fully bespoke programs for individuals, families, and corporate groups.
+ Specialistët tanë hartojnë programe plotësisht të personalizuara për individë, familje dhe grupe korporative.
  </p>
  </div>
  <div className="flex flex-col sm:flex-row gap-3 flex-shrink-0">
@@ -659,13 +659,13 @@ export default function PackagesPage() {
  className="inline-flex items-center gap-2 border border-white/20 hover:border-white/40 text-white px-6 py-3 font-semibold text-sm transition uppercase tracking-wide"
  >
  <Phone className="h-4 w-4" />
- Call a Specialist
+ Telefononi një Specialist
  </a>
  <Link
  to="/contact"
  className="inline-flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white px-6 py-3 font-semibold text-sm transition uppercase tracking-wide"
  >
- Request Custom Program <ChevronRight className="h-4 w-4" />
+ Kërkoni Program të Personalizuar <ChevronRight className="h-4 w-4" />
  </Link>
  </div>
  </div>
