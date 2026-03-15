@@ -258,7 +258,7 @@ Të fundit
  <div className="grid grid-cols-1 md:grid-cols-3 gap-12 items-start">
 
  <div className="md:col-span-2">
- <p className="text-xs font-semibold uppercase tracking-[0.35em] text-red-600 mb-4">Editorial Standards</p>
+ <p className="text-xs font-semibold uppercase tracking-[0.35em] text-red-600 mb-4">Standarde Redaksionale</p>
  <h2 className="text-3xl font-bold text-gray-900 mb-5 leading-tight tracking-tight">
  How our content is produced
  </h2>
