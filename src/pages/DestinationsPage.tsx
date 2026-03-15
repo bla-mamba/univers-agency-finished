@@ -105,7 +105,9 @@ export default function DestinationsPage() {
  <div className="text-center py-20 bg-white border border-gray-200">
  <Compass className="h-8 w-8 mx-auto mb-4 text-gray-300" />
  <p className="text-base font-semibold text-gray-700 mb-1">Nuk u gjet asnjë destinacion</p>
- <p className="text-sm text-gray-400 mb-6">Provoni me një emër tjetër qyteti ose vendi.</p>
+ <p className="text-sm text-gray-400 mb-6">
+  Provoni të kërkoni me një qytet ose shtet tjetër.
+</p>
  <button
  onClick={() => setSearchTerm('')}
  className="inline-flex items-center gap-2 bg-gray-900 text-white px-5 py-3 text-sm font-semibold hover:bg-red-600 transition uppercase tracking-wide"
