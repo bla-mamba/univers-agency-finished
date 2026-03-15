@@ -38,7 +38,7 @@ const values = [
 const whyChooseUs = [
  {
  icon: Clock,
- title:'15+ years of operational experience in Southeast Europe',
+ title:'Mbi 15 vite përvojë operative në Evropën Juglindore',
  description:
 'We have been organizing travel in the Balkans and Mediterranean since 2009. That depth of experience translates directly into smoother itineraries, better supplier relationships, and fewer surprises.',
 },
