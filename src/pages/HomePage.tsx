@@ -556,9 +556,9 @@ export default function HomePage() {
  </div>
  <div className="px-10 lg:px-16 py-20 flex flex-col justify-center">
  <p className="text-xs font-bold uppercase tracking-[0.3em] text-red-500 mb-6">Rreth Univers</p>
- <h2 className="text-4xl font-bold text-white leading-tight mb-7">
- Agjenci udhëtimi me bazë në Tiranë — që nga viti 2009.
- </h2>
+<h2 className="text-4xl font-bold text-white leading-tight mb-7">
+  Agjenci udhëtimi me bazë në Tiranë.
+</h2>
  <p className="text-gray-400 text-base leading-relaxed mb-5">
  Organizojmë udhëtime për familje, çifte, grupe kompanish dhe institucione. Paketë turistike, bileta fluturimi, transport grupesh dhe itinerarë të bëra sipas masës — të gjitha nga e njëjta ekip, nga fillimi deri në fund.
  </p>
