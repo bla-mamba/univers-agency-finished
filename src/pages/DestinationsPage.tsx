@@ -138,7 +138,7 @@ export default function DestinationsPage() {
  <div className="flex items-center gap-4 mb-6">
  <div className="w-6 h-px bg-gray-400" />
  <h3 className="text-xs font-bold text-gray-900 uppercase tracking-widest">Të Gjitha Destinacionet</h3>
- <span className="text-xs text-gray-400">— {all.length} vendndodhje</span>
+ <span className="text-xs text-gray-400">— {all.length} destinacione</span>
  </div>
  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-gray-200">
  {all.map((dest) => (
