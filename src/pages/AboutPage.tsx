@@ -129,7 +129,7 @@ export default function AboutPage() {
  Ndërtuar mbi përvojën praktike, jo mbi tekstet e marketingut.
  </h2>
  <p className="text-gray-500 text-sm leading-relaxed mb-4">
- Univers was founded in Tirana in 2009. Over fifteen years, we have grown from a regional operator into a full-service agency handling individual travel, family holidays, corporate group logistics, and institutional programs.
+  Univers u themelua në Tiranë në vitin 2009. Që atëherë, kemi evoluar nga një operator lokal në një agjenci me shërbim të plotë, duke menaxhuar gjithçka, nga udhëtimet personale dhe pushimet familjare, te grupet korporative dhe programet institucionale.
  </p>
  <p className="text-gray-500 text-sm leading-relaxed mb-4">
  We operate our own ground transport and hold direct partnerships with hotels and suppliers across the Balkans and Mediterranean. Every destination in our portfolio has been assessed by our team before being offered to clients.
