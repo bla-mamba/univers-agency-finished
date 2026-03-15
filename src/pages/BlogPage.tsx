@@ -260,7 +260,8 @@ Të fundit
  <div className="md:col-span-2">
  <p className="text-xs font-semibold uppercase tracking-[0.35em] text-red-600 mb-4">Standarde Redaksionale</p>
  <h2 className="text-3xl font-bold text-gray-900 mb-5 leading-tight tracking-tight">
- How our content is produced
+ Si prodhohet përmbajtja jonë
+
  </h2>
  <p className="text-gray-500 text-sm leading-relaxed mb-4">
  All articles published in this journal are researched, written, and reviewed by our senior travel consultants and destination specialists. Content is based on direct field experience, verified third-party sources, and on-ground operator partnerships. We do not publish sponsored content without explicit disclosure.
