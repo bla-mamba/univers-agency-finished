@@ -564,7 +564,6 @@ export default function HomePage() {
 </p>
  <p className="text-gray-500 leading-relaxed mb-10 text-sm">
   Jemi agjenci e akredituar nga IATA dhe e certifikuar nga TravelLife. Punojmë me partnerë të besueshëm dhe hotele të verifikuara në Ballkan, Mesdhe dhe shumë destinacione të tjera.
-</p>.
 </p>
  <div className="flex flex-wrap gap-3">
  <Link to="/about" className="inline-flex items-center gap-2 bg-red-600 text-white px-7 py-3.5 hover:bg-red-700 transition font-semibold text-sm tracking-wide uppercase">
