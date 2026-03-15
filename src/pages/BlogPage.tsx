@@ -91,7 +91,7 @@ export default function BlogPage() {
  type="text"
  value={search}
  onChange={(e) => setSearch(e.target.value)}
- placeholder="Search articles..."
+ placeholder="Kërko artikuj..."
  className="w-full pl-9 pr-4 py-2.5 text-sm border border-gray-300 bg-white focus:outline-none focus:border-gray-900 transition-colors"
  />
  </div>
