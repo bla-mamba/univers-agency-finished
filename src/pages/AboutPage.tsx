@@ -5,7 +5,7 @@ import { useHeroMedia} from'../hooks/useHeroMedia';
 const stats = [
  { label:'Klientët e shërbyer', value:'12,000+'},
  { label:'Destinacione', value:'60+'},
- { label:'Years in Operation', value:'15+'},
+ { label:'Vite ne Operim', value:'15+'},
 ];
 
 const values = [
