@@ -779,9 +779,9 @@ export default function HomePage() {
 <h2 className="text-4xl font-bold text-white leading-tight mb-4">
   Keni pyetje? Jemi këtu për t’ju ndihmuar.
 </h2>
- <p className="text-gray-500 text-sm leading-relaxed mb-10">
- Nuk keni nevojë të keni gjithçka gati. Na shkruani ose telefononi dhe e ndërtojmë bashkë — çmimet, datat, destinacionin dhe gjithçka tjetër.
- </p>
+<p className="text-gray-500 text-sm leading-relaxed mb-10">
+  Nuk ka nevojë të keni gjithçka të planifikuar. Na kontaktoni dhe e organizojmë bashkë – datat, destinacionin dhe çdo detaj tjetër të udhëtimit tuaj.
+</p>
  <div className="flex flex-col gap-3">
  <a
  href="tel:+355684030204"
