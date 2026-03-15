@@ -342,9 +342,9 @@ export default function HomePage() {
  <p className="text-xs font-semibold uppercase tracking-[0.35em] text-amber-400 mb-5">
  Tiranë, Shqipëri — Est. 2009
  </p>
- <h1 className="text-5xl md:text-7xl font-bold text-white leading-[1.0] tracking-tight mb-6 max-w-4xl">
- Udhëtoni pa shqetësime.<br />Ne marrim kujdes.
- </h1>
+<h1 className="text-5xl md:text-7xl font-bold text-white leading-[1.0] tracking-tight mb-6 max-w-4xl">
+  Udhëtoni pa stres.<br />Për pjesën tjetër kujdesemi ne.
+</h1>
  <p className="text-lg text-white/65 font-light max-w-2xl leading-relaxed">
  Familje, çifte, grupe kompanish dhe organizata — organizojmë udhëtime në të gjithë Ballkanin, Mesdheun dhe botën.
  </p>
