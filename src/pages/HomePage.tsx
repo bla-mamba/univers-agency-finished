@@ -563,8 +563,8 @@ export default function HomePage() {
   Organizojmë udhëtime për familje, çifte, kompani dhe institucione. Paketa turistike, bileta avioni, transport për grupe dhe itinerare të personalizuara – të gjitha nga i njëjti ekip, nga fillimi deri në fund.
 </p>
  <p className="text-gray-500 leading-relaxed mb-10 text-sm">
- Kemi akreditim IATA dhe çertifikim TravelLife. Operojmë transportin tonë tokësor dhe kemi kontakte direkte me hotele dhe partnerë në Ballkan, Mesdhe dhe më gjerë.
- </p>
+  Jemi të akredituar nga IATA dhe të certifikuar nga TravelLife. Punojmë me partnerë të besuar dhe hotele të verifikuara në Ballkan, Mesdhe dhe destinacione të tjera ndërkombëtare.
+</p>
  <div className="flex flex-wrap gap-3">
  <Link to="/about" className="inline-flex items-center gap-2 bg-red-600 text-white px-7 py-3.5 hover:bg-red-700 transition font-semibold text-sm tracking-wide uppercase">
  Rreth Nesh <ChevronRight className="h-4 w-4" />
