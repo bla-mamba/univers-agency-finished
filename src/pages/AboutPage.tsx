@@ -141,7 +141,7 @@ export default function AboutPage() {
  to="/contact"
  className="inline-flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white px-7 py-3.5 font-semibold text-sm transition uppercase tracking-wide w-fit"
  >
- Contact Our Team <ChevronRight className="h-4 w-4" />
+Kontaktoni ekipin tonë <ChevronRight className="h-4 w-4" />
  </Link>
  </div>
  </div>
