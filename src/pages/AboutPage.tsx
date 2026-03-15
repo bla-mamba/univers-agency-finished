@@ -184,7 +184,7 @@ Kontaktoni ekipin tonë <ChevronRight className="h-4 w-4" />
  <div className="absolute inset-0 bg-black/60" />
  <div className="relative max-w-7xl mx-auto px-6 lg:px-8 h-full flex items-center">
  <div className="max-w-2xl">
- <p className="text-xs font-semibold uppercase tracking-[0.35em] text-amber-400 mb-4">Corporate & Institutional Travel</p>
+ <p className="text-xs font-semibold uppercase tracking-[0.35em] text-amber-400 mb-4">Udhëtime Korporative dhe Institucionale</p>
  <p className="text-3xl md:text-4xl font-bold text-white leading-tight">
  We handle group travel for companies, NGOs, and government institutions across the region.
  </p>
