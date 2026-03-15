@@ -559,9 +559,9 @@ export default function HomePage() {
 <h2 className="text-4xl font-bold text-white leading-tight mb-7">
   Agjenci udhëtimi me bazë në Tiranë.
 </h2>
- <p className="text-gray-400 text-base leading-relaxed mb-5">
- Organizojmë udhëtime për familje, çifte, grupe kompanish dhe institucione. Paketë turistike, bileta fluturimi, transport grupesh dhe itinerarë të bëra sipas masës — të gjitha nga e njëjta ekip, nga fillimi deri në fund.
- </p>
+<p className="text-gray-400 text-base leading-relaxed mb-5">
+  Organizojmë udhëtime për familje, çifte, kompani dhe institucione. Paketa turistike, bileta avioni, transport për grupe dhe itinerare të personalizuara – të gjitha nga i njëjti ekip, nga fillimi deri në fund.
+</p>
  <p className="text-gray-500 leading-relaxed mb-10 text-sm">
  Kemi akreditim IATA dhe çertifikim TravelLife. Operojmë transportin tonë tokësor dhe kemi kontakte direkte me hotele dhe partnerë në Ballkan, Mesdhe dhe më gjerë.
  </p>
