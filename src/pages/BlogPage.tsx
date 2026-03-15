@@ -16,7 +16,7 @@ interface BlogPost {
  published_at: string;
 }
 
-const CATEGORIES = ['All','Travel Tips','Destination Guides','Top Lists','Culture','Adventure','Food & Cuisine'];
+const CATEGORIES = ['Të gjitha','Këshilla udhëtimi','Udhëzues destinacionesh','Lista kryesore','Kulturë','Aventurë','Ushqim & Kuzhine'];
 
 export default function BlogPage() {
  const hero = useHeroMedia('blog', {
