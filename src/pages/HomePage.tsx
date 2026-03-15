@@ -662,7 +662,7 @@ export default function HomePage() {
  <div className="max-w-7xl mx-auto px-6 lg:px-8">
  <div className="mb-14">
  <p className="text-xs font-bold uppercase tracking-[0.3em] text-red-600 mb-4">Klientët Tanë</p>
- <h2 className="text-4xl md:text-5xl font-bold text-gray-950">Çfarë Thonë Ata Që Kanë Udhëtuar me Ne</h2>
+ <h2 className="text-4xl md:text-5xl font-bold text-gray-950">Çfarë Thonë Klientët Tanë</h2>
  </div>
  <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-gray-100">
  {TESTIMONIALS.map(({ name, role, text, rating}) => (
