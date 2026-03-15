@@ -221,7 +221,8 @@ Kontaktoni ekipin tonë <ChevronRight className="h-4 w-4" />
  {/* PARTNER LOGOS */}
  <section className="py-14 bg-white border-t border-white/5">
  <div className="max-w-7xl mx-auto px-6 lg:px-8">
- <p className="text-center text-xs font-bold uppercase tracking-[0.3em] text-gray-600 mb-10">Accreditations & Memberships</p>
+ <p className="text-center text-xs font-bold uppercase tracking-[0.3em] text-gray-600 mb-10">Akreditimet dhe Anëtarësimet
+</p>
  <div className="hidden md:flex items-center justify-center gap-14">
  {partnerLogos.map((logo) => (
  <img
