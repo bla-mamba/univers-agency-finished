@@ -41,7 +41,7 @@ export default function Footer() {
  <img src="/logo.png" alt="Univers Travel Agency Logo" className="h-14 w-auto" />
  </button>
  <p className="text-sm leading-relaxed text-gray-500">
- Full-service travel agency based in Tirana, Albania. Specializing in the Balkans, Mediterranean, and beyond since 2009.
+Agjenci udhëtimesh me shërbim të plotë me bazë në Tiranë, Shqipëri. Specializuar në Ballkan, Mesdhe dhe më gjerë që nga viti 2009.
  </p>
  </div>
 
