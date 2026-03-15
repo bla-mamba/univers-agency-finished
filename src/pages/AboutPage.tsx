@@ -58,7 +58,7 @@ const whyChooseUs = [
  icon: DollarSign,
  title:'Çmime transparente dhe gjithëpërfshirëse',
  description:
-'The price quoted covers what is listed. All costs are itemized before any commitment is made. There are no supplementary charges added after confirmation.',
+'Çmimi që japim është i qartë dhe i gjithëpërfshirës. Të gjitha kostot janë të detajuara që në fillim — pa tarifa të fshehura apo kosto shtesë pas rezervimit.',
 },
 ];
 
