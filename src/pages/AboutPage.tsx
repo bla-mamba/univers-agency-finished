@@ -52,7 +52,7 @@ const whyChooseUs = [
  icon: CheckCircle,
  title:'Standarde të verifikuara për çdo furnizues',
  description:
-'Accommodation ratings vary significantly by market. We inspect every property we include and only work with transport and guide partners who have met our operational requirements.',
+'Inspektojmë çdo pronë që përfshihet dhe punojmë vetëm me transportues dhe guida që plotësojnë standardet tona të larta, duke siguruar cilësi të qëndrueshme për çdo udhëtim.',
 },
  {
  icon: DollarSign,
