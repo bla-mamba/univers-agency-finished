@@ -37,7 +37,7 @@ const OFFER_POLICY = [
 },
  {
  icon: Users,
- title:'Group Eligibility',
+ title:'Kualifikimi për Grup',
  body:'Corporate and group bookings (10+ pax) may qualify for negotiated rates outside of these published offers. Contact us separately.',
 },
  {
