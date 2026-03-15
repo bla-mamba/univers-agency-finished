@@ -132,7 +132,7 @@ export default function AboutPage() {
   Univers u themelua në Tiranë në vitin 2009. Që atëherë, kemi evoluar nga një operator lokal në një agjenci me shërbim të plotë, duke menaxhuar gjithçka, nga udhëtimet personale dhe pushimet familjare, te grupet korporative dhe programet institucionale.
  </p>
  <p className="text-gray-500 text-sm leading-relaxed mb-4">
- We operate our own ground transport and hold direct partnerships with hotels and suppliers across the Balkans and Mediterranean. Every destination in our portfolio has been assessed by our team before being offered to clients.
+  Ne menaxhojmë transportin tonë tokësor dhe kemi partneritete direkte me hotele dhe ofrues shërbimesh në Ballkan dhe Mesdhe. Çdo destinacion në portofolin tonë është vlerësuar me kujdes nga ekipi ynë para se t’i ofrohet klientëve.
  </p>
  <p className="text-gray-500 text-sm leading-relaxed mb-10">
  We are IATA-accredited for international ticketing and TravelLife certified for sustainable operations — both independently verified, not self-declared.
