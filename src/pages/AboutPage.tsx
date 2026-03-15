@@ -46,7 +46,7 @@ const whyChooseUs = [
  icon: ShieldCheck,
  title:'Koordinim i plotë dhe mbështetje gjatë udhëtimit',
  description:
-'We manage every component — flights, transfers, accommodation, guides — and remain reachable throughout your trip. If something changes, you speak to someone who knows your booking.',
+'Menaxhojmë çdo detaj — fluturime, transferime, akomodim, guida — dhe jemi të arritshëm gjatë gjithë udhëtimit. Nëse ndryshon diçka, flisni direkt me dikë që njeh rezervimin tuaj.',
 },
  {
  icon: CheckCircle,
