@@ -56,7 +56,7 @@ const whyChooseUs = [
 },
  {
  icon: DollarSign,
- title:'Transparent, all-inclusive pricing',
+ title:'Çmime transparente dhe gjithëpërfshirëse',
  description:
 'The price quoted covers what is listed. All costs are itemized before any commitment is made. There are no supplementary charges added after confirmation.',
 },
