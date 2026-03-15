@@ -126,7 +126,7 @@ export default function AboutPage() {
  <div className="px-10 lg:px-16 py-20 flex flex-col justify-center bg-white">
  <p className="text-xs font-semibold uppercase tracking-[0.35em] text-red-600 mb-5">Historia jonë</p>
  <h2 className="text-4xl font-bold text-gray-950 mb-6 leading-tight tracking-tight">
- Built on operational experience, not marketing copy.
+ Ndërtuar mbi përvojën praktike, jo mbi tekstet e marketingut.
  </h2>
  <p className="text-gray-500 text-sm leading-relaxed mb-4">
  Univers was founded in Tirana in 2009. Over fifteen years, we have grown from a regional operator into a full-service agency handling individual travel, family holidays, corporate group logistics, and institutional programs.
