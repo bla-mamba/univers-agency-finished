@@ -343,7 +343,7 @@ export default function HomePage() {
  Tiranë, Shqipëri — Est. 2009
  </p>
 <h1 className="text-5xl md:text-7xl font-bold text-white leading-[1.0] tracking-tight mb-6 max-w-4xl">
-  Udhëtoni pa stres.<br />Për pjesën tjetër kujdesemi ne.
+  Kjo eshte.<br />Për pjesën tjetër kujdesemi ne.
 </h1>
 <p className="text-lg text-white/65 font-light max-w-2xl leading-relaxed">
   Për familje, çifte dhe grupe – organizojmë udhëtime në Ballkan, Mesdhe dhe destinacione në të gjithë botën.
