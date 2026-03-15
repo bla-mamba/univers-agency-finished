@@ -275,7 +275,7 @@ Kushtet e destinacionit, kërkesat për hyrje dhe detajet operative ndryshojnë 
  {[
  { label:'Shkruar nga', value:'Konsulentë të lartë udhëtimesh me përvojë nga terreni'},
  { label:'Rishikuar nga', value:'Specialistë të destinacioneve dhe menaxherë operacionesh'},
- { label:'Frekuenca e përditësimit', value:'Content reviewed on a rolling basis'},
+ { label:'Frekuenca e përditësimit', value:'Përmbajtja rishikohet vazhdimisht'},
  { label:'Sponsored content', value:'Disclosed explicitly. Most content is independent.'},
  ].map(({ label, value}, i, arr) => (
  <div key={label} className={`p-5 ${i < arr.length - 1 ?'border-b border-gray-200' :''}`}>
