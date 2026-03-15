@@ -77,7 +77,7 @@ export default function BlogPage() {
  <p className="text-xs font-semibold uppercase tracking-[0.35em] text-amber-400 mb-4">Editorial</p>
  <h1 className="text-5xl md:text-6xl font-bold text-white mb-4 leading-tight tracking-tight">Revista & Njohuri</h1>
  <p className="text-white/60 max-w-xl leading-relaxed text-base font-light">
- In-depth destination analysis, travel intelligence, and field reports written by our senior consultants and on-ground specialists.
+ Analiza të thelluara të destinacioneve, informacion udhëtimor dhe raporte nga terreni, të shkruara nga konsulentët tanë të lartë dhe specialistët në vend.
  </p>
  </div>
  </section>
