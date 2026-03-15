@@ -192,7 +192,7 @@ export default function PackageDetailPage() {
  e.preventDefault();
  if (!user || !pkg) return;
  if (!reviewForm.comment.trim()) {
- setReviewError('Please write a comment.');
+ setReviewError('Ju lutemi shkruani një koment.');
  return;
 }
  setReviewSubmitting(true);
@@ -211,7 +211,7 @@ export default function PackageDetailPage() {
  setReviewSuccess(true);
  setReviewForm({ rating: 5, comment:''});
 } catch (err) {
- setReviewError('Failed to submit review. Please try again.');
+ setReviewError('Dërgimi dështoi. Ju lutemi provoni përsëri.');
 } finally {
  setReviewSubmitting(false);
 }
@@ -221,7 +221,7 @@ export default function PackageDetailPage() {
  e.preventDefault();
  if (!pkg || !selectedDate) return;
  if (!bookingForm.customer_name.trim() || !bookingForm.customer_email.trim()) {
- setBookingError('Please fill in all required fields.');
+ setBookingError('Ju lutemi plotësoni të gjitha fushat e detyrueshme.');
  return;
 }
  setBookingSubmitting(true);
@@ -245,7 +245,7 @@ export default function PackageDetailPage() {
  if (error) throw error;
  setBookingSuccess(true);
 } catch (err: any) {
- setBookingError(err.message ||'Failed to submit booking. Please try again.');
+ setBookingError(err.message ||'Dërgimi dështoi. Ju lutemi provoni përsëri.');
 } finally {
  setBookingSubmitting(false);
 }
@@ -305,10 +305,10 @@ export default function PackageDetailPage() {
  if (notFound || !pkg) {
  return (
  <div className="min-h-screen bg-gray-50 flex flex-col items-center justify-center">
- <h2 className="text-2xl font-bold text-gray-800 mb-2">Package not found</h2>
- <p className="text-gray-500 mb-6">This package doesn't exist or has been removed.</p>
+ <h2 className="text-2xl font-bold text-gray-800 mb-2">Paketa nuk u gjet</h2>
+ <p className="text-gray-500 mb-6">Kjo paketë nuk ekziston ose është hequr.</p>
  <Link to="/packages" className="text-red-600 font-semibold hover:underline flex items-center gap-1">
- <ArrowLeft className="h-4 w-4" /> Back to Packages
+ <ArrowLeft className="h-4 w-4" /> Kthehu te Paketat
  </Link>
  </div>
  );
@@ -320,7 +320,7 @@ export default function PackageDetailPage() {
 
  const daysInMonth = getDaysInMonth(calendarYear, calendarMonth);
  const firstDay = getFirstDayOfMonth(calendarYear, calendarMonth);
- const monthName = new Date(calendarYear, calendarMonth).toLocaleString('default', { month:'long', year:'numeric'});
+ const monthName = new Date(calendarYear, calendarMonth).toLocaleString('sq-AL', { month:'long', year:'numeric'});
  const selectedSlot = selectedDate ? getSlotForDate(selectedDate) : null;
  const inCompare = isInCompare(pkg.id);
 
@@ -370,7 +370,7 @@ export default function PackageDetailPage() {
  )}
  </div>
  <div className="flex flex-wrap items-center gap-2 mb-3">
- {pkg.featured && <span className="bg-red-600 text-white text-xs px-3 py-1 font-semibold">Featured</span>}
+ {pkg.featured && <span className="bg-red-600 text-white text-xs px-3 py-1 font-semibold">E Zgjedhur</span>}
  {pkg.category && (
  <span className="bg-white/20 text-white text-xs px-3 py-1 font-medium flex items-center gap-1">
  <Tag className="h-3 w-3" />{pkg.category.name}
@@ -390,7 +390,7 @@ export default function PackageDetailPage() {
  <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
  <div className="lg:col-span-2 space-y-8">
  <div className="bg-white shadow-sm p-8">
- <h2 className="text-2xl font-bold text-gray-900 mb-4">Overview</h2>
+ <h2 className="text-2xl font-bold text-gray-900 mb-4">Përshkrim</h2>
  <p className="text-gray-600 text-lg leading-relaxed">{pkg.description}</p>
  </div>
 
@@ -399,7 +399,7 @@ export default function PackageDetailPage() {
  <div className="bg-white shadow-sm p-6">
  <h3 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
  <span className="w-6 h-6 bg-green-100 flex items-center justify-center"><Check className="h-4 w-4 text-green-600" /></span>
- What's Included
+ Çfarë Përfshihet
  </h3>
  <ul className="space-y-2">
  {pkg.inclusions.map((item, i) => (
@@ -414,7 +414,7 @@ export default function PackageDetailPage() {
  <div className="bg-white shadow-sm p-6">
  <h3 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
  <span className="w-6 h-6 bg-red-100 flex items-center justify-center"><X className="h-4 w-4 text-red-500" /></span>
- Not Included
+ Çfarë Nuk Përfshihet
  </h3>
  <ul className="space-y-2">
  {pkg.exclusions.map((item, i) => (
@@ -429,11 +429,11 @@ export default function PackageDetailPage() {
 
  <div className="bg-white shadow-sm p-6">
  <div className="flex items-center justify-between mb-4">
- <h2 className="text-2xl font-bold text-gray-900">Availability</h2>
+ <h2 className="text-2xl font-bold text-gray-900">Disponueshmëria</h2>
  <div className="flex items-center gap-3 text-xs text-gray-500">
- <span className="flex items-center gap-1.5"><span className="w-3 h-3 bg-green-400 inline-block"></span>Available</span>
- <span className="flex items-center gap-1.5"><span className="w-3 h-3 bg-orange-400 inline-block"></span>Limited</span>
- <span className="flex items-center gap-1.5"><span className="w-3 h-3 bg-red-300 inline-block"></span>Full/Blocked</span>
+ <span className="flex items-center gap-1.5"><span className="w-3 h-3 bg-green-400 inline-block"></span>Lirë</span>
+ <span className="flex items-center gap-1.5"><span className="w-3 h-3 bg-orange-400 inline-block"></span>Pak vende</span>
+ <span className="flex items-center gap-1.5"><span className="w-3 h-3 bg-red-300 inline-block"></span>Plot / Bllokuar</span>
  </div>
  </div>
 
@@ -448,7 +448,7 @@ export default function PackageDetailPage() {
  </div>
 
  <div className="grid grid-cols-7 gap-1 mb-2">
- {['Su','Mo','Tu','We','Th','Fr','Sa'].map((d) => (
+ {['Di','Hë','Ma','Më','En','Pr','Sh'].map((d) => (
  <div key={d} className="text-center text-xs font-semibold text-gray-400 py-1">{d}</div>
  ))}
  </div>
@@ -492,7 +492,7 @@ export default function PackageDetailPage() {
  disabled={!canSelect}
  onClick={() => canSelect && setSelectedDate(isSelected ? null : dateStr)}
  className={cellClass}
- title={slot ? (isBlocked ?'Blocked' : isFull ?'Fully booked' :`${seatsLeft} seats left`) :''}
+ title={slot ? (isBlocked ?'Bllokuar' : isFull ?'Plotësisht i rezervuar' :`${seatsLeft} vende të lira`) :''}
  >
  {day}
  {slot && !isBlocked && !isFull && seatsLeft !== null && (
@@ -509,11 +509,11 @@ export default function PackageDetailPage() {
  <div className="mt-4 p-4 bg-green-50 border border-green-200 flex items-center justify-between">
  <div>
  <p className="text-sm font-semibold text-green-800">
- Selected: {new Date(selectedDate +'T00:00:00').toLocaleDateString('en-US', { weekday:'long', month:'long', day:'numeric', year:'numeric'})}
+ Zgjedhja: {new Date(selectedDate +'T00:00:00').toLocaleDateString('sq-AL', { weekday:'long', month:'long', day:'numeric', year:'numeric'})}
  </p>
  {selectedSlot && (
  <p className="text-xs text-green-600 mt-0.5">
- {selectedSlot.total_seats - selectedSlot.booked_seats} seats available
+ {selectedSlot.total_seats - selectedSlot.booked_seats} vende të lira
  {selectedSlot.notes &&` · ${selectedSlot.notes}`}
  </p>
  )}
@@ -522,14 +522,14 @@ export default function PackageDetailPage() {
  onClick={() => setBookingModal(true)}
  className="bg-green-600 text-white px-4 py-2 text-sm font-semibold hover:bg-green-700 transition"
  >
- Book This Date
+ Rezervo këtë datë
  </button>
  </div>
  )}
 
  {availability.length === 0 && (
  <p className="text-center text-gray-400 text-sm mt-4 py-4">
- No availability slots configured. Contact us to book.
+ Nuk ka data të konfigruara. Na kontaktoni për të rezervuar.
  </p>
  )}
  </div>
@@ -556,16 +556,16 @@ export default function PackageDetailPage() {
  <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent" />
  <div className="absolute inset-0 flex items-center px-8">
  <div>
- <p className="text-white/70 text-sm mb-1">Destination</p>
+ <p className="text-white/70 text-sm mb-1">Destinacioni</p>
  <h3 className="text-2xl font-bold text-white">{pkg.destination.name}</h3>
  <p className="text-gray-200 text-sm">{pkg.destination.country}</p>
  </div>
  </div>
  </div>
  <div className="p-5 flex items-center justify-between">
- <p className="text-gray-600 text-sm">Explore more packages in this destination</p>
+ <p className="text-gray-600 text-sm">Shiko paketa të tjera në këtë destinacion</p>
  <Link to={`/destinations/${pkg.destination.slug}`} className="text-red-600 font-semibold text-sm hover:underline flex items-center gap-1">
- View Destination &rarr;
+ Shiko Destinacionin &rarr;
  </Link>
  </div>
  </div>
@@ -574,7 +574,7 @@ export default function PackageDetailPage() {
  <div className="bg-white shadow-sm p-8">
  <div className="flex items-center justify-between mb-6">
  <h2 className="text-2xl font-bold text-gray-900">
- Customer Reviews
+ Vlerësimet e Klientëve
  {reviews.length > 0 && <span className="text-base font-normal text-gray-500 ml-2">({reviews.length})</span>}
  </h2>
  {avgRating && (
@@ -590,7 +590,7 @@ export default function PackageDetailPage() {
  </div>
 
  {reviews.length === 0 ? (
- <p className="text-gray-400 text-sm mb-8">No reviews yet. Be the first to share your experience!</p>
+ <p className="text-gray-400 text-sm mb-8">Ende pa vlerësime. Jini të parët që ndani përvojën tuaj!</p>
  ) : (
  <div className="space-y-5 mb-8">
  {reviews.map((review) => (
@@ -616,14 +616,14 @@ export default function PackageDetailPage() {
  reviewSuccess ? (
  <div className="bg-green-50 border border-green-200 p-5 text-center">
  <Check className="h-8 w-8 text-green-500 mx-auto mb-2" />
- <p className="font-semibold text-green-800">Review submitted!</p>
- <p className="text-sm text-green-600 mt-1">Thank you!</p>
+ <p className="font-semibold text-green-800">Vlerësimi u dërgua!</p>
+ <p className="text-sm text-green-600 mt-1">Faleminderit!</p>
  </div>
  ) : (
  <form onSubmit={submitReview} className="border-t border-gray-100 pt-6">
- <h3 className="font-bold text-gray-900 mb-4">Leave a Review</h3>
+ <h3 className="font-bold text-gray-900 mb-4">Lini një Vlerësim</h3>
  <div className="mb-4">
- <label className="block text-sm font-medium text-gray-700 mb-2">Your Rating</label>
+ <label className="block text-sm font-medium text-gray-700 mb-2">Vlerësimi Juaj</label>
  <div className="flex gap-2">
  {[1, 2, 3, 4, 5].map((s) => (
  <button key={s} type="button" onClick={() => setReviewForm((f) => ({ ...f, rating: s}))}>
@@ -633,12 +633,12 @@ export default function PackageDetailPage() {
  </div>
  </div>
  <div className="mb-4">
- <label className="block text-sm font-medium text-gray-700 mb-2">Your Comment</label>
+ <label className="block text-sm font-medium text-gray-700 mb-2">Komenti Juaj</label>
  <textarea
  value={reviewForm.comment}
  onChange={(e) => setReviewForm((f) => ({ ...f, comment: e.target.value}))}
  rows={4}
- placeholder="Share your experience with this package..."
+ placeholder="Ndani përvojën tuaj me këtë paketë..."
  className="w-full border border-gray-300 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-red-500 resize-none"
  />
  </div>
@@ -649,14 +649,14 @@ export default function PackageDetailPage() {
  className="flex items-center gap-2 bg-red-600 text-white px-6 py-2.5 font-semibold hover:bg-red-700 transition disabled:opacity-60"
  >
  <Send className="h-4 w-4" />
- {reviewSubmitting ?'Submitting...' :'Submit Review'}
+ {reviewSubmitting ?'Duke dërguar...' :'Dërgo Vlerësimin'}
  </button>
  </form>
  )
  ) : (
  <div className="border-t border-gray-100 pt-6 text-center">
- <p className="text-gray-500 text-sm mb-3">Sign in to leave a review</p>
- <Link to="/login" className="text-red-600 font-semibold hover:underline text-sm">Sign In &rarr;</Link>
+ <p className="text-gray-500 text-sm mb-3">Hyni në llogari për të lënë një vlerësim</p>
+ <Link to="/login" className="text-red-600 font-semibold hover:underline text-sm">Hyr &rarr;</Link>
  </div>
  )}
  </div>
@@ -665,36 +665,36 @@ export default function PackageDetailPage() {
  <div className="lg:col-span-1">
  <div className="bg-white shadow-lg p-6 sticky top-6">
  <div className="text-center border-b border-gray-100 pb-5 mb-5">
- <p className="text-gray-500 text-sm mb-1">Starting from</p>
+ <p className="text-gray-500 text-sm mb-1">Çmimi fillon nga</p>
  {pkg.original_price != null && (
  <p className="text-gray-400 text-lg line-through mb-0.5">€{pkg.original_price.toLocaleString()}</p>
  )}
  <p className="text-4xl font-bold text-red-600">€{pkg.price.toLocaleString()}</p>
  {pkg.original_price != null && (
  <p className="text-green-600 text-xs font-semibold mt-1 uppercase tracking-wide">
- Save €{(pkg.original_price - pkg.price).toLocaleString()} per person
+ Kurseni €{(pkg.original_price - pkg.price).toLocaleString()} për person
  </p>
  )}
- <p className="text-gray-400 text-sm mt-0.5">per person</p>
+ <p className="text-gray-400 text-sm mt-0.5">për person</p>
  </div>
 
  <div className="space-y-3 mb-6">
  <div className="flex items-center justify-between text-sm">
- <div className="flex items-center gap-2 text-gray-600"><Calendar className="h-4 w-4 text-red-500" />Duration</div>
- <span className="font-semibold text-gray-900">{pkg.duration_days} days</span>
+ <div className="flex items-center gap-2 text-gray-600"><Calendar className="h-4 w-4 text-red-500" />Kohëzgjatja</div>
+ <span className="font-semibold text-gray-900">{pkg.duration_days} ditë</span>
  </div>
  <div className="flex items-center justify-between text-sm">
- <div className="flex items-center gap-2 text-gray-600"><Users className="h-4 w-4 text-red-500" />Group size</div>
- <span className="font-semibold text-gray-900">Max {pkg.max_group_size} people</span>
+ <div className="flex items-center gap-2 text-gray-600"><Users className="h-4 w-4 text-red-500" />Madhësia e grupit</div>
+ <span className="font-semibold text-gray-900">Maks {pkg.max_group_size} persona</span>
  </div>
  {pkg.destination && (
  <div className="flex items-center justify-between text-sm">
- <div className="flex items-center gap-2 text-gray-600"><MapPin className="h-4 w-4 text-red-500" />Destination</div>
+ <div className="flex items-center gap-2 text-gray-600"><MapPin className="h-4 w-4 text-red-500" />Destinacioni</div>
  <span className="font-semibold text-gray-900">{pkg.destination.name}</span>
  </div>
  )}
  <div className="flex items-center justify-between text-sm">
- <div className="flex items-center gap-2 text-gray-600"><Star className="h-4 w-4 text-red-500" />Rating</div>
+ <div className="flex items-center gap-2 text-gray-600"><Star className="h-4 w-4 text-red-500" />Vlerësimi</div>
  <div className="flex items-center gap-1">
  {avgRating ? (
  <>
@@ -704,7 +704,7 @@ export default function PackageDetailPage() {
  <span className="font-semibold text-gray-900 ml-1">{avgRating}</span>
  </>
  ) : (
- <span className="text-gray-400 text-xs">No reviews yet</span>
+ <span className="text-gray-400 text-xs">Ende pa vlerësime</span>
  )}
  </div>
  </div>
@@ -715,7 +715,7 @@ export default function PackageDetailPage() {
  onClick={() => setBookingModal(true)}
  className="block w-full bg-red-600 text-white text-center py-3 font-semibold hover:bg-red-700 transition text-base"
  >
- Book — {new Date(selectedDate +'T00:00:00').toLocaleDateString('en-US', { month:'short', day:'numeric'})}
+ Rezervo — {new Date(selectedDate +'T00:00:00').toLocaleDateString('sq-AL', { month:'short', day:'numeric'})}
  </button>
  ) : (
  <button
@@ -725,7 +725,7 @@ export default function PackageDetailPage() {
 }}
  className="block w-full bg-red-600 text-white text-center py-3 font-semibold hover:bg-red-700 transition text-base"
  >
- Select a Date to Book
+ Zgjidhni një Datë për Rezervim
  </button>
  )}
 
@@ -738,14 +738,14 @@ export default function PackageDetailPage() {
 }`}
  >
  <Heart className={`h-4 w-4 ${inWishlist ?'fill-current' :''}`} />
- {inWishlist ?'Saved to Wishlist' :'Save to Wishlist'}
+ {inWishlist ?'Ruajtur në Lista' :'Ruaj në Listë'}
  </button>
  ) : (
  <Link
  to="/login"
  className="flex w-full mt-3 border border-gray-300 text-gray-700 text-center py-3 font-semibold hover:bg-gray-50 transition text-base items-center justify-center gap-2"
  >
- <Heart className="h-4 w-4" />Save to Wishlist
+ <Heart className="h-4 w-4" />Ruaj në Listë
  </Link>
  )}
 
@@ -756,16 +756,16 @@ export default function PackageDetailPage() {
 }`}
  >
  <BarChart2 className="h-4 w-4" />
- {inCompare ?'Remove from Compare' :'Add to Compare'}
+ {inCompare ?'Hiq nga Krahasimi' :'Krahaso'}
  </button>
 
  <Link
  to="/contact"
  className="block w-full mt-3 border border-red-600 text-red-600 text-center py-3 font-semibold hover:bg-red-50 transition text-base"
  >
- Ask a Question
+ Bëni një Pyetje
  </Link>
- <p className="text-center text-gray-400 text-xs mt-4">Free cancellation up to 48 hours before departure</p>
+ <p className="text-center text-gray-400 text-xs mt-4">Anulim falas deri 48 orë para nisjes</p>
  </div>
  </div>
  </div>
@@ -776,10 +776,10 @@ export default function PackageDetailPage() {
  <div className="bg-white shadow-2xl w-full max-w-lg max-h-[90vh] overflow-y-auto">
  <div className="p-6 border-b border-gray-100 flex items-center justify-between">
  <div>
- <h2 className="text-xl font-bold text-gray-900">Book Your Trip</h2>
+ <h2 className="text-xl font-bold text-gray-900">Rezervoni Udhëtimin</h2>
  {selectedDate && (
  <p className="text-sm text-gray-500 mt-0.5">
- {new Date(selectedDate +'T00:00:00').toLocaleDateString('en-US', { weekday:'long', month:'long', day:'numeric', year:'numeric'})}
+ {new Date(selectedDate +'T00:00:00').toLocaleDateString('sq-AL', { weekday:'long', month:'long', day:'numeric', year:'numeric'})}
  </p>
  )}
  </div>
@@ -793,13 +793,13 @@ export default function PackageDetailPage() {
  <div className="w-16 h-16 bg-green-100 flex items-center justify-center mx-auto mb-4">
  <Check className="h-8 w-8 text-green-500" />
  </div>
- <h3 className="text-xl font-bold text-gray-900 mb-2">Booking Submitted!</h3>
- <p className="text-gray-500 text-sm mb-6">Your booking request has been received. Our team will confirm it shortly.</p>
+ <h3 className="text-xl font-bold text-gray-900 mb-2">Rezervimi u Dërgua!</h3>
+ <p className="text-gray-500 text-sm mb-6">Kërkesa juaj u pranua. Ekipi ynë do ta konfirmojë së shpejti.</p>
  <button
  onClick={() => { setBookingModal(false); setBookingSuccess(false);}}
  className="bg-red-600 text-white px-6 py-2.5 font-semibold hover:bg-red-700 transition text-sm"
  >
- Close
+ Mbyll
  </button>
  </div>
  ) : (
@@ -807,24 +807,24 @@ export default function PackageDetailPage() {
  <div className="bg-gray-50 p-4 mb-2">
  <div className="flex items-center justify-between mb-1">
  <span className="text-sm font-semibold text-gray-700">{pkg.title}</span>
- <span className="text-sm font-bold text-red-600">${pkg.price.toLocaleString()}/person</span>
+ <span className="text-sm font-bold text-red-600">€{pkg.price.toLocaleString()}/person</span>
  </div>
  {selectedDate && (
  <p className="text-xs text-gray-500">
- Travel date: {new Date(selectedDate +'T00:00:00').toLocaleDateString('en-US', { month:'long', day:'numeric', year:'numeric'})}
+ Data e udhëtimit: {new Date(selectedDate +'T00:00:00').toLocaleDateString('sq-AL', { month:'long', day:'numeric', year:'numeric'})}
  </p>
  )}
  </div>
 
  <div>
- <label className="block text-sm font-medium text-gray-700 mb-1.5">Full Name *</label>
+ <label className="block text-sm font-medium text-gray-700 mb-1.5">Emri i Plotë *</label>
  <input
  type="text"
  required
  value={bookingForm.customer_name}
  onChange={(e) => setBookingForm((f) => ({ ...f, customer_name: e.target.value}))}
  className="w-full border border-gray-300 px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-red-500"
- placeholder="Your full name"
+ placeholder="Emri juaj i plotë"
  />
  </div>
 
@@ -841,7 +841,7 @@ export default function PackageDetailPage() {
  </div>
 
  <div>
- <label className="block text-sm font-medium text-gray-700 mb-1.5">Phone</label>
+ <label className="block text-sm font-medium text-gray-700 mb-1.5">Telefon</label>
  <input
  type="tel"
  value={bookingForm.customer_phone}
@@ -852,7 +852,7 @@ export default function PackageDetailPage() {
  </div>
 
  <div>
- <label className="block text-sm font-medium text-gray-700 mb-1.5">Number of Travelers *</label>
+ <label className="block text-sm font-medium text-gray-700 mb-1.5">Numri i Udhëtarëve *</label>
  <select
  value={bookingForm.num_travelers}
  onChange={(e) => setBookingForm((f) => ({ ...f, num_travelers: Number(e.target.value)}))}
@@ -864,25 +864,25 @@ export default function PackageDetailPage() {
  selectedSlot ? Math.max(selectedSlot.total_seats - selectedSlot.booked_seats, 1) : pkg.max_group_size
  )
 }, (_, i) => i + 1).map((n) => (
- <option key={n} value={n}>{n} {n === 1 ?'traveler' :'travelers'}</option>
+ <option key={n} value={n}>{n} {n === 1 ?'udhëtar' :'udhëtarë'}</option>
  ))}
  </select>
  </div>
 
  <div>
- <label className="block text-sm font-medium text-gray-700 mb-1.5">Special Requests</label>
+ <label className="block text-sm font-medium text-gray-700 mb-1.5">Kërkesa të Veçanta</label>
  <textarea
  value={bookingForm.special_requests}
  onChange={(e) => setBookingForm((f) => ({ ...f, special_requests: e.target.value}))}
  rows={3}
- placeholder="Any dietary requirements, accessibility needs, etc."
+ placeholder="Ndonjë kërkesë ushqimore, nevoja të veçanta, etj."
  className="w-full border border-gray-300 px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-red-500 resize-none"
  />
  </div>
 
  <div className="bg-red-50 p-4 flex items-center justify-between">
- <span className="text-sm font-semibold text-gray-700">Total Price</span>
- <span className="text-xl font-bold text-red-600">${(pkg.price * bookingForm.num_travelers).toLocaleString()}</span>
+ <span className="text-sm font-semibold text-gray-700">Çmimi Total</span>
+ <span className="text-xl font-bold text-red-600">€{(pkg.price * bookingForm.num_travelers).toLocaleString()}</span>
  </div>
 
  {bookingError && <p className="text-red-600 text-sm">{bookingError}</p>}
@@ -892,9 +892,9 @@ export default function PackageDetailPage() {
  disabled={bookingSubmitting}
  className="w-full bg-red-600 text-white py-3 font-semibold hover:bg-red-700 transition text-sm disabled:opacity-60"
  >
- {bookingSubmitting ?'Submitting...' :'Confirm Booking Request'}
+ {bookingSubmitting ?'Duke dërguar...' :'Konfirmo Rezervimin'}
  </button>
- <p className="text-xs text-gray-400 text-center">No payment required now. Our team will contact you to confirm.</p>
+ <p className="text-xs text-gray-400 text-center">Nuk kërkohet pagesë tani. Ekipi ynë do t'ju kontaktojë për konfirmim.</p>
  </form>
  )}
  </div>
