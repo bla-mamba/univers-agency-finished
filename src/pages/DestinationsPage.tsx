@@ -121,7 +121,9 @@ export default function DestinationsPage() {
  <div className="flex items-center gap-4 mb-6">
  <div className="w-6 h-px bg-red-600" />
  <h3 className="text-xs font-bold text-gray-900 uppercase tracking-widest">Destinacionet Kryesore</h3>
- <span className="text-xs text-gray-400">— thellësia më e lartë operacionale dhe shumëllojshmëria e paketave</span>
+ <span className="text-xs text-gray-400">
+  — destinacionet ku kemi më shumë eksperiencë dhe programe udhëtimi
+</span>
  </div>
  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-gray-200">
  {featured.map((dest) => (
