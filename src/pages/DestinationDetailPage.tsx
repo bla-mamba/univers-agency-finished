@@ -19,6 +19,7 @@ interface PackageItem {
  title: string;
  slug: string;
  price: number;
+ original_price: number | null;
  duration_days: number;
  images: string[];
  video_url: string | null;
@@ -55,8 +56,15 @@ function DestPkgCard({ pkg}: { pkg: PackageItem}) {
  className="w-full h-full object-cover group-hover:scale-110 transition duration-300"
  />
  )}
- <div className="absolute top-4 right-4 bg-red-600 text-white px-3 py-1 text-sm font-semibold shadow">
- €{pkg.price.toLocaleString()}
+ <div className="absolute top-4 right-4 bg-red-600 text-white px-3 py-1.5 text-sm font-semibold shadow">
+ {pkg.original_price != null ? (
+ <div className="flex flex-col items-end leading-tight">
+ <span className="line-through text-white/60 font-normal text-xs">€{pkg.original_price.toLocaleString()}</span>
+ <span>€{pkg.price.toLocaleString()}</span>
+ </div>
+ ) : (
+ <span>€{pkg.price.toLocaleString()}</span>
+ )}
  </div>
  {pkg.featured && (
  <div className="absolute top-4 left-4 bg-yellow-400 text-yellow-900 text-xs px-2 py-1 font-semibold">

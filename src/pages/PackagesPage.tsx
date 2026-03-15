@@ -15,6 +15,7 @@ interface Package {
  title: string;
  slug: string;
  price: number;
+ original_price: number | null;
  duration_days: number;
  images: string[];
  video_url: string | null;
@@ -186,8 +187,15 @@ function PackageCard({
  <MapPin className="h-3 w-3" />
  {pkg.destination?.name ||'Unknown'}, {pkg.destination?.country ||''}
  </div>
- <div className="bg-white text-gray-900 px-2.5 py-1 text-xs font-bold tracking-wide">
- from €{pkg.price.toLocaleString()}
+ <div className="bg-white text-gray-900 px-2.5 py-1.5 text-xs font-bold tracking-wide">
+ {pkg.original_price != null ? (
+ <div className="flex flex-col items-end leading-tight">
+ <span className="line-through text-gray-400 font-normal text-[10px]">€{pkg.original_price.toLocaleString()}</span>
+ <span className="text-red-600">€{pkg.price.toLocaleString()}</span>
+ </div>
+ ) : (
+ <span>from €{pkg.price.toLocaleString()}</span>
+ )}
  </div>
  </div>
  {pkg.category && (

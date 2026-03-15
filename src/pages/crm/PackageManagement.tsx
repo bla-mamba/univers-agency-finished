@@ -8,6 +8,7 @@ interface Package {
  title: string;
  slug: string;
  price: number;
+ original_price: number | null;
  duration_days: number;
  status: string;
  featured: boolean;
@@ -34,6 +35,7 @@ export default function PackageManagement() {
  slug: '',
  description: '',
  price: '',
+ original_price: '',
  duration_days: '',
  max_group_size: '',
  destination_id: '',
@@ -211,6 +213,7 @@ export default function PackageManagement() {
  ...formData,
  slug: editingPackage ? formData.slug : autoSlug,
  price: parseFloat(formData.price),
+ original_price: formData.original_price ? parseFloat(formData.original_price) : null,
  duration_days: parseInt(formData.duration_days),
  max_group_size: parseInt(formData.max_group_size) || 10,
  destination_id: resolvedDestinationId || null,
@@ -249,6 +252,7 @@ export default function PackageManagement() {
  slug: data.slug,
  description: data.description || '',
  price: data.price.toString(),
+ original_price: data.original_price != null ? data.original_price.toString() : '',
  duration_days: data.duration_days.toString(),
  max_group_size: data.max_group_size?.toString() || '10',
  destination_id: data.destination_id || '',
@@ -291,6 +295,7 @@ export default function PackageManagement() {
  slug: '',
  description: '',
  price: '',
+ original_price: '',
  duration_days: '',
  max_group_size: '',
  destination_id: '',
@@ -398,7 +403,16 @@ export default function PackageManagement() {
  </td>
  <td className="px-6 py-4 text-sm text-gray-900">{pkg.destination?.name || 'N/A'}</td>
  <td className="px-6 py-4 text-sm text-gray-900">{pkg.category?.name || 'N/A'}</td>
- <td className="px-6 py-4 text-sm text-gray-900">${pkg.price.toLocaleString()}</td>
+ <td className="px-6 py-4 text-sm text-gray-900">
+ {pkg.original_price != null ? (
+ <div className="flex flex-col">
+ <span className="line-through text-gray-400 text-xs">€{pkg.original_price.toLocaleString()}</span>
+ <span className="text-red-600 font-semibold">€{pkg.price.toLocaleString()}</span>
+ </div>
+ ) : (
+ <span>€{pkg.price.toLocaleString()}</span>
+ )}
+ </td>
  <td className="px-6 py-4 text-sm text-gray-900">{pkg.duration_days} days</td>
  <td className="px-6 py-4">
  <span className={`px-2 py-1 inline-flex text-xs leading-5 font-semibold ${getStatusColor(pkg.status)}`}>
@@ -481,7 +495,7 @@ export default function PackageManagement() {
 
  <div className="grid grid-cols-2 gap-4">
  <div>
- <label className="block text-sm font-medium text-gray-700 mb-1">Price ($)</label>
+ <label className="block text-sm font-medium text-gray-700 mb-1">Current Price (€)</label>
  <input
  type="number"
  required
@@ -491,6 +505,23 @@ export default function PackageManagement() {
  className="w-full px-3 py-2 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-500"
  />
  </div>
+ <div>
+ <label className="block text-sm font-medium text-gray-700 mb-1">
+ Original Price (€) <span className="text-xs font-normal text-gray-400">— optional</span>
+ </label>
+ <input
+ type="number"
+ step="0.01"
+ min="0"
+ value={formData.original_price}
+ onChange={(e) => setFormData({ ...formData, original_price: e.target.value })}
+ placeholder="Leave empty if no offer"
+ className="w-full px-3 py-2 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-500"
+ />
+ <p className="text-xs text-gray-400 mt-1">When set, shows as strikethrough price</p>
+ </div>
+ </div>
+ <div className="grid grid-cols-2 gap-4">
  <div>
  <label className="block text-sm font-medium text-gray-700 mb-1">Duration (days)</label>
  <input

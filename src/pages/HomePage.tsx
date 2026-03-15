@@ -9,6 +9,7 @@ interface Package {
  title: string;
  slug: string;
  price: number;
+ original_price: number | null;
  duration_days: number;
  images: string[];
  video_url: string | null;
@@ -186,8 +187,15 @@ function HomePkgCard({ pkg}: { pkg: Package}) {
  {pkg.destination?.name ||'Unknown'}, {pkg.destination?.country ||''}
  </div>
  </div>
- <div className="absolute top-4 right-4 bg-gray-950/90 text-white px-3 py-1.5 text-xs font-bold tracking-wider uppercase">
- from €{pkg.price.toLocaleString()}
+ <div className="absolute top-4 right-4 bg-gray-950/90 text-white px-3 py-1.5 text-xs font-bold tracking-wider">
+ {pkg.original_price != null ? (
+ <div className="flex flex-col items-end leading-tight">
+ <span className="line-through text-white/50 font-normal text-[10px] normal-case">€{pkg.original_price.toLocaleString()}</span>
+ <span className="uppercase">€{pkg.price.toLocaleString()}</span>
+ </div>
+ ) : (
+ <span className="uppercase">from €{pkg.price.toLocaleString()}</span>
+ )}
  </div>
  </div>
  <div className="p-6 border-b border-l border-r border-gray-100 group-hover:border-red-100 transition-colors">

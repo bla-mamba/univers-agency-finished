@@ -9,6 +9,7 @@ interface PackageDetail {
  title: string;
  slug: string;
  price: number;
+ original_price: number | null;
  duration_days: number;
  max_group_size: number;
  images: string[];
@@ -70,7 +71,12 @@ export default function ComparePage() {
  icon: <DollarSign className="h-4 w-4 text-red-500" />,
  label:'Price',
  render: (pkg: PackageDetail) => (
+ <div className="flex flex-col">
+ {pkg.original_price != null && (
+ <span className="line-through text-gray-400 text-xs">€{Number(pkg.original_price).toLocaleString()}</span>
+ )}
  <span className="font-bold text-red-600">€{Number(pkg.price).toLocaleString()}</span>
+ </div>
  ),
 },
  {
@@ -138,6 +144,9 @@ export default function ComparePage() {
  </div>
  </div>
  <div className="p-4 sm:p-5 text-center">
+ {pkg.original_price != null && (
+ <p className="text-sm text-gray-400 line-through">€{Number(pkg.original_price).toLocaleString()}</p>
+ )}
  <p className="text-2xl sm:text-3xl font-bold text-red-600">€{Number(pkg.price).toLocaleString()}</p>
  <p className="text-xs text-gray-400">per person</p>
  <Link

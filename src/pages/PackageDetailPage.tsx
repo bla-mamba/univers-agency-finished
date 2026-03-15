@@ -15,6 +15,7 @@ interface PackageDetail {
  slug: string;
  description: string;
  price: number;
+ original_price: number | null;
  duration_days: number;
  max_group_size: number;
  images: string[];
@@ -665,8 +666,16 @@ export default function PackageDetailPage() {
  <div className="bg-white shadow-lg p-6 sticky top-6">
  <div className="text-center border-b border-gray-100 pb-5 mb-5">
  <p className="text-gray-500 text-sm mb-1">Starting from</p>
+ {pkg.original_price != null && (
+ <p className="text-gray-400 text-lg line-through mb-0.5">€{pkg.original_price.toLocaleString()}</p>
+ )}
  <p className="text-4xl font-bold text-red-600">€{pkg.price.toLocaleString()}</p>
- <p className="text-gray-400 text-sm">per person</p>
+ {pkg.original_price != null && (
+ <p className="text-green-600 text-xs font-semibold mt-1 uppercase tracking-wide">
+ Save €{(pkg.original_price - pkg.price).toLocaleString()} per person
+ </p>
+ )}
+ <p className="text-gray-400 text-sm mt-0.5">per person</p>
  </div>
 
  <div className="space-y-3 mb-6">
