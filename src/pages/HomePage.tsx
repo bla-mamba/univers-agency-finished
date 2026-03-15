@@ -606,7 +606,7 @@ export default function HomePage() {
  <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
  <h2 className="text-4xl md:text-5xl font-bold text-gray-950">Ku Shkojmë</h2>
  <p className="text-gray-500 max-w-lg text-sm leading-relaxed">
- Punojmë vetëm në destinacionet që i njohim personalisht — jo gjëra të marra nga katalogje ndërkombëtare pa kontakt lokal.
+  Punojmë vetëm me destinacione që i njohim mirë dhe ku kemi partnerë lokalë. Nuk ofrojmë paketa nga katalogë anonimë pa kontakt real në vend.
  </p>
  </div>
  </div>
