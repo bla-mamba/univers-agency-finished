@@ -346,7 +346,7 @@ export default function HomePage() {
   Udhëtoni pa stres.<br />Për pjesën tjetër kujdesemi ne.
 </h1>
 <p className="text-lg text-white/65 font-light max-w-2xl leading-relaxed">
-  Për familje, çifte dhe grupe – organizojmë udhëtime në Ballkan, Mesdhe dhe destinacione në të gjithë botën.
+ Organizojmë udhëtime për familje, çifte dhe grupe – në Ballkan, Mesdhe dhe destinacione në të gjithë botën.
 </p>
  </div>
 
