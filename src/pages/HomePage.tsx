@@ -505,9 +505,9 @@ export default function HomePage() {
  <h2 className="text-4xl md:text-5xl font-bold text-gray-950 leading-tight">
   Paketat Më të Preferuara
 </h2>
- <p className="text-gray-500 mt-3 max-w-lg text-base leading-relaxed">
- Udhëtimet më të kërkuara nga klientët tanë. Çdo paketë ka itinerar të plotë, çmime të qarta dhe detaje akomodimi.
- </p>
+<p className="text-gray-500 mt-3 max-w-lg text-base leading-relaxed">
+  Disa nga udhëtimet më të zgjedhura nga klientët tanë. Itinerar i plotë, çmime transparente dhe akomodime të përzgjedhura me kujdes.
+</p>
  </div>
  <Link to="/packages" className="inline-flex items-center gap-2 text-sm font-bold text-red-600 hover:text-red-700 transition uppercase tracking-wider whitespace-nowrap border-b-2 border-red-600 pb-0.5">
  Shiko të Gjitha <ChevronRight className="h-4 w-4" />
