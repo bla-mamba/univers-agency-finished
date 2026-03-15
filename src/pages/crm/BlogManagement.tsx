@@ -16,7 +16,7 @@ interface BlogPost {
  created_at: string;
 }
 
-const CATEGORIES = ['Travel Tips', 'Destination Guides', 'Top Lists', 'Culture', 'Adventure', 'Food & Cuisine'];
+const CATEGORIES = ['Këshilla udhëtimi', 'Udhëzues destinacionesh', 'Lista kryesore', 'Kulturë', 'Aventurë', 'Ushqim & Kuzhine'];
 
 const emptyForm = {
  title: '', slug: '', excerpt: '', content: '', cover_image: '',
