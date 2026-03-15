@@ -24,7 +24,7 @@ interface Offer {
 
 const OFFER_CONDITIONS = [
 'Të gjitha çmimet e publikuara janë për person dhe bazohen në akomodim për dy persona në një dhomë. Shtesa për akomodim tek aplikohet aty ku është e specifikuar në kushtet e paketës.',
-'Discount is applied to the base package price only and does not extend to optional add-ons, flight upgrades, or travel insurance.',
+'Zbritja aplikohet vetëm mbi çmimin bazë të paketës dhe nuk përfshin shërbimet shtesë opsionale, përmirësimet e fluturimit apo sigurimin e udhëtimit.',
 'Rates are confirmed at the time of deposit. Price lock applies only once a deposit has been received and processed.',
 'Offers are capacity-limited. Availability is not guaranteed until booking is confirmed in writing by our operations team.',
 ];
