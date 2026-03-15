@@ -741,7 +741,7 @@ export default function HomePage() {
  <p className="text-xs font-bold uppercase tracking-[0.3em] text-red-600 mb-4">Këshilla Udhëtimi</p>
  <h2 className="text-4xl md:text-5xl font-bold text-gray-950 mb-3">Gjëra që Duhen Ditur</h2>
  <p className="text-gray-500 max-w-2xl text-sm leading-relaxed">
- Këto i diskutojmë me çdo klient. Ndoshta disa i dini, por ja ato që kanë bërë diferencën.
+ Janë disa gjëra që ia vlen t’i dini para çdo udhëtimi. Këto janë këshillat që u japim zakonisht klientëve tanë.
  </p>
  </div>
  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-gray-100">
