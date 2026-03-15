@@ -135,7 +135,7 @@ export default function AboutPage() {
   Ne menaxhojmë transportin tonë tokësor dhe kemi partneritete direkte me hotele dhe ofrues shërbimesh në Ballkan dhe Mesdhe. Çdo destinacion në portofolin tonë është vlerësuar me kujdes nga ekipi ynë para se t’i ofrohet klientëve.
  </p>
  <p className="text-gray-500 text-sm leading-relaxed mb-10">
- We are IATA-accredited for international ticketing and TravelLife certified for sustainable operations — both independently verified, not self-declared.
+ Jemi të akredituar nga IATA për biletimin ndërkombëtar dhe të certifikuar nga TravelLife për operacione të qëndrueshme — të dyja të verifikuara në mënyrë të pavarur për transparencë dhe cilësi.
  </p>
  <Link
  to="/contact"
