@@ -152,7 +152,7 @@ Kontaktoni ekipin tonë <ChevronRight className="h-4 w-4" />
  <section className="py-20 bg-[#f5f4f2]">
  <div className="max-w-7xl mx-auto px-6 lg:px-8">
  <div className="mb-14">
- <p className="text-xs font-semibold uppercase tracking-[0.35em] text-red-600 mb-4">Why Work With Us</p>
+ <p className="text-xs font-semibold uppercase tracking-[0.35em] text-red-600 mb-4">Pse të punoni me ne?</p>
  <h2 className="text-4xl font-bold text-gray-950 leading-tight tracking-tight">
  What sets our operations apart
  </h2>
