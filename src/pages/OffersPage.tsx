@@ -102,7 +102,7 @@ export default function OffersPage() {
  )}
  <div className="absolute inset-0" style={{ backgroundColor:`rgba(0,0,0,${hero.overlay_opacity})`}} />
  <div className="relative max-w-7xl mx-auto px-6 lg:px-8 h-full flex flex-col justify-end pb-14">
- <p className="text-xs font-semibold uppercase tracking-[0.35em] text-amber-400 mb-4">Current Rate Adjustments</p>
+ <p className="text-xs font-semibold uppercase tracking-[0.35em] text-amber-400 mb-4">Oferta aktive</p>
  <h1 className="text-5xl md:text-6xl font-bold text-white mb-4 leading-tight tracking-tight">Active Offers</h1>
  <p className="text-white/60 max-w-xl leading-relaxed text-base font-light">
  Scheduled pricing adjustments on select programs. All offers are capacity-limited, subject to availability at time of booking, and governed by the terms outlined below.
