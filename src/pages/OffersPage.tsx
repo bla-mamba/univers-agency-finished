@@ -43,7 +43,7 @@ const OFFER_POLICY = [
  {
  icon: CheckCircle2,
  title:'Fiksimi i cmimit',
- body:'Pasi të merret depozita juaj, çmimi i ofertuar fiksohet për datat e udhëtimit të konfirmuara. Nuk aplikohet asnjë ndryshim tjetër..',
+ body:'Pasi të merret depozita juaj, çmimi i ofertuar fiksohet për datat e udhëtimit të konfirmuara. Nuk aplikohet asnjë ndryshim tjetër.',
 },
 ];
 
