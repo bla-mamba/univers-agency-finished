@@ -502,7 +502,9 @@ export default function HomePage() {
  <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-14 gap-4">
  <div>
  <p className="text-xs font-bold uppercase tracking-[0.3em] text-red-600 mb-4">Paketa Udhëtimi</p>
- <h2 className="text-4xl md:text-5xl font-bold text-gray-950 leading-tight">Udhëtimet Tona Kryesore</h2>
+ <h2 className="text-4xl md:text-5xl font-bold text-gray-950 leading-tight">
+  Paketat Më të Preferuara
+</h2>
  <p className="text-gray-500 mt-3 max-w-lg text-base leading-relaxed">
  Udhëtimet më të kërkuara nga klientët tanë. Çdo paketë ka itinerar të plotë, çmime të qarta dhe detaje akomodimi.
  </p>
