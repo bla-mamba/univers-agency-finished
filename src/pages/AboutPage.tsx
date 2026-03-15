@@ -40,7 +40,7 @@ const whyChooseUs = [
  icon: Clock,
  title:'Mbi 15 vite përvojë operative në Evropën Juglindore',
  description:
-'We have been organizing travel in the Balkans and Mediterranean since 2009. That depth of experience translates directly into smoother itineraries, better supplier relationships, and fewer surprises.',
+'Që nga viti 2009, kemi krijuar eksperienca udhëtimesh në Ballkan dhe Mesdhe. Eksperienca jonë siguron itinerare më të qeta, lidhje më të forta me ofruesit dhe më pak surpriza për klientët.',
 },
  {
  icon: ShieldCheck,
