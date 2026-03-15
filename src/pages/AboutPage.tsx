@@ -186,7 +186,7 @@ Kontaktoni ekipin tonë <ChevronRight className="h-4 w-4" />
  <div className="max-w-2xl">
  <p className="text-xs font-semibold uppercase tracking-[0.35em] text-amber-400 mb-4">Udhëtime Korporative dhe Institucionale</p>
  <p className="text-3xl md:text-4xl font-bold text-white leading-tight">
- We handle group travel for companies, NGOs, and government institutions across the region.
+  Ne specializohemi në organizimin e udhëtimeve grupore për kompani, OJQ dhe institucione qeveritare në gjithë rajonin.
  </p>
  </div>
  </div>
