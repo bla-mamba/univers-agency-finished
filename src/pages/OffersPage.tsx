@@ -129,7 +129,7 @@ Zbritje të përkohshme në disa paketa të përzgjedhura. Ofertat janë të kuf
  <div>
  <h2 className="text-2xl font-bold text-gray-900 tracking-tight">Ofertat e publikuara</h2>
  <p className="text-sm text-gray-500 mt-1">
- {loading ?'Loading…' :`${offers.length} active offer${offers.length !== 1 ?'s' :''} as of today`}
+ {loading ?'Loading…' :`${offers.length} oferta aktive${offers.length !== 1 ?'s' :''} per sot`}
  </p>
  </div>
  <Link
