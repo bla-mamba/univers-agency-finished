@@ -89,7 +89,7 @@ export default function DestinationsPage() {
  <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 h-4 w-4" />
  <input
  type="text"
- placeholder="Filtro sipas qytetit ose vendit..."
+ placeholder="Kërko sipas qytetit ose shtetit..."
  value={searchTerm}
  onChange={(e) => setSearchTerm(e.target.value)}
  className="w-full pl-9 pr-4 py-2.5 border border-gray-300 text-sm focus:outline-none focus:border-gray-900 bg-white transition-colors"
