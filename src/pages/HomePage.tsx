@@ -776,9 +776,9 @@ export default function HomePage() {
  </div>
  <div className="px-10 lg:px-16 py-20 flex flex-col justify-center">
  <p className="text-xs font-bold uppercase tracking-[0.3em] text-red-500 mb-6">Na Kontaktoni</p>
- <h2 className="text-4xl font-bold text-white leading-tight mb-4">
- Keni pyetje? Flisni me ne.
- </h2>
+<h2 className="text-4xl font-bold text-white leading-tight mb-4">
+  Keni pyetje? Jemi këtu për t’ju ndihmuar.
+</h2>
  <p className="text-gray-500 text-sm leading-relaxed mb-10">
  Nuk keni nevojë të keni gjithçka gati. Na shkruani ose telefononi dhe e ndërtojmë bashkë — çmimet, datat, destinacionin dhe gjithçka tjetër.
  </p>
