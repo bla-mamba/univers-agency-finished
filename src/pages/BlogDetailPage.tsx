@@ -167,7 +167,7 @@ export default function BlogDetailPage() {
  to="/blog"
  className="inline-flex items-center gap-1.5 text-xs font-semibold text-gray-500 hover:text-red-600 transition"
  >
- All articles <ArrowRight className="h-3.5 w-3.5" />
+ Të gjithë artikujt <ArrowRight className="h-3.5 w-3.5" />
  </Link>
  </div>
  <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
