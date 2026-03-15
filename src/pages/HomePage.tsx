@@ -356,7 +356,7 @@ export default function HomePage() {
  <MapPin className="absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 text-white/50 pointer-events-none z-10" />
  <input
  type="text"
- placeholder="Ku dëshironi të shkoni?"
+ placeholder="Ku doni të udhëtoni?"
  value={searchQuery}
  onChange={(e) => { setSearchQuery(e.target.value); setShowSuggestions(true);}}
  onFocus={() => setShowSuggestions(true)}
