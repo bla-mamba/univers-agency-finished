@@ -32,7 +32,7 @@ const OFFER_CONDITIONS = [
 const OFFER_POLICY = [
  {
  icon: FileText,
- title:'Booking Confirmation',
+ title:'Konfirmimi i Rezervimit',
  body:'All offers require a signed booking form and deposit to secure the rate. Verbal reservations are not binding.',
 },
  {
