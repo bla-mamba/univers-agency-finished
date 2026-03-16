@@ -50,7 +50,7 @@ export default function ContactPage() {
  <p className="text-xs font-semibold uppercase tracking-[0.35em] text-amber-400 mb-4">Get in Touch</p>
  <h1 className="text-5xl md:text-6xl font-bold text-white mb-4 leading-tight tracking-tight">Contact Us</h1>
  <p className="text-white/60 max-w-xl leading-relaxed text-base font-light">
- Reach our team directly by phone or email. We respond promptly and can advise on availability, pricing, and logistics for any type of trip.
+  Kontaktoni ekipin tonë direkt përmes telefonit ose email-it. Ne përgjigjemi shpejt dhe mund t’ju këshillojmë mbi disponueshmërinë, çmimet dhe logjistikën për çdo lloj udhëtimi.
  </p>
  </div>
  </div>
