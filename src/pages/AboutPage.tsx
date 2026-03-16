@@ -92,7 +92,7 @@ export default function AboutPage() {
  <p className="text-xs font-semibold uppercase tracking-[0.35em] text-amber-400 mb-4">Tirana, Albania — Est. 2009</p>
  <h1 className="text-5xl md:text-6xl font-bold text-white mb-4 leading-tight tracking-tight">Rreth Univers</h1>
  <p className="text-white/60 max-w-xl leading-relaxed text-base font-light">
-  Që nga 2009, ndihmojmë njerëz të udhëtojnë pa stres — nga Ballkani e Mesdheut deri në destinacione më të largëta. Jo vetëm biletë dhe hotel, por një udhëtim të organizuar siç duhet.
+  Që nga 2009, ndihmojmë njerëz të udhëtojnë pa stres — nga Ballkani e Mesdheu deri në destinacione më të largëta. Jo vetëm biletë dhe hotel, por një udhëtim të organizuar siç duhet.
  </p>
  </div>
  </div>
