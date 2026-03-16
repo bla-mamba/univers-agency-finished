@@ -31,7 +31,7 @@ const values = [
  icon: Globe,
  title:'Udhëtim i përgjegjshëm',
  description:
-'TravelLife certified. We select partners and transport options that minimize environmental impact and respect local communities.',
+'I certifikuar nga TravelLife. Ne zgjedhim partnerë dhe mundësi transporti që minimizojnë ndikimin mjedisor dhe respektojnë komunitetet lokale.',
 },
 ];
 
