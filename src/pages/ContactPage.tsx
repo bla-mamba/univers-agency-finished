@@ -23,7 +23,7 @@ const contactInfo = [
  {
  icon: Clock,
  title:'Orari i Punës',
- lines: ['Mon – Fri: 9am – 7pm','Sat – Sun: 10am – 4pm'],
+ lines: ['E Hene – E Premte: 09:00 – 19:00','E Shtune – E Diele: 10:00 – 16:00'],
  href: null,
 },
 ];
