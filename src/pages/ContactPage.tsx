@@ -22,7 +22,7 @@ const contactInfo = [
 },
  {
  icon: Clock,
- title:'Working Hours',
+ title:'Orari i Punës',
  lines: ['Mon – Fri: 9am – 7pm','Sat – Sun: 10am – 4pm'],
  href: null,
 },
