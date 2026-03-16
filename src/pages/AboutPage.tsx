@@ -5,60 +5,60 @@ import { useHeroMedia} from'../hooks/useHeroMedia';
 const stats = [
  { label:'Klientë të shërbyer', value:'12,000+'},
  { label:'Destinacione', value:'60+'},
- { label:'Vite ne Operim', value:'15+'},
+ { label:'Vite në operim', value:'15+'},
 ];
 
 const values = [
  {
  icon: Heart,
- title:'I njohim vendet vetë',
+ title:'Njohuri nga terreni, jo nga katalogu',
  description:
-'Nuk e kemi Ballkanin nga interneti. Ekipi ynë ka udhëtuar, fjetur dhe ngrënë atje — dhe kjo ndryshon gjithçka kur planifikojmë udhëtimin tuaj.',
+'Ekipi ynë ka vizituar personalisht destinacionet që ofrojmë. Kjo njohuri e drejtpërdrejtë reflektohet në çdo itinerar që hartojmë për ju.',
 },
  {
  icon: CheckCircle,
- title:'Nuk ofrojmë gjë pa e parë vetë',
+ title:'Asgjë nuk ofrohet pa u verifikuar',
  description:
-'Para se të shtojmë një hotel apo guidë, dikush nga ekipi ynë e ka provuar. Nëse nuk na ka pëlqyer neve, nuk jua rekomandojmë juve.',
+'Çdo hotel dhe çdo guidë vlerësohen nga ekipi ynë para se të bëhen pjesë e ofertës sonë. Standardet tona janë të njëjta si ato që do të kishim për veten.',
 },
  {
  icon: Users,
- title:'Gjithmonë ka dikush në telefon',
+ title:'Një pikë kontakti për gjithçka',
  description:
-'Keni një person të vetëm që e di gjithçka për rezervimin tuaj. Jo numra biletash, jo rredhje mes departamenteve — thjesht telefononi dhe merrni përgjigje.',
+'Keni një person të caktuar që njeh plotësisht rezervimin tuaj. Nuk keni nevojë të shpjegoni situatën nga e para — ky person e di historinë tuaj dhe është i disponueshëm.',
 },
  {
  icon: Globe,
- title:'Mendojmë edhe për vendin ku shkojmë',
+ title:'Vëmendje ndaj ndikimit lokal',
  description:
-'Jemi të certifikuar nga TravelLife. Kur zgjedhim me kë punojmë, na intereson edhe si trajtohen njerëzit lokalë dhe si ruhet mjedisi atje.',
+'Jemi të certifikuar nga TravelLife. Kur zgjedhim partnerë dhe furnitorë, marrim parasysh edhe ndikimin social dhe mjedisor në destinacionet ku operojmë.',
 },
 ];
 
 const whyChooseUs = [
  {
  icon: Clock,
- title:'Dal 2009, nuk kemi ndërruar rrugë',
+ title:'Mbi 15 vjet eksperiencë të dokumentuar',
  description:
-'Kemi filluar si operator lokal në Tiranë dhe kemi rritur çdo gjë ngadalë — duke shtuar vetëm ato destinacione dhe shërbime që vërtet i dimë bërë mirë. Nuk na nxiton tregu, na udhëzon eksperienca.',
+'Që nga viti 2009 kemi organizuar udhëtime në Ballkan dhe Mesdhe për mijëra klientë. Me çdo vit, kemi shtuar vetëm ato shërbime dhe destinacione që i kemi zotëruar plotësisht.',
 },
  {
  icon: ShieldCheck,
- title:'Nuk ju lëmë vetëm gjatë udhëtimit',
+ title:'Mbështetje gjatë gjithë udhëtimit',
  description:
-'Fluturim, hotel, transfertë, guidë — e organizojmë çdo gjë dhe jemi të arritshëm nëse ndodh diçka. Nëse avioni vonohet ose hoteli ka problem, nuk duhet të zgjidhni vetë — jemi ne.',
+'Fluturimi, hoteli, transfertat dhe guidat koordinohen nga ne si një tërësi. Nëse ndodh ndonjë ndryshim i papritur gjatë udhëtimit, kemi një person të caktuar që njeh situatën tuaj dhe ndërhyn menjëherë.',
 },
  {
  icon: CheckCircle,
- title:'Punojmë vetëm me njerëz që i njohim',
+ title:'Partnerë të verifikuar, jo rastësorë',
  description:
-'Çdo hotel dhe çdo guidë me të cilën bashkëpunojmë i kemi vizituar dhe vlerësuar vetë. Nuk marrim partnere të rinj vetëm për çmim — na duhet të dimë çfarë do të merrni ju.',
+'Çdo hotel dhe çdo guidë lokale me të cilën bashkëpunojmë ka kaluar nëpër një proces vlerësimi të brendshëm. Nuk pranojmë partnerë të rinj vetëm mbi bazë çmimi — cilësia shërbimit ka përparësi.',
 },
  {
  icon: DollarSign,
- title:'Pa surpriza pas rezervimit',
+ title:'Ofertë transparente, pa kosto të fshehura',
  description:
-'Oferta jonë tregon saktësisht çfarë përfshin. Nuk ka "tarifë shërbimi" që shfaqet më vonë, nuk ka gjëra që "nuk ishin të përfshira". Çmimi i parë është çmimi i fundit.',
+'Çmimi që ju dërgojmë përfshin saktësisht atë që është shkruar. Nuk ka tarifa shtesë pas konfirmimit, nuk ka zëra që "nuk ishin të përfshirë". Çdo gjë specifikohet qartë që në fillim.',
 },
 ];
 
@@ -92,7 +92,7 @@ export default function AboutPage() {
  <p className="text-xs font-semibold uppercase tracking-[0.35em] text-amber-400 mb-4">Tirana, Albania — Est. 2009</p>
  <h1 className="text-5xl md:text-6xl font-bold text-white mb-4 leading-tight tracking-tight">Rreth Univers</h1>
  <p className="text-white/60 max-w-xl leading-relaxed text-base font-light">
-  Jemi agjencia që merr përsipër gjithçka — nga bileta e parë deri sa të ktheheni në shtëpi. Punojmë nga Tirana që nga 2009.
+  Operator udhëtimesh me bazë në Tiranë që nga viti 2009. Organizojmë çdo aspekt të udhëtimit tuaj — me kujdes dhe me përgjegjësi.
  </p>
  </div>
  </div>
@@ -126,16 +126,16 @@ export default function AboutPage() {
  <div className="px-10 lg:px-16 py-20 flex flex-col justify-center bg-white">
  <p className="text-xs font-semibold uppercase tracking-[0.35em] text-red-600 mb-5">Historia jonë</p>
  <h2 className="text-4xl font-bold text-gray-950 mb-6 leading-tight tracking-tight">
-  Filluan me pak njerëz dhe shumë punë. Kështu vazhdojmë.
+  Ndërtuar ngadalë, me vëmendje ndaj çdo detaji.
  </h2>
  <p className="text-gray-500 text-sm leading-relaxed mb-4">
-  Kur u hapëm në 2009, ishim operator lokal — merrnim grupe, organizonim transferta, njihnim rrugët. Me kohë klientët filluan të kërkonin më shumë: pushime familjare, udhëtime personale, ngjarje korporative. Nuk i refuzuam — i mësuam.
+  Univers u themelua në Tiranë në vitin 2009 si operator lokal i udhëtimeve. Me kalimin e viteve, oferta jonë u zgjerua gradualisht — jo nga ambicia për t'u rritur sa më shpejt, por sepse klientët kishin nevoja të ndryshme: pushime familjare, udhëtime individuale, grupe korporative dhe programe institucionale.
  </p>
  <p className="text-gray-500 text-sm leading-relaxed mb-4">
-  Sot kemi flotën tonë të transportit dhe punojmë drejtpërdrejt me hotele në Ballkan e Mesdhe — jo nëpër ndërmjetës. Çdo destinacion që shihni te ne është vizituar nga dikush i ekipit. Nuk listojmë vende që nuk i njohim.
+  Disponojmë flotën tonë të transportit tokësor dhe bashkëpunojmë drejtpërdrejt me hotele dhe ofrues shërbimesh në të gjithë rajonin. Çdo destinacion i listuar është vizituar paraprakisht nga ekipi ynë — asnjë rekomandim nuk bazohet vetëm në të dhëna teorike.
  </p>
  <p className="text-gray-500 text-sm leading-relaxed mb-10">
-  Kemi akreditimin IATA për biletim ndërkombëtar dhe certifikatën TravelLife për turizëm të qëndrueshëm. Të dyja vijnë me auditim të jashtëm, jo vetëdeklarim.
+  Jemi të akredituar nga IATA për biletim ndërkombëtar dhe mbajmë certifikimin TravelLife për turizëm të qëndrueshëm — të dyja të verifikuara nga organizma ndërkombëtare të pavarura.
  </p>
  <Link
  to="/contact"
@@ -152,9 +152,9 @@ Kontaktoni ekipin tonë <ChevronRight className="h-4 w-4" />
  <section className="py-20 bg-[#f5f4f2]">
  <div className="max-w-7xl mx-auto px-6 lg:px-8">
  <div className="mb-14">
- <p className="text-xs font-semibold uppercase tracking-[0.35em] text-red-600 mb-4">Pse të punoni me ne?</p>
+ <p className="text-xs font-semibold uppercase tracking-[0.35em] text-red-600 mb-4">Pse të zgjidhni Univers</p>
  <h2 className="text-4xl font-bold text-gray-950 leading-tight tracking-tight">
- Çfarë e bën ndryshimin në praktikë
+  Çfarë e dallon shërbimin tonë
  </h2>
  </div>
  <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-gray-200">
@@ -186,7 +186,7 @@ Kontaktoni ekipin tonë <ChevronRight className="h-4 w-4" />
  <div className="max-w-2xl">
  <p className="text-xs font-semibold uppercase tracking-[0.35em] text-amber-400 mb-4">Udhëtime Korporative dhe Institucionale</p>
  <p className="text-3xl md:text-4xl font-bold text-white leading-tight">
-  Nëse keni 10 ose 200 persona, ne e marrim përsipër — nga logjistika deri te detajet e fundit.
+  Organizojmë udhëtime grupore për kompani dhe institucione — me koordinim të plotë, nga logjistika deri te zbatimi.
  </p>
  </div>
  </div>
@@ -196,8 +196,8 @@ Kontaktoni ekipin tonë <ChevronRight className="h-4 w-4" />
  <section className="py-20 bg-white border-t border-gray-100">
  <div className="max-w-7xl mx-auto px-6 lg:px-8">
  <div className="mb-14">
- <p className="text-xs font-semibold uppercase tracking-[0.35em] text-red-600 mb-4">Si punojmë</p>
- <h2 className="text-4xl font-bold text-gray-950 tracking-tight">Gjërat që nuk i ndryshojmë kurrë</h2>
+ <p className="text-xs font-semibold uppercase tracking-[0.35em] text-red-600 mb-4">Parimet tona</p>
+ <h2 className="text-4xl font-bold text-gray-950 tracking-tight">Vlerat që drejtojnë mënyrën tonë të punës</h2>
  </div>
  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-gray-100">
  {values.map((value) => {
