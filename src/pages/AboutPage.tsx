@@ -198,7 +198,7 @@ Kontaktoni ekipin tonë <ChevronRight className="h-4 w-4" />
  <div className="mb-14">
  <p className="text-xs font-semibold uppercase tracking-[0.35em] text-red-600 mb-4">Parimet e Operimit
 </p>
- <h2 className="text-4xl font-bold text-gray-950 tracking-tight">Cfare mbështesim me bindje
+ <h2 className="text-4xl font-bold text-gray-950 tracking-tight">Çfarë mbështesim me bindje
 </h2>
  </div>
  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-gray-100">
