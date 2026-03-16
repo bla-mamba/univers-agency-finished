@@ -126,7 +126,7 @@ export default function AboutPage() {
  <div className="px-10 lg:px-16 py-20 flex flex-col justify-center bg-white">
  <p className="text-xs font-semibold uppercase tracking-[0.35em] text-red-600 mb-5">Historia jonë</p>
  <h2 className="text-4xl font-bold text-gray-950 mb-6 leading-tight tracking-tight">
- Ndërtuar mbi përvojën praktike, jo mbi tekstet e marketingut.
+Krijuar nga përvoja praktike, jo nga slogane marketingu.
  </h2>
  <p className="text-gray-500 text-sm leading-relaxed mb-4">
   Univers u themelua në Tiranë në vitin 2009. Që atëherë, kemi evoluar nga një operator lokal në një agjenci me shërbim të plotë, duke menaxhuar gjithçka, nga udhëtimet personale dhe pushimet familjare, te grupet korporative dhe programet institucionale.
