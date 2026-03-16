@@ -25,7 +25,7 @@ const values = [
  icon: Users,
  title:'Operacionet që vendosin klientin në radhë të parë',
  description:
-'One point of contact from enquiry to return. No call centers, no ticket numbers — direct access to the team managing your booking.',
+'Një pikë kontakti nga kërkesa deri te kthimi. Pa qendra thirrjesh, pa numra biletash — qasje e drejtpërdrejtë në ekipin që menaxhon rezervimin tuaj.',
 },
  {
  icon: Globe,
