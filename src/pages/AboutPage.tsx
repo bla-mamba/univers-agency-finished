@@ -17,7 +17,7 @@ const values = [
 },
  {
  icon: CheckCircle,
- title:'Quality at Every Level',
+ title:'Cilësi në çdo nivel',
  description:
 'Every property, transport arrangement, and local guide in our portfolio has been personally vetted by our operations team.',
 },
