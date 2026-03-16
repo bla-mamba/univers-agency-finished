@@ -29,7 +29,7 @@ const values = [
 },
  {
  icon: Globe,
- title:'Responsible Travel',
+ title:'Udhëtim i përgjegjshëm',
  description:
 'TravelLife certified. We select partners and transport options that minimize environmental impact and respect local communities.',
 },
