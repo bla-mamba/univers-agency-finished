@@ -97,7 +97,7 @@ export default function ContactPage() {
  <p className="text-xs font-bold uppercase tracking-[0.3em] text-amber-400 mb-3">Linjë emergjente</p>
  <h3 className="text-lg font-bold text-white mb-2">Keni nevojë për ndihmë urgjente gjatë një udhëtimi?</h3>
  <p className="text-white/50 text-sm mb-5 leading-relaxed">
- Our operations team is reachable outside of office hours for clients currently on a program.
+ Ekipi ynë operacional është i arritshëm jashtë orarit të zyrës për klientët që ndodhen aktualisht në një program.
  </p>
  <a
  href="tel:+35568663351"
