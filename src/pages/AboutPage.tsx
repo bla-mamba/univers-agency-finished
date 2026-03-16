@@ -13,7 +13,7 @@ const values = [
  icon: Heart,
  title:'Ekspertizë e Vërtetë',
  description:
-'We operate from Tirana with direct knowledge of the Balkans and Mediterranean — not sourced through aggregators or resold programs.',
+'Ne operojmë nga Tirana me njohuri të drejtpërdrejta të Ballkanit dhe Mesdheut — jo të siguruara përmes agresoreve ose programeve të rishitura.',
 },
  {
  icon: CheckCircle,
