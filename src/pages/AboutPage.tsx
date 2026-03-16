@@ -19,7 +19,7 @@ const values = [
  icon: CheckCircle,
  title:'Cilësi në çdo nivel',
  description:
-'Every property, transport arrangement, and local guide in our portfolio has been personally vetted by our operations team.',
+'Çdo pronë, marrëveshje transporti dhe guidë lokale në portofolin tonë është verifikuar personalisht nga ekipi ynë i operacioneve.',
 },
  {
  icon: Users,
