@@ -4,7 +4,7 @@ import { useHeroMedia} from'../hooks/useHeroMedia';
 const contactInfo = [
  {
  icon: Phone,
- title:'Phone',
+ title:'Telefon',
  lines: ['+355 68 403 0204'],
  href:'tel:+355684030204',
 },
