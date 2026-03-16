@@ -3,7 +3,7 @@ import { Link} from'react-router-dom';
 import { useHeroMedia} from'../hooks/useHeroMedia';
 
 const stats = [
- { label:'Klientët e shërbyer', value:'12,000+'},
+ { label:'Klientë të shërbyer', value:'12,000+'},
  { label:'Destinacione', value:'60+'},
  { label:'Vite ne Operim', value:'15+'},
 ];
