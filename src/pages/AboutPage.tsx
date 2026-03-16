@@ -11,54 +11,54 @@ const stats = [
 const values = [
  {
  icon: Heart,
- title:'Ekspertizë e Vërtetë',
+ title:'E njohim nga brenda',
  description:
-'Ne operojmë nga Tirana me njohuri të drejtpërdrejta të Ballkanit dhe Mesdheut — jo të siguruara përmes agresoreve ose programeve të rishitura.',
+'Punojmë nga Tirana dhe i njohim Ballkanin e Mesdheun jo nga katalogu, por nga eksperienca e drejtpërdrejtë. Nuk rishesim paketa të huaja — çdo gjë e ndërtojmë vetë.',
 },
  {
  icon: CheckCircle,
- title:'Cilësi në çdo nivel',
+ title:'Cilësi që e provojmë vetë',
  description:
-'Çdo pronë, marrëveshje transporti dhe guidë lokale në portofolin tonë është verifikuar personalisht nga ekipi ynë i operacioneve.',
+'Çdo hotel, çdo transport dhe çdo guidë lokale që ofrojmë ka kaluar nëpër duart e ekipit tonë. Nuk rekomandojmë asgjë që nuk do ta zgjidhnim vetë.',
 },
  {
  icon: Users,
- title:'Operacionet që vendosin klientin në radhë të parë',
+ title:'Me ju nga fillimi deri në fund',
  description:
-'Një pikë kontakti nga kërkesa deri te kthimi. Pa qendra thirrjesh, pa numra biletash — qasje e drejtpërdrejtë në ekipin që menaxhon rezervimin tuaj.',
+'Keni një person që njeh dosjen tuaj nga A në Z. Nuk kaloni nëpër call center, nuk jepni shpjegime nga e para — flisni direkt me atë që ka organizuar udhëtimin tuaj.',
 },
  {
  icon: Globe,
- title:'Udhëtim i përgjegjshëm',
+ title:'Udhëtim me kujdes',
  description:
-'I certifikuar nga TravelLife. Ne zgjedhim partnerë dhe mundësi transporti që minimizojnë ndikimin mjedisor dhe respektojnë komunitetet lokale.',
+'Jemi të certifikuar nga TravelLife. Kur zgjedhim partnerë dhe transportues, marrim parasysh edhe ndikimin tek mjedisi dhe tek njerëzit e vendeve ku shkojmë.',
 },
 ];
 
 const whyChooseUs = [
  {
  icon: Clock,
- title:'Mbi 15 vite përvojë operative në Evropën Juglindore',
+ title:'15 vite punë, jo premtime',
  description:
-'Që nga viti 2009, kemi krijuar eksperienca udhëtimesh në Ballkan dhe Mesdhe. Eksperienca jonë siguron itinerare më të qeta, lidhje më të forta me ofruesit dhe më pak surpriza për klientët.',
+'Që nga 2009, kemi organizuar udhëtime në Ballkan dhe Mesdhe — mijëra klientë, qindra itinerare. Me kalimin e viteve kemi mësuar çfarë funksionon dhe çfarë jo, dhe ato mësime i çojmë me vete në çdo rezervim.',
 },
  {
  icon: ShieldCheck,
- title:'Koordinim i plotë dhe mbështetje gjatë udhëtimit',
+ title:'Jemi me ju gjatë gjithë rrugës',
  description:
-'Menaxhojmë çdo detaj — fluturime, transferime, akomodim, guida — dhe jemi të arritshëm gjatë gjithë udhëtimit. Nëse ndryshon diçka, flisni direkt me dikë që njeh rezervimin tuaj.',
+'Fluturimet, transferimet, hoteli, guida — i koordinojmë të gjitha. Dhe nëse ndodh ndonjë ndryshim gjatë udhëtimit, nuk do të jeni vetëm. Dini kë të thirrni dhe ai person e di historinë tuaj.',
 },
  {
  icon: CheckCircle,
- title:'Standarde të verifikuara për çdo furnizues',
+ title:'I provuam vetë para se t\'ua ofrojmë',
  description:
-'Inspektojmë çdo pronë që përfshihet dhe punojmë vetëm me transportues dhe guida që plotësojnë standardet tona të larta, duke siguruar cilësi të qëndrueshme për çdo udhëtim.',
+'Nuk shtojmë hotele apo guida në listë pa i kontrolluar vetë. Çdo partner me të cilin punojmë ka kaluar nëpër një proces vlerësimi të brendshëm — jo vetëm me dokumente, por me vizita dhe feedback real.',
 },
  {
  icon: DollarSign,
- title:'Çmime transparente dhe gjithëpërfshirëse',
+ title:'Çmimi që shihni është çmimi që paguani',
  description:
-'Çmimi që japim është i qartë dhe i gjithëpërfshirës. Të gjitha kostot janë të detajuara që në fillim — pa tarifa të fshehura apo kosto shtesë pas rezervimit.',
+'Kur japim një ofertë, shkruajmë çdo gjë që përfshin. Nuk ka tarifa shtesë pas rezervimit, nuk ka surpriza në airport. Transparenca nuk është bonus — është mënyra jonë e punës.',
 },
 ];
 
@@ -92,7 +92,7 @@ export default function AboutPage() {
  <p className="text-xs font-semibold uppercase tracking-[0.35em] text-amber-400 mb-4">Tirana, Albania — Est. 2009</p>
  <h1 className="text-5xl md:text-6xl font-bold text-white mb-4 leading-tight tracking-tight">Rreth Univers</h1>
  <p className="text-white/60 max-w-xl leading-relaxed text-base font-light">
-  Jemi një agjenci udhëtimesh me shërbim të plotë, me mbi pesëmbëdhjetë vjet eksperiencë në krijimin e udhëtimeve të qeta në Ballkan, Mesdhe dhe më gjerë.
+  Që nga 2009, ndihmojmë njerëz të udhëtojnë pa stres — nga Ballkani e Mesdheut deri në destinacione më të largëta. Jo vetëm biletë dhe hotel, por një udhëtim të organizuar siç duhet.
  </p>
  </div>
  </div>
@@ -126,16 +126,16 @@ export default function AboutPage() {
  <div className="px-10 lg:px-16 py-20 flex flex-col justify-center bg-white">
  <p className="text-xs font-semibold uppercase tracking-[0.35em] text-red-600 mb-5">Historia jonë</p>
  <h2 className="text-4xl font-bold text-gray-950 mb-6 leading-tight tracking-tight">
-Krijuar nga përvoja praktike, jo nga slogane marketingu.
+Nisëm me punë. Reputacioni erdhi vetë.
  </h2>
  <p className="text-gray-500 text-sm leading-relaxed mb-4">
-  Univers u themelua në Tiranë në vitin 2009. Që atëherë, kemi evoluar nga një operator lokal në një agjenci me shërbim të plotë, duke menaxhuar gjithçka, nga udhëtimet personale dhe pushimet familjare, te grupet korporative dhe programet institucionale.
+  Univers u hap në Tiranë në 2009 si operator lokal. Me kohë, u zgjeruam — jo për të qenë më të mëdhenj, por sepse klientët kishin nevojë për më shumë: pushime familjare, udhëtime personale, grupe korporative, programe institucionale. Sot i mbulojmë të gjitha.
  </p>
  <p className="text-gray-500 text-sm leading-relaxed mb-4">
-  Ne menaxhojmë transportin tonë tokësor dhe kemi partneritete direkte me hotele dhe ofrues shërbimesh në Ballkan dhe Mesdhe. Çdo destinacion në portofolin tonë është vlerësuar me kujdes nga ekipi ynë para se t’i ofrohet klientëve.
+  Kemi flotën tonë të transportit tokësor dhe punojmë drejtpërdrejt me hotele e ofrues shërbimesh në të gjithë Ballkanin e Mesdheun. Çdo destinacion që gjendet te ne është parë dhe vlerësuar nga dikush i ekipit — jo kopjuar nga faqe të tjera.
  </p>
  <p className="text-gray-500 text-sm leading-relaxed mb-10">
- Jemi të akredituar nga IATA për biletimin ndërkombëtar dhe të certifikuar nga TravelLife për operacione të qëndrueshme — të dyja të verifikuara në mënyrë të pavarur për transparencë dhe cilësi.
+  Jemi të akredituar nga IATA për biletimin ndërkombëtar dhe të certifikuar nga TravelLife — dy standarde ndërkombëtare që verifikohen nga jashtë, jo vetëdeklarohen.
  </p>
  <Link
  to="/contact"
@@ -154,7 +154,7 @@ Kontaktoni ekipin tonë <ChevronRight className="h-4 w-4" />
  <div className="mb-14">
  <p className="text-xs font-semibold uppercase tracking-[0.35em] text-red-600 mb-4">Pse të punoni me ne?</p>
  <h2 className="text-4xl font-bold text-gray-950 leading-tight tracking-tight">
- Çfarë i veçon operacionet tona nga të tjerat?
+ Pse njerëzit kthehen tek ne?
  </h2>
  </div>
  <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-gray-200">
@@ -186,7 +186,7 @@ Kontaktoni ekipin tonë <ChevronRight className="h-4 w-4" />
  <div className="max-w-2xl">
  <p className="text-xs font-semibold uppercase tracking-[0.35em] text-amber-400 mb-4">Udhëtime Korporative dhe Institucionale</p>
  <p className="text-3xl md:text-4xl font-bold text-white leading-tight">
-  Ne specializohemi në organizimin e udhëtimeve grupore për kompani, OJQ dhe institucione qeveritare në gjithë rajonin.
+  Organizojmë udhëtime grupore për kompani, OJQ dhe institucione — me koordinim të plotë dhe pa telash për ju.
  </p>
  </div>
  </div>
@@ -198,7 +198,7 @@ Kontaktoni ekipin tonë <ChevronRight className="h-4 w-4" />
  <div className="mb-14">
  <p className="text-xs font-semibold uppercase tracking-[0.35em] text-red-600 mb-4">Parimet e Operimit
 </p>
- <h2 className="text-4xl font-bold text-gray-950 tracking-tight">Çfarë mbështesim me bindje
+ <h2 className="text-4xl font-bold text-gray-950 tracking-tight">Si punojmë dhe çfarë besojmë
 </h2>
  </div>
  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-gray-100">
