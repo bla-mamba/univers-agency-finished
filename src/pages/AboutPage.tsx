@@ -11,7 +11,7 @@ const stats = [
 const values = [
  {
  icon: Heart,
- title:'Genuine Expertise',
+ title:'Ekspertizë e Vërtetë',
  description:
 'We operate from Tirana with direct knowledge of the Balkans and Mediterranean — not sourced through aggregators or resold programs.',
 },
