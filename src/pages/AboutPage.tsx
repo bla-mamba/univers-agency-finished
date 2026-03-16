@@ -23,7 +23,7 @@ const values = [
 },
  {
  icon: Users,
- title:'Client-First Operations',
+ title:'Operacionet që vendosin klientin në radhë të parë',
  description:
 'One point of contact from enquiry to return. No call centers, no ticket numbers — direct access to the team managing your booking.',
 },
