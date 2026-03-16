@@ -47,7 +47,7 @@ export default function ContactPage() {
  )}
  <div className="absolute inset-0" style={{ backgroundColor:`rgba(0,0,0,${hero.overlay_opacity})`}} />
  <div className="relative max-w-7xl mx-auto px-6 lg:px-8 h-full flex flex-col justify-end pb-14">
- <p className="text-xs font-semibold uppercase tracking-[0.35em] text-amber-400 mb-4">Get in Touch</p>
+ <p className="text-xs font-semibold uppercase tracking-[0.35em] text-amber-400 mb-4">Na kontaktoni</p>
  <h1 className="text-5xl md:text-6xl font-bold text-white mb-4 leading-tight tracking-tight">Contact Us</h1>
  <p className="text-white/60 max-w-xl leading-relaxed text-base font-light">
   Kontaktoni ekipin tonë direkt përmes telefonit ose email-it. Ne përgjigjemi shpejt dhe mund t’ju këshillojmë mbi disponueshmërinë, çmimet dhe logjistikën për çdo lloj udhëtimi.
