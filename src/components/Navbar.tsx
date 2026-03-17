@@ -307,7 +307,7 @@ export default function Navbar() {
                 : 'text-gray-700 hover:bg-gray-50'
             }`}
           >
-            Ballina
+            Kreu
           </Link>
 
           <Link
