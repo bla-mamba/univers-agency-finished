@@ -1,321 +1,698 @@
-import { Shield} from'lucide-react';
+import { Shield } from 'lucide-react';
 
 export default function PrivacyPage() {
- return (
- <div className="min-h-screen bg-gray-50">
- <div className="bg-gray-900 text-white py-16">
- <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
- <div className="flex justify-center mb-4">
- <Shield className="h-12 w-12 text-red-500" />
- </div>
- <h1 className="text-4xl font-bold mb-4">Privacy Policy</h1>
- <p className="text-gray-300 text-lg max-w-2xl mx-auto">
- We are committed to protecting your personal information and your right to privacy.
- </p>
- <p className="text-gray-400 text-sm mt-4">Last updated: 1 March 2026</p>
- </div>
- </div>
+  return (
+    <div className="min-h-screen bg-gray-50">
+      <div className="bg-gray-900 text-white py-16">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="flex justify-center mb-4">
+            <Shield className="h-12 w-12 text-red-500" />
+          </div>
+          <h1 className="text-4xl font-bold mb-4">Politika e Privatësisë</h1>
+          <p className="text-gray-300 text-lg max-w-2xl mx-auto">
+            Ne angazhohemi për mbrojtjen e të dhënave tuaja personale dhe të
+            drejtës suaj për privatësi.
+          </p>
+          <p className="text-gray-400 text-sm mt-4">
+            Përditësuar së fundmi: 1 mars 2026
+          </p>
+        </div>
+      </div>
 
- <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
- <div className="bg-white shadow-sm border border-gray-200 p-8 md:p-12 space-y-10 text-gray-700 leading-relaxed">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="bg-white shadow-sm border border-gray-200 p-8 md:p-12 space-y-10 text-gray-700 leading-relaxed">
+          <section>
+            <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-100">
+              1. Hyrje dhe fusha e zbatimit
+            </h2>
+            <p className="mb-3">
+              Univers Travel Agency LLC (“Univers Travel Agency”, “ne”, “na”
+              ose “joni”) angazhohet për mbrojtjen e privatësisë dhe sigurisë së
+              të dhënave tuaja personale. Kjo Politikë e Privatësisë (“Politika”)
+              shpjegon mënyrën se si ne mbledhim, përdorim, ndajmë, ruajmë dhe
+              mbrojmë të dhënat tuaja personale kur vizitoni faqen tonë të
+              internetit, krijoni një llogari, kryeni një rezervim ose
+              ndërveproni ndryshe me shërbimet tona.
+            </p>
+            <p className="mb-3">
+              Kjo Politikë zbatohet për të gjitha të dhënat personale që
+              përpunohen nga Univers Travel Agency në lidhje me shërbimet që ne
+              ofrojmë, përfshirë të dhënat e mbledhura online përmes faqes, me
+              telefon, personalisht ose përmes korrespondencës me shkrim. Ajo
+              zbatohet për të gjithë personat, të dhënat e të cilëve ne
+              përpunojmë, përfshirë klientët potencialë, klientët aktualë,
+              klientët e mëparshëm dhe vizitorët e faqes.
+            </p>
+            <p>
+              Univers Travel Agency vepron si kontrollues i të dhënave dhe, në
+              rrethana të caktuara, edhe si përpunues i tyre. Ne i përpunojmë të
+              dhënat personale në përputhje me legjislacionin e zbatueshëm për
+              mbrojtjen e të dhënave, përfshirë Rregulloren e Përgjithshme për
+              Mbrojtjen e të Dhënave (GDPR), legjislacionin shqiptar në fuqi dhe
+              çdo akt tjetër përkatës që mund të zbatohet sipas rastit.
+            </p>
+          </section>
 
- <section>
- <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-100">1. Introduction and Scope</h2>
- <p className="mb-3">
- Univers Travel Agency LLC ("Univers Travel Agency","we","us", or"our") is committed to protecting the privacy and security of your personal information. This Privacy Policy ("Policy") explains how we collect, use, disclose, store, and safeguard your personal data when you visit our website at universTravel.com (the"Site"), create an account, make a booking, or otherwise interact with our services.
- </p>
- <p className="mb-3">
- This Policy applies to all personal data processed by Univers Travel Agency in connection with the services we provide, including data collected online through the Site, over the telephone, in person, or through written correspondence. It applies to all individuals whose data we process, including prospective clients, current clients, past clients, and visitors to the Site.
- </p>
- <p>
- Univers Travel Agency operates as both a data controller and, in certain circumstances, a data processor. We process personal data in compliance with applicable data protection laws, including the California Consumer Privacy Act (CCPA), the General Data Protection Regulation (GDPR) where applicable, and other relevant federal and state privacy laws in the United States.
- </p>
- </section>
+          <section>
+            <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-100">
+              2. Të dhënat personale që mbledhim
+            </h2>
+            <p className="mb-3">
+              Ne mbledhim kategori të ndryshme të dhënash personale në varësi të
+              mënyrës se si ndërveproni me shërbimet tona:
+            </p>
 
- <section>
- <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-100">2. Personal Data We Collect</h2>
- <p className="mb-3">We collect personal data in various categories depending on your interaction with our services:</p>
+            <h3 className="font-semibold text-gray-800 mb-2 mt-4">
+              2.1 Të dhënat e identitetit dhe kontaktit
+            </h3>
+            <p className="mb-3">
+              Këtu përfshihen emri dhe mbiemri i plotë, data e lindjes, gjinia,
+              shtetësia, numri i pasaportës dhe data e skadencës, adresa e
+              email-it, numri i telefonit, adresa postare dhe kontaktet e
+              emergjencës. Këto të dhëna mblidhen kur krijoni një llogari,
+              kryeni një rezervim ose kontaktoni ekipin tonë të mbështetjes.
+            </p>
 
- <h3 className="font-semibold text-gray-800 mb-2 mt-4">2.1 Identity and Contact Data</h3>
- <p className="mb-3">
- This includes your full legal name, date of birth, gender, nationality, passport number and expiry date, email address, telephone number, postal address, and emergency contact information. This data is collected when you register an account, complete a booking, or contact our customer support team.
- </p>
+            <h3 className="font-semibold text-gray-800 mb-2 mt-4">
+              2.2 Të dhënat financiare
+            </h3>
+            <p className="mb-3">
+              Këtu përfshihen të dhënat e pagesës, adresa e faturimit dhe
+              historiku i transaksioneve. Numrat e plotë të kartave të pagesës
+              nuk ruhen në sistemet tona; përpunimi i pagesave kryhet
+              ekskluzivisht nga ofrues të palëve të treta në përputhje me
+              standardet e sigurisë PCI-DSS. Ne ruajmë të dhëna për shumën,
+              datën dhe metodën e pagesës për qëllime kontabiliteti dhe
+              përputhshmërie ligjore.
+            </p>
 
- <h3 className="font-semibold text-gray-800 mb-2 mt-4">2.2 Financial Data</h3>
- <p className="mb-3">
- This includes payment card details (card number, expiry date, security code), billing address, and transaction history. Note that full payment card numbers are not stored on our systems; payment processing is handled exclusively by PCI-DSS Level 1 compliant third-party payment processors. We retain records of transaction amounts, dates, and methods for accounting and compliance purposes.
- </p>
+            <h3 className="font-semibold text-gray-800 mb-2 mt-4">
+              2.3 Të dhënat e udhëtimit dhe rezervimit
+            </h3>
+            <p className="mb-3">
+              Këtu përfshihen historiku i rezervimeve, detajet e itinerarit,
+              preferencat për akomodim, kërkesat ushqimore, nevojat për
+              aksesueshmëri, kërkesat e veçanta për shërbime dhe informacioni për
+              bashkëudhëtarët e përfshirë në rezervim.
+            </p>
 
- <h3 className="font-semibold text-gray-800 mb-2 mt-4">2.3 Travel and Booking Data</h3>
- <p className="mb-3">
- This includes booking history, itinerary details, accommodation preferences, dietary requirements, accessibility needs, special service requests, and co-traveller information for all passengers included in your booking.
- </p>
+            <h3 className="font-semibold text-gray-800 mb-2 mt-4">
+              2.4 Të dhënat teknike dhe të përdorimit
+            </h3>
+            <p className="mb-3">
+              Këtu përfshihen adresa IP, lloji dhe versioni i shfletuesit,
+              identifikuesit e pajisjes, sistemi operativ, zona kohore,
+              vendndodhja gjeografike e përafërt, faqet e vizituara, lidhjet e
+              klikuara, kohëzgjatja e sesionit, adresat referuese dhe të dhëna
+              të tjera diagnostikuese të mbledhura automatikisht gjatë përdorimit
+              të faqes.
+            </p>
 
- <h3 className="font-semibold text-gray-800 mb-2 mt-4">2.4 Technical and Usage Data</h3>
- <p className="mb-3">
- This includes your IP address, browser type and version, device identifiers, operating system, time zone, geographic location (derived from IP address), pages visited, links clicked, session duration, referral URLs, and other diagnostic data collected automatically when you access the Site.
- </p>
+            <h3 className="font-semibold text-gray-800 mb-2 mt-4">
+              2.5 Të dhënat e komunikimit
+            </h3>
+            <p>
+              Këtu përfshihen regjistrimet e korrespondencës suaj me ne, si
+              email-et, regjistrat e thirrjeve telefonike, bisedat online dhe
+              komentet ose vlerësimet që na dërgoni.
+            </p>
+          </section>
 
- <h3 className="font-semibold text-gray-800 mb-2 mt-4">2.5 Communications Data</h3>
- <p>
- This includes records of your correspondence with us, including emails, telephone call logs (where calls are recorded for quality assurance purposes), live chat transcripts, and feedback or review submissions.
- </p>
- </section>
+          <section>
+            <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-100">
+              3. Si i mbledhim të dhënat personale
+            </h2>
+            <p className="mb-3">
+              Ne i mbledhim të dhënat personale në mënyrat e mëposhtme:
+            </p>
+            <ul className="list-disc list-inside space-y-2 mb-3 text-sm pl-2">
+              <li>
+                <span className="font-medium">Ndërveprime të drejtpërdrejta:</span>{' '}
+                kur krijoni një llogari, plotësoni një formular rezervimi,
+                abonoheni në komunikime promocionale, plotësoni anketa, kontaktoni
+                mbështetjen tonë ose na jepni ndryshe informacion personal.
+              </li>
+              <li>
+                <span className="font-medium">Teknologji të automatizuara:</span>{' '}
+                gjatë lundrimit në faqe, ne mund të mbledhim automatikisht të
+                dhëna teknike përmes cookies, web beacons, regjistrave të
+                serverit dhe teknologjive të ngjashme të gjurmimit.
+              </li>
+              <li>
+                <span className="font-medium">Palë të treta:</span> ne mund të
+                marrim të dhëna për ju nga ofrues analitikë, rrjete reklamuese,
+                platforma sociale, ofrues pagesash, shërbime verifikimi
+                identiteti dhe partnerë të industrisë së udhëtimit.
+              </li>
+              <li>
+                <span className="font-medium">Burime publike:</span> në raste të
+                caktuara, mund të kombinojmë të dhënat personale me informacion
+                publikisht të disponueshëm, kur kjo është e nevojshme dhe e
+                ligjshme për ofrimin e shërbimit.
+              </li>
+            </ul>
+          </section>
 
- <section>
- <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-100">3. How We Collect Personal Data</h2>
- <p className="mb-3">We collect personal data through the following means:</p>
- <ul className="list-disc list-inside space-y-2 mb-3 text-sm pl-2">
- <li><span className="font-medium">Direct interactions:</span> When you register an account, complete a booking form, subscribe to marketing communications, enter a competition, complete a survey, contact our support team, or otherwise provide information directly to us.</li>
- <li><span className="font-medium">Automated technologies:</span> As you navigate the Site, we may automatically collect technical data through cookies, web beacons, server logs, and similar tracking technologies.</li>
- <li><span className="font-medium">Third parties:</span> We may receive data about you from analytics providers, advertising networks, social media platforms (where you log in using a social account), payment processors, identity verification services, and travel suppliers.</li>
- <li><span className="font-medium">Publicly available sources:</span> We may combine personal data with publicly available information such as government travel advisories, immigration databases where legally authorised, and public social media profiles where relevant to our service obligations.</li>
- </ul>
- </section>
+          <section>
+            <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-100">
+              4. Baza ligjore për përpunimin
+            </h2>
+            <p className="mb-3">
+              Ne i përpunojmë të dhënat tuaja personale mbi bazat ligjore të
+              mëposhtme:
+            </p>
+            <ul className="list-disc list-inside space-y-2 text-sm pl-2">
+              <li>
+                <span className="font-medium">Përmbushja e kontratës:</span>{' '}
+                përpunimi është i nevojshëm për të përmbushur detyrimet tona
+                kontraktore ndaj jush, përfshirë rezervimet, konfirmimet,
+                organizimin e shërbimeve dhe menaxhimin e llogarisë suaj.
+              </li>
+              <li>
+                <span className="font-medium">Detyrimi ligjor:</span> përpunimi
+                kërkohet për të respektuar detyrimet ligjore, përfshirë kërkesat
+                tatimore, kontabël, të sigurisë dhe detyrimet për ndarjen e të
+                dhënave të pasagjerëve me autoritetet kur kjo kërkohet nga ligji.
+              </li>
+              <li>
+                <span className="font-medium">Interesi legjitim:</span> ne mund
+                të përpunojmë të dhëna për interesat tona të ligjshme biznesore,
+                si parandalimi i mashtrimit, siguria, analizat e brendshme dhe
+                përmirësimi i shërbimeve, për aq kohë sa këto interesa nuk
+                cenojnë të drejtat tuaja për privatësi.
+              </li>
+              <li>
+                <span className="font-medium">Pëlqimi:</span> kur kërkohet nga
+                ligji, ne do të marrim pëlqimin tuaj të qartë për qëllime të
+                caktuara, si komunikimet marketingu ose përpunimi i të dhënave të
+                ndjeshme personale.
+              </li>
+            </ul>
+          </section>
 
- <section>
- <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-100">4. Legal Basis for Processing</h2>
- <p className="mb-3">We process your personal data on the following legal bases:</p>
- <ul className="list-disc list-inside space-y-2 text-sm pl-2">
- <li><span className="font-medium">Contract performance:</span> Processing is necessary to fulfil our contractual obligations to you, including processing bookings, issuing confirmations, arranging travel services, and managing your account.</li>
- <li><span className="font-medium">Legal obligation:</span> Processing is required to comply with legal requirements, including tax reporting obligations, anti-money laundering regulations, and government-mandated passenger data sharing (such as Advance Passenger Information systems).</li>
- <li><span className="font-medium">Legitimate interests:</span> We process data for our legitimate business interests, including fraud prevention, security monitoring, business analytics, and service improvement, provided these interests are not overridden by your privacy rights.</li>
- <li><span className="font-medium">Consent:</span> Where required by law, we will obtain your explicit consent before processing your data for specific purposes, such as sending marketing communications or processing sensitive personal data (e.g., health information for accessibility requests).</li>
- </ul>
- </section>
+          <section>
+            <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-100">
+              5. Si i përdorim të dhënat tuaja personale
+            </h2>
+            <p className="mb-3">
+              Ne i përdorim të dhënat tuaja personale për këto qëllime:
+            </p>
+            <ul className="list-disc list-inside space-y-2 text-sm pl-2">
+              <li>Për përpunimin dhe menaxhimin e rezervimeve tuaja</li>
+              <li>Për verifikimin e identitetit dhe kontrollet e sigurisë</li>
+              <li>Për përpunimin e pagesave dhe menaxhimin e transaksioneve</li>
+              <li>Për dërgimin e konfirmimeve, itinerareve dhe përditësimeve</li>
+              <li>Për ofrimin e mbështetjes ndaj klientit</li>
+              <li>Për respektimin e kërkesave ligjore dhe rregullatore</li>
+              <li>
+                Për ndarjen e të dhënave me linja ajrore, hotele, autoritete
+                kufitare dhe partnerë të tjerë kur kjo është e nevojshme për
+                realizimin e rezervimit
+              </li>
+              <li>
+                Për analiza të brendshme që ndihmojnë në përmirësimin e faqes dhe
+                shërbimeve tona
+              </li>
+              <li>
+                Për dërgimin e komunikimeve promocionale, kur ju keni dhënë
+                pëlqimin ose kur kjo lejohet nga ligji
+              </li>
+              <li>
+                Për parandalimin e mashtrimit, pastrimit të parave dhe
+                aktiviteteve të tjera të paligjshme
+              </li>
+              <li>
+                Për zbatimin e Kushteve dhe Termave tona dhe mbrojtjen e të
+                drejtave ligjore
+              </li>
+            </ul>
+          </section>
 
- <section>
- <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-100">5. How We Use Your Personal Data</h2>
- <p className="mb-3">We use your personal data for the following purposes:</p>
- <ul className="list-disc list-inside space-y-2 text-sm pl-2">
- <li>Processing and managing your travel bookings and related services</li>
- <li>Verifying your identity and conducting security checks</li>
- <li>Processing payments and managing financial transactions</li>
- <li>Communicating booking confirmations, itineraries, and service updates</li>
- <li>Providing customer support and responding to enquiries and complaints</li>
- <li>Complying with legal, regulatory, and governmental requirements</li>
- <li>Sharing passenger data with airlines, hotels, immigration authorities, and other suppliers as required to fulfil your booking</li>
- <li>Conducting internal analytics to improve our services and website</li>
- <li>Sending marketing communications where you have opted in or where permitted by law</li>
- <li>Preventing fraud, money laundering, and other illegal activities</li>
- <li>Enforcing our Terms and Conditions and protecting our legal rights</li>
- </ul>
- </section>
+          <section>
+            <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-100">
+              6. Ndarja e të dhënave personale
+            </h2>
+            <p className="mb-3">
+              Univers Travel Agency nuk i shet, nuk i jep me qira dhe nuk i
+              transferon të dhënat tuaja personale te palë të treta për qëllimet
+              e tyre të marketingut. Megjithatë, ne mund t’i ndajmë të dhënat
+              tuaja me kategoritë e mëposhtme të përfituesve:
+            </p>
+            <ul className="list-disc list-inside space-y-2 text-sm pl-2 mb-3">
+              <li>
+                <span className="font-medium">Partnerë të udhëtimit:</span>{' '}
+                linja ajrore, hotele, kompani transporti, operatorë turistikë
+                dhe ofrues të tjerë, në masën e nevojshme për të përmbushur
+                rezervimin tuaj.
+              </li>
+              <li>
+                <span className="font-medium">Ofrues pagesash:</span> sisteme të
+                sigurta pagesash dhe shërbime për parandalimin e mashtrimit.
+              </li>
+              <li>
+                <span className="font-medium">
+                  Autoritete qeveritare dhe rregullatore:
+                </span>{' '}
+                autoritete kufitare, doganore, ligjzbatuese ose institucione të
+                tjera kur kjo kërkohet nga ligji ose me urdhër të autoriteteve
+                kompetente.
+              </li>
+              <li>
+                <span className="font-medium">Ofrues teknologjie:</span>{' '}
+                ofrues të hostimit cloud, sisteme email-i, platforma CRM dhe
+                shërbime analitike që përpunojnë të dhëna në emrin tonë sipas
+                marrëveshjeve të duhura.
+              </li>
+              <li>
+                <span className="font-medium">Këshilltarë profesionalë:</span>{' '}
+                juristë, kontabilistë, auditorë dhe ofrues siguracionesh nën
+                detyrimin e konfidencialitetit.
+              </li>
+              <li>
+                <span className="font-medium">Transferime biznesi:</span> në
+                rast bashkimi, blerjeje ose shitjeje të aseteve të kompanisë, të
+                dhënat tuaja mund të transferohen te subjekti pasardhës, me të
+                njëjtin nivel mbrojtjeje.
+              </li>
+            </ul>
+            <p>
+              Të gjithë përpunuesit e palëve të treta janë të detyruar të ruajnë
+              konfidencialitetin dhe sigurinë e të dhënave tuaja personale dhe nuk
+              lejohen t’i përdorin ato për qëllime të tjera përtej atyre të
+              përcaktuara në marrëveshjet me Univers Travel Agency.
+            </p>
+          </section>
 
- <section>
- <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-100">6. Disclosure of Personal Data</h2>
- <p className="mb-3">
- Univers Travel Agency does not sell, rent, or lease your personal data to third parties for their own marketing purposes. We may share your personal data with the following categories of recipients:
- </p>
- <ul className="list-disc list-inside space-y-2 text-sm pl-2 mb-3">
- <li><span className="font-medium">Travel suppliers:</span> Airlines, hotels, cruise lines, car rental companies, tour operators, and ground transportation providers, to the extent necessary to fulfil your booking.</li>
- <li><span className="font-medium">Payment processors:</span> PCI-DSS compliant payment gateways and fraud prevention services.</li>
- <li><span className="font-medium">Government and regulatory authorities:</span> Immigration authorities, customs agencies, and law enforcement bodies where required by law or court order.</li>
- <li><span className="font-medium">Technology service providers:</span> Cloud hosting providers, email delivery services, customer relationship management platforms, and analytics services that process data on our behalf under appropriate data processing agreements.</li>
- <li><span className="font-medium">Professional advisors:</span> Legal counsel, accountants, auditors, and insurance providers under duties of confidentiality.</li>
- <li><span className="font-medium">Business transfers:</span> In the event of a merger, acquisition, or sale of Univers Travel Agency's assets, your data may be transferred to the successor entity subject to the same privacy protections.</li>
- </ul>
- <p>
- All third-party data processors are required to maintain the confidentiality and security of your personal data and are prohibited from using it for purposes beyond those specified in their contractual agreements with Univers Travel Agency.
- </p>
- </section>
+          <section>
+            <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-100">
+              7. Transferimet ndërkombëtare të të dhënave
+            </h2>
+            <p className="mb-3">
+              Për shkak të natyrës ndërkombëtare të shërbimeve të udhëtimit, të
+              dhënat tuaja personale mund të transferohen dhe përpunohen në vende
+              jashtë Shqipërisë ose jashtë Zonës Ekonomike Europiane, ku niveli i
+              mbrojtjes së të dhënave mund të jetë i ndryshëm nga ai i vendit
+              tuaj.
+            </p>
+            <p>
+              Kur kryhen transferime ndërkombëtare, Univers Travel Agency siguron
+              që të ekzistojnë masa të përshtatshme mbrojtëse, si klauzola
+              standarde kontraktore, vendime për përshtatshmëri ose mekanizma të
+              tjerë të ligjshëm transferimi. Duke kryer një rezervim që përfshin
+              udhëtim ndërkombëtar, ju pranoni që të dhënat tuaja mund të ndahen
+              me subjekte në vendin e destinacionit për të realizuar shërbimet e
+              rezervuara.
+            </p>
+          </section>
 
- <section>
- <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-100">7. International Data Transfers</h2>
- <p className="mb-3">
- Given the international nature of travel services, your personal data may be transferred to and processed in countries outside the United States, including countries where data protection laws may provide a lower standard of protection than those in your home jurisdiction.
- </p>
- <p>
- Where data is transferred internationally, Univers Travel Agency ensures that appropriate safeguards are in place, including Standard Contractual Clauses approved by relevant authorities, adequacy decisions, or other lawful transfer mechanisms. By making a booking that involves international travel, you acknowledge that your data must be shared with entities in the destination country to fulfil your travel arrangements.
- </p>
- </section>
+          <section>
+            <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-100">
+              8. Afatet e ruajtjes së të dhënave
+            </h2>
+            <p className="mb-3">
+              Ne i ruajmë të dhënat personale për aq kohë sa është e nevojshme
+              për të përmbushur qëllimet për të cilat janë mbledhur, për të
+              respektuar detyrimet ligjore dhe rregullatore, për të zgjidhur
+              mosmarrëveshje dhe për të zbatuar marrëveshjet tona.
+            </p>
+            <p className="mb-3">Periudhat tipike të ruajtjes përfshijnë:</p>
+            <ul className="list-disc list-inside space-y-2 text-sm pl-2">
+              <li>
+                Të dhënat e rezervimeve dhe transaksioneve: 7 vjet nga data e
+                udhëtimit
+              </li>
+              <li>
+                Të dhënat e llogarisë së klientit: gjatë kohës që llogaria është
+                aktive dhe deri në 3 vjet pas mbylljes së saj
+              </li>
+              <li>
+                Preferencat e marketingut dhe regjistrat e pëlqimit: për aq kohë
+                sa pëlqimi mbetet aktiv dhe deri në 3 vjet më pas
+              </li>
+              <li>
+                Të dhënat analitike dhe të përdorimit të faqes: deri në 26 muaj
+                nga data e mbledhjes
+              </li>
+              <li>
+                Komunikimet me shërbimin ndaj klientit: deri në 3 vjet nga
+                ndërveprimi i fundit
+              </li>
+            </ul>
+          </section>
 
- <section>
- <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-100">8. Data Retention</h2>
- <p className="mb-3">
- We retain personal data for as long as necessary to fulfil the purposes for which it was collected, to comply with our legal and regulatory obligations, to resolve disputes, and to enforce our agreements.
- </p>
- <p className="mb-3">Specific retention periods include:</p>
- <ul className="list-disc list-inside space-y-2 text-sm pl-2">
- <li>Booking and transaction records: 7 years from the date of travel (for tax and accounting compliance)</li>
- <li>Customer account data: Duration of active account plus 3 years following account closure</li>
- <li>Marketing preferences and consent records: Duration of consent plus 3 years</li>
- <li>Website usage and analytics data: 26 months from date of collection</li>
- <li>Customer service communications: 3 years from date of last interaction</li>
- </ul>
- </section>
+          <section>
+            <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-100">
+              9. Cookies dhe teknologjitë e gjurmimit
+            </h2>
+            <p className="mb-3">
+              Faqja përdor cookies dhe teknologji të ngjashme gjurmimi për të
+              përmirësuar eksperiencën tuaj, për të analizuar trafikun dhe për të
+              ofruar përmbajtje të përshtatshme. Cookies janë skedarë të vegjël
+              teksti që vendosen në pajisjen tuaj nga shfletuesi kur vizitoni
+              faqen.
+            </p>
+            <p className="mb-3">Ne përdorim kategoritë e mëposhtme të cookies:</p>
+            <ul className="list-disc list-inside space-y-2 text-sm pl-2 mb-3">
+              <li>
+                <span className="font-medium">Cookies të domosdoshme:</span>{' '}
+                të nevojshme për funksionimin e faqes, si menaxhimi i sesionit,
+                autentikimi dhe siguria.
+              </li>
+              <li>
+                <span className="font-medium">Cookies analitike:</span>{' '}
+                mbledhin informacion të anonimizuar mbi mënyrën se si përdoret
+                faqja, për të na ndihmuar ta përmirësojmë.
+              </li>
+              <li>
+                <span className="font-medium">Cookies funksionale:</span>{' '}
+                ruajnë preferencat dhe cilësimet tuaja për një eksperiencë më të
+                personalizuar.
+              </li>
+              <li>
+                <span className="font-medium">Cookies marketingu:</span>{' '}
+                përdoren për të ndjekur aktivitetin tuaj online dhe për të
+                shfaqur reklama më të përshtatshme në platforma të treta, vetëm
+                me pëlqimin tuaj.
+              </li>
+            </ul>
+            <p>
+              Ju mund t’i menaxhoni preferencat për cookies përmes cilësimeve të
+              shfletuesit tuaj ose mjeteve tona të menaxhimit të cookies. Çaktivizimi
+              i disa cookies mund të ndikojë në funksionalitetin e faqes.
+            </p>
+          </section>
 
- <section>
- <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-100">9. Cookies and Tracking Technologies</h2>
- <p className="mb-3">
- The Site uses cookies and similar tracking technologies to enhance your experience, analyse Site traffic, and deliver relevant content. Cookies are small text files placed on your device by your web browser when you visit the Site.
- </p>
- <p className="mb-3">We use the following categories of cookies:</p>
- <ul className="list-disc list-inside space-y-2 text-sm pl-2 mb-3">
- <li><span className="font-medium">Strictly Necessary Cookies:</span> Essential for the operation of the Site, including session management, authentication, and security functions.</li>
- <li><span className="font-medium">Analytics Cookies:</span> Collect anonymised information about how visitors use the Site to help us improve its performance and content.</li>
- <li><span className="font-medium">Functional Cookies:</span> Remember your preferences and settings to provide a personalised experience.</li>
- <li><span className="font-medium">Marketing Cookies:</span> Track your browsing activity to deliver relevant advertisements on third-party platforms. These are only placed with your consent.</li>
- </ul>
- <p>
- You may manage your cookie preferences through your browser settings or our Cookie Preference Centre. Please note that disabling certain cookies may affect the functionality of the Site.
- </p>
- </section>
+          <section>
+            <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-100">
+              10. Të drejtat tuaja për privatësinë
+            </h2>
+            <p className="mb-3">
+              Në varësi të ligjit të zbatueshëm, ju mund të keni këto të drejta
+              në lidhje me të dhënat tuaja personale:
+            </p>
+            <ul className="list-disc list-inside space-y-2 text-sm pl-2 mb-3">
+              <li>
+                <span className="font-medium">E drejta e aksesit:</span> të
+                kërkoni një kopje të të dhënave që mbajmë për ju.
+              </li>
+              <li>
+                <span className="font-medium">E drejta e korrigjimit:</span> të
+                kërkoni korrigjimin e të dhënave të pasakta ose të paplota.
+              </li>
+              <li>
+                <span className="font-medium">E drejta e fshirjes:</span> të
+                kërkoni fshirjen e të dhënave, kur kjo lejohet nga ligji dhe nuk
+                bie ndesh me detyrimet tona ligjore të ruajtjes.
+              </li>
+              <li>
+                <span className="font-medium">E drejta e kufizimit:</span> të
+                kërkoni kufizimin e përpunimit në rrethana të caktuara.
+              </li>
+              <li>
+                <span className="font-medium">E drejta e portabilitetit:</span>{' '}
+                të merrni të dhënat tuaja në një format të strukturuar dhe të
+                lexueshëm elektronikisht.
+              </li>
+              <li>
+                <span className="font-medium">E drejta e kundërshtimit:</span>{' '}
+                të kundërshtoni përpunimin për marketing të drejtpërdrejtë ose në
+                raste kur përpunimi bazohet në interes të ligjshëm.
+              </li>
+              <li>
+                <span className="font-medium">E drejta për të tërhequr pëlqimin:</span>{' '}
+                kur përpunimi bazohet në pëlqimin tuaj, ju mund ta tërhiqni atë
+                në çdo kohë.
+              </li>
+            </ul>
+            <p>
+              Për të ushtruar ndonjërën prej këtyre të drejtave, ju lutemi të na
+              kontaktoni në numrin +355 68 403 0204 ose në adresën tonë zyrtare
+              të email-it. Ne do t’i përgjigjemi kërkesës suaj brenda afateve të
+              parashikuara nga ligji. Përpara përpunimit të kërkesës, mund të
+              kërkohet verifikimi i identitetit tuaj.
+            </p>
+          </section>
 
- <section>
- <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-100">10. Your Privacy Rights</h2>
- <p className="mb-3">
- Subject to applicable law, you have the following rights in relation to your personal data:
- </p>
- <ul className="list-disc list-inside space-y-2 text-sm pl-2 mb-3">
- <li><span className="font-medium">Right of Access:</span> You may request a copy of the personal data we hold about you.</li>
- <li><span className="font-medium">Right to Rectification:</span> You may request correction of inaccurate or incomplete personal data.</li>
- <li><span className="font-medium">Right to Erasure:</span> You may request deletion of your personal data where it is no longer necessary for the purposes for which it was collected, subject to legal retention obligations.</li>
- <li><span className="font-medium">Right to Restriction:</span> You may request that we restrict processing of your data in certain circumstances.</li>
- <li><span className="font-medium">Right to Data Portability:</span> You may request that we provide your personal data in a structured, machine-readable format for transfer to another service provider.</li>
- <li><span className="font-medium">Right to Object:</span> You may object to processing of your personal data for direct marketing or where processing is based on legitimate interests.</li>
- <li><span className="font-medium">Right to Withdraw Consent:</span> Where processing is based on your consent, you may withdraw consent at any time without affecting the lawfulness of processing carried out before withdrawal.</li>
- <li><span className="font-medium">California Rights (CCPA):</span> California residents have additional rights including the right to know what personal information is collected, the right to non-discrimination for exercising privacy rights, and the right to opt out of any sale of personal information.</li>
- </ul>
- <p>
- To exercise any of these rights, please contact us at +355 68 403 0204. We will respond within 30 days of receipt of your request. Identity verification may be required before processing your request.
- </p>
- </section>
+          <section>
+            <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-100">
+              11. Siguria e të dhënave
+            </h2>
+            <p className="mb-3">
+              Univers Travel Agency zbaton masa të përshtatshme teknike dhe
+              organizative për të mbrojtur të dhënat tuaja personale nga aksesi i
+              paautorizuar, humbja aksidentale, shkatërrimi, ndryshimi ose
+              zbulimi i paautorizuar. Këto masa përfshijnë, ndër të tjera,
+              enkriptimin e të dhënave në transmetim, kontrolle aksesi, masa
+              autentikimi, monitorim të sistemeve dhe trajnime për stafin mbi
+              mbrojtjen e të dhënave.
+            </p>
+            <p>
+              Megjithatë, asnjë transmetim i të dhënave në internet dhe asnjë
+              sistem ruajtjeje elektronike nuk mund të garantohet si plotësisht
+              i sigurt. Në rast të një shkeljeje të sigurisë që paraqet rrezik të
+              lartë për të drejtat dhe liritë tuaja, ne do t’ju njoftojmë ju dhe
+              autoritetet përkatëse, sipas kërkesave të ligjit.
+            </p>
+          </section>
 
- <section>
- <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-100">11. Data Security</h2>
- <p className="mb-3">
- Univers Travel Agency implements appropriate technical and organisational security measures to protect your personal data against unauthorised access, accidental loss, destruction, alteration, or disclosure. Our security measures include industry-standard SSL/TLS encryption for data transmitted via the Site, AES-256 encryption for stored sensitive data, access controls and multi-factor authentication for internal systems, regular security audits and penetration testing, and employee data protection training.
- </p>
- <p>
- Despite these measures, no data transmission over the internet or electronic storage system can be guaranteed as completely secure. In the event of a data breach that is likely to result in a high risk to your rights and freedoms, we will notify you and relevant supervisory authorities as required by applicable law.
- </p>
- </section>
+          <section>
+            <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-100">
+              12. Privatësia e të miturve
+            </h2>
+            <p className="mb-3">
+              Faqja dhe shërbimet tona nuk janë të destinuara për fëmijë nën
+              moshën 16 vjeç. Univers Travel Agency nuk mbledh me vetëdije të
+              dhëna personale nga persona nën këtë moshë pa pëlqimin e
+              verifikueshëm të prindit ose kujdestarit ligjor.
+            </p>
+            <p>
+              Të dhënat personale të të miturve të përfshirë në rezervime
+              familjare ose në grup përpunohen vetëm për qëllimin e realizimit të
+              shërbimeve të udhëtimit dhe trajtohen me kujdes të shtuar. Nëse
+              besoni se kemi mbledhur pa dashje të dhëna personale të një të
+              mituri pa pëlqimin e nevojshëm, ju lutemi na kontaktoni menjëherë
+              dhe ne do të marrim masa për fshirjen e tyre.
+            </p>
+          </section>
 
- <section>
- <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-100">12. Children's Privacy</h2>
- <p className="mb-3">
- The Site and our services are not directed to children under the age of 16. Univers Travel Agency does not knowingly collect personal data from individuals under 16 without verifiable parental or guardian consent.
- </p>
- <p>
- Personal data of minors included in family or group bookings is processed solely for the purpose of fulfilling travel arrangements and is handled with additional care. If you believe we have inadvertently collected personal data from a child under 16 without consent, please contact us immediately and we will take prompt steps to delete such information.
- </p>
- </section>
+          <section>
+            <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-100">
+              13. Komunikimet e marketingut
+            </h2>
+            <p className="mb-3">
+              Me pëlqimin tuaj, Univers Travel Agency mund t’ju dërgojë
+              komunikime marketingu mbi produktet, shërbimet, ofertat dhe
+              frymëzime të lidhura me udhëtimet. Ju mund të zgjidhni t’i merrni
+              këto komunikime gjatë regjistrimit ose në çdo moment përmes
+              cilësimeve të llogarisë suaj.
+            </p>
+            <p>
+              Ju mund të çabonoheni nga komunikimet promocionale në çdo kohë,
+              duke përditësuar preferencat në llogarinë tuaj ose duke na
+              kontaktuar. Çabonimi nga marketingu nuk ndikon në komunikimet
+              transaksionale të lidhura me rezervimet tuaja, të cilat janë të
+              nevojshme për ofrimin e shërbimit.
+            </p>
+          </section>
 
- <section>
- <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-100">13. Marketing Communications</h2>
- <p className="mb-3">
- With your consent, Univers Travel Agency may send you marketing communications about our products, services, promotions, and travel inspiration. You may opt in to receive these communications during registration or at any time through your account settings.
- </p>
- <p>
- You may opt out of marketing communications at any time by updating your preferences in your account settings, or contacting us at +355 68 403 0204. Please note that opting out of marketing communications does not affect transactional communications related to your bookings, which are necessary for service delivery.
- </p>
- </section>
+          <section>
+            <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-100">
+              14. Vendimmarrja e automatizuar dhe profilizimi
+            </h2>
+            <p className="mb-3">
+              Univers Travel Agency nuk merr vendime që prodhojnë pasoja ligjore
+              ose efekte të rëndësishme për individët vetëm mbi bazën e
+              përpunimit të automatizuar, përfshirë profilizimin. Kur përdoren
+              mjete të automatizuara për të ndihmuar në ofrimin e shërbimit, si
+              rekomandimet e personalizuara ose çmimet dinamike, ruhet gjithmonë
+              mundësia e rishikimit njerëzor për vendimet me ndikim të rëndësishëm.
+            </p>
+            <p>
+              Ju keni të drejtë të kërkoni rishikim njerëzor për çdo vendim të
+              automatizuar që ndikon në mënyrë të konsiderueshme tek ju. Për këtë
+              qëllim, mund të na kontaktoni duke përdorur të dhënat e kontaktit
+              të përfshira në këtë Politikë.
+            </p>
+          </section>
 
- <section>
- <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-100">14. Automated Decision-Making and Profiling</h2>
- <p className="mb-3">
- Univers Travel Agency does not make decisions solely based on automated processing, including profiling, that produce legal or similarly significant effects on individuals. Where automated tools are used to assist in service delivery — such as personalised package recommendations or dynamic pricing — a human review process is maintained for any consequential decisions.
- </p>
- <p>
- You have the right to request human review of any automated decision that materially affects you. To exercise this right, please contact us using the details in Section 15 of this Policy.
- </p>
- </section>
+          <section>
+            <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-100">
+              15. Të dhënat personale të ndjeshme
+            </h2>
+            <p className="mb-3">
+              Disa kategori të të dhënave personale konsiderohen të ndjeshme sipas
+              legjislacionit për mbrojtjen e të dhënave dhe kërkojnë standard më
+              të lartë mbrojtjeje. Këtu mund të përfshihen të dhëna mbi gjendjen
+              shëndetësore, kufizimet ushqimore që lidhen me bindje fetare ose
+              nevoja për aksesueshmëri.
+            </p>
+            <p className="mb-3">
+              Univers Travel Agency mbledh dhe përpunon të dhëna të ndjeshme
+              vetëm kur kjo është rreptësisht e nevojshme për realizimin e
+              shërbimeve të rezervuara dhe, kur kërkohet, me pëlqimin tuaj të
+              qartë. Për shembull, kërkesat ushqimore ose nevojat e veçanta
+              mund të ndahen me hotelet, linjat ajrore ose ofrues të tjerë vetëm
+              për të garantuar shërbimin e duhur.
+            </p>
+            <p>
+              Të dhënat e ndjeshme i nënshtrohen kontrolleve shtesë të aksesit
+              dhe nuk ruhen më gjatë sesa është e nevojshme për qëllimin për të
+              cilin janë mbledhur. Ato nuk përdoren për profilizim, marketing ose
+              për qëllime të tjera përtej ofrimit të drejtpërdrejtë të
+              shërbimit.
+            </p>
+          </section>
 
- <section>
- <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-100">15. Sensitive Personal Data</h2>
- <p className="mb-3">
- Certain categories of personal data are classified as"special category" data under applicable data protection law and require a higher standard of protection. These include data relating to health conditions, dietary restrictions reflecting religious beliefs, and accessibility requirements.
- </p>
- <p className="mb-3">
- Univers Travel Agency only collects and processes sensitive personal data where strictly necessary to fulfil your travel arrangements and with your explicit consent. For example, dietary requirements indicating religious observance or health-related dietary restrictions may be shared with accommodation providers and airlines solely to ensure appropriate meals are provided.
- </p>
- <p>
- Sensitive personal data is subject to additional access controls and is not retained beyond the period necessary to fulfil its purpose. We do not use sensitive personal data for profiling, marketing, or any purpose beyond direct service delivery.
- </p>
- </section>
+          <section>
+            <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-100">
+              16. Faqe të palëve të treta dhe lidhje të jashtme
+            </h2>
+            <p className="mb-3">
+              Faqja mund të përmbajë lidhje drejt faqeve të palëve të treta,
+              përfshirë partnerë të udhëtimit, organizata bashkëpunuese dhe burime
+              informative. Këto lidhje ofrohen vetëm për lehtësi dhe nuk
+              përbëjnë miratim të përmbajtjes ose praktikave të tyre.
+            </p>
+            <p>
+              Univers Travel Agency nuk ka kontroll mbi praktikat e privatësisë
+              ose përmbajtjen e faqeve të palëve të treta dhe nuk mban
+              përgjegjësi për mënyrën se si ato trajtojnë të dhënat tuaja. Ju
+              inkurajojmë të lexoni politikat e privatësisë të çdo faqeje që
+              vizitoni. Kjo Politikë zbatohet vetëm për të dhënat e mbledhura nga
+              Univers Travel Agency në lidhje me faqen dhe shërbimet tona.
+            </p>
+          </section>
 
- <section>
- <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-100">16. Third-Party Websites and External Links</h2>
- <p className="mb-3">
- The Site may contain links to third-party websites, including travel suppliers, partner organisations, and information resources. These links are provided for convenience only and do not constitute an endorsement of the linked website or its content. Univers Travel Agency has no control over the privacy practices or content of third-party websites and is not responsible for their data handling.
- </p>
- <p>
- We encourage you to read the privacy policies of any third-party websites you visit. This Privacy Policy applies solely to data collected by Univers Travel Agency in connection with our Site and services.
- </p>
- </section>
+          <section>
+            <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-100">
+              17. Passenger Name Records (PNR) dhe zbulimi ndaj autoriteteve
+            </h2>
+            <p className="mb-3">
+              Kur rezervoni udhëtime ndërkombëtare, Univers Travel Agency mund të
+              jetë e detyruar ligjërisht, në rrethana të caktuara, të dërgojë të
+              dhënat PNR (Passenger Name Record) tek autoritetet shtetërore,
+              përfshirë autoritetet kufitare, doganore dhe të sigurisë, si në
+              vendin e nisjes ashtu edhe në vendin e destinacionit.
+            </p>
+            <p className="mb-3">
+              Të dhënat PNR zakonisht përfshijnë emrin tuaj, të dhënat e
+              kontaktit, itinerarin, referencën e rezervimit, informacion mbi
+              metodën e pagesës pa përfshirë numrin e plotë të kartës, detajet e
+              agjentit të udhëtimit, vendin në avion dhe informacionin mbi
+              bagazhet.
+            </p>
+            <p>
+              Ky zbulim nuk është opsional kur kërkohet nga ligji ose marrëveshjet
+              ndërkombëtare. Duke kryer një rezervim që përfshin udhëtim
+              ndërkombëtar, ju pranoni që të dhënat e nevojshme mund të ndahen me
+              autoritetet kompetente vetëm në masën e kërkuar nga ligji.
+            </p>
+          </section>
 
- <section>
- <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-100">17. Passenger Name Records (PNR) and Government Disclosure</h2>
- <p className="mb-3">
- When booking international travel, Univers Travel Agency is legally required in certain circumstances to submit Passenger Name Record (PNR) data to government authorities, including border agencies and customs services, in both the departure and destination countries. PNR data typically includes your name, contact details, travel itinerary, booking reference, payment method information (without card numbers), travel agent details, and seat and baggage information.
- </p>
- <p className="mb-3">
- This disclosure is not optional and is mandated by international agreements and national aviation security laws in countries including (but not limited to) the United States, the United Kingdom, Canada, and EU member states. By making a booking that involves international air travel, you acknowledge and consent to such mandatory disclosure.
- </p>
- <p>
- Univers Travel Agency does not disclose passenger data to government authorities beyond what is legally required and resists requests for data that exceed legal mandates to the fullest extent permitted by law.
- </p>
- </section>
+          <section>
+            <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-100">
+              18. Përgjegjësi për mbrojtjen e të dhënave
+            </h2>
+            <p className="mb-3">
+              Univers Travel Agency ka caktuar një person përgjegjës për
+              mbrojtjen e të dhënave, i cili mbikëqyr respektimin e kësaj
+              Politike dhe të legjislacionit përkatës për mbrojtjen e të dhënave.
+              Ky është personi kryesor i kontaktit për individët që dëshirojnë të
+              ushtrojnë të drejtat e tyre ose të paraqesin shqetësime lidhur me
+              praktikat tona të përpunimit.
+            </p>
+            <div className="bg-gray-50 p-5 text-sm space-y-1">
+              <p>
+                <span className="font-medium text-gray-900">
+                  Përgjegjësi për Mbrojtjen e të Dhënave
+                </span>
+              </p>
+              <p>Univers Travel Agency</p>
+              <p>Univers City, Tiranë, Shqipëri</p>
+              <p className="pt-2">Telefon: +355 68 403 0204</p>
+              <p>Email: info@universstravel.com</p>
+              <p>Koha e përgjigjes: brenda 5 ditëve të punës nga marrja</p>
+            </div>
+          </section>
 
- <section>
- <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-100">18. Data Protection Officer</h2>
- <p className="mb-3">
- Univers Travel Agency has designated a Data Protection Officer (DPO) responsible for overseeing compliance with this Policy and applicable data protection legislation. The DPO is the primary point of contact for data subjects wishing to exercise their rights or raise concerns about data processing practices.
- </p>
- <div className="bg-gray-50 p-5 text-sm space-y-1">
- <p><span className="font-medium text-gray-900">Data Protection Officer</span></p>
- <p>Univers Travel Agency</p>
- <p>Univers City, Tiranë, Albania</p>
- <p className="pt-2">Phone: +355 68 403 0204</p>
- <p>Email: info@universstravel.com</p>
- <p>Response time: Within 5 business days of receipt</p>
- </div>
- </section>
+          <section>
+            <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-100">
+              19. Ankesat pranë autoritetit mbikëqyrës
+            </h2>
+            <p className="mb-3">
+              Nëse ndodheni në Zonën Ekonomike Europiane ose në Shqipëri dhe
+              besoni se përpunimi i të dhënave tuaja personale nga ana jonë shkel
+              ligjin e zbatueshëm për mbrojtjen e të dhënave, ju keni të drejtë
+              të paraqisni ankesë pranë autoritetit mbikëqyrës kompetent.
+            </p>
+            <div className="bg-gray-50 p-5 text-sm space-y-1 mb-4">
+              <p>
+                <span className="font-medium text-gray-900">
+                  Komisioneri për të Drejtën e Informimit dhe Mbrojtjen e të
+                  Dhënave Personale
+                </span>
+              </p>
+              <p>Blv. “Zhan D’Ark”, Nr. 10, Tiranë, Shqipëri</p>
+              <p>Faqja zyrtare: idp.al</p>
+              <p>Telefon: +355 4 227 8560</p>
+            </div>
+            <p>
+              Ju gjithashtu mund të paraqisni ankesë pranë autoritetit kompetent
+              të vendit ku banoni, punoni ose ku pretendoni se ka ndodhur
+              shkelja. Megjithatë, ne ju inkurajojmë që fillimisht të na
+              kontaktoni drejtpërdrejt, në mënyrë që të kemi mundësinë të
+              trajtojmë shqetësimin tuaj.
+            </p>
+          </section>
 
- <section>
- <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-100">19. Supervisory Authority Complaints</h2>
- <p className="mb-3">
- If you are located in the European Economic Area (EEA) and believe that our processing of your personal data infringes applicable data protection law, you have the right to lodge a complaint with your local supervisory authority. In Albania, the supervisory authority responsible for data protection enforcement is:
- </p>
- <div className="bg-gray-50 p-5 text-sm space-y-1 mb-4">
- <p><span className="font-medium text-gray-900">Information and Data Protection Commissioner (IDPC)</span></p>
- <p>Blv."Zhan D'Ark", Nr. 10, Tiranë, Albania</p>
- <p>Website: idp.al</p>
- <p>Phone: +355 4 227 8560</p>
- </div>
- <p>
- You may also lodge a complaint with the supervisory authority in your country of habitual residence, place of work, or the place of the alleged infringement. We encourage you to contact us directly in the first instance so that we have the opportunity to address your concerns before a formal complaint is lodged.
- </p>
- </section>
+          <section>
+            <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-100">
+              20. Ndryshimet në këtë politikë
+            </h2>
+            <p>
+              Univers Travel Agency rezervon të drejtën ta përditësojë ose
+              ndryshojë këtë Politikë Privatësie në çdo kohë, për të reflektuar
+              ndryshime në praktikat tona të përpunimit, kërkesat ligjore ose
+              operacionet e biznesit. Ndryshimet thelbësore do të komunikohen
+              përmes publikimit të versionit të përditësuar në faqe me datën e
+              re të përditësimit dhe, kur është e përshtatshme, përmes njoftimit
+              me email për përdoruesit e regjistruar. Përdorimi i vazhdueshëm i
+              faqes pas publikimit të ndryshimeve nënkupton pranimin e politikës
+              së përditësuar.
+            </p>
+          </section>
 
- <section>
- <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-100">20. Changes to This Policy</h2>
- <p>
- Univers Travel Agency reserves the right to update or modify this Privacy Policy at any time to reflect changes in our data processing practices, legal requirements, or business operations. Material changes will be communicated by posting the updated Policy on the Site with a revised"Last Updated" date and, where appropriate, by sending an email notification to registered account holders. Your continued use of the Site following publication of changes constitutes acceptance of the revised Policy.
- </p>
- </section>
-
- <section>
- <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-100">21. Contact and Complaints</h2>
- <p className="mb-3">
- For any questions, concerns, or requests regarding this Privacy Policy or our data processing practices, please contact our Data Privacy Officer:
- </p>
- <div className="bg-gray-50 p-5 text-sm space-y-1 mb-4">
- <p><span className="font-medium text-gray-900">Univers Travel Agency</span></p>
- <p>Univers City, Tiranë</p>
- <p>Albania</p>
- <p className="pt-2">Phone: +355 68 403 0204</p>
- <p>Email: info@universstravel.com</p>
- <p>Instagram: @universstravel</p>
- </div>
- <p>
- If you believe your privacy rights have been violated and your complaint has not been satisfactorily addressed by Univers Travel Agency, you have the right to lodge a complaint with the relevant data protection supervisory authority in your jurisdiction.
- </p>
- </section>
-
- </div>
- </div>
- </div>
- );
+          <section>
+            <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-100">
+              21. Kontaktet dhe ankesat
+            </h2>
+            <p className="mb-3">
+              Për çdo pyetje, shqetësim ose kërkesë në lidhje me këtë Politikë të
+              Privatësisë ose mënyrën se si ne përpunojmë të dhënat personale,
+              ju lutemi na kontaktoni në:
+            </p>
+            <div className="bg-gray-50 p-5 text-sm space-y-1 mb-4">
+              <p>
+                <span className="font-medium text-gray-900">
+                  Univers Travel Agency
+                </span>
+              </p>
+              <p>Univers City, Tiranë</p>
+              <p>Shqipëri</p>
+              <p className="pt-2">Telefon: +355 68 403 0204</p>
+              <p>Email: info@universstravel.com</p>
+              <p>Instagram: @universstravel</p>
+            </div>
+            <p>
+              Nëse mendoni se të drejtat tuaja për privatësi janë shkelur dhe
+              ankesa juaj nuk është trajtuar në mënyrë të kënaqshme nga Univers
+              Travel Agency, ju keni të drejtë t’i drejtoheni autoritetit
+              mbikëqyrës kompetent për mbrojtjen e të dhënave në juridiksionin
+              tuaj.
+            </p>
+          </section>
+        </div>
+      </div>
+    </div>
+  );
 }
