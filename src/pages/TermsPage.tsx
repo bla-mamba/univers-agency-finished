@@ -1,303 +1,701 @@
-import { FileText} from'lucide-react';
+import { FileText } from 'lucide-react';
 
 export default function TermsPage() {
- return (
- <div className="min-h-screen bg-gray-50">
- <div className="bg-gray-900 text-white py-16">
- <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
- <div className="flex justify-center mb-4">
- <FileText className="h-12 w-12 text-red-500" />
- </div>
- <h1 className="text-4xl font-bold mb-4">Terms & Conditions</h1>
- <p className="text-gray-300 text-lg max-w-2xl mx-auto">
- Please read these terms carefully before using our services or making a booking.
- </p>
- <p className="text-gray-400 text-sm mt-4">Last updated: 1 March 2026</p>
- </div>
- </div>
+  return (
+    <div className="min-h-screen bg-gray-50">
+      <div className="bg-gray-900 text-white py-16">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="flex justify-center mb-4">
+            <FileText className="h-12 w-12 text-red-500" />
+          </div>
+          <h1 className="text-4xl font-bold mb-4">Kushtet dhe Termat</h1>
+          <p className="text-gray-300 text-lg max-w-2xl mx-auto">
+            Ju lutemi t’i lexoni me kujdes këto kushte përpara se të përdorni
+            shërbimet tona ose të kryeni një rezervim.
+          </p>
+          <p className="text-gray-400 text-sm mt-4">
+            Përditësuar së fundmi: 1 mars 2026
+          </p>
+        </div>
+      </div>
 
- <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
- <div className="bg-white shadow-sm border border-gray-200 p-8 md:p-12 space-y-10 text-gray-700 leading-relaxed">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="bg-white shadow-sm border border-gray-200 p-8 md:p-12 space-y-10 text-gray-700 leading-relaxed">
+          <section>
+            <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-100">
+              1. Pranimi i kushteve
+            </h2>
+            <p className="mb-3">
+              Duke hyrë në faqen e internetit të Univers Travel Agency
+              (“Faqja”), duke krijuar një llogari ose duke kryer një rezervim,
+              ju (“Klienti”, “ju” ose “juaj”) konfirmoni se i keni lexuar, i
+              keni kuptuar dhe pranoni të jeni ligjërisht të detyruar nga këto
+              Kushte dhe Terma (“Kushtet”), nga Politika jonë e Privatësisë, si
+              edhe nga çdo kusht shtesë që mund të zbatohet për shërbime ose
+              promovime të caktuara. Këto Kushte përbëjnë një marrëveshje
+              ligjërisht të detyrueshme midis jush dhe Univers Travel Agency
+              LLC.
+            </p>
+            <p className="mb-3">
+              Nëse nuk i pranoni këto Kushte në tërësinë e tyre, nuk duhet të
+              përdorni Faqen, të regjistroni një llogari ose të blini shërbime
+              nga Univers Travel Agency. Ne rezervojmë të drejtën t’i ndryshojmë
+              këto Kushte në çdo kohë pa njoftim paraprak. Përdorimi i
+              vazhdueshëm i Faqes pas çdo ndryshimi nënkupton pranimin e
+              versionit të përditësuar.
+            </p>
+            <p>
+              Këto Kushte zbatohen për të gjithë përdoruesit e Faqes, përfshirë,
+              pa kufizim, vizitorët, klientët, partnerët tregtarë dhe
+              kontribuuesit e përmbajtjes.
+            </p>
+          </section>
 
- <section>
- <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-100">1. Acceptance of Terms</h2>
- <p className="mb-3">
- By accessing the Univers Travel Agency website (the"Site"), creating an account, or making a booking, you ("Client","you", or"your") acknowledge that you have read, understood, and agree to be legally bound by these Terms and Conditions ("Terms"), our Privacy Policy, and any additional terms applicable to specific services or promotions. These Terms constitute a legally binding agreement between you and Univers Travel Agency LLC, a company incorporated under the laws of the State of New York ("Univers Travel Agency","we","us", or"our").
- </p>
- <p className="mb-3">
- If you do not agree to these Terms in their entirety, you must not access the Site, register an account, or purchase any services from Univers Travel Agency. We reserve the right to amend these Terms at any time without prior notice. Continued use of the Site following any amendment constitutes acceptance of the revised Terms.
- </p>
- <p>
- These Terms apply to all users of the Site, including without limitation users who are browsers, customers, merchants, and contributors of content.
- </p>
- </section>
+          <section>
+            <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-100">
+              2. Marrëveshja e rezervimit
+            </h2>
+            <p className="mb-3">
+              Një kontratë e detyrueshme ndërmjet Univers Travel Agency dhe
+              Klientit krijohet në momentin kur Univers Travel Agency konfirmon
+              rezervimin me shkrim dhe merr parapagimin ose pagesën e plotë, sipas
+              rastit. Personi që kryen rezervimin (“Udhëtari kryesor”) i pranon
+              këto Kushte në emër të të gjithë personave të përfshirë në
+              rezervim dhe mban përgjegjësi për t’u siguruar që të gjithë
+              anëtarët e grupit të tij i njohin dhe i respektojnë këto Kushte.
+            </p>
+            <p className="mb-3">
+              Udhëtari kryesor duhet të jetë të paktën 18 vjeç në kohën e
+              rezervimit dhe duhet të ketë kapacitetin ligjor për të lidhur një
+              kontratë të detyrueshme. Rezervimet e bëra në emër të të miturve
+              që udhëtojnë pa prind ose kujdestar ligjor duhet të shoqërohen me
+              formularin përkatës të pëlqimit dhe mund t’i nënshtrohen
+              procedurave shtesë të verifikimit.
+            </p>
+            <p>
+              Univers Travel Agency rezervon të drejtën të refuzojë çdo rezervim
+              sipas gjykimit të vet, pa pasur detyrim të japë arsyet e këtij
+              refuzimi. Rezervimet mbeten subjekt i disponueshmërisë dhe nuk
+              konsiderohen të garantuara derisa të lëshohet konfirmimi me
+              shkrim nga Univers Travel Agency.
+            </p>
+          </section>
 
- <section>
- <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-100">2. Booking Agreement</h2>
- <p className="mb-3">
- A binding contract between Univers Travel Agency and the Client is formed upon Univers Travel Agency's written confirmation of a booking and receipt of the required deposit or full payment as applicable. The Client making the booking ("Lead Passenger") accepts these Terms on behalf of all persons named in the booking and is responsible for ensuring all members of their party are aware of and comply with these Terms.
- </p>
- <p className="mb-3">
- The Lead Passenger must be at least 18 years of age at the time of booking and must possess the legal capacity to enter into a binding contract. Bookings made on behalf of minors travelling without a parent or legal guardian must be accompanied by a completed Unaccompanied Minor Consent Form and are subject to additional verification procedures.
- </p>
- <p>
- Univers Travel Agency reserves the right to decline any booking at its sole discretion without being required to disclose reasons for such refusal. Bookings remain subject to availability and are not guaranteed until written confirmation is issued by Univers Travel Agency.
- </p>
- </section>
+          <section>
+            <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-100">
+              3. Çmimet dhe pagesat
+            </h2>
+            <p className="mb-3">
+              Të gjitha çmimet e paraqitura në Faqe shprehen në dollarë
+              amerikanë (USD), përveç rasteve kur thuhet ndryshe, dhe përfshijnë
+              të gjitha tarifat e shërbimit të Univers Travel Agency. Çmimet
+              mund të ndryshojnë pa njoftim paraprak deri në momentin kur
+              rezervimi konfirmohet me shkrim dhe kryhet pagesa e plotë ose
+              parapagimi i kërkuar.
+            </p>
+            <p className="mb-3">
+              Në momentin e rezervimit kërkohet një parapagim jo i rimbursueshëm
+              prej 25% të vlerës totale të rezervimit, përveç rasteve kur paketa
+              është shënuar si “Kërkohet pagesë e plotë”. Shuma e mbetur duhet
+              të paguhet jo më vonë se 30 ditë përpara datës së planifikuar të
+              nisjes. Për rezervimet e kryera brenda 30 ditëve para nisjes,
+              kërkohet pagesa e plotë në momentin e rezervimit.
+            </p>
+            <p className="mb-3">
+              Mospagesa brenda afatit do të sjellë anulimin automatik të
+              rezervimit pa njoftim të mëtejshëm. Në këto raste, parapagimi dhe
+              çdo shumë e paguar do të humbasin sipas politikës së anulimit të
+              përcaktuar në nenin 5 të këtyre Kushteve.
+            </p>
+            <p>
+              Univers Travel Agency pranon pagesa përmes kartave kryesore të
+              kreditit dhe debitit, si edhe transferta bankare, të përpunuara
+              përmes ofruesve të pagesave në përputhje me standardet PCI-DSS.
+              Univers Travel Agency nuk ruan të dhënat e kartave të pagesës në
+              sistemet e veta. Çdo tarifë bankare, kosto konvertimi valutor ose
+              shpenzim tjetër transaksioni i vendosur nga institucioni juaj
+              financiar mbetet përgjegjësi juaj.
+            </p>
+          </section>
 
- <section>
- <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-100">3. Pricing and Payment</h2>
- <p className="mb-3">
- All prices displayed on the Site are quoted in United States Dollars (USD) unless otherwise stated and are inclusive of all Univers Travel Agency service charges. Prices are subject to change without notice until a booking is confirmed in writing and full or required deposit payment is received.
- </p>
- <p className="mb-3">
- A non-refundable deposit of 25% of the total booking value is required at the time of reservation unless the package is designated as"Full Payment Required". The remaining balance is due no later than 30 days prior to the scheduled departure date. For bookings made within 30 days of departure, full payment is required at the time of booking.
- </p>
- <p className="mb-3">
- Failure to remit payment by the due date will result in automatic cancellation of the booking without further notice. In such cases, the deposit and any amounts paid will be forfeited in accordance with the cancellation policy set out in Clause 5 of these Terms.
- </p>
- <p>
- Univers Travel Agency accepts payment via major credit and debit cards and bank transfers processed through PCI-DSS compliant third-party payment processors. Univers Travel Agency does not store payment card information on its systems. Any bank charges, currency conversion fees, or other transaction costs imposed by your financial institution are your sole responsibility.
- </p>
- </section>
+          <section>
+            <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-100">
+              4. Çfarë përfshihet dhe çfarë nuk përfshihet në paketë
+            </h2>
+            <p className="mb-3">
+              Çdo paketë udhëtimi përfshin shërbimet e përcaktuara në
+              përshkrimin e paketës të publikuar në Faqe në momentin e
+              rezervimit. Përveç rasteve kur shprehet ndryshe, përfshirjet
+              standarde janë: bileta vajtje-ardhje në klasë ekonomike nga pika e
+              caktuar e nisjes, transfertat aeroport-hotel, akomodimi në
+              kategorinë e hotelit të specifikuar, mëngjesi i përditshëm, turet
+              dhe ekskursionet e listuara në itinerar, si edhe shërbimet e një
+              guida lokale të licencuar.
+            </p>
+            <p className="mb-3">
+              Elementet e mëposhtme nuk përfshihen në paketë, përveç rasteve kur
+              specifikohen shprehimisht: taksat ndërkombëtare ose vendase të
+              nisjes dhe tarifat aeroportuale; tarifat për vizë, pasaportë dhe
+              dokumente udhëtimi; primet e siguracionit të udhëtimit; shpenzimet
+              personale si lavanderi, thirrje telefonike, room service dhe
+              minibar; vaktet dhe pijet që nuk janë të specifikuara në itinerar;
+              ekskursionet dhe aktivitetet opsionale; transporti i bagazheve dhe
+              bakshishet; si edhe çdo shpenzim që vjen nga vonesa, devijime ose
+              ngjarje përtej kontrollit të Univers Travel Agency.
+            </p>
+            <p>
+              Univers Travel Agency rezervon të drejtën të zëvendësojë hotelin,
+              linjën ajrore ose ofrues të tjerë shërbimi me alternativa të
+              standardit të barabartë ose më të lartë, pa njoftim paraprak, me
+              kusht që ky zëvendësim të mos ulë në mënyrë thelbësore vlerën e
+              paketës. Në rast të një ndryshimi thelbësor, klientët do të
+              njoftohen dhe do t’u ofrohen alternativa të përshtatshme ose
+              kompensim sipas rastit.
+            </p>
+          </section>
 
- <section>
- <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-100">4. Package Inclusions and Exclusions</h2>
- <p className="mb-3">
- Each travel package includes the services specified in the package description published on the Site at the time of booking. Unless expressly stated otherwise, standard inclusions are: return economy-class airfare from the designated departure point, airport-to-hotel transfers, accommodation in the specified hotel category, daily breakfast, guided tours and excursions listed in the itinerary, and the services of a licensed local guide.
- </p>
- <p className="mb-3">
- The following items are expressly excluded from all packages unless specifically indicated: international or domestic departure taxes and airport improvement fees; visa, passport, and travel document fees; travel insurance premiums; personal expenses including laundry, telephone calls, room service, and minibar charges; meals and beverages not specified in the itinerary; optional excursions and activities; porterage and gratuities; and any costs arising from delays, diversions, or events beyond Univers Travel Agency's control.
- </p>
- <p>
- Univers Travel Agency reserves the right to substitute accommodation, airlines, or other service providers with alternatives of equivalent or superior standard without notice, provided that such substitution does not materially diminish the value of the package. In the event of a material substitution, clients will be informed and offered appropriate alternatives or compensation.
- </p>
- </section>
+          <section>
+            <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-100">
+              5. Politika e anulimit dhe rimbursimit
+            </h2>
+            <p className="mb-3">
+              Të gjitha kërkesat për anulim duhet të paraqiten me shkrim pranë
+              Univers Travel Agency në numrin +355 68 403 0204 ose përmes
+              korrespondencës zyrtare në adresën tonë të regjistruar. Data në të
+              cilën kërkesa për anulim merret me shkrim nga Univers Travel
+              Agency konsiderohet si data efektive e anulimit.
+            </p>
+            <p className="mb-3">
+              Tarifat e mëposhtme të anulimit zbatohen sipas numrit të ditëve
+              përpara datës së planifikuar të nisjes:
+            </p>
 
- <section>
- <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-100">5. Cancellation and Refund Policy</h2>
- <p className="mb-3">
- All cancellation requests must be submitted in writing to Univers Travel Agency via phone at +355 68 403 0204 or via certified postal correspondence to our registered address. The date on which a cancellation request is received by Univers Travel Agency in writing constitutes the effective cancellation date.
- </p>
- <p className="mb-3">The following cancellation charges apply based on the number of days before the scheduled departure date:</p>
- <div className="overflow-x-auto my-4">
- <table className="w-full text-sm border-collapse border border-gray-200">
- <thead>
- <tr className="bg-gray-50">
- <th className="border border-gray-200 px-4 py-3 text-left font-semibold text-gray-800">Days Before Departure</th>
- <th className="border border-gray-200 px-4 py-3 text-left font-semibold text-gray-800">Cancellation Charge</th>
- </tr>
- </thead>
- <tbody>
- <tr><td className="border border-gray-200 px-4 py-3">More than 60 days</td><td className="border border-gray-200 px-4 py-3">Deposit only (non-refundable)</td></tr>
- <tr className="bg-gray-50"><td className="border border-gray-200 px-4 py-3">31–60 days</td><td className="border border-gray-200 px-4 py-3">50% of total booking cost</td></tr>
- <tr><td className="border border-gray-200 px-4 py-3">15–30 days</td><td className="border border-gray-200 px-4 py-3">75% of total booking cost</td></tr>
- <tr className="bg-gray-50"><td className="border border-gray-200 px-4 py-3">14 days or fewer</td><td className="border border-gray-200 px-4 py-3">100% of total booking cost (no refund)</td></tr>
- </tbody>
- </table>
- </div>
- <p className="mb-3">
- Promotional and non-refundable packages carry 100% cancellation charges from the date of booking and no refund will be issued under any circumstances.
- </p>
- <p>
- Approved refunds will be processed within 14 business days of written cancellation confirmation and credited to the original payment method. Univers Travel Agency is not liable for delays caused by third-party financial institutions.
- </p>
- </section>
+            <div className="overflow-x-auto my-4">
+              <table className="w-full text-sm border-collapse border border-gray-200">
+                <thead>
+                  <tr className="bg-gray-50">
+                    <th className="border border-gray-200 px-4 py-3 text-left font-semibold text-gray-800">
+                      Ditë para nisjes
+                    </th>
+                    <th className="border border-gray-200 px-4 py-3 text-left font-semibold text-gray-800">
+                      Tarifa e anulimit
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td className="border border-gray-200 px-4 py-3">
+                      Më shumë se 60 ditë
+                    </td>
+                    <td className="border border-gray-200 px-4 py-3">
+                      Vetëm parapagimi (jo i rimbursueshëm)
+                    </td>
+                  </tr>
+                  <tr className="bg-gray-50">
+                    <td className="border border-gray-200 px-4 py-3">
+                      31–60 ditë
+                    </td>
+                    <td className="border border-gray-200 px-4 py-3">
+                      50% e kostos totale të rezervimit
+                    </td>
+                  </tr>
+                  <tr>
+                    <td className="border border-gray-200 px-4 py-3">
+                      15–30 ditë
+                    </td>
+                    <td className="border border-gray-200 px-4 py-3">
+                      75% e kostos totale të rezervimit
+                    </td>
+                  </tr>
+                  <tr className="bg-gray-50">
+                    <td className="border border-gray-200 px-4 py-3">
+                      14 ditë ose më pak
+                    </td>
+                    <td className="border border-gray-200 px-4 py-3">
+                      100% e kostos totale të rezervimit (pa rimbursim)
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
 
- <section>
- <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-100">6. Modifications and Amendments</h2>
- <p className="mb-3">
- Any changes requested by the Client to a confirmed booking (including changes to travel dates, passenger names, destinations, or accommodation) must be submitted in writing and are subject to availability, third-party supplier terms, and an administrative amendment fee of USD 75 per change per passenger. Univers Travel Agency will make reasonable efforts to accommodate amendment requests but cannot guarantee that such changes can be made.
- </p>
- <p>
- Univers Travel Agency reserves the right to modify itineraries, accommodation, transport, or other service components due to operational requirements, force majeure events, or circumstances beyond our reasonable control. Where modifications are significant, clients will be notified as promptly as practicable and offered the choice of accepting the modified arrangements, transferring to an alternative package of comparable value, or cancelling and receiving a full refund of monies paid.
- </p>
- </section>
+            <p className="mb-3">
+              Paketat promocionale dhe paketat e shënuara si jo të
+              rimbursueshme mbartin 100% tarifë anulimi që nga data e rezervimit
+              dhe nuk jepet asnjë rimbursim në asnjë rrethanë.
+            </p>
+            <p>
+              Rimbursimet e miratuara përpunohen brenda 14 ditëve të punës nga
+              konfirmimi me shkrim i anulimit dhe kreditohen në metodën
+              fillestare të pagesës. Univers Travel Agency nuk mban përgjegjësi
+              për vonesa të shkaktuara nga institucione financiare të treta.
+            </p>
+          </section>
 
- <section>
- <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-100">7. Force Majeure</h2>
- <p className="mb-3">
- Univers Travel Agency shall not be liable for any failure or delay in performance of its obligations under these Terms that results from events beyond its reasonable control, including but not limited to acts of God, natural disasters, earthquakes, floods, fires, pandemics, epidemics, governmental actions, war, armed conflict, civil unrest, terrorism, strikes, industrial disputes, transportation disruptions, or technical failures of infrastructure.
- </p>
- <p>
- In the event of a force majeure cancellation, Univers Travel Agency will issue travel credits equivalent to the full amount paid, valid for 24 months from the original departure date. Where a cash refund is requested under force majeure circumstances, it will be considered on a case-by-case basis and is subject to amounts recovered from third-party suppliers.
- </p>
- </section>
+          <section>
+            <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-100">
+              6. Ndryshime dhe amendime
+            </h2>
+            <p className="mb-3">
+              Çdo ndryshim i kërkuar nga Klienti në një rezervim të konfirmuar,
+              përfshirë ndryshimet e datave të udhëtimit, emrave të pasagjerëve,
+              destinacioneve ose akomodimit, duhet të paraqitet me shkrim dhe
+              mbetet subjekt i disponueshmërisë, kushteve të partnerëve të tretë
+              dhe një tarife administrative prej 75 USD për çdo ndryshim për
+              pasagjer. Univers Travel Agency do të bëjë përpjekje të arsyeshme
+              për të përmbushur këto kërkesa, por nuk garanton që ato mund të
+              realizohen.
+            </p>
+            <p>
+              Univers Travel Agency rezervon të drejtën të ndryshojë itinerarin,
+              akomodimin, transportin ose pjesë të tjera të shërbimit për arsye
+              operative, për shkak të forcave madhore ose rrethanave jashtë
+              kontrollit tonë të arsyeshëm. Kur ndryshimet janë të rëndësishme,
+              klientët do të njoftohen sa më shpejt që të jetë e mundur dhe do
+              t’u jepet mundësia të pranojnë rregullimet e reja, të kalojnë në
+              një paketë alternative me vlerë të krahasueshme, ose të anulojnë
+              dhe të marrin rimbursim të plotë të shumave të paguara.
+            </p>
+          </section>
 
- <section>
- <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-100">8. Travel Documents and Health Requirements</h2>
- <p className="mb-3">
- It is the sole and absolute responsibility of the Client to ensure that all members of the travel party hold valid passports (with at least six months' validity beyond the return date), appropriate visas, travel permits, vaccination certificates, and any other documentation required by the laws and regulations of the departure country, destination country, and any transit countries.
- </p>
- <p className="mb-3">
- Univers Travel Agency provides general destination information as a convenience and does not represent or warrant the accuracy or completeness of such information. This information does not constitute legal, immigration, or medical advice. Clients are solely responsible for independently verifying all entry requirements with the relevant consulates, embassies, and health authorities.
- </p>
- <p>
- Univers Travel Agency will not be liable for any loss, cost, or expense arising from a Client's failure to comply with travel document or health requirements, including denial of entry to the destination or transit country, and no refund will be issued in such circumstances.
- </p>
- </section>
+          <section>
+            <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-100">
+              7. Forca madhore
+            </h2>
+            <p className="mb-3">
+              Univers Travel Agency nuk mban përgjegjësi për asnjë mosrealizim
+              ose vonesë në përmbushjen e detyrimeve të saj sipas këtyre
+              Kushteve, kur kjo vjen si rezultat i ngjarjeve jashtë kontrollit
+              të saj të arsyeshëm, përfshirë, por pa u kufizuar në: fatkeqësi
+              natyrore, tërmete, përmbytje, zjarre, pandemi, epidemi, veprime
+              qeveritare, luftë, konflikt të armatosur, trazira civile,
+              terrorizëm, greva, mosmarrëveshje industriale, ndërprerje të
+              transportit ose dështime teknike të infrastrukturës.
+            </p>
+            <p>
+              Në rast anulimi për shkak të forcës madhore, Univers Travel Agency
+              do të lëshojë kredi udhëtimi me vlerë të barabartë me shumën e
+              plotë të paguar, të vlefshme për 24 muaj nga data fillestare e
+              nisjes. Kur kërkohet rimbursim në para në rrethana të forcës
+              madhore, ai do të shqyrtohet rast pas rasti dhe do të varet nga
+              shumat e rikuperuara nga ofruesit e palëve të treta.
+            </p>
+          </section>
 
- <section>
- <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-100">9. Travel Insurance</h2>
- <p className="mb-3">
- Univers Travel Agency strongly recommends that all Clients purchase comprehensive travel insurance covering medical emergencies, evacuation and repatriation, trip cancellation and interruption, baggage loss, and personal liability. Univers Travel Agency may offer travel insurance as an add-on service; however, this does not constitute a requirement to purchase insurance through Univers Travel Agency.
- </p>
- <p>
- Travelling without adequate insurance is at the Client's own risk. Univers Travel Agency shall have no liability for any loss, injury, death, or expense that would have been covered by a comprehensive travel insurance policy. Evidence of travel insurance may be required prior to departure for certain high-risk or remote destinations.
- </p>
- </section>
+          <section>
+            <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-100">
+              8. Dokumentet e udhëtimit dhe kërkesat shëndetësore
+            </h2>
+            <p className="mb-3">
+              Është përgjegjësi e plotë dhe ekskluzive e Klientit të sigurohet që
+              të gjithë pjesëmarrësit në udhëtim të kenë pasaporta të vlefshme
+              (me të paktën gjashtë muaj vlefshmëri pas datës së kthimit), vizat
+              e nevojshme, lejet e udhëtimit, certifikatat e vaksinimit dhe çdo
+              dokument tjetër të kërkuar nga ligjet dhe rregulloret e vendit të
+              nisjes, destinacionit dhe vendeve tranzit.
+            </p>
+            <p className="mb-3">
+              Univers Travel Agency ofron informacion të përgjithshëm mbi
+              destinacionet vetëm si lehtësi për klientin dhe nuk garanton
+              saktësinë apo plotësinë e këtij informacioni. Ky informacion nuk
+              përbën këshillim ligjor, emigracioni apo mjekësor. Klientët janë
+              vetë përgjegjës për të verifikuar në mënyrë të pavarur të gjitha
+              kërkesat e hyrjes me konsullatat, ambasadat dhe autoritetet
+              shëndetësore përkatëse.
+            </p>
+            <p>
+              Univers Travel Agency nuk mban përgjegjësi për asnjë humbje, kosto
+              ose shpenzim që lind si pasojë e mosrespektimit nga ana e
+              Klientit të kërkesave për dokumentacion udhëtimi ose shëndetësor,
+              përfshirë refuzimin e hyrjes në vendin e destinacionit ose të
+              tranzitit, dhe në këto raste nuk do të jepet rimbursim.
+            </p>
+          </section>
 
- <section>
- <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-100">10. Limitation of Liability</h2>
- <p className="mb-3">
- To the fullest extent permitted by applicable law, Univers Travel Agency's total aggregate liability to any Client, whether in contract, tort (including negligence), statutory duty, or otherwise, arising out of or in connection with any booking, package, or service shall not exceed the total price paid by the Client for the relevant booking giving rise to the claim.
- </p>
- <p className="mb-3">
- Univers Travel Agency shall not be liable for any indirect, incidental, special, punitive, consequential, or exemplary damages, including but not limited to loss of profits, loss of revenue, loss of data, loss of opportunity, or loss of enjoyment, even if advised of the possibility of such damages.
- </p>
- <p>
- Univers Travel Agency acts as an agent for independent third-party service providers including airlines, hotels, ground transportation companies, and tour operators. Univers Travel Agency accepts no responsibility for the acts, omissions, or negligence of such third parties or for any injury, damage, loss, delay, additional expense, or irregularity arising from services provided by third parties.
- </p>
- </section>
+          <section>
+            <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-100">
+              9. Siguracioni i udhëtimit
+            </h2>
+            <p className="mb-3">
+              Univers Travel Agency rekomandon fuqimisht që të gjithë klientët
+              të blejnë një siguracion të plotë udhëtimi që mbulon urgjencat
+              mjekësore, evakuimin dhe riatdhesimin, anulimin dhe ndërprerjen e
+              udhëtimit, humbjen e bagazheve dhe përgjegjësinë personale. Univers
+              Travel Agency mund ta ofrojë siguracionin si shërbim shtesë, por
+              kjo nuk përbën detyrim për ta blerë atë përmes Univers Travel
+              Agency.
+            </p>
+            <p>
+              Udhëtimi pa siguracion të përshtatshëm mbetet në rrezikun e vetë
+              Klientit. Univers Travel Agency nuk mban përgjegjësi për humbje,
+              lëndim, vdekje ose shpenzime që do të ishin mbuluar nga një policë
+              e plotë siguracioni udhëtimi. Për disa destinacione me rrezik më
+              të lartë ose më të izoluara, mund të kërkohet dëshmi e
+              siguracionit përpara nisjes.
+            </p>
+          </section>
 
- <section>
- <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-100">11. Complaints and Dispute Resolution</h2>
- <p className="mb-3">
- Any complaint arising during travel must be reported immediately to the local Univers Travel Agency representative or the relevant service provider so that remedial action may be taken. Complaints not reported during travel cannot be addressed retroactively. Formal complaints must be submitted in writing to Univers Travel Agency within 28 days of the return date, accompanied by all relevant supporting documentation.
- </p>
- <p className="mb-3">
- Univers Travel Agency will acknowledge receipt of all written complaints within 5 business days and provide a substantive response within 28 days of receipt of all required documentation. In the event of an unresolved dispute, both parties agree to engage in good-faith mediation prior to initiating any legal proceedings.
- </p>
- <p>
- These Terms shall be governed by and construed in accordance with the laws of the State of New York, United States. Any disputes that cannot be resolved by mediation shall be subject to the exclusive jurisdiction of the courts of New York County, New York.
- </p>
- </section>
+          <section>
+            <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-100">
+              10. Kufizimi i përgjegjësisë
+            </h2>
+            <p className="mb-3">
+              Në masën maksimale të lejuar nga ligji në fuqi, përgjegjësia totale
+              e Univers Travel Agency ndaj çdo Klienti, qoftë me bazë
+              kontraktore, jashtëkontraktore, përfshirë neglizhencën, detyrimin
+              ligjor ose ndryshe, që lind nga ose lidhet me një rezervim, paketë
+              ose shërbim, nuk do të tejkalojë çmimin total të paguar nga
+              Klienti për rezervimin përkatës që ka sjellë pretendimin.
+            </p>
+            <p className="mb-3">
+              Univers Travel Agency nuk mban përgjegjësi për dëme të tërthorta,
+              rastësore, të veçanta, ndëshkuese, pasuese ose shembullore,
+              përfshirë por pa u kufizuar në humbje fitimi, humbje të ardhurash,
+              humbje të dhënash, humbje mundësie ose humbje kënaqësie, edhe nëse
+              është njoftuar për mundësinë e këtyre dëmeve.
+            </p>
+            <p>
+              Univers Travel Agency vepron si agjent për ofrues të pavarur
+              shërbimesh të palëve të treta, përfshirë linjat ajrore, hotelet,
+              kompanitë e transportit tokësor dhe operatorët turistikë. Univers
+              Travel Agency nuk pranon përgjegjësi për veprimet, mosveprimet ose
+              neglizhencën e këtyre palëve të treta, as për lëndime, dëme,
+              humbje, vonesa, shpenzime shtesë ose parregullsi që burojnë nga
+              shërbimet e ofruara prej tyre.
+            </p>
+          </section>
 
- <section>
- <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-100">12. Intellectual Property</h2>
- <p className="mb-3">
- All content published on the Site, including but not limited to text, photographs, graphics, logos, icons, audio clips, video clips, digital downloads, data compilations, and software, is the property of Univers Travel Agency LLC or its content suppliers and is protected by United States and international copyright, trademark, and other intellectual property laws.
- </p>
- <p>
- No content from the Site may be reproduced, distributed, transmitted, displayed, published, broadcast, or otherwise commercially exploited without the prior express written permission of Univers Travel Agency. Unauthorised use of Site content may give rise to a claim for damages and may constitute a criminal offence.
- </p>
- </section>
+          <section>
+            <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-100">
+              11. Ankesat dhe zgjidhja e mosmarrëveshjeve
+            </h2>
+            <p className="mb-3">
+              Çdo ankesë që lind gjatë udhëtimit duhet t’i raportohet menjëherë
+              përfaqësuesit lokal të Univers Travel Agency ose ofruesit përkatës
+              të shërbimit, në mënyrë që të mund të ndërmerren masa korrigjuese.
+              Ankesat që nuk raportohen gjatë udhëtimit nuk mund të trajtohen në
+              mënyrë retroaktive. Ankesat formale duhet të paraqiten me shkrim
+              pranë Univers Travel Agency brenda 28 ditëve nga data e kthimit,
+              të shoqëruara me të gjithë dokumentacionin mbështetës.
+            </p>
+            <p className="mb-3">
+              Univers Travel Agency do të konfirmojë marrjen e çdo ankese me
+              shkrim brenda 5 ditëve të punës dhe do të japë një përgjigje të
+              plotë brenda 28 ditëve nga marrja e gjithë dokumentacionit të
+              nevojshëm. Në rast se një mosmarrëveshje mbetet e pazgjidhur, të
+              dyja palët bien dakord të angazhohen fillimisht në një proces
+              ndërmjetësimi me mirëbesim përpara nisjes së procedurave ligjore.
+            </p>
+            <p>
+              Këto Kushte interpretohen në përputhje me ligjet në fuqi të
+              Republikës së Shqipërisë dhe çdo mosmarrëveshje që nuk mund të
+              zgjidhet me ndërmjetësim do t’i nënshtrohet juridiksionit të
+              gjykatave kompetente të Tiranës, Shqipëri, përveç rasteve kur ligji
+              i detyrueshëm i mbrojtjes së konsumatorit parashikon ndryshe.
+            </p>
+          </section>
 
- <section>
- <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-100">13. Privacy</h2>
- <p>
- Your use of the Site and our services is also governed by our Privacy Policy, which is incorporated into these Terms by reference. By making a booking or creating an account, you consent to the collection, use, and disclosure of your personal information in accordance with our Privacy Policy. Please review our Privacy Policy carefully to understand our data handling practices.
- </p>
- </section>
+          <section>
+            <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-100">
+              12. Pronësia intelektuale
+            </h2>
+            <p className="mb-3">
+              E gjithë përmbajtja e publikuar në Faqe, përfshirë por pa u
+              kufizuar në tekste, fotografi, grafika, logo, ikona, materiale
+              audio, video, shkarkime digjitale, përmbledhje të dhënash dhe
+              softuer, është pronë e Univers Travel Agency LLC ose e furnizuesve
+              të saj të përmbajtjes dhe mbrohet nga ligjet për të drejtën e
+              autorit, markat tregtare dhe të drejta të tjera të pronësisë
+              intelektuale.
+            </p>
+            <p>
+              Asnjë përmbajtje nga Faqja nuk mund të riprodhohet, shpërndahet,
+              transmetohet, shfaqet, publikohet, transmetohet publikisht ose të
+              shfrytëzohet komercialisht pa lejen e shprehur paraprake me shkrim
+              të Univers Travel Agency. Përdorimi i paautorizuar i përmbajtjes
+              së Faqes mund të sjellë kërkesë për dëmshpërblim dhe mund të
+              përbëjë edhe vepër penale.
+            </p>
+          </section>
 
- <section>
- <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-100">14. Client Conduct and Responsibilities</h2>
- <p className="mb-3">
- All clients are expected to behave in a manner that is lawful, respectful, and consistent with the cultural norms of the destination country. Univers Travel Agency reserves the right to remove from any tour, excursion, or accommodation any client whose conduct is deemed disruptive, threatening, abusive, or otherwise detrimental to other clients, staff, or local communities.
- </p>
- <p className="mb-3">
- In the event of such removal, no refund will be issued, and the client assumes full responsibility for any additional costs incurred, including return transportation and accommodation. Univers Travel Agency will not be liable for any consequential loss suffered by the client or third parties as a result of removal under this clause.
- </p>
- <p>
- Clients are solely responsible for compliance with the laws of the destination country, including customs regulations, visa conditions, and public order laws. Univers Travel Agency accepts no liability for fines, detentions, deportations, or other consequences arising from a client's failure to comply with applicable laws.
- </p>
- </section>
+          <section>
+            <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-100">
+              13. Privatësia
+            </h2>
+            <p>
+              Përdorimi i Faqes dhe i shërbimeve tona rregullohet gjithashtu nga
+              Politika jonë e Privatësisë, e cila përfshihet në këto Kushte
+              përmes referimit. Duke kryer një rezervim ose duke krijuar një
+              llogari, ju pranoni mbledhjen, përdorimin dhe shpërndarjen e të
+              dhënave tuaja personale në përputhje me Politikën tonë të
+              Privatësisë. Ju lutemi lexojeni me kujdes këtë politikë për të
+              kuptuar praktikat tona mbi trajtimin e të dhënave.
+            </p>
+          </section>
 
- <section>
- <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-100">15. Health, Medical Conditions, and Accessibility</h2>
- <p className="mb-3">
- Clients with pre-existing medical conditions, reduced mobility, pregnancy, or other health requirements must disclose these to Univers Travel Agency at the time of booking. While Univers Travel Agency will make reasonable efforts to accommodate specific needs, we cannot guarantee that all services, venues, or transport will be accessible or appropriate for all health conditions.
- </p>
- <p className="mb-3">
- Univers Travel Agency strongly recommends that clients consult a qualified medical professional prior to travel, particularly for destinations with altitude variations, tropical climates, or limited medical infrastructure. General health information provided by Univers Travel Agency is for guidance only and does not constitute medical advice.
- </p>
- <p>
- Clients requiring specific medications or medical equipment are solely responsible for ensuring that such items comply with import regulations in destination and transit countries and are carried in appropriate quantities. Univers Travel Agency accepts no liability for issues arising from undisclosed health conditions or the client's failure to carry required medication or documentation.
- </p>
- </section>
+          <section>
+            <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-100">
+              14. Sjellja dhe përgjegjësitë e klientit
+            </h2>
+            <p className="mb-3">
+              Të gjithë klientët pritet të sillen në mënyrë të ligjshme, të
+              respektueshme dhe në përputhje me normat kulturore të vendit të
+              destinacionit. Univers Travel Agency rezervon të drejtën të largojë
+              nga çdo tur, ekskursion ose akomodim çdo klient, sjellja e të
+              cilit konsiderohet shqetësuese, kërcënuese, abuzive ose ndryshe e
+              dëmshme për klientët e tjerë, stafin ose komunitetet vendase.
+            </p>
+            <p className="mb-3">
+              Në rast të një largimi të tillë, nuk do të jepet asnjë rimbursim
+              dhe klienti do të mbajë përgjegjësi të plotë për çdo kosto
+              shtesë, përfshirë transportin e kthimit dhe akomodimin. Univers
+              Travel Agency nuk do të mbajë përgjegjësi për asnjë humbje pasuese
+              të pësuar nga klienti ose palët e treta si rezultat i largimit
+              sipas këtij neni.
+            </p>
+            <p>
+              Klientët janë vetë përgjegjës për respektimin e ligjeve të vendit
+              të destinacionit, përfshirë rregulloret doganore, kushtet e vizës
+              dhe ligjet për rendin publik. Univers Travel Agency nuk mban
+              përgjegjësi për gjoba, ndalime, dëbime ose pasoja të tjera që
+              lindin nga mosrespektimi i ligjeve në fuqi nga ana e klientit.
+            </p>
+          </section>
 
- <section>
- <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-100">16. Photography, Media, and Privacy</h2>
- <p className="mb-3">
- Clients consent to being photographed or filmed by Univers Travel Agency staff or authorised partners during group tours and excursions. Such images and footage may be used for marketing, promotional, and training purposes across Univers Travel Agency's digital and print channels. Clients who do not consent to such use must inform Univers Travel Agency in writing prior to departure.
- </p>
- <p>
- Clients are responsible for complying with applicable privacy and photography laws in destination countries. Photography of military installations, government buildings, border crossings, or individuals without consent may be prohibited and could result in criminal liability. Univers Travel Agency accepts no responsibility for the legal consequences of a client's photographic or recording activities.
- </p>
- </section>
+          <section>
+            <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-100">
+              15. Shëndeti, kushtet mjekësore dhe aksesueshmëria
+            </h2>
+            <p className="mb-3">
+              Klientët me gjendje mjekësore ekzistuese, lëvizshmëri të kufizuar,
+              shtatzëni ose nevoja të tjera shëndetësore duhet t’ia deklarojnë
+              këto Univers Travel Agency në momentin e rezervimit. Ndërsa
+              Univers Travel Agency do të bëjë përpjekje të arsyeshme për të
+              akomoduar nevoja të veçanta, nuk mund të garantojë që të gjitha
+              shërbimet, ambientet ose mjetet e transportit do të jenë të
+              përshtatshme apo të aksesueshme për çdo gjendje shëndetësore.
+            </p>
+            <p className="mb-3">
+              Univers Travel Agency rekomandon fuqimisht që klientët të
+              konsultohen me një profesionist të kualifikuar mjekësor përpara
+              udhëtimit, veçanërisht për destinacionet me lartësi të mëdha, klimë
+              tropikale ose infrastrukturë të kufizuar shëndetësore.
+              Informacioni i përgjithshëm shëndetësor i ofruar nga Univers Travel
+              Agency shërben vetëm për orientim dhe nuk përbën këshillim
+              mjekësor.
+            </p>
+            <p>
+              Klientët që kanë nevojë për medikamente ose pajisje mjekësore
+              specifike janë vetë përgjegjës për t’u siguruar që këto artikuj
+              përputhen me rregullat e importit në vendet e destinacionit dhe të
+              tranzitit dhe mbahen në sasi të përshtatshme. Univers Travel
+              Agency nuk mban përgjegjësi për probleme që lindin nga gjendje
+              shëndetësore të padeklaruara ose nga mosmbajtja e medikamenteve apo
+              dokumenteve të nevojshme.
+            </p>
+          </section>
 
- <section>
- <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-100">17. Package Transfers and Name Changes</h2>
- <p className="mb-3">
- In circumstances where a client is unable to travel, the booking may in some cases be transferred to another individual subject to the following conditions: the transfer request must be submitted in writing no fewer than 14 days prior to departure; the proposed transferee must meet all applicable visa, health, and documentation requirements; and an administrative transfer fee of USD 100 per person applies, in addition to any costs imposed by third-party suppliers.
- </p>
- <p>
- Not all components of a booking may be transferable. Airlines, in particular, may charge significant fees for passenger name changes or may prohibit them entirely. The original client remains financially responsible for any charges that cannot be transferred to the new client. Univers Travel Agency will advise on the feasibility and cost of any proposed transfer at the time of request.
- </p>
- </section>
+          <section>
+            <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-100">
+              16. Fotografia, media dhe privatësia
+            </h2>
+            <p className="mb-3">
+              Klientët pranojnë që mund të fotografohen ose filmohen nga stafi i
+              Univers Travel Agency ose partnerët e autorizuar gjatë tureve dhe
+              ekskursioneve në grup. Këto imazhe dhe materiale filmike mund të
+              përdoren për qëllime marketingu, promovimi dhe trajnimi në kanalet
+              digjitale dhe të printuara të Univers Travel Agency. Klientët që
+              nuk pajtohen me këtë përdorim duhet ta njoftojnë Univers Travel
+              Agency me shkrim përpara nisjes.
+            </p>
+            <p>
+              Klientët janë përgjegjës për respektimin e ligjeve në fuqi për
+              privatësinë dhe fotografinë në vendet e destinacionit. Fotografimi
+              i objekteve ushtarake, ndërtesave qeveritare, pikave kufitare ose
+              personave pa pëlqim mund të jetë i ndaluar dhe mund të sjellë
+              përgjegjësi penale. Univers Travel Agency nuk mban përgjegjësi për
+              pasojat ligjore të aktiviteteve fotografike ose regjistruese të
+              klientit.
+            </p>
+          </section>
 
- <section>
- <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-100">18. Governing Law and Jurisdiction</h2>
- <p className="mb-3">
- Univers Travel Agency LLC is incorporated and operates under the laws of the Republic of Albania. These Terms are governed by Albanian commercial law and applicable EU regulations where relevant, including but not limited to EU Package Travel Directive 2015/2302 for clients booking packaged travel arrangements within the European Union.
- </p>
- <p className="mb-3">
- For clients resident in EU or EEA member states, the mandatory consumer protection provisions of the client's country of residence shall apply to the extent required by applicable law, and nothing in these Terms shall be construed to exclude or limit rights conferred by such provisions.
- </p>
- <p>
- Any disputes arising from or relating to these Terms or any booking made with Univers Travel Agency that cannot be resolved by direct negotiation or mediation shall be subject to the exclusive jurisdiction of the competent courts of Tirana, Albania, unless mandatory consumer protection law in the client's jurisdiction provides otherwise.
- </p>
- </section>
+          <section>
+            <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-100">
+              17. Transferimi i paketës dhe ndryshimi i emrit
+            </h2>
+            <p className="mb-3">
+              Në rastet kur një klient nuk mund të udhëtojë, rezervimi mund, në
+              disa situata, të transferohet te një person tjetër, me kusht që:
+              kërkesa për transferim të paraqitet me shkrim jo më pak se 14 ditë
+              përpara nisjes; personi i ri të plotësojë të gjitha kërkesat për
+              vizë, shëndet dhe dokumentacion; dhe të paguhet një tarifë
+              administrative transferimi prej 100 USD për person, përveç çdo
+              kostoje të vendosur nga ofruesit e palëve të treta.
+            </p>
+            <p>
+              Jo të gjithë elementët e një rezervimi mund të transferohen.
+              Linjat ajrore, në veçanti, mund të aplikojnë tarifa të larta për
+              ndryshimin e emrit të pasagjerit ose mund ta ndalojnë plotësisht.
+              Klienti fillestar mbetet financiarisht përgjegjës për çdo tarifë që
+              nuk mund t’i transferohet klientit të ri. Univers Travel Agency do
+              të informojë për mundësinë dhe koston e çdo transferimi të
+              propozuar në momentin e kërkesës.
+            </p>
+          </section>
 
- <section>
- <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-100">19. Package Travel Directive Compliance (EU Clients)</h2>
- <p className="mb-3">
- For clients purchasing package travel arrangements subject to EU Directive 2015/2302, Univers Travel Agency provides the following statutory information and protections:
- </p>
- <ul className="list-disc list-inside space-y-2 text-sm pl-2 mb-3">
- <li>The traveller will receive all essential information about the package before concluding the package travel contract.</li>
- <li>There is always at least one trader who is liable for the proper performance of all travel services included in the contract.</li>
- <li>Travellers are provided with an emergency telephone number or details of a contact point where they can get in touch with the organiser or travel agent.</li>
- <li>Travellers may transfer the package to another person, on reasonable notice and possibly subject to additional costs, where the transferee meets all conditions applicable to the package.</li>
- <li>The price of the package may only be increased if specific costs rise (e.g., fuel prices), and if expressly stipulated in the contract, and in any event not later than 20 days before the start of the package. If the price increase exceeds 8% of the price of the package, the traveller may terminate the contract.</li>
- <li>Travellers may terminate the contract without paying any termination fee and receive a full refund of any payments if any of the essential elements of the package, other than the price, are changed significantly. If before the start of the package the trader responsible for the package cancels the package, travellers are entitled to a refund and compensation where appropriate.</li>
- <li>In exceptional circumstances — e.g., significant security problems at the destination which are likely to affect the package — travellers may terminate the contract before the start of the package without paying any termination fee.</li>
- <li>Additionally, travellers may at any time before the start of the package terminate the contract in return for an appropriate and justifiable termination fee.</li>
- <li>Univers Travel Agency has protection in place to refund payments and, where transport is included in the package, to ensure the repatriation of travellers in the event of its insolvency.</li>
- </ul>
- </section>
+          <section>
+            <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-100">
+              18. Ligji në fuqi dhe juridiksioni
+            </h2>
+            <p className="mb-3">
+              Univers Travel Agency LLC është e regjistruar dhe operon në
+              përputhje me ligjet e Republikës së Shqipërisë. Këto Kushte
+              rregullohen nga legjislacioni tregtar shqiptar dhe, aty ku është e
+              zbatueshme, nga rregulloret përkatëse të Bashkimit Europian,
+              përfshirë Direktivën e BE-së 2015/2302 për udhëtimet e paketës për
+              klientët që rezervojnë paketa udhëtimi brenda Bashkimit Europian.
+            </p>
+            <p className="mb-3">
+              Për klientët rezidentë në vendet anëtare të BE-së ose ZEE-së,
+              dispozitat e detyrueshme për mbrojtjen e konsumatorit të vendit të
+              tyre të banimit do të zbatohen në masën e kërkuar nga ligji në
+              fuqi dhe asgjë në këto Kushte nuk duhet të interpretohet si
+              përjashtim ose kufizim i të drejtave të garantuara nga këto
+              dispozita.
+            </p>
+            <p>
+              Çdo mosmarrëveshje që lind nga ose lidhet me këto Kushte ose me
+              çdo rezervim të kryer me Univers Travel Agency, e cila nuk mund të
+              zgjidhet përmes negociatave të drejtpërdrejta ose ndërmjetësimit,
+              do t’i nënshtrohet juridiksionit ekskluziv të gjykatave kompetente
+              të Tiranës, Shqipëri, përveç rasteve kur ligji i detyrueshëm i
+              mbrojtjes së konsumatorit në juridiksionin e klientit parashikon
+              ndryshe.
+            </p>
+          </section>
 
- <section>
- <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-100">20. Severability</h2>
- <p>
- If any provision of these Terms is found to be invalid, unlawful, or unenforceable by a court of competent jurisdiction, such provision shall be severed from these Terms to the minimum extent necessary, and the remainder of these Terms shall continue in full force and effect. The invalidity or unenforceability of any provision shall not affect the validity or enforceability of any other provision.
- </p>
- </section>
+          <section>
+            <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-100">
+              19. Përputhshmëria me Direktivën e Udhëtimit të Paketës (klientët e
+              BE-së)
+            </h2>
+            <p className="mb-3">
+              Për klientët që blejnë paketa udhëtimi subjekt i Direktivës së
+              BE-së 2015/2302, Univers Travel Agency ofron informacionin dhe
+              mbrojtjet ligjore të mëposhtme:
+            </p>
+            <ul className="list-disc list-inside space-y-2 text-sm pl-2 mb-3">
+              <li>
+                Udhëtari do të marrë të gjithë informacionin thelbësor mbi
+                paketën përpara lidhjes së kontratës së udhëtimit.
+              </li>
+              <li>
+                Gjithmonë ekziston të paktën një tregtar që mban përgjegjësi për
+                përmbushjen e duhur të të gjitha shërbimeve të përfshira në
+                kontratë.
+              </li>
+              <li>
+                Udhëtarëve u jepet një numër telefoni emergjence ose detajet e
+                një pike kontakti ku mund të komunikojnë me organizatorin ose
+                agjentin e udhëtimit.
+              </li>
+              <li>
+                Udhëtarët mund ta transferojnë paketën te një person tjetër,
+                me njoftim të arsyeshëm dhe, sipas rastit, me kosto shtesë, me
+                kusht që personi zëvendësues të përmbushë të gjitha kushtet e
+                zbatueshme për paketën.
+              </li>
+              <li>
+                Çmimi i paketës mund të rritet vetëm nëse rriten disa kosto të
+                caktuara, si p.sh. çmimet e karburantit, dhe vetëm nëse kjo
+                parashikohet shprehimisht në kontratë, dhe në çdo rast jo më
+                vonë se 20 ditë përpara fillimit të paketës. Nëse rritja e
+                çmimit kalon 8% të çmimit të paketës, udhëtari ka të drejtë ta
+                ndërpresë kontratën.
+              </li>
+              <li>
+                Udhëtarët mund ta zgjidhin kontratën pa paguar tarifë zgjidhjeje
+                dhe të marrin rimbursim të plotë të çdo pagese nëse ndonjë nga
+                elementet thelbësore të paketës, përveç çmimit, ndryshon
+                ndjeshëm. Nëse organizatori anulon paketën përpara fillimit të
+                saj, udhëtarët kanë të drejtë për rimbursim dhe, sipas rastit,
+                për kompensim.
+              </li>
+              <li>
+                Në rrethana të jashtëzakonshme, për shembull nëse në destinacion
+                ka probleme serioze sigurie që ndikojnë në mënyrë të
+                konsiderueshme paketën, udhëtarët mund ta zgjidhin kontratën
+                përpara fillimit të paketës pa paguar tarifë zgjidhjeje.
+              </li>
+              <li>
+                Përveç kësaj, udhëtarët mund ta zgjidhin kontratën në çdo kohë
+                përpara fillimit të paketës kundrejt një tarife të arsyeshme dhe
+                të justifikueshme.
+              </li>
+              <li>
+                Univers Travel Agency ka masa mbrojtëse për rimbursimin e
+                pagesave dhe, kur transporti përfshihet në paketë, për të
+                garantuar riatdhesimin e udhëtarëve në rast paaftësie paguese.
+              </li>
+            </ul>
+          </section>
 
- <section>
- <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-100">21. Entire Agreement</h2>
- <p>
- These Terms, together with the Privacy Policy, any applicable booking confirmation, package description, and special conditions communicated in writing at the time of booking, constitute the entire agreement between Univers Travel Agency and the Client with respect to the subject matter hereof, and supersede all prior and contemporaneous agreements, representations, warranties, and understandings of any nature, whether written or oral. No amendment to these Terms shall be binding unless made in writing and signed by an authorised representative of Univers Travel Agency.
- </p>
- </section>
+          <section>
+            <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-100">
+              20. Pavarësia e dispozitave
+            </h2>
+            <p>
+              Nëse ndonjë dispozitë e këtyre Kushteve shpallet e pavlefshme, e
+              paligjshme ose e pazbatueshme nga një gjykatë kompetente, ajo
+              dispozitë do të konsiderohet e ndarë nga pjesa tjetër e Kushteve
+              vetëm në masën e nevojshme, ndërsa pjesa tjetër do të mbetet në
+              fuqi të plotë. Pavlefshmëria ose pazbatueshmëria e një dispozite
+              nuk ndikon në vlefshmërinë ose zbatueshmërinë e dispozitave të
+              tjera.
+            </p>
+          </section>
 
- <section>
- <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-100">22. Contact Information</h2>
- <p className="mb-3">
- For questions, clarifications, or formal correspondence regarding these Terms and Conditions, please contact Univers Travel Agency LLC using the details below:
- </p>
- <div className="bg-gray-50 p-5 text-sm space-y-1">
- <p><span className="font-medium text-gray-900">Univers Travel Agency</span></p>
- <p>Univers City, Tiranë</p>
- <p>Albania</p>
- <p className="pt-2">Phone: +355 68 403 0204</p>
- <p>Email: info@universstravel.com</p>
- <p>Instagram: @universstravel</p>
- </div>
- </section>
+          <section>
+            <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-100">
+              21. Marrëveshja e plotë
+            </h2>
+            <p>
+              Këto Kushte, së bashku me Politikën e Privatësisë, çdo konfirmim
+              rezervimi, përshkrim pakete dhe kusht të veçantë të komunikuar me
+              shkrim në momentin e rezervimit, përbëjnë marrëveshjen e plotë
+              ndërmjet Univers Travel Agency dhe Klientit në lidhje me objektin
+              e tyre dhe zëvendësojnë çdo marrëveshje, përfaqësim, garanci ose
+              mirëkuptim të mëparshëm, me shkrim ose gojarisht. Asnjë ndryshim i
+              këtyre Kushteve nuk do të jetë i detyrueshëm nëse nuk bëhet me
+              shkrim dhe nuk nënshkruhet nga një përfaqësues i autorizuar i
+              Univers Travel Agency.
+            </p>
+          </section>
 
- </div>
- </div>
- </div>
- );
+          <section>
+            <h2 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-100">
+              22. Informacioni i kontaktit
+            </h2>
+            <p className="mb-3">
+              Për pyetje, sqarime ose korrespondencë zyrtare në lidhje me këto
+              Kushte dhe Terma, ju lutemi kontaktoni Univers Travel Agency në
+              të dhënat e mëposhtme:
+            </p>
+            <div className="bg-gray-50 p-5 text-sm space-y-1">
+              <p>
+                <span className="font-medium text-gray-900">
+                  Univers Travel Agency
+                </span>
+              </p>
+              <p>Univers City, Tiranë</p>
+              <p>Shqipëri</p>
+              <p className="pt-2">Telefon: +355 68 403 0204</p>
+              <p>Email: info@universstravel.com</p>
+              <p>Instagram: @universstravel</p>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+  );
 }
