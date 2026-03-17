@@ -1,332 +1,489 @@
-import { useState, useRef, useEffect} from'react';
-import { Link, useNavigate, useLocation} from'react-router-dom';
-import { LogOut, ChevronDown, User, Calendar, Heart, Settings} from'lucide-react';
+import { useState, useRef, useEffect } from 'react';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { LogOut, ChevronDown, User, Calendar, Heart, Settings } from 'lucide-react';
 
-import { useAuth} from'../contexts/AuthContext';
-import { useCategories, resolveIcon} from'../contexts/CategoriesContext';
+import { useAuth } from '../contexts/AuthContext';
+import { useCategories, resolveIcon } from '../contexts/CategoriesContext';
 
 export default function Navbar() {
- const { user, profile, signOut, isAdmin} = useAuth();
- const { categories} = useCategories();
- const navigate = useNavigate();
- const location = useLocation();
- const [userMenuOpen, setUserMenuOpen] = useState(false);
- const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
- const [packagesMenuOpen, setPackagesMenuOpen] = useState(false);
- const [mobilePackagesOpen, setMobilePackagesOpen] = useState(false);
- const menuRef = useRef<HTMLDivElement>(null);
- const packagesMenuRef = useRef<HTMLDivElement>(null);
+  const { user, profile, signOut, isAdmin } = useAuth();
+  const { categories } = useCategories();
+  const navigate = useNavigate();
+  const location = useLocation();
 
- useEffect(() => {
- const handleClick = (e: MouseEvent) => {
- if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
- setUserMenuOpen(false);
-}
- if (packagesMenuRef.current && !packagesMenuRef.current.contains(e.target as Node)) {
- setPackagesMenuOpen(false);
-}
-};
- document.addEventListener('mousedown', handleClick);
- return () => document.removeEventListener('mousedown', handleClick);
-}, []);
+  const [userMenuOpen, setUserMenuOpen] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [packagesMenuOpen, setPackagesMenuOpen] = useState(false);
+  const [mobilePackagesOpen, setMobilePackagesOpen] = useState(false);
 
- useEffect(() => {
- setMobileMenuOpen(false);
- setUserMenuOpen(false);
- setPackagesMenuOpen(false);
- setMobilePackagesOpen(false);
-}, [location.pathname]);
+  const menuRef = useRef<HTMLDivElement>(null);
+  const packagesMenuRef = useRef<HTMLDivElement>(null);
 
- const handleSignOut = async () => {
- try {
- await signOut();
- navigate('/');
-} catch (error) {
- console.error('Error signing out:', error);
-}
-};
+  useEffect(() => {
+    const handleClick = (e: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
+        setUserMenuOpen(false);
+      }
 
- const isActive = (path: string) => {
- if (path ==='/') return location.pathname ==='/';
- return location.pathname.startsWith(path);
-};
+      if (
+        packagesMenuRef.current &&
+        !packagesMenuRef.current.contains(e.target as Node)
+      ) {
+        setPackagesMenuOpen(false);
+      }
+    };
 
- const isPackagesActive = location.pathname.startsWith('/packages');
+    document.addEventListener('mousedown', handleClick);
+    return () => document.removeEventListener('mousedown', handleClick);
+  }, []);
 
- return (
- <nav className="bg-white shadow-md sticky top-0 z-50">
- <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
- <div className="flex justify-between h-20 items-center">
- <Link to="/" className="flex items-center flex-shrink-0">
- <img src="/logo.png" alt="Logo" className="h-16 w-auto" />
- </Link>
+  useEffect(() => {
+    setMobileMenuOpen(false);
+    setUserMenuOpen(false);
+    setPackagesMenuOpen(false);
+    setMobilePackagesOpen(false);
+  }, [location.pathname]);
 
- <div className="hidden lg:flex items-center space-x-6">
- <Link
- to="/"
- className={`text-sm font-medium transition ${isActive('/') ?'text-red-600' :'text-gray-700 hover:text-red-600'}`}
- >
- Home
- </Link>
- <Link
- to="/destinations"
- className={`text-sm font-medium transition ${isActive('/destinations') ?'text-red-600' :'text-gray-700 hover:text-red-600'}`}
- >
- Destinations
- </Link>
+  const handleSignOut = async () => {
+    try {
+      await signOut();
+      navigate('/');
+    } catch (error) {
+      console.error('Gabim gjatë daljes nga llogaria:', error);
+    }
+  };
 
- <div className="relative" ref={packagesMenuRef}>
- <button
- onClick={() => setPackagesMenuOpen((v) => !v)}
- className={`flex items-center gap-1 text-sm font-medium transition ${isPackagesActive ?'text-red-600' :'text-gray-700 hover:text-red-600'}`}
- >
- Packages
- <ChevronDown className={`h-4 w-4 transition-transform ${packagesMenuOpen ?'rotate-180' :''}`} />
- </button>
+  const isActive = (path: string) => {
+    if (path === '/') return location.pathname === '/';
+    return location.pathname.startsWith(path);
+  };
 
- {packagesMenuOpen && (
- <div className="absolute left-1/2 -translate-x-1/2 top-full mt-3 w-72 bg-white shadow-xl border border-gray-100 z-50 overflow-hidden">
- <div className="py-1">
- <Link
- to="/packages"
- onClick={() => setPackagesMenuOpen(false)}
- className="flex items-center gap-3 px-4 py-3 text-sm font-semibold text-gray-900 hover:bg-red-50 hover:text-red-600 transition border-b border-gray-100"
- >
- All Packages
- </Link>
- {categories.map((cat) => {
- const Icon = resolveIcon(cat.icon);
- return (
- <Link
- key={cat.id}
- to={`/packages?category=${cat.slug}`}
- onClick={() => setPackagesMenuOpen(false)}
- className="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-700 hover:bg-red-50 hover:text-red-600 transition"
- >
- {Icon ? (
- <Icon className="h-4 w-4 text-gray-400 flex-shrink-0" />
- ) : (
- <span className="w-4 h-4 flex-shrink-0" />
- )}
- {cat.name}
- </Link>
- );
-})}
- </div>
- </div>
- )}
- </div>
+  const isPackagesActive = location.pathname.startsWith('/packages');
 
- <Link
- to="/offers"
- className={`text-sm font-medium transition ${isActive('/offers') ?'text-red-600' :'text-gray-700 hover:text-red-600'}`}
- >
- Offers
- </Link>
- <Link
- to="/blog"
- className={`text-sm font-medium transition ${isActive('/blog') ?'text-red-600' :'text-gray-700 hover:text-red-600'}`}
- >
- Blog
- </Link>
- <Link
- to="/about"
- className={`text-sm font-medium transition ${isActive('/about') ?'text-red-600' :'text-gray-700 hover:text-red-600'}`}
- >
- About
- </Link>
- <Link
- to="/contact"
- className={`text-sm font-medium transition ${isActive('/contact') ?'text-red-600' :'text-gray-700 hover:text-red-600'}`}
- >
- Contact
- </Link>
- </div>
+  return (
+    <nav className="bg-white shadow-md sticky top-0 z-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between h-20 items-center">
+          <Link to="/" className="flex items-center flex-shrink-0">
+            <img src="/logo.png" alt="Logo" className="h-16 w-auto" />
+          </Link>
 
- <div className="hidden lg:flex items-center space-x-3">
- <div id="google_translate_element" className="translate-widget"></div>
- {user ? (
- <>
- {isAdmin && (
- <Link
- to="/crm"
- className="bg-red-600 text-white px-4 py-2 text-sm font-semibold hover:bg-red-700 transition"
- >
- Admin Panel
- </Link>
- )}
- <div className="relative" ref={menuRef}>
- <button
- onClick={() => setUserMenuOpen((v) => !v)}
- className="flex items-center gap-2 pl-3 pr-2 py-2 border border-gray-200 hover:border-gray-300 hover:bg-gray-50 transition"
- >
- <User className="h-4 w-4 text-gray-400" />
- <span className="text-sm font-medium text-gray-700 max-w-[100px] truncate">
- {profile?.full_name?.split(' ')[0] || 'Account'}
- </span>
- <ChevronDown className={`h-4 w-4 text-gray-400 transition-transform ${userMenuOpen ? 'rotate-180' : ''}`} />
- </button>
+          <div className="hidden lg:flex items-center space-x-6">
+            <Link
+              to="/"
+              className={`text-sm font-medium transition ${
+                isActive('/')
+                  ? 'text-red-600'
+                  : 'text-gray-700 hover:text-red-600'
+              }`}
+            >
+              Ballina
+            </Link>
 
- {userMenuOpen && (
- <div className="absolute right-0 top-full mt-2 w-52 bg-white shadow-xl border border-gray-100 py-1 overflow-hidden z-50">
- <div className="px-4 py-3 border-b border-gray-100">
- <p className="text-sm font-semibold text-gray-900 truncate">{profile?.full_name ||'User'}</p>
- <p className="text-xs text-gray-400 truncate">{user.email}</p>
- </div>
- <Link to="/my-bookings" className="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 transition">
- <Calendar className="h-4 w-4 text-gray-400" /> My Bookings
- </Link>
- <Link to="/my-wishlist" className="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 transition">
- <Heart className="h-4 w-4 text-gray-400" /> My Wishlist
- </Link>
- <Link to="/my-profile" className="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 transition">
- <Settings className="h-4 w-4 text-gray-400" /> My Profile
- </Link>
- <div className="border-t border-gray-100 mt-1 pt-1">
- <button
- onClick={handleSignOut}
- className="flex items-center gap-3 px-4 py-2.5 text-sm text-red-600 hover:bg-red-50 transition w-full text-left"
- >
- <LogOut className="h-4 w-4" /> Sign Out
- </button>
- </div>
- </div>
- )}
- </div>
- </>
- ) : (
- <div className="flex items-center gap-3">
- <Link to="/login" className="text-sm font-medium text-gray-700 hover:text-red-600 transition">Login</Link>
- <Link to="/signup" className="bg-red-600 text-white px-4 py-2 text-sm font-semibold hover:bg-red-700 transition">Sign Up</Link>
- </div>
- )}
- </div>
+            <Link
+              to="/destinations"
+              className={`text-sm font-medium transition ${
+                isActive('/destinations')
+                  ? 'text-red-600'
+                  : 'text-gray-700 hover:text-red-600'
+              }`}
+            >
+              Destinacionet
+            </Link>
 
- <button
- onClick={() => setMobileMenuOpen((v) => !v)}
- className="lg:hidden p-2 text-gray-600 hover:bg-gray-100 transition"
- aria-label="Toggle menu"
- >
- <div className="w-5 h-0.5 bg-gray-600 mb-1"></div>
- <div className="w-5 h-0.5 bg-gray-600 mb-1"></div>
- <div className="w-5 h-0.5 bg-gray-600"></div>
- </button>
- </div>
- </div>
+            <div className="relative" ref={packagesMenuRef}>
+              <button
+                onClick={() => setPackagesMenuOpen((v) => !v)}
+                className={`flex items-center gap-1 text-sm font-medium transition ${
+                  isPackagesActive
+                    ? 'text-red-600'
+                    : 'text-gray-700 hover:text-red-600'
+                }`}
+              >
+                Paketat
+                <ChevronDown
+                  className={`h-4 w-4 transition-transform ${
+                    packagesMenuOpen ? 'rotate-180' : ''
+                  }`}
+                />
+              </button>
 
- {mobileMenuOpen && (
- <div className="lg:hidden bg-white border-t border-gray-100 px-4 py-4 space-y-1">
- <Link
- to="/"
- className={`block px-3 py-2.5 text-sm font-medium transition ${isActive('/') ?'bg-red-50 text-red-600' :'text-gray-700 hover:bg-gray-50'}`}
- >
- Home
- </Link>
- <Link
- to="/destinations"
- className={`block px-3 py-2.5 text-sm font-medium transition ${isActive('/destinations') ?'bg-red-50 text-red-600' :'text-gray-700 hover:bg-gray-50'}`}
- >
- Destinations
- </Link>
+              {packagesMenuOpen && (
+                <div className="absolute left-1/2 -translate-x-1/2 top-full mt-3 w-72 bg-white shadow-xl border border-gray-100 z-50 overflow-hidden">
+                  <div className="py-1">
+                    <Link
+                      to="/packages"
+                      onClick={() => setPackagesMenuOpen(false)}
+                      className="flex items-center gap-3 px-4 py-3 text-sm font-semibold text-gray-900 hover:bg-red-50 hover:text-red-600 transition border-b border-gray-100"
+                    >
+                      Të gjitha paketat
+                    </Link>
 
- <div>
- <button
- onClick={() => setMobilePackagesOpen((v) => !v)}
- className={`w-full flex items-center justify-between px-3 py-2.5 text-sm font-medium transition ${isPackagesActive ?'bg-red-50 text-red-600' :'text-gray-700 hover:bg-gray-50'}`}
- >
- Packages
- <ChevronDown className={`h-4 w-4 transition-transform ${mobilePackagesOpen ?'rotate-180' :''}`} />
- </button>
- {mobilePackagesOpen && (
- <div className="bg-gray-50 border-l-2 border-red-200 ml-3 pl-2">
- <Link
- to="/packages"
- className="block px-3 py-2 text-sm font-semibold text-gray-900 hover:text-red-600 transition"
- >
- All Packages
- </Link>
- {categories.map((cat) => {
- const Icon = resolveIcon(cat.icon);
- return (
- <Link
- key={cat.id}
- to={`/packages?category=${cat.slug}`}
- className="flex items-center gap-2 px-3 py-2 text-sm text-gray-600 hover:text-red-600 transition"
- >
- {Icon ? (
- <Icon className="h-3.5 w-3.5 text-gray-400" />
- ) : (
- <span className="w-3.5 h-3.5" />
- )}
- {cat.name}
- </Link>
- );
-})}
- </div>
- )}
- </div>
+                    {categories.map((cat) => {
+                      const Icon = resolveIcon(cat.icon);
 
- <Link
- to="/offers"
- className={`block px-3 py-2.5 text-sm font-medium transition ${isActive('/offers') ?'bg-red-50 text-red-600' :'text-gray-700 hover:bg-gray-50'}`}
- >
- Offers
- </Link>
- <Link
- to="/blog"
- className={`block px-3 py-2.5 text-sm font-medium transition ${isActive('/blog') ?'bg-red-50 text-red-600' :'text-gray-700 hover:bg-gray-50'}`}
- >
- Blog
- </Link>
- <Link
- to="/about"
- className={`block px-3 py-2.5 text-sm font-medium transition ${isActive('/about') ?'bg-red-50 text-red-600' :'text-gray-700 hover:bg-gray-50'}`}
- >
- About
- </Link>
- <Link
- to="/contact"
- className={`block px-3 py-2.5 text-sm font-medium transition ${isActive('/contact') ?'bg-red-50 text-red-600' :'text-gray-700 hover:bg-gray-50'}`}
- >
- Contact
- </Link>
+                      return (
+                        <Link
+                          key={cat.id}
+                          to={`/packages?category=${cat.slug}`}
+                          onClick={() => setPackagesMenuOpen(false)}
+                          className="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-700 hover:bg-red-50 hover:text-red-600 transition"
+                        >
+                          {Icon ? (
+                            <Icon className="h-4 w-4 text-gray-400 flex-shrink-0" />
+                          ) : (
+                            <span className="w-4 h-4 flex-shrink-0" />
+                          )}
+                          {cat.name}
+                        </Link>
+                      );
+                    })}
+                  </div>
+                </div>
+              )}
+            </div>
 
- <div className="px-3 py-2">
- <div id="google_translate_element_mobile" className="translate-widget"></div>
- </div>
- <div className="border-t border-gray-100 pt-2 mt-2">
- {user ? (
- <>
- {isAdmin && (
- <Link to="/crm" className="block px-3 py-2.5 text-sm font-semibold bg-red-600 text-white mb-2 text-center">
- Admin Panel
- </Link>
- )}
- <Link to="/my-bookings" className="flex items-center gap-2 px-3 py-2.5 text-sm font-medium text-gray-700 hover:bg-gray-50">
- <Calendar className="h-4 w-4" /> My Bookings
- </Link>
- <Link to="/my-wishlist" className="flex items-center gap-2 px-3 py-2.5 text-sm font-medium text-gray-700 hover:bg-gray-50">
- <Heart className="h-4 w-4" /> My Wishlist
- </Link>
- <Link to="/my-profile" className="flex items-center gap-2 px-3 py-2.5 text-sm font-medium text-gray-700 hover:bg-gray-50">
- <User className="h-4 w-4" /> My Profile
- </Link>
- <button
- onClick={handleSignOut}
- className="flex items-center gap-2 px-3 py-2.5 text-sm font-medium text-red-600 hover:bg-red-50 w-full text-left mt-1"
- >
- <LogOut className="h-4 w-4" /> Sign Out
- </button>
- </>
- ) : (
- <div className="flex gap-2">
- <Link to="/login" className="flex-1 text-center px-3 py-2.5 border border-gray-300 text-sm font-medium text-gray-700">Login</Link>
- <Link to="/signup" className="flex-1 text-center px-3 py-2.5 bg-red-600 text-sm font-semibold text-white">Sign Up</Link>
- </div>
- )}
- </div>
- </div>
- )}
- </nav>
- );
+            <Link
+              to="/offers"
+              className={`text-sm font-medium transition ${
+                isActive('/offers')
+                  ? 'text-red-600'
+                  : 'text-gray-700 hover:text-red-600'
+              }`}
+            >
+              Ofertat
+            </Link>
+
+            <Link
+              to="/blog"
+              className={`text-sm font-medium transition ${
+                isActive('/blog')
+                  ? 'text-red-600'
+                  : 'text-gray-700 hover:text-red-600'
+              }`}
+            >
+              Blogu
+            </Link>
+
+            <Link
+              to="/about"
+              className={`text-sm font-medium transition ${
+                isActive('/about')
+                  ? 'text-red-600'
+                  : 'text-gray-700 hover:text-red-600'
+              }`}
+            >
+              Rreth nesh
+            </Link>
+
+            <Link
+              to="/contact"
+              className={`text-sm font-medium transition ${
+                isActive('/contact')
+                  ? 'text-red-600'
+                  : 'text-gray-700 hover:text-red-600'
+              }`}
+            >
+              Kontakti
+            </Link>
+          </div>
+
+          <div className="hidden lg:flex items-center space-x-3">
+            <div id="google_translate_element" className="translate-widget"></div>
+
+            {user ? (
+              <>
+                {isAdmin && (
+                  <Link
+                    to="/crm"
+                    className="bg-red-600 text-white px-4 py-2 text-sm font-semibold hover:bg-red-700 transition"
+                  >
+                    Paneli i administrimit
+                  </Link>
+                )}
+
+                <div className="relative" ref={menuRef}>
+                  <button
+                    onClick={() => setUserMenuOpen((v) => !v)}
+                    className="flex items-center gap-2 pl-3 pr-2 py-2 border border-gray-200 hover:border-gray-300 hover:bg-gray-50 transition"
+                  >
+                    <User className="h-4 w-4 text-gray-400" />
+                    <span className="text-sm font-medium text-gray-700 max-w-[100px] truncate">
+                      {profile?.full_name?.split(' ')[0] || 'Llogaria'}
+                    </span>
+                    <ChevronDown
+                      className={`h-4 w-4 text-gray-400 transition-transform ${
+                        userMenuOpen ? 'rotate-180' : ''
+                      }`}
+                    />
+                  </button>
+
+                  {userMenuOpen && (
+                    <div className="absolute right-0 top-full mt-2 w-52 bg-white shadow-xl border border-gray-100 py-1 overflow-hidden z-50">
+                      <div className="px-4 py-3 border-b border-gray-100">
+                        <p className="text-sm font-semibold text-gray-900 truncate">
+                          {profile?.full_name || 'Përdorues'}
+                        </p>
+                        <p className="text-xs text-gray-400 truncate">
+                          {user.email}
+                        </p>
+                      </div>
+
+                      <Link
+                        to="/my-bookings"
+                        className="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 transition"
+                      >
+                        <Calendar className="h-4 w-4 text-gray-400" />
+                        Rezervimet e mia
+                      </Link>
+
+                      <Link
+                        to="/my-wishlist"
+                        className="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 transition"
+                      >
+                        <Heart className="h-4 w-4 text-gray-400" />
+                        Të preferuarat e mia
+                      </Link>
+
+                      <Link
+                        to="/my-profile"
+                        className="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 transition"
+                      >
+                        <Settings className="h-4 w-4 text-gray-400" />
+                        Profili im
+                      </Link>
+
+                      <div className="border-t border-gray-100 mt-1 pt-1">
+                        <button
+                          onClick={handleSignOut}
+                          className="flex items-center gap-3 px-4 py-2.5 text-sm text-red-600 hover:bg-red-50 transition w-full text-left"
+                        >
+                          <LogOut className="h-4 w-4" />
+                          Dil nga llogaria
+                        </button>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              </>
+            ) : (
+              <div className="flex items-center gap-3">
+                <Link
+                  to="/login"
+                  className="text-sm font-medium text-gray-700 hover:text-red-600 transition"
+                >
+                  Hyr
+                </Link>
+
+                <Link
+                  to="/signup"
+                  className="bg-red-600 text-white px-4 py-2 text-sm font-semibold hover:bg-red-700 transition"
+                >
+                  Krijo llogari
+                </Link>
+              </div>
+            )}
+          </div>
+
+          <button
+            onClick={() => setMobileMenuOpen((v) => !v)}
+            className="lg:hidden p-2 text-gray-600 hover:bg-gray-100 transition"
+            aria-label="Hap menunë"
+          >
+            <div className="w-5 h-0.5 bg-gray-600 mb-1"></div>
+            <div className="w-5 h-0.5 bg-gray-600 mb-1"></div>
+            <div className="w-5 h-0.5 bg-gray-600"></div>
+          </button>
+        </div>
+      </div>
+
+      {mobileMenuOpen && (
+        <div className="lg:hidden bg-white border-t border-gray-100 px-4 py-4 space-y-1">
+          <Link
+            to="/"
+            className={`block px-3 py-2.5 text-sm font-medium transition ${
+              isActive('/')
+                ? 'bg-red-50 text-red-600'
+                : 'text-gray-700 hover:bg-gray-50'
+            }`}
+          >
+            Ballina
+          </Link>
+
+          <Link
+            to="/destinations"
+            className={`block px-3 py-2.5 text-sm font-medium transition ${
+              isActive('/destinations')
+                ? 'bg-red-50 text-red-600'
+                : 'text-gray-700 hover:bg-gray-50'
+            }`}
+          >
+            Destinacionet
+          </Link>
+
+          <div>
+            <button
+              onClick={() => setMobilePackagesOpen((v) => !v)}
+              className={`w-full flex items-center justify-between px-3 py-2.5 text-sm font-medium transition ${
+                isPackagesActive
+                  ? 'bg-red-50 text-red-600'
+                  : 'text-gray-700 hover:bg-gray-50'
+              }`}
+            >
+              Paketat
+              <ChevronDown
+                className={`h-4 w-4 transition-transform ${
+                  mobilePackagesOpen ? 'rotate-180' : ''
+                }`}
+              />
+            </button>
+
+            {mobilePackagesOpen && (
+              <div className="bg-gray-50 border-l-2 border-red-200 ml-3 pl-2">
+                <Link
+                  to="/packages"
+                  className="block px-3 py-2 text-sm font-semibold text-gray-900 hover:text-red-600 transition"
+                >
+                  Të gjitha paketat
+                </Link>
+
+                {categories.map((cat) => {
+                  const Icon = resolveIcon(cat.icon);
+
+                  return (
+                    <Link
+                      key={cat.id}
+                      to={`/packages?category=${cat.slug}`}
+                      className="flex items-center gap-2 px-3 py-2 text-sm text-gray-600 hover:text-red-600 transition"
+                    >
+                      {Icon ? (
+                        <Icon className="h-3.5 w-3.5 text-gray-400" />
+                      ) : (
+                        <span className="w-3.5 h-3.5" />
+                      )}
+                      {cat.name}
+                    </Link>
+                  );
+                })}
+              </div>
+            )}
+          </div>
+
+          <Link
+            to="/offers"
+            className={`block px-3 py-2.5 text-sm font-medium transition ${
+              isActive('/offers')
+                ? 'bg-red-50 text-red-600'
+                : 'text-gray-700 hover:bg-gray-50'
+            }`}
+          >
+            Ofertat
+          </Link>
+
+          <Link
+            to="/blog"
+            className={`block px-3 py-2.5 text-sm font-medium transition ${
+              isActive('/blog')
+                ? 'bg-red-50 text-red-600'
+                : 'text-gray-700 hover:bg-gray-50'
+            }`}
+          >
+            Blogu
+          </Link>
+
+          <Link
+            to="/about"
+            className={`block px-3 py-2.5 text-sm font-medium transition ${
+              isActive('/about')
+                ? 'bg-red-50 text-red-600'
+                : 'text-gray-700 hover:bg-gray-50'
+            }`}
+          >
+            Rreth nesh
+          </Link>
+
+          <Link
+            to="/contact"
+            className={`block px-3 py-2.5 text-sm font-medium transition ${
+              isActive('/contact')
+                ? 'bg-red-50 text-red-600'
+                : 'text-gray-700 hover:bg-gray-50'
+            }`}
+          >
+            Kontakti
+          </Link>
+
+          <div className="px-3 py-2">
+            <div
+              id="google_translate_element_mobile"
+              className="translate-widget"
+            ></div>
+          </div>
+
+          <div className="border-t border-gray-100 pt-2 mt-2">
+            {user ? (
+              <>
+                {isAdmin && (
+                  <Link
+                    to="/crm"
+                    className="block px-3 py-2.5 text-sm font-semibold bg-red-600 text-white mb-2 text-center"
+                  >
+                    Paneli i administrimit
+                  </Link>
+                )}
+
+                <Link
+                  to="/my-bookings"
+                  className="flex items-center gap-2 px-3 py-2.5 text-sm font-medium text-gray-700 hover:bg-gray-50"
+                >
+                  <Calendar className="h-4 w-4" />
+                  Rezervimet e mia
+                </Link>
+
+                <Link
+                  to="/my-wishlist"
+                  className="flex items-center gap-2 px-3 py-2.5 text-sm font-medium text-gray-700 hover:bg-gray-50"
+                >
+                  <Heart className="h-4 w-4" />
+                  Të preferuarat e mia
+                </Link>
+
+                <Link
+                  to="/my-profile"
+                  className="flex items-center gap-2 px-3 py-2.5 text-sm font-medium text-gray-700 hover:bg-gray-50"
+                >
+                  <User className="h-4 w-4" />
+                  Profili im
+                </Link>
+
+                <button
+                  onClick={handleSignOut}
+                  className="flex items-center gap-2 px-3 py-2.5 text-sm font-medium text-red-600 hover:bg-red-50 w-full text-left mt-1"
+                >
+                  <LogOut className="h-4 w-4" />
+                  Dil nga llogaria
+                </button>
+              </>
+            ) : (
+              <div className="flex gap-2">
+                <Link
+                  to="/login"
+                  className="flex-1 text-center px-3 py-2.5 border border-gray-300 text-sm font-medium text-gray-700"
+                >
+                  Hyr
+                </Link>
+
+                <Link
+                  to="/signup"
+                  className="flex-1 text-center px-3 py-2.5 bg-red-600 text-sm font-semibold text-white"
+                >
+                  Regjistrohu
+                </Link>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
+    </nav>
+  );
 }
