@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { useSearchParams, Link } from 'react-router-dom';
 import { supabase } from '../../lib/supabase';
-import { Plus, CreditCard as Edit, Trash2, Upload, X, Image, ArrowLeft, ChevronDown, Calendar, Star, Video } from 'lucide-react';
+import { Plus, CreditCard as Edit, Trash2, Upload, X, Image, ArrowLeft, ChevronDown, Calendar, Star, Video, Link as LinkIcon } from 'lucide-react';
 
 interface Package {
  id: string;
@@ -57,6 +57,9 @@ export default function PackageManagement() {
  const [existingImages, setExistingImages] = useState<string[]>([]);
  const [uploadFiles, setUploadFiles] = useState<File[]>([]);
  const [uploadPreviews, setUploadPreviews] = useState<string[]>([]);
+ const [imageTab, setImageTab] = useState<'upload' | 'url'>('upload');
+ const [imageUrlInput, setImageUrlInput] = useState('');
+ const [urlImages, setUrlImages] = useState<string[]>([]);
  const [videoFile, setVideoFile] = useState<File | null>(null);
  const [videoPreview, setVideoPreview] = useState<string>('');
  const [existingVideoUrl, setExistingVideoUrl] = useState<string>('');
@@ -143,6 +146,18 @@ export default function PackageManagement() {
  setExistingImages((prev) => prev.filter((u) => u !== url));
  };
 
+ const handleAddImageUrl = () => {
+ const url = imageUrlInput.trim();
+ if (!url) return;
+ try { new URL(url); } catch { alert('Please enter a valid URL.'); return; }
+ setUrlImages((prev) => [...prev, url]);
+ setImageUrlInput('');
+ };
+
+ const removeUrlImage = (url: string) => {
+ setUrlImages((prev) => prev.filter((u) => u !== url));
+ };
+
  const uploadImages = async (): Promise<string[]> => {
  const urls: string[] = [];
  for (const file of uploadFiles) {
@@ -153,7 +168,7 @@ export default function PackageManagement() {
  const { data } = supabase.storage.from(BUCKET).getPublicUrl(path);
  urls.push(data.publicUrl);
  }
- return urls;
+ return [...urls, ...urlImages];
  };
 
  const uploadVideo = async (): Promise<string> => {
@@ -308,6 +323,9 @@ export default function PackageManagement() {
  setUploadFiles([]);
  setUploadPreviews([]);
  setExistingImages([]);
+ setUrlImages([]);
+ setImageUrlInput('');
+ setImageTab('upload');
  setVideoFile(null);
  setVideoPreview('');
  setExistingVideoUrl('');
@@ -723,16 +741,8 @@ export default function PackageManagement() {
  <div className="grid grid-cols-3 gap-2">
  {existingImages.map((url) => (
  <div key={url} className="relative group">
- <img
- src={url}
- alt="package"
- className="h-24 w-full object-cover border border-gray-200"
- />
- <button
- type="button"
- onClick={() => removeExistingImage(url)}
- className="absolute top-1 right-1 bg-red-600 text-white p-0.5 opacity-0 group-hover:opacity-100 transition"
- >
+ <img src={url} alt="package" className="h-24 w-full object-cover border border-gray-200" />
+ <button type="button" onClick={() => removeExistingImage(url)} className="absolute top-1 right-1 bg-red-600 text-white p-0.5 opacity-0 group-hover:opacity-100 transition">
  <X className="h-3 w-3" />
  </button>
  </div>
@@ -741,22 +751,35 @@ export default function PackageManagement() {
  </div>
  )}
 
+ <div className="flex border border-gray-200 mb-3">
+ <button
+ type="button"
+ onClick={() => setImageTab('upload')}
+ className={`flex-1 flex items-center justify-center gap-2 py-2 text-sm font-medium transition ${imageTab === 'upload' ? 'bg-gray-950 text-white' : 'bg-white text-gray-600 hover:bg-gray-50'}`}
+ >
+ <Upload className="h-4 w-4" />
+ Upload File
+ </button>
+ <button
+ type="button"
+ onClick={() => setImageTab('url')}
+ className={`flex-1 flex items-center justify-center gap-2 py-2 text-sm font-medium transition ${imageTab === 'url' ? 'bg-gray-950 text-white' : 'bg-white text-gray-600 hover:bg-gray-50'}`}
+ >
+ <LinkIcon className="h-4 w-4" />
+ Add URL
+ </button>
+ </div>
+
+ {imageTab === 'upload' && (
+ <>
  {uploadPreviews.length > 0 && (
  <div className="mb-3">
  <p className="text-xs text-gray-500 mb-2">New images to upload</p>
  <div className="grid grid-cols-3 gap-2">
  {uploadPreviews.map((preview, i) => (
  <div key={preview} className="relative group">
- <img
- src={preview}
- alt="preview"
- className="h-24 w-full object-cover border-2 border-dashed border-red-300"
- />
- <button
- type="button"
- onClick={() => removeUploadFile(i)}
- className="absolute top-1 right-1 bg-red-600 text-white p-0.5 opacity-0 group-hover:opacity-100 transition"
- >
+ <img src={preview} alt="preview" className="h-24 w-full object-cover border-2 border-dashed border-red-300" />
+ <button type="button" onClick={() => removeUploadFile(i)} className="absolute top-1 right-1 bg-red-600 text-white p-0.5 opacity-0 group-hover:opacity-100 transition">
  <X className="h-3 w-3" />
  </button>
  </div>
@@ -764,7 +787,6 @@ export default function PackageManagement() {
  </div>
  </div>
  )}
-
  <button
  type="button"
  onClick={() => fileInputRef.current?.click()}
@@ -774,14 +796,52 @@ export default function PackageManagement() {
  <span className="text-sm font-medium">Click to upload images</span>
  <span className="text-xs">JPG, PNG, WebP up to 10MB each</span>
  </button>
+ <input ref={fileInputRef} type="file" accept="image/jpeg,image/png,image/webp,image/gif" multiple className="hidden" onChange={handleFileSelect} />
+ </>
+ )}
+
+ {imageTab === 'url' && (
+ <>
+ <div className="flex gap-2 mb-3">
  <input
- ref={fileInputRef}
- type="file"
- accept="image/jpeg,image/png,image/webp,image/gif"
- multiple
- className="hidden"
- onChange={handleFileSelect}
+ type="url"
+ value={imageUrlInput}
+ onChange={(e) => setImageUrlInput(e.target.value)}
+ onKeyDown={(e) => { if (e.key === 'Enter') { e.preventDefault(); handleAddImageUrl(); } }}
+ placeholder="https://example.com/image.jpg"
+ className="flex-1 px-3 py-2 border border-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-red-500"
  />
+ <button type="button" onClick={handleAddImageUrl} className="px-4 py-2 bg-gray-950 text-white text-sm font-medium hover:bg-gray-800 transition">
+ Add
+ </button>
+ </div>
+ {urlImages.length > 0 ? (
+ <div>
+ <p className="text-xs text-gray-500 mb-2">Images from URL</p>
+ <div className="grid grid-cols-3 gap-2">
+ {urlImages.map((url) => (
+ <div key={url} className="relative group">
+ <img
+ src={url}
+ alt="url-preview"
+ className="h-24 w-full object-cover border-2 border-dashed border-blue-300"
+ onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
+ />
+ <button type="button" onClick={() => removeUrlImage(url)} className="absolute top-1 right-1 bg-red-600 text-white p-0.5 opacity-0 group-hover:opacity-100 transition">
+ <X className="h-3 w-3" />
+ </button>
+ </div>
+ ))}
+ </div>
+ </div>
+ ) : (
+ <div className="border-2 border-dashed border-gray-300 py-6 flex flex-col items-center gap-2 text-gray-400">
+ <LinkIcon className="h-6 w-6" />
+ <span className="text-sm">Paste an image URL above and click Add</span>
+ </div>
+ )}
+ </>
+ )}
  </div>
 
  <div>
