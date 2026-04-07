@@ -87,7 +87,7 @@ export default function ComparePage() {
  {
  icon: <Users className="h-4 w-4 text-red-500" />,
  label:'Group Size',
- render: (pkg: PackageDetail) =>`Max ${pkg.max_group_size}`,
+ render: (pkg: PackageDetail) => pkg.max_group_size ? `Max ${pkg.max_group_size}` : '—',
 },
  {
  icon: <MapPin className="h-4 w-4 text-red-500" />,

@@ -479,10 +479,12 @@ export default function PackageDetailPage() {
                 <Calendar className="h-4 w-4 text-red-400" />
                 <span>{pkg.duration_days} ditë</span>
               </div>
-              <div className="flex items-center gap-2">
-                <Users className="h-4 w-4 text-red-400" />
-                <span>Maks. {pkg.max_group_size} persona</span>
-              </div>
+              {pkg.max_group_size ? (
+                <div className="flex items-center gap-2">
+                  <Users className="h-4 w-4 text-red-400" />
+                  <span>Maks. {pkg.max_group_size} persona</span>
+                </div>
+              ) : null}
               {avgRating && (
                 <div className="flex items-center gap-2">
                   <Star className="h-4 w-4 text-yellow-400 fill-current" />
@@ -872,13 +874,15 @@ export default function PackageDetailPage() {
                   <span className="font-semibold text-gray-900">{pkg.duration_days} ditë</span>
                 </div>
 
-                <div className="flex items-center justify-between text-sm">
-                  <div className="flex items-center gap-2 text-gray-600">
-                    <Users className="h-4 w-4 text-red-500" />
-                    Madhësia e grupit
+                {pkg.max_group_size ? (
+                  <div className="flex items-center justify-between text-sm">
+                    <div className="flex items-center gap-2 text-gray-600">
+                      <Users className="h-4 w-4 text-red-500" />
+                      Madhësia e grupit
+                    </div>
+                    <span className="font-semibold text-gray-900">Maksimumi {pkg.max_group_size} persona</span>
                   </div>
-                  <span className="font-semibold text-gray-900">Maksimumi {pkg.max_group_size} persona</span>
-                </div>
+                ) : null}
 
                 {pkg.destination && (
                   <div className="flex items-center justify-between text-sm">
@@ -1098,10 +1102,10 @@ export default function PackageDetailPage() {
                     {Array.from(
                       {
                         length: Math.min(
-                          pkg.max_group_size,
+                          pkg.max_group_size || 20,
                           selectedSlot
                             ? Math.max(selectedSlot.total_seats - selectedSlot.booked_seats, 1)
-                            : pkg.max_group_size
+                            : (pkg.max_group_size || 20)
                         ),
                       },
                       (_, i) => i + 1
