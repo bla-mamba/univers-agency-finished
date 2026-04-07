@@ -466,13 +466,15 @@ export default function PackageDetailPage() {
               </div>
             )}
 
-            <div className="flex items-baseline gap-2 mb-6">
-              {pkg.original_price != null && (
-                <span className="text-gray-500 text-lg line-through">€{pkg.original_price.toLocaleString()}</span>
-              )}
-              <span className="text-4xl font-bold text-white">€{pkg.price.toLocaleString()}</span>
-              <span className="text-gray-400 text-sm">/ person</span>
-            </div>
+            {pkg.price > 0 && (
+              <div className="flex items-baseline gap-2 mb-6">
+                {pkg.original_price != null && pkg.original_price > 0 && (
+                  <span className="text-gray-500 text-lg line-through">€{pkg.original_price.toLocaleString()}</span>
+                )}
+                <span className="text-4xl font-bold text-white">€{pkg.price.toLocaleString()}</span>
+                <span className="text-gray-400 text-sm">/ person</span>
+              </div>
+            )}
 
             <div className="grid grid-cols-2 gap-4 text-sm text-gray-300 mb-6">
               <div className="flex items-center gap-2">
@@ -851,19 +853,21 @@ export default function PackageDetailPage() {
 
           <div className="lg:col-span-1">
             <div className="bg-white shadow-lg p-6 sticky top-6">
-              <div className="text-center border-b border-gray-100 pb-5 mb-5">
-                <p className="text-gray-500 text-sm mb-1">Çmimi fillon nga</p>
-                {pkg.original_price != null && (
-                  <p className="text-gray-400 text-lg line-through mb-0.5">€{pkg.original_price.toLocaleString()}</p>
-                )}
-                <p className="text-4xl font-bold text-red-600">€{pkg.price.toLocaleString()}</p>
-                {pkg.original_price != null && (
-                  <p className="text-green-600 text-xs font-semibold mt-1 uppercase tracking-wide">
-                    Kurseni €{(pkg.original_price - pkg.price).toLocaleString()} për person
-                  </p>
-                )}
-                <p className="text-gray-400 text-sm mt-0.5">për person</p>
-              </div>
+              {pkg.price > 0 && (
+                <div className="text-center border-b border-gray-100 pb-5 mb-5">
+                  <p className="text-gray-500 text-sm mb-1">Çmimi fillon nga</p>
+                  {pkg.original_price != null && pkg.original_price > 0 && (
+                    <p className="text-gray-400 text-lg line-through mb-0.5">€{pkg.original_price.toLocaleString()}</p>
+                  )}
+                  <p className="text-4xl font-bold text-red-600">€{pkg.price.toLocaleString()}</p>
+                  {pkg.original_price != null && pkg.original_price > 0 && (
+                    <p className="text-green-600 text-xs font-semibold mt-1 uppercase tracking-wide">
+                      Kurseni €{(pkg.original_price - pkg.price).toLocaleString()} për person
+                    </p>
+                  )}
+                  <p className="text-gray-400 text-sm mt-0.5">për person</p>
+                </div>
+              )}
 
               <div className="space-y-3 mb-6">
                 <div className="flex items-center justify-between text-sm">
@@ -1043,7 +1047,7 @@ export default function PackageDetailPage() {
                 <div className="bg-gray-50 p-4 mb-2">
                   <div className="flex items-center justify-between mb-1">
                     <span className="text-sm font-semibold text-gray-700">{pkg.title}</span>
-                    <span className="text-sm font-bold text-red-600">€{pkg.price.toLocaleString()}/person</span>
+                    {pkg.price > 0 && <span className="text-sm font-bold text-red-600">€{pkg.price.toLocaleString()}/person</span>}
                   </div>
                   {selectedDate && (
                     <p className="text-xs text-gray-500">
@@ -1128,12 +1132,14 @@ export default function PackageDetailPage() {
                   />
                 </div>
 
-                <div className="bg-red-50 p-4 flex items-center justify-between">
-                  <span className="text-sm font-semibold text-gray-700">Çmimi total</span>
-                  <span className="text-xl font-bold text-red-600">
-                    €{(pkg.price * bookingForm.num_travelers).toLocaleString()}
-                  </span>
-                </div>
+                {pkg.price > 0 && (
+                  <div className="bg-red-50 p-4 flex items-center justify-between">
+                    <span className="text-sm font-semibold text-gray-700">Çmimi total</span>
+                    <span className="text-xl font-bold text-red-600">
+                      €{(pkg.price * bookingForm.num_travelers).toLocaleString()}
+                    </span>
+                  </div>
+                )}
 
                 {bookingError && <p className="text-red-600 text-sm">{bookingError}</p>}
 

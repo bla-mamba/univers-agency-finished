@@ -212,18 +212,20 @@ function PackageCard({
               {pkg.destination?.name || 'Destinacion'}, {pkg.destination?.country || ''}
             </div>
 
-            <div className="bg-white text-gray-900 px-2.5 py-1.5 text-xs font-bold tracking-wide">
-              {pkg.original_price != null ? (
-                <div className="flex flex-col items-end leading-tight">
-                  <span className="line-through text-gray-400 font-normal text-[10px]">
-                    €{pkg.original_price.toLocaleString()}
-                  </span>
-                  <span className="text-red-600">€{pkg.price.toLocaleString()}</span>
-                </div>
-              ) : (
-                <span>nga €{pkg.price.toLocaleString()}</span>
-              )}
-            </div>
+            {pkg.price > 0 && (
+              <div className="bg-white text-gray-900 px-2.5 py-1.5 text-xs font-bold tracking-wide">
+                {pkg.original_price != null && pkg.original_price > 0 ? (
+                  <div className="flex flex-col items-end leading-tight">
+                    <span className="line-through text-gray-400 font-normal text-[10px]">
+                      €{pkg.original_price.toLocaleString()}
+                    </span>
+                    <span className="text-red-600">€{pkg.price.toLocaleString()}</span>
+                  </div>
+                ) : (
+                  <span>nga €{pkg.price.toLocaleString()}</span>
+                )}
+              </div>
+            )}
           </div>
 
           {pkg.category && (

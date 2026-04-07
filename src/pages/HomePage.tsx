@@ -221,18 +221,20 @@ function HomePkgCard({ pkg }: { pkg: Package }) {
             {pkg.destination?.name || 'Destinacion'}, {pkg.destination?.country || ''}
           </div>
         </div>
-        <div className="absolute top-4 right-4 bg-gray-950/90 text-white px-3 py-1.5 text-xs font-bold tracking-wider">
-          {pkg.original_price != null ? (
-            <div className="flex flex-col items-end leading-tight">
-              <span className="line-through text-white/50 font-normal text-[10px] normal-case">
-                €{pkg.original_price.toLocaleString()}
-              </span>
-              <span className="uppercase">€{pkg.price.toLocaleString()}</span>
-            </div>
-          ) : (
-            <span className="uppercase">nga €{pkg.price.toLocaleString()}</span>
-          )}
-        </div>
+        {pkg.price > 0 && (
+          <div className="absolute top-4 right-4 bg-gray-950/90 text-white px-3 py-1.5 text-xs font-bold tracking-wider">
+            {pkg.original_price != null && pkg.original_price > 0 ? (
+              <div className="flex flex-col items-end leading-tight">
+                <span className="line-through text-white/50 font-normal text-[10px] normal-case">
+                  €{pkg.original_price.toLocaleString()}
+                </span>
+                <span className="uppercase">€{pkg.price.toLocaleString()}</span>
+              </div>
+            ) : (
+              <span className="uppercase">nga €{pkg.price.toLocaleString()}</span>
+            )}
+          </div>
+        )}
       </div>
       <div className="p-6 border-b border-l border-r border-gray-100 group-hover:border-red-100 transition-colors">
         <h3 className="text-base font-bold text-gray-950 mb-4 group-hover:text-red-600 transition-colors leading-snug">
