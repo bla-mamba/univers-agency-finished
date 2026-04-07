@@ -369,88 +369,136 @@ export default function PackageDetailPage() {
 
   return (
     <div className="min-h-screen bg-gray-50 pb-20">
-      <div className="relative h-[480px] overflow-hidden bg-gray-900">
-        {pkg.video_url ? (
-          <video
-            src={pkg.video_url}
-            className="w-full h-full object-cover opacity-90"
-            autoPlay
-            muted
-            loop
-            playsInline
-          />
-        ) : (
-          <img
-            src={images[activeImage]}
-            alt={pkg.title}
-            className="w-full h-full object-cover opacity-90 transition-all duration-500"
-          />
-        )}
-
-        <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/70" />
-
-        {!pkg.video_url && images.length > 1 && (
-          <>
-            <button
-              onClick={prevImage}
-              className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/60 text-white p-2 transition"
+      <div className="bg-white border-b border-gray-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+          {pkg.destination ? (
+            <Link
+              to={`/destinations/${pkg.destination.slug}`}
+              className="inline-flex items-center text-gray-500 hover:text-red-600 text-sm transition"
             >
-              <ChevronLeft className="h-6 w-6" />
-            </button>
-            <button
-              onClick={nextImage}
-              className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/60 text-white p-2 transition"
-            >
-              <ChevronRight className="h-6 w-6" />
-            </button>
-
-            <div className="absolute bottom-20 left-1/2 -translate-x-1/2 flex gap-2">
-              {images.map((_, i) => (
-                <button
-                  key={i}
-                  onClick={() => setActiveImage(i)}
-                  className={`w-2 h-2 transition ${i === activeImage ? 'bg-white scale-125' : 'bg-white/50'}`}
-                />
-              ))}
-            </div>
-          </>
-        )}
-
-        <div className="absolute bottom-0 left-0 right-0 p-6 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-3 flex items-center gap-2 flex-wrap">
-            {pkg.destination && (
-              <Link
-                to={`/destinations/${pkg.destination.slug}`}
-                className="inline-flex items-center text-white/80 hover:text-white text-sm transition"
-              >
-                <ArrowLeft className="h-4 w-4 mr-1" />
-                {pkg.destination.name}
-              </Link>
-            )}
-          </div>
-
-          <div className="flex flex-wrap items-center gap-2 mb-3">
-            {pkg.featured && <span className="bg-red-600 text-white text-xs px-3 py-1 font-semibold">E përzgjedhur</span>}
-            {pkg.category && (
-              <span className="bg-white/20 text-white text-xs px-3 py-1 font-medium flex items-center gap-1">
-                <Tag className="h-3 w-3" />
-                {pkg.category.name}
-              </span>
-            )}
-          </div>
-
-          <h1 className="text-4xl md:text-5xl font-bold text-white leading-tight">{pkg.title}</h1>
-
-          {pkg.destination && (
-            <div className="flex items-center mt-2 text-gray-200">
-              <MapPin className="h-4 w-4 mr-1" />
-              {pkg.destination.name}, {pkg.destination.country}
-            </div>
+              <ArrowLeft className="h-4 w-4 mr-1" />
+              {pkg.destination.name}
+            </Link>
+          ) : (
+            <Link to="/packages" className="inline-flex items-center text-gray-500 hover:text-red-600 text-sm transition">
+              <ArrowLeft className="h-4 w-4 mr-1" />
+              Të gjitha paketat
+            </Link>
           )}
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 overflow-hidden shadow-xl mb-10">
+          <div className="relative h-80 lg:h-[500px] overflow-hidden bg-gray-900">
+            {pkg.video_url ? (
+              <video
+                src={pkg.video_url}
+                className="absolute inset-0 w-full h-full object-cover"
+                autoPlay
+                muted
+                loop
+                playsInline
+              />
+            ) : (
+              <img
+                src={images[activeImage]}
+                alt={pkg.title}
+                className="absolute inset-0 w-full h-full object-cover transition-all duration-500"
+              />
+            )}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+
+            {!pkg.video_url && images.length > 1 && (
+              <>
+                <button
+                  onClick={prevImage}
+                  className="absolute left-3 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/60 text-white p-2 transition"
+                >
+                  <ChevronLeft className="h-5 w-5" />
+                </button>
+                <button
+                  onClick={nextImage}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/60 text-white p-2 transition"
+                >
+                  <ChevronRight className="h-5 w-5" />
+                </button>
+                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+                  {images.map((_, i) => (
+                    <button
+                      key={i}
+                      onClick={() => setActiveImage(i)}
+                      className={`w-2 h-2 transition ${i === activeImage ? 'bg-white scale-125' : 'bg-white/50'}`}
+                    />
+                  ))}
+                </div>
+              </>
+            )}
+
+            {images.length > 1 && (
+              <div className="absolute bottom-4 right-4 bg-black/50 text-white text-xs px-2 py-1">
+                {activeImage + 1} / {images.length}
+              </div>
+            )}
+          </div>
+
+          <div className="bg-gray-900 flex flex-col justify-center px-10 py-12">
+            <div className="flex flex-wrap items-center gap-2 mb-4">
+              {pkg.featured && (
+                <span className="bg-red-600 text-white text-xs px-3 py-1 font-semibold uppercase tracking-wide">
+                  E përzgjedhur
+                </span>
+              )}
+              {pkg.category && (
+                <span className="bg-white/10 text-gray-300 text-xs px-3 py-1 font-medium flex items-center gap-1">
+                  <Tag className="h-3 w-3" />
+                  {pkg.category.name}
+                </span>
+              )}
+            </div>
+
+            <h1 className="text-3xl lg:text-4xl font-bold text-white leading-tight mb-4">{pkg.title}</h1>
+
+            {pkg.destination && (
+              <div className="flex items-center text-gray-300 text-sm mb-6">
+                <MapPin className="h-4 w-4 mr-2 text-red-400" />
+                {pkg.destination.name}, {pkg.destination.country}
+              </div>
+            )}
+
+            <div className="flex items-baseline gap-2 mb-6">
+              {pkg.original_price != null && (
+                <span className="text-gray-500 text-lg line-through">€{pkg.original_price.toLocaleString()}</span>
+              )}
+              <span className="text-4xl font-bold text-white">€{pkg.price.toLocaleString()}</span>
+              <span className="text-gray-400 text-sm">/ person</span>
+            </div>
+
+            <div className="grid grid-cols-2 gap-4 text-sm text-gray-300 mb-6">
+              <div className="flex items-center gap-2">
+                <Calendar className="h-4 w-4 text-red-400" />
+                <span>{pkg.duration_days} ditë</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Users className="h-4 w-4 text-red-400" />
+                <span>Maks. {pkg.max_group_size} persona</span>
+              </div>
+              {avgRating && (
+                <div className="flex items-center gap-2">
+                  <Star className="h-4 w-4 text-yellow-400 fill-current" />
+                  <span>{avgRating} ({reviews.length} vlerësime)</span>
+                </div>
+              )}
+            </div>
+
+            {pkg.description && (
+              <p className="text-gray-400 text-sm leading-relaxed line-clamp-4">{pkg.description}</p>
+            )}
+          </div>
+        </div>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-10">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           <div className="lg:col-span-2 space-y-8">
             <div className="bg-white shadow-sm p-8">

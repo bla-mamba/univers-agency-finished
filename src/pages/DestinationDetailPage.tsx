@@ -202,61 +202,67 @@ export default function DestinationDetailPage() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <div className="relative h-96 overflow-hidden bg-gray-900">
-        {destination.video_url ? (
-          <video
-            src={destination.video_url}
-            className="absolute inset-0 w-full h-full object-cover"
-            autoPlay
-            muted
-            loop
-            playsInline
-          />
-        ) : (
-          <div
-            className="absolute inset-0 bg-cover bg-center"
-            style={{
-              backgroundImage: destination.image_url
-                ? `url(${destination.image_url})`
-                : 'url(https://images.pexels.com/photos/2325446/pexels-photo-2325446.jpeg?auto=compress&cs=tinysrgb&w=1920)',
-            }}
-          />
-        )}
-
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/70" />
-
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex flex-col justify-end pb-10">
+      <div className="bg-white border-b border-gray-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <Link
             to="/destinations"
-            className="inline-flex items-center text-white/80 hover:text-white text-sm mb-4 transition w-fit"
+            className="inline-flex items-center text-gray-500 hover:text-red-600 text-sm transition"
           >
             <ArrowLeft className="h-4 w-4 mr-1" />
             Të gjitha destinacionet
           </Link>
-
-          {destination.featured && (
-            <span className="inline-block mb-2 bg-red-600 text-white text-xs px-3 py-1 font-semibold w-fit">
-              Destinacion i rekomanduar
-            </span>
-          )}
-
-          <h1 className="text-5xl font-bold text-white">{destination.name}</h1>
-
-          <div className="flex items-center mt-2 text-gray-200 text-lg">
-            <MapPin className="h-5 w-5 mr-1" />
-            {destination.country}
-          </div>
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        {destination.description && (
-          <div className="bg-white shadow-sm p-8 mb-12">
-            <p className="text-gray-600 text-lg leading-relaxed">
-              {destination.description}
-            </p>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 overflow-hidden shadow-xl mb-12">
+          <div className="relative h-80 lg:h-[500px] overflow-hidden bg-gray-900">
+            {destination.video_url ? (
+              <video
+                src={destination.video_url}
+                className="absolute inset-0 w-full h-full object-cover"
+                autoPlay
+                muted
+                loop
+                playsInline
+              />
+            ) : (
+              <img
+                src={
+                  destination.image_url ||
+                  'https://images.pexels.com/photos/2325446/pexels-photo-2325446.jpeg?auto=compress&cs=tinysrgb&w=1200'
+                }
+                alt={destination.name}
+                className="absolute inset-0 w-full h-full object-cover"
+              />
+            )}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
           </div>
-        )}
+
+          <div className="bg-gray-900 flex flex-col justify-center px-10 py-12">
+            {destination.featured && (
+              <span className="inline-block mb-4 bg-red-600 text-white text-xs px-3 py-1 font-semibold w-fit uppercase tracking-wide">
+                Destinacion i rekomanduar
+              </span>
+            )}
+            <h1 className="text-4xl lg:text-5xl font-bold text-white leading-tight mb-4">
+              {destination.name}
+            </h1>
+            <div className="flex items-center text-gray-300 text-base mb-6">
+              <MapPin className="h-5 w-5 mr-2 text-red-400" />
+              {destination.country}
+            </div>
+            {destination.description && (
+              <p className="text-gray-300 text-base leading-relaxed line-clamp-5">
+                {destination.description}
+              </p>
+            )}
+            <div className="mt-8 flex items-center gap-3 text-sm text-gray-400">
+              <Package className="h-4 w-4" />
+              <span>{packages.length} {packages.length === 1 ? 'paketë e disponueshme' : 'paketa të disponueshme'}</span>
+            </div>
+          </div>
+        </div>
 
         <div className="flex items-center justify-between mb-8">
           <h2 className="text-2xl font-bold text-gray-900">
