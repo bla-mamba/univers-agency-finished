@@ -253,7 +253,7 @@ export default function DestinationDetailPage() {
               {destination.country}
             </div>
             {destination.description && (
-              <p className="text-gray-300 text-base leading-relaxed line-clamp-5">
+              <p className="text-gray-300 text-base leading-relaxed line-clamp-5 whitespace-pre-wrap">
                 {destination.description}
               </p>
             )}

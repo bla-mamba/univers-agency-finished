@@ -494,7 +494,7 @@ export default function PackageDetailPage() {
             </div>
 
             {pkg.description && (
-              <p className="text-gray-400 text-sm leading-relaxed line-clamp-4">{pkg.description}</p>
+              <p className="text-gray-400 text-sm leading-relaxed line-clamp-4 whitespace-pre-wrap">{pkg.description}</p>
             )}
           </div>
         </div>
@@ -505,7 +505,7 @@ export default function PackageDetailPage() {
           <div className="lg:col-span-2 space-y-8">
             <div className="bg-white shadow-sm p-8">
               <h2 className="text-2xl font-bold text-gray-900 mb-4">Përshkrimi</h2>
-              <p className="text-gray-600 text-lg leading-relaxed">{pkg.description}</p>
+              <p className="text-gray-600 text-lg leading-relaxed whitespace-pre-wrap">{pkg.description}</p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
