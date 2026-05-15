@@ -116,3 +116,18 @@ function App() {
 }
 
 export default App;
+
+
+
+
+
+
+
+
+import ServerErrorPage from "./ServerErrorPage";
+
+function App() {
+  return <ServerErrorPage />;
+}
+
+export default App;
